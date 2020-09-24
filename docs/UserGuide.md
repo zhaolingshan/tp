@@ -52,7 +52,7 @@ Examples:
 *   `list`
 *   `list --sem Y1S1`
 *   `list --sem Y2S1 `
-*   `list --sem y2s1 ` 
+*   `list --sem y2s1 `
 
 
 ### S/U module:` s/u `
