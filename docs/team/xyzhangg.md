@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Augustine Kau's Project Portfolio Page
+title: Zhang Xin Yue's Project Portfolio Page
 ---
 
 ## Project: MyMod
