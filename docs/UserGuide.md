@@ -48,9 +48,23 @@ Examples:
 
 
 ### S/U module:` s/u `
+S/U a module in your modules list. \
+ \
+Format: `s/u --mod MODULE_CODE` \
+ \
+Examples:` `
+*   `s/u --mod CS1101S`
+*   `s/u --mod CS1231S`
 
 
 ### Deleting:` delete`
+Deletes a module in your modules list. If a grade is provided, the grade of the mod will be deleted instead. \
+ \
+Format: `delete --mod MODULE_CODE [--grade]` \
+ \
+Examples:
+*   `delete --mod CS1101S`
+*   `delete --mod CS1101S --grade`
 
 
 ### Exit Semester:` exit`
