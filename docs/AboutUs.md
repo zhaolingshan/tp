@@ -27,16 +27,16 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/johndoe.md)]
 
 * Role: Team Lead
-* Responsibilities: UI
+* Responsibilities: Data
 
-### Johnny Doe
+### Augustine Kau
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/augustinekau.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/augustinekau)] [[portfolio](team/augustinekau.md)]
 
 * Role: Developer
-* Responsibilities: Data
+* Responsibilities: UI
 
 ### Jean Doe
 
