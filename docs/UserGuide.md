@@ -27,33 +27,33 @@ e.g. in add --mod MODULE_CODE, MODULE_CODE is a parameter which can be used as a
 e.g --mod MODULE_CODE [--grade GRADE] can be used as --mod CS2100 --grade A or as --mod CS2100.
 *   Parameters are not case-sensitive. e.g. add --mod CS2100 is the same as add --mod cs2100
 
-### Start editing: `start` 
-Start editing modules to the semester. 
+### Start editing: `start`
+Start editing modules to the semester.
 \
 Format: `start --sem SEMESTER`
 \
 Examples:
 *   `start --sem Y2S1`
 
-### Adding a module: `add` 
+### Adding a module: `add`
 
 
 
-### Updating a module: `update` 
+### Updating a module: `update`
 
 
 
-### View modules: `list` 
+### View modules: `list`
 
 
 
 ### S/U module:` s/u `
 
 
-### Deleting:` delete` 
+### Deleting:` delete`
 
 
-### Exit Semester:` exit` 
+### Exit Semester:` exit`
 Exit editing that semester. \
  \
 Format: `exit --mod MODULE_CODE` \
