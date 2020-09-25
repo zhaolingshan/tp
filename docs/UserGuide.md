@@ -36,8 +36,13 @@ Examples:
 *   `start --sem Y2S1`
 
 ### Adding a module: `add`
-
-
+Adds a module to your modules list.
+\
+Format: `add --mod MODULE_CODE [--grade GRADE]`
+\
+Examples:
+*   `add --mod CS1101S`
+*   `add --mod CS1231S --grade A`
 
 ### Updating a module: `update`
 
