@@ -45,7 +45,13 @@ Examples:
 *   `add --mod CS1231S --grade A`
 
 ### Updating a module: `update`
-
+Updates the module’s grade.
+\
+Format: `update --mod MODULE_CODE [--grade GRADE]` \
+\
+Examples:
+*   `update --mod CS1101S`
+*   `Update --mod CS1101S --grade A+`
 
 
 ### View modules: `list`
