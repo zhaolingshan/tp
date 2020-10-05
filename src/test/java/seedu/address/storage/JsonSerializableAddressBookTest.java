@@ -28,13 +28,14 @@ public class JsonSerializableAddressBookTest {
         AddressBook typicalPersonsAddressBook = TypicalPersons.getTypicalAddressBook();
         assertEquals(addressBookFromFile, typicalPersonsAddressBook);
     }
-
-    @Test
-    public void toModelType_invalidPersonFile_throwsIllegalValueException() throws Exception {
-        JsonSerializableAddressBook dataFromFile = JsonUtil.readJsonFile(INVALID_PERSON_FILE,
-                JsonSerializableAddressBook.class).get();
-        assertThrows(IllegalValueException.class, dataFromFile::toModelType);
-    }
+    //commented as INVALID_PERSON_FILE is about testing invalid email(removed) format, so IllegalValueException
+    //will not be thrown - kunnan 5/10/2020
+    //@Test
+    //public void toModelType_invalidPersonFile_throwsIllegalValueException() throws Exception {
+    //JsonSerializableAddressBook dataFromFile = JsonUtil.readJsonFile(INVALID_PERSON_FILE,
+    //JsonSerializableAddressBook.class).get();
+    //assertThrows(IllegalValueException.class, dataFromFile::toModelType);
+    //}
 
     @Test
     public void toModelType_duplicatePersons_throwsIllegalValueException() throws Exception {
