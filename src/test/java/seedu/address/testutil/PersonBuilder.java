@@ -3,9 +3,9 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
+import seedu.address.model.module.Address;
+import seedu.address.model.module.ModuleName;
+import seedu.address.model.module.Module;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -17,7 +17,7 @@ public class PersonBuilder {
     public static final String DEFAULT_NAME = "Alice Paulin";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
-    private Name name;
+    private ModuleName moduleName;
     private Address address;
     private Set<Tag> tags;
 
@@ -25,7 +25,7 @@ public class PersonBuilder {
      * Creates a {@code PersonBuilder} with the default details.
      */
     public PersonBuilder() {
-        name = new Name(DEFAULT_NAME);
+        moduleName = new ModuleName(DEFAULT_NAME);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
     }
@@ -33,17 +33,17 @@ public class PersonBuilder {
     /**
      * Initializes the PersonBuilder with the data of {@code personToCopy}.
      */
-    public PersonBuilder(Person personToCopy) {
-        name = personToCopy.getName();
-        address = personToCopy.getAddress();
-        tags = new HashSet<>(personToCopy.getTags());
+    public PersonBuilder(Module moduleToCopy) {
+        moduleName = moduleToCopy.getName();
+        address = moduleToCopy.getAddress();
+        tags = new HashSet<>(moduleToCopy.getTags());
     }
 
     /**
      * Sets the {@code Name} of the {@code Person} that we are building.
      */
     public PersonBuilder withName(String name) {
-        this.name = new Name(name);
+        this.moduleName = new ModuleName(name);
         return this;
     }
 
@@ -63,8 +63,8 @@ public class PersonBuilder {
         return this;
     }
 
-    public Person build() {
-        return new Person(name, address, tags);
+    public Module build() {
+        return new Module(moduleName, address, tags);
     }
 
 }

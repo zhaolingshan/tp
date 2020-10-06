@@ -1,9 +1,9 @@
-package seedu.address.model.person;
+package seedu.address.model.module;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
@@ -13,12 +13,12 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.testutil.PersonBuilder;
 
-public class PersonTest {
+public class ModuleTest {
 
     @Test
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
-        Person person = new PersonBuilder().build();
-        assertThrows(UnsupportedOperationException.class, () -> person.getTags().remove(0));
+        Module module = new PersonBuilder().build();
+        assertThrows(UnsupportedOperationException.class, () -> module.getTags().remove(0));
     }
 
     @Test
@@ -29,10 +29,10 @@ public class PersonTest {
         // null -> returns false
         assertFalse(ALICE.isSamePerson(null));
 
-        Person editedAlice;
+        Module editedAlice;
 
         // different name -> returns false
-        editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).build();
+        editedAlice = new PersonBuilder(ALICE).withName(VALID_MOD_NAME_B).build();
         assertFalse(ALICE.isSamePerson(editedAlice));
 
         // same name, different attributes -> returns true
@@ -48,7 +48,7 @@ public class PersonTest {
     @Test
     public void equals() {
         // same values -> returns true
-        Person aliceCopy = new PersonBuilder(ALICE).build();
+        Module aliceCopy = new PersonBuilder(ALICE).build();
         assertTrue(ALICE.equals(aliceCopy));
 
         // same object -> returns true
@@ -64,7 +64,7 @@ public class PersonTest {
         assertFalse(ALICE.equals(BOB));
 
         // different name -> returns false
-        Person editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).build();
+        Module editedAlice = new PersonBuilder(ALICE).withName(VALID_MOD_NAME_B).build();
         assertFalse(ALICE.equals(editedAlice));
 
         // different address -> returns false
