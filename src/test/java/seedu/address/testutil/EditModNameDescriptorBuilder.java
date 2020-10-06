@@ -31,7 +31,7 @@ public class EditModNameDescriptorBuilder {
      */
     public EditModNameDescriptorBuilder(Module module) {
         descriptor = new EditCommand.EditModNameDescriptor();
-        descriptor.setName(module.getName());
+        descriptor.setName(module.getModuleName());
         descriptor.setAddress(module.getAddress());
         descriptor.setTags(module.getTags());
     }

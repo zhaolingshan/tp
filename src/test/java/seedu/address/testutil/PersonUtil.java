@@ -28,7 +28,7 @@ public class PersonUtil {
      */
     public static String getPersonDetails(Module module) {
         StringBuilder sb = new StringBuilder();
-        sb.append(PREFIX_MOD_NAME + module.getName().fullName + " ");
+        sb.append(PREFIX_MOD_NAME + module.getModuleName().fullName + " ");
         sb.append(PREFIX_ADDRESS + module.getAddress().value + " ");
         module.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")

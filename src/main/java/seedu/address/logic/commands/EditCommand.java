@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_MODULES;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -60,7 +60,7 @@ public class EditCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Module> lastShownList = model.getFilteredPersonList();
+        List<Module> lastShownList = model.getFilteredModuleList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
@@ -69,12 +69,12 @@ public class EditCommand extends Command {
         Module moduleToEdit = lastShownList.get(index.getZeroBased());
         Module editedModule = createEditedPerson(moduleToEdit, editModNameDescriptor);
 
-        if (!moduleToEdit.isSamePerson(editedModule) && model.hasPerson(editedModule)) {
+        if (!moduleToEdit.isSameModule(editedModule) && model.hasModule(editedModule)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        model.setPerson(moduleToEdit, editedModule);
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        model.setModule(moduleToEdit, editedModule);
+        model.updateFilteredModuleList(PREDICATE_SHOW_ALL_MODULES);
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedModule));
     }
 
@@ -85,7 +85,7 @@ public class EditCommand extends Command {
     private static Module createEditedPerson(Module moduleToEdit, EditModNameDescriptor editModNameDescriptor) {
         assert moduleToEdit != null;
 
-        ModuleName updatedModuleName = editModNameDescriptor.getName().orElse(moduleToEdit.getName());
+        ModuleName updatedModuleName = editModNameDescriptor.getName().orElse(moduleToEdit.getModuleName());
         Address updatedAddress = editModNameDescriptor.getAddress().orElse(moduleToEdit.getAddress());
         Set<Tag> updatedTags = editModNameDescriptor.getTags().orElse(moduleToEdit.getTags());
 

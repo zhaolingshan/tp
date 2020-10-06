@@ -32,7 +32,7 @@ public class Module {
         this.tags.addAll(tags);
     }
 
-    public ModuleName getName() {
+    public ModuleName getModuleName() {
         return moduleName;
     }
 
@@ -49,21 +49,21 @@ public class Module {
     }
 
     /**
-     * Returns true if both persons of the same name have at least one other identity field that is the same.
-     * This defines a weaker notion of equality between two persons.
+     * Returns true if both module of the same name have at least one other identity field that is the same.
+     * This defines a weaker notion of equality between two modules.
      */
-    public boolean isSamePerson(Module otherModule) {
+    public boolean isSameModule(Module otherModule) {
         if (otherModule == this) {
             return true;
         }
 
         return otherModule != null
-                && otherModule.getName().equals(getName());
+                && otherModule.getModuleName().equals(getModuleName());
     }
 
     /**
-     * Returns true if both persons have the same identity and data fields.
-     * This defines a stronger notion of equality between two persons.
+     * Returns true if both modules have the same identity and data fields.
+     * This defines a stronger notion of equality between two modules.
      */
     @Override
     public boolean equals(Object other) {
@@ -76,7 +76,7 @@ public class Module {
         }
 
         Module otherModule = (Module) other;
-        return otherModule.getName().equals(getName())
+        return otherModule.getModuleName().equals(getModuleName())
                 && otherModule.getAddress().equals(getAddress())
                 && otherModule.getTags().equals(getTags());
     }
@@ -90,7 +90,7 @@ public class Module {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getName())
+        builder.append(getModuleName())
                 .append(" Address: ")
                 .append(getAddress())
                 .append(" Tags: ");

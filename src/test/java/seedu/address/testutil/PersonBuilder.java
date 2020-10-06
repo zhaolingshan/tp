@@ -34,7 +34,7 @@ public class PersonBuilder {
      * Initializes the PersonBuilder with the data of {@code personToCopy}.
      */
     public PersonBuilder(Module moduleToCopy) {
-        moduleName = moduleToCopy.getName();
+        moduleName = moduleToCopy.getModuleName();
         address = moduleToCopy.getAddress();
         tags = new HashSet<>(moduleToCopy.getTags());
     }

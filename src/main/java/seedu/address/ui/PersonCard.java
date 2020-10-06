@@ -44,7 +44,7 @@ public class PersonCard extends UiPart<Region> {
         super(FXML);
         this.module = module;
         id.setText(displayedIndex + ". ");
-        name.setText(module.getName().fullName);
+        name.setText(module.getModuleName().fullName);
         address.setText(module.getAddress().value);
         module.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))

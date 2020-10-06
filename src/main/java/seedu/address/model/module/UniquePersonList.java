@@ -20,7 +20,7 @@ import seedu.address.model.module.exceptions.PersonNotFoundException;
  *
  * Supports a minimal set of list operations.
  *
- * @see Module#isSamePerson(Module)
+ * @see Module#isSameModule(Module)
  */
 public class UniquePersonList implements Iterable<Module> {
 
@@ -33,7 +33,7 @@ public class UniquePersonList implements Iterable<Module> {
      */
     public boolean contains(Module toCheck) {
         requireNonNull(toCheck);
-        return internalList.stream().anyMatch(toCheck::isSamePerson);
+        return internalList.stream().anyMatch(toCheck::isSameModule);
     }
 
     /**
@@ -61,7 +61,7 @@ public class UniquePersonList implements Iterable<Module> {
             throw new PersonNotFoundException();
         }
 
-        if (!target.isSamePerson(editedModule) && contains(editedModule)) {
+        if (!target.isSameModule(editedModule) && contains(editedModule)) {
             throw new DuplicatePersonException();
         }
 
@@ -127,7 +127,7 @@ public class UniquePersonList implements Iterable<Module> {
     private boolean personsAreUnique(List<Module> modules) {
         for (int i = 0; i < modules.size() - 1; i++) {
             for (int j = i + 1; j < modules.size(); j++) {
-                if (modules.get(i).isSamePerson(modules.get(j))) {
+                if (modules.get(i).isSameModule(modules.get(j))) {
                     return false;
                 }
             }

@@ -30,7 +30,7 @@ public class AddCommandIntegrationTest {
         Module validModule = new PersonBuilder().build();
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.addPerson(validModule);
+        expectedModel.addModule(validModule);
 
         assertCommandSuccess(new AddCommand(validModule), model,
                 String.format(AddCommand.MESSAGE_SUCCESS, validModule), expectedModel);

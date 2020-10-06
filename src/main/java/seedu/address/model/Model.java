@@ -12,7 +12,7 @@ import seedu.address.model.module.Module;
  */
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
-    Predicate<Module> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+    Predicate<Module> PREDICATE_SHOW_ALL_MODULES = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -53,35 +53,35 @@ public interface Model {
     ReadOnlyAddressBook getAddressBook();
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a module with the same identity as {@code module} exists in the address book.
      */
-    boolean hasPerson(Module module);
+    boolean hasModule(Module module);
 
     /**
-     * Deletes the given person.
-     * The person must exist in the address book.
+     * Deletes the given module.
+     * The module must exist in the address book.
      */
-    void deletePerson(Module target);
+    void deleteModule(Module target);
 
     /**
-     * Adds the given person.
-     * {@code person} must not already exist in the address book.
+     * Adds the given module.
+     * {@code module} must not already exist in the address book.
      */
-    void addPerson(Module module);
+    void addModule(Module module);
 
     /**
-     * Replaces the given person {@code target} with {@code editedPerson}.
+     * Replaces the given module {@code target} with {@code editedModule}.
      * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * The module identity of {@code editedModule} must not be the same as another existing module in the address book.
      */
-    void setPerson(Module target, Module editedModule);
+    void setModule(Module target, Module editedModule);
 
-    /** Returns an unmodifiable view of the filtered person list */
-    ObservableList<Module> getFilteredPersonList();
+    /** Returns an unmodifiable view of the filtered module list */
+    ObservableList<Module> getFilteredModuleList();
 
     /**
-     * Updates the filter of the filtered person list to filter by the given {@code predicate}.
+     * Updates the filter of the filtered module list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
-    void updateFilteredPersonList(Predicate<Module> predicate);
+    void updateFilteredModuleList(Predicate<Module> predicate);
 }

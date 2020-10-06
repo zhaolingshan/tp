@@ -109,7 +109,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void addPerson(Module module) {
+        public void addModule(Module module) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -124,27 +124,27 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean hasPerson(Module module) {
+        public boolean hasModule(Module module) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void deletePerson(Module target) {
+        public void deleteModule(Module target) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void setPerson(Module target, Module editedModule) {
+        public void setModule(Module target, Module editedModule) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public ObservableList<Module> getFilteredPersonList() {
+        public ObservableList<Module> getFilteredModuleList() {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void updateFilteredPersonList(Predicate<Module> predicate) {
+        public void updateFilteredModuleList(Predicate<Module> predicate) {
             throw new AssertionError("This method should not be called.");
         }
     }
@@ -161,9 +161,9 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean hasPerson(Module module) {
+        public boolean hasModule(Module module) {
             requireNonNull(module);
-            return this.module.isSamePerson(module);
+            return this.module.isSameModule(module);
         }
     }
 
@@ -174,13 +174,13 @@ public class AddCommandTest {
         final ArrayList<Module> personsAdded = new ArrayList<>();
 
         @Override
-        public boolean hasPerson(Module module) {
+        public boolean hasModule(Module module) {
             requireNonNull(module);
-            return personsAdded.stream().anyMatch(module::isSamePerson);
+            return personsAdded.stream().anyMatch(module::isSameModule);
         }
 
         @Override
-        public void addPerson(Module module) {
+        public void addModule(Module module) {
             requireNonNull(module);
             personsAdded.add(module);
         }
