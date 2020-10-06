@@ -28,7 +28,7 @@ public class PersonUtil {
      */
     public static String getPersonDetails(Module module) {
         StringBuilder sb = new StringBuilder();
-        sb.append(PREFIX_MOD_NAME + module.getModuleName().fullName + " ");
+        sb.append(PREFIX_MOD_NAME + module.getModuleName().fullModName + " ");
         sb.append(PREFIX_ADDRESS + module.getAddress().value + " ");
         module.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
@@ -41,7 +41,7 @@ public class PersonUtil {
      */
     public static String getEditPersonDescriptorDetails(EditCommand.EditModNameDescriptor descriptor) {
         StringBuilder sb = new StringBuilder();
-        descriptor.getName().ifPresent(name -> sb.append(PREFIX_MOD_NAME).append(name.fullName).append(" "));
+        descriptor.getName().ifPresent(name -> sb.append(PREFIX_MOD_NAME).append(name.fullModName).append(" "));
         descriptor.getAddress().ifPresent(address -> sb.append(PREFIX_ADDRESS).append(address.value).append(" "));
         if (descriptor.getTags().isPresent()) {
             Set<Tag> tags = descriptor.getTags().get();

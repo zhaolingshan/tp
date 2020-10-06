@@ -22,19 +22,19 @@ public class ModuleNameTest {
     @Test
     public void isValidName() {
         // null name
-        assertThrows(NullPointerException.class, () -> ModuleName.isValidName(null));
+        assertThrows(NullPointerException.class, () -> ModuleName.isValidModName(null));
 
         // invalid name
-        assertFalse(ModuleName.isValidName("")); // empty string
-        assertFalse(ModuleName.isValidName(" ")); // spaces only
-        assertFalse(ModuleName.isValidName("^")); // only non-alphanumeric characters
-        assertFalse(ModuleName.isValidName("peter*")); // contains non-alphanumeric characters
+        assertFalse(ModuleName.isValidModName("")); // empty string
+        assertFalse(ModuleName.isValidModName(" ")); // spaces only
+        assertFalse(ModuleName.isValidModName("^")); // only non-alphanumeric characters
+        assertFalse(ModuleName.isValidModName("peter*")); // contains non-alphanumeric characters
 
         // valid name
-        assertTrue(ModuleName.isValidName("peter jack")); // alphabets only
-        assertTrue(ModuleName.isValidName("12345")); // numbers only
-        assertTrue(ModuleName.isValidName("peter the 2nd")); // alphanumeric characters
-        assertTrue(ModuleName.isValidName("Capital Tan")); // with capital letters
-        assertTrue(ModuleName.isValidName("David Roger Jackson Ray Jr 2nd")); // long names
+        assertTrue(ModuleName.isValidModName("peter jack")); // alphabets only
+        assertTrue(ModuleName.isValidModName("12345")); // numbers only
+        assertTrue(ModuleName.isValidModName("peter the 2nd")); // alphanumeric characters
+        assertTrue(ModuleName.isValidModName("Capital Tan")); // with capital letters
+        assertTrue(ModuleName.isValidModName("David Roger Jackson Ray Jr 2nd")); // long names
     }
 }

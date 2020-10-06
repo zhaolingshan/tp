@@ -42,7 +42,7 @@ public class ParserUtil {
     public static ModuleName parseName(String name) throws ParseException {
         requireNonNull(name);
         String trimmedName = name.trim();
-        if (!ModuleName.isValidName(trimmedName)) {
+        if (!ModuleName.isValidModName(trimmedName)) {
             throw new ParseException(ModuleName.MESSAGE_CONSTRAINTS);
         }
         return new ModuleName(trimmedName);

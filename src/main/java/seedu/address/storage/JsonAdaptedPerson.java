@@ -43,7 +43,7 @@ class JsonAdaptedPerson {
      * Converts a given {@code Person} into this class for Jackson use.
      */
     public JsonAdaptedPerson(Module source) {
-        name = source.getModuleName().fullName;
+        name = source.getModuleName().fullModName;
         address = source.getAddress().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
@@ -64,7 +64,7 @@ class JsonAdaptedPerson {
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, ModuleName.class.getSimpleName()));
         }
-        if (!ModuleName.isValidName(name)) {
+        if (!ModuleName.isValidModName(name)) {
             throw new IllegalValueException(ModuleName.MESSAGE_CONSTRAINTS);
         }
         final ModuleName modelModuleName = new ModuleName(name);
