@@ -14,9 +14,9 @@ public class GradeTest {
     }
 
     @Test
-    public void constructor_invalidAddress_throwsIllegalArgumentException() {
-        String invalidAddress = "";
-        assertThrows(IllegalArgumentException.class, () -> new Grade(invalidAddress));
+    public void constructor_invalidGrade_throwsIllegalArgumentException() {
+        String invalidGrade = "";
+        assertThrows(IllegalArgumentException.class, () -> new Grade(invalidGrade));
     }
 
     @Test
@@ -29,8 +29,9 @@ public class GradeTest {
         assertFalse(Grade.isValidGrade(" ")); // spaces only
 
         // valid addresses
-        assertTrue(Grade.isValidGrade("Blk 456, Den Road, #01-355"));
-        assertTrue(Grade.isValidGrade("-")); // one character
-        assertTrue(Grade.isValidGrade("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long address
+        assertTrue(Grade.isValidGrade("A-"));
+        assertTrue(Grade.isValidGrade("B")); // one character
+        // Not relevant for grade
+        // assertTrue(Grade.isValidGrade("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long address
     }
 }

@@ -15,7 +15,7 @@ import seedu.address.model.util.SampleDataUtil;
 public class ModuleBuilder {
 
     public static final String DEFAULT_NAME = "CS2103T Software Engineering";
-    public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
+    public static final String DEFAULT_GRADE = "A+";
 
     private ModuleName moduleName;
     private Grade grade;
@@ -26,7 +26,7 @@ public class ModuleBuilder {
      */
     public ModuleBuilder() {
         moduleName = new ModuleName(DEFAULT_NAME);
-        grade = new Grade(DEFAULT_ADDRESS);
+        grade = new Grade(DEFAULT_GRADE);
         tags = new HashSet<>();
     }
 
@@ -56,10 +56,10 @@ public class ModuleBuilder {
     }
 
     /**
-     * Sets the {@code Address} of the {@code Module} that we are building.
+     * Sets the {@code Grade} of the {@code Module} that we are building.
      */
-    public ModuleBuilder withAddress(String address) {
-        this.grade = new Grade(address);
+    public ModuleBuilder withGrade(String grade) {
+        this.grade = new Grade(grade);
         return this;
     }
 

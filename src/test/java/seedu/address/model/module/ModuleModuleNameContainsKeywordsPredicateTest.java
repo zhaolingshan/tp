@@ -72,9 +72,10 @@ public class ModuleModuleNameContainsKeywordsPredicateTest {
         predicate = new ModuleNameContainsKeywordsPredicate(Arrays.asList("Carol"));
         assertFalse(predicate.test(new ModuleBuilder().withName("Alice Bob").build()));
 
+        // Not relevant - aug
         // Keywords match phone and address, but does not match name
-        predicate = new ModuleNameContainsKeywordsPredicate(Arrays.asList("12345", "Main", "Street"));
-        assertFalse(predicate.test(new ModuleBuilder().withName("Alice")
-                .withAddress("Main Street").build()));
+        // predicate = new ModuleNameContainsKeywordsPredicate(Arrays.asList("12345", "Main", "Street"));
+        // assertFalse(predicate.test(new ModuleBuilder().withName("Alice")
+        //         .withGrade("Main Street").build()));
     }
 }

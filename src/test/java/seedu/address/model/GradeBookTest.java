@@ -46,7 +46,7 @@ public class GradeBookTest {
     @Test
     public void resetData_withDuplicateModules_throwsDuplicateModuleException() {
         // Two persons with the same identity fields
-        Module editedAlice = new ModuleBuilder(COM_ORG).withAddress(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
+        Module editedAlice = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
                 .build();
         List<Module> newModules = Arrays.asList(COM_ORG, editedAlice);
         AddressBookStub newData = new AddressBookStub(newModules);
@@ -73,7 +73,7 @@ public class GradeBookTest {
     @Test
     public void hasModule_moduleWithSameIdentityFieldsInAddressBook_returnsTrue() {
         addressBook.addModule(COM_ORG);
-        Module editedAlice = new ModuleBuilder(COM_ORG).withAddress(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
+        Module editedAlice = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
                 .build();
         assertTrue(addressBook.hasModule(editedAlice));
     }
