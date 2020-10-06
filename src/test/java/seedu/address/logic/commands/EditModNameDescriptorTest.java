@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_A;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_B;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 
@@ -39,7 +39,7 @@ public class EditModNameDescriptorTest {
         assertFalse(DESC_A.equals(editedAmy));
 
         // different address -> returns false
-        editedAmy = new EditModNameDescriptorBuilder(DESC_A).withAddress(VALID_ADDRESS_BOB).build();
+        editedAmy = new EditModNameDescriptorBuilder(DESC_A).withGrade(VALID_GRADE_B).build();
         assertFalse(DESC_A.equals(editedAmy));
 
         // different tags -> returns false

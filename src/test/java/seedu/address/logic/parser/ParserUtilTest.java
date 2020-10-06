@@ -14,17 +14,17 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.module.Address;
+import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
 
 public class ParserUtilTest {
     private static final String INVALID_MOD_NAME = "C@2103T";
-    private static final String INVALID_ADDRESS = " ";
+    private static final String INVALID_GRADE = " ";
     private static final String INVALID_TAG = "#friend";
 
     private static final String VALID_MOD_NAME = "CS2100 Computer Organisation";
-    private static final String VALID_ADDRESS = "123 Main Street #0505";
+    private static final String VALID_GRADE = "123 Main Street #0505";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
 
@@ -74,26 +74,26 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseAddress_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseAddress((String) null));
+    public void parseGrade_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseGrade((String) null));
     }
 
     @Test
-    public void parseAddress_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseAddress(INVALID_ADDRESS));
+    public void parseGrade_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseGrade(INVALID_GRADE));
     }
 
     @Test
-    public void parseAddress_validValueWithoutWhitespace_returnsAddress() throws Exception {
-        Address expectedAddress = new Address(VALID_ADDRESS);
-        assertEquals(expectedAddress, ParserUtil.parseAddress(VALID_ADDRESS));
+    public void parseGrade_validValueWithoutWhitespace_returnsGrade() throws Exception {
+        Grade expectedGrade = new Grade(VALID_GRADE);
+        assertEquals(expectedGrade, ParserUtil.parseGrade(VALID_GRADE));
     }
 
     @Test
-    public void parseAddress_validValueWithWhitespace_returnsTrimmedAddress() throws Exception {
-        String addressWithWhitespace = WHITESPACE + VALID_ADDRESS + WHITESPACE;
-        Address expectedAddress = new Address(VALID_ADDRESS);
-        assertEquals(expectedAddress, ParserUtil.parseAddress(addressWithWhitespace));
+    public void parseGrade_validValueWithWhitespace_returnsTrimmedGrade() throws Exception {
+        String gradesWithWhitespace = WHITESPACE + VALID_GRADE + WHITESPACE;
+        Grade expectedGrade = new Grade(VALID_GRADE);
+        assertEquals(expectedGrade, ParserUtil.parseGrade(gradesWithWhitespace));
     }
 
     @Test

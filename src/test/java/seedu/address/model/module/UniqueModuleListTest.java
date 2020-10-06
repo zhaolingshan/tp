@@ -3,7 +3,7 @@ package seedu.address.model.module;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
@@ -42,7 +42,7 @@ public class UniqueModuleListTest {
     @Test
     public void contains_moduleWithSameIdentityFieldsInList_returnsTrue() {
         uniqueModuleList.add(COM_ORG);
-        Module editedAlice = new ModuleBuilder(COM_ORG).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        Module editedAlice = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
                 .build();
         assertTrue(uniqueModuleList.contains(editedAlice));
     }
@@ -85,7 +85,7 @@ public class UniqueModuleListTest {
     @Test
     public void setModule_editedModuleHasSameIdentity_success() {
         uniqueModuleList.add(COM_ORG);
-        Module editedAlice = new ModuleBuilder(COM_ORG).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        Module editedAlice = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
                 .build();
         uniqueModuleList.setModule(COM_ORG, editedAlice);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();

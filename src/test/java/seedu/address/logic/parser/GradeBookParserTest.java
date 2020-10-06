@@ -28,7 +28,7 @@ import seedu.address.testutil.EditModNameDescriptorBuilder;
 import seedu.address.testutil.ModuleBuilder;
 import seedu.address.testutil.ModuleUtil;
 
-public class AddressBookParserTest {
+public class GradeBookParserTest {
 
     private final AddressBookParser parser = new AddressBookParser();
 
