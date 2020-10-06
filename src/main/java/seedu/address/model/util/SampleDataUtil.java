@@ -15,32 +15,32 @@ import seedu.address.model.tag.Tag;
  * Contains utility methods for populating {@code AddressBook} with sample data.
  */
 public class SampleDataUtil {
-    public static Module[] getSamplePersons() {
+    public static Module[] getSampleModule() {
         return new Module[] {
-            new Module(new ModuleName("Alex Yeoh"),
-                new Address("Blk 30 Geylang Street 29, #06-40"),
-                getTagSet("friends")),
-            new Module(new ModuleName("Bernice Yu"),
-                new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
-                getTagSet("colleagues", "friends")),
-            new Module(new ModuleName("Charlotte Oliveiro"),
-                new Address("Blk 11 Ang Mo Kio Street 74, #11-04"),
-                getTagSet("neighbours")),
-            new Module(new ModuleName("David Li"),
-                new Address("Blk 436 Serangoon Gardens Street 26, #16-43"),
-                getTagSet("family")),
-            new Module(new ModuleName("Irfan Ibrahim"),
-                new Address("Blk 47 Tampines Street 20, #17-35"),
-                getTagSet("classmates")),
-            new Module(new ModuleName("Roy Balakrishnan"),
-                new Address("Blk 45 Aljunied Street 85, #11-31"),
-                getTagSet("colleagues"))
+            new Module(new ModuleName("CS2100 Computer Organisation"),
+                new Address("A"),
+                getTagSet("CS2100")),
+            new Module(new ModuleName("CS2103T Software Engineering"),
+                new Address("A+"),
+                getTagSet( "CS2103T")),
+            new Module(new ModuleName("GEQ1000 Asking Questions"),
+                new Address("B"),
+                getTagSet("GEQ1000")),
+            new Module(new ModuleName("ST2334 Probability and Statistics"),
+                new Address("B+"),
+                getTagSet("ST2334")),
+            new Module(new ModuleName("GER1000 Quantitative Reasoning"),
+                new Address("A"),
+                getTagSet("GER1000")),
+            new Module(new ModuleName("MA1521 Calculus for Computing"),
+                new Address("A-"),
+                getTagSet("MA1521"))
         };
     }
 
     public static ReadOnlyAddressBook getSampleAddressBook() {
         AddressBook sampleAb = new AddressBook();
-        for (Module sampleModule : getSamplePersons()) {
+        for (Module sampleModule : getSampleModule()) {
             sampleAb.addModule(sampleModule);
         }
         return sampleAb;

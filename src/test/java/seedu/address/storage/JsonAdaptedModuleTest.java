@@ -27,7 +27,7 @@ public class JsonAdaptedModuleTest {
             .collect(Collectors.toList());
 
     @Test
-    public void toModelType_validPersonDetails_returnsModule() throws Exception {
+    public void toModelType_validModuleDetails_returnsModule() throws Exception {
         JsonAdaptedModule module = new JsonAdaptedModule(EFF_COM);
         assertEquals(EFF_COM, module.toModelType());
     }

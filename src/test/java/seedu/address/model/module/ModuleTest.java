@@ -22,7 +22,7 @@ public class ModuleTest {
     }
 
     @Test
-    public void isSamePerson() {
+    public void isSameModule() {
         // same object -> returns true
         assertTrue(COM_ORG.isSameModule(COM_ORG));
 

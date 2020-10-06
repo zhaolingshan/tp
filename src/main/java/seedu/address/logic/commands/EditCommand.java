@@ -67,7 +67,7 @@ public class EditCommand extends Command {
         }
 
         Module moduleToEdit = lastShownList.get(index.getZeroBased());
-        Module editedModule = createEditedPerson(moduleToEdit, editModNameDescriptor);
+        Module editedModule = createEditedModule(moduleToEdit, editModNameDescriptor);
 
         if (!moduleToEdit.isSameModule(editedModule) && model.hasModule(editedModule)) {
             throw new CommandException(MESSAGE_DUPLICATE_MODULE);
@@ -79,10 +79,10 @@ public class EditCommand extends Command {
     }
 
     /**
-     * Creates and returns a {@code MOdule} with the details of {@code moduleToEdit}
+     * Creates and returns a {@code Module} with the details of {@code moduleToEdit}
      * edited with {@code editModuleDescriptor}.
      */
-    private static Module createEditedPerson(Module moduleToEdit, EditModNameDescriptor editModNameDescriptor) {
+    private static Module createEditedModule(Module moduleToEdit, EditModNameDescriptor editModNameDescriptor) {
         assert moduleToEdit != null;
 
         ModuleName updatedModuleName = editModNameDescriptor.getName().orElse(moduleToEdit.getModuleName());

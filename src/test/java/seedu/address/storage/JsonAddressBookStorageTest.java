@@ -51,14 +51,14 @@ public class JsonAddressBookStorageTest {
     }
 
     @Test
-    public void readAddressBook_invalidPersonAddressBook_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readAddressBook("invalidPersonAddressBook.json"));
+    public void readAddressBook_invalidModuleAddressBook_throwDataConversionException() {
+        assertThrows(DataConversionException.class, () -> readAddressBook("invalidModuleAddressBook.json"));
     }
 
     //Following test for invalid phone, hence removed.
     //@Test
     //public void readAddressBook_invalidAndValidPersonAddressBook_throwDataConversionException() {
-    //assertThrows(DataConversionException.class, () -> readAddressBook("invalidAndValidPersonAddressBook.json"));}
+    //assertThrows(DataConversionException.class, () -> readAddressBook("invalidAndValidModuleAddressBook.json"));}
 
     @Test
     public void readAndSaveAddressBook_allInOrder_success() throws Exception {

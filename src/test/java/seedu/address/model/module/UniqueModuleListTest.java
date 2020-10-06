@@ -53,7 +53,7 @@ public class UniqueModuleListTest {
     }
 
     @Test
-    public void add_duplicateModule_throwsDuplicatePersonException() {
+    public void add_duplicateModule_throwsDuplicateModuleException() {
         uniqueModuleList.add(COM_ORG);
         assertThrows(DuplicateModuleException.class, () -> uniqueModuleList.add(COM_ORG));
     }
@@ -69,12 +69,12 @@ public class UniqueModuleListTest {
     }
 
     @Test
-    public void setPerson_targetPersonNotInList_throwsPersonNotFoundException() {
+    public void setModule_targetModuleNotInList_throwsModuleNotFoundException() {
         assertThrows(ModuleNotFoundException.class, () -> uniqueModuleList.setModule(COM_ORG, COM_ORG));
     }
 
     @Test
-    public void setPerson_editedPersonIsSamePerson_success() {
+    public void setModule_editedModuleIsSameModule_success() {
         uniqueModuleList.add(COM_ORG);
         uniqueModuleList.setModule(COM_ORG, COM_ORG);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
@@ -83,7 +83,7 @@ public class UniqueModuleListTest {
     }
 
     @Test
-    public void setPerson_editedPersonHasSameIdentity_success() {
+    public void setModule_editedModuleHasSameIdentity_success() {
         uniqueModuleList.add(COM_ORG);
         Module editedAlice = new ModuleBuilder(COM_ORG).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
@@ -94,7 +94,7 @@ public class UniqueModuleListTest {
     }
 
     @Test
-    public void setPerson_editedPersonHasDifferentIdentity_success() {
+    public void setModule_editedModuleHasDifferentIdentity_success() {
         uniqueModuleList.add(COM_ORG);
         uniqueModuleList.setModule(COM_ORG, MOD_B);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
@@ -103,24 +103,24 @@ public class UniqueModuleListTest {
     }
 
     @Test
-    public void setPerson_editedPersonHasNonUniqueIdentity_throwsDuplicatePersonException() {
+    public void setModule_editedModuleHasNonUniqueIdentity_throwsDuplicateModuleException() {
         uniqueModuleList.add(COM_ORG);
         uniqueModuleList.add(MOD_B);
         assertThrows(DuplicateModuleException.class, () -> uniqueModuleList.setModule(COM_ORG, MOD_B));
     }
 
     @Test
-    public void remove_nullPerson_throwsNullPointerException() {
+    public void remove_nullModule_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> uniqueModuleList.remove(null));
     }
 
     @Test
-    public void remove_personDoesNotExist_throwsPersonNotFoundException() {
+    public void remove_moduleDoesNotExist_throwsModuleNotFoundException() {
         assertThrows(ModuleNotFoundException.class, () -> uniqueModuleList.remove(COM_ORG));
     }
 
     @Test
-    public void remove_existingPerson_removesPerson() {
+    public void remove_existingModule_removesModule() {
         uniqueModuleList.add(COM_ORG);
         uniqueModuleList.remove(COM_ORG);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
@@ -128,12 +128,12 @@ public class UniqueModuleListTest {
     }
 
     @Test
-    public void setPersons_nullUniquePersonList_throwsNullPointerException() {
+    public void setModules_nullUniqueModuleList_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> uniqueModuleList.setModules((UniqueModuleList) null));
     }
 
     @Test
-    public void setPersons_uniquePersonList_replacesOwnListWithProvidedUniquePersonList() {
+    public void setModules_uniqueModuleList_replacesOwnListWithProvidedUniqueModuleList() {
         uniqueModuleList.add(COM_ORG);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
         expectedUniqueModuleList.add(MOD_B);
@@ -142,12 +142,12 @@ public class UniqueModuleListTest {
     }
 
     @Test
-    public void setPersons_nullList_throwsNullPointerException() {
+    public void setModules_nullList_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> uniqueModuleList.setModules((List<Module>) null));
     }
 
     @Test
-    public void setPersons_list_replacesOwnListWithProvidedList() {
+    public void setModules_list_replacesOwnListWithProvidedList() {
         uniqueModuleList.add(COM_ORG);
         List<Module> moduleList = Collections.singletonList(MOD_B);
         uniqueModuleList.setModules(moduleList);
@@ -157,7 +157,7 @@ public class UniqueModuleListTest {
     }
 
     @Test
-    public void setPersons_listWithDuplicatePersons_throwsDuplicatePersonException() {
+    public void setModules_listWithDuplicateModules_throwsDuplicateModuleException() {
         List<Module> listWithDuplicateModules = Arrays.asList(COM_ORG, COM_ORG);
         assertThrows(DuplicateModuleException.class, () -> uniqueModuleList.setModules(listWithDuplicateModules));
     }
