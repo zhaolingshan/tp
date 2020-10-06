@@ -28,14 +28,14 @@ import seedu.address.model.module.Address;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.ModuleBuilder;
 
 public class AddCommandParserTest {
     private AddCommandParser parser = new AddCommandParser();
 
     @Test
     public void parse_allFieldsPresent_success() {
-        Module expectedModule = new PersonBuilder(BOB).withTags(VALID_TAG_FRIEND).build();
+        Module expectedModule = new ModuleBuilder(BOB).withTags(VALID_TAG_FRIEND).build();
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + MOD_NAME_DESC_B
@@ -50,7 +50,7 @@ public class AddCommandParserTest {
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedModule));
 
         // multiple tags - all accepted
-        Module expectedModuleMultipleTags = new PersonBuilder(BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
+        Module expectedModuleMultipleTags = new ModuleBuilder(BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
                 .build();
         assertParseSuccess(parser, MOD_NAME_DESC_B + ADDRESS_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, new AddCommand(expectedModuleMultipleTags));
@@ -59,7 +59,7 @@ public class AddCommandParserTest {
     @Test
     public void parse_optionalFieldsMissing_success() {
         // zero tags
-        Module expectedModule = new PersonBuilder(AMY).withTags().build();
+        Module expectedModule = new ModuleBuilder(AMY).withTags().build();
         assertParseSuccess(parser, MOD_NAME_DESC_A + ADDRESS_DESC_AMY,
                 new AddCommand(expectedModule));
     }

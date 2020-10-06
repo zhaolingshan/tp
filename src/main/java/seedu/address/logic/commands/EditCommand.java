@@ -23,14 +23,14 @@ import seedu.address.model.module.Module;
 import seedu.address.model.tag.Tag;
 
 /**
- * Edits the details of an existing person in the address book.
+ * Edits the details of an existing module in the address book.
  */
 public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the person identified "
-            + "by the index number used in the displayed person list. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the module identified "
+            + "by the index number used in the displayed module list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_MOD_NAME + "NAME] "
@@ -38,16 +38,16 @@ public class EditCommand extends Command {
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
-    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
+    public static final String MESSAGE_EDIT_MODULE_SUCCESS = "Edited Module: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
+    public static final String MESSAGE_DUPLICATE_MODULE = "This module already exists in the address book.";
 
     private final Index index;
     private final EditModNameDescriptor editModNameDescriptor;
 
     /**
-     * @param index of the person in the filtered person list to edit
-     * @param editModNameDescriptor details to edit the person with
+     * @param index of the module in the filtered module list to edit
+     * @param editModNameDescriptor details to edit the module with
      */
     public EditCommand(Index index, EditModNameDescriptor editModNameDescriptor) {
         requireNonNull(index);
@@ -63,24 +63,24 @@ public class EditCommand extends Command {
         List<Module> lastShownList = model.getFilteredModuleList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_MODULE_DISPLAYED_INDEX);
         }
 
         Module moduleToEdit = lastShownList.get(index.getZeroBased());
         Module editedModule = createEditedPerson(moduleToEdit, editModNameDescriptor);
 
         if (!moduleToEdit.isSameModule(editedModule) && model.hasModule(editedModule)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+            throw new CommandException(MESSAGE_DUPLICATE_MODULE);
         }
 
         model.setModule(moduleToEdit, editedModule);
         model.updateFilteredModuleList(PREDICATE_SHOW_ALL_MODULES);
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedModule));
+        return new CommandResult(String.format(MESSAGE_EDIT_MODULE_SUCCESS, editedModule));
     }
 
     /**
-     * Creates and returns a {@code Person} with the details of {@code personToEdit}
-     * edited with {@code editPersonDescriptor}.
+     * Creates and returns a {@code MOdule} with the details of {@code moduleToEdit}
+     * edited with {@code editModuleDescriptor}.
      */
     private static Module createEditedPerson(Module moduleToEdit, EditModNameDescriptor editModNameDescriptor) {
         assert moduleToEdit != null;
@@ -111,8 +111,8 @@ public class EditCommand extends Command {
     }
 
     /**
-     * Stores the details to edit the person with. Each non-empty field value will replace the
-     * corresponding field value of the person.
+     * Stores the details to edit the module with. Each non-empty field value will replace the
+     * corresponding field value of the module.
      */
     public static class EditModNameDescriptor {
         private ModuleName moduleName;

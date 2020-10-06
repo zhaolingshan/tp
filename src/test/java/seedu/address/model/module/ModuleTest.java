@@ -11,13 +11,13 @@ import static seedu.address.testutil.TypicalPersons.BOB;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.ModuleBuilder;
 
 public class ModuleTest {
 
     @Test
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
-        Module module = new PersonBuilder().build();
+        Module module = new ModuleBuilder().build();
         assertThrows(UnsupportedOperationException.class, () -> module.getTags().remove(0));
     }
 
@@ -32,23 +32,23 @@ public class ModuleTest {
         Module editedAlice;
 
         // different name -> returns false
-        editedAlice = new PersonBuilder(ALICE).withName(VALID_MOD_NAME_B).build();
+        editedAlice = new ModuleBuilder(ALICE).withName(VALID_MOD_NAME_B).build();
         assertFalse(ALICE.isSameModule(editedAlice));
 
         // same name, different attributes -> returns true
-        editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB)
+        editedAlice = new ModuleBuilder(ALICE).withAddress(VALID_ADDRESS_BOB)
                 .withTags(VALID_TAG_HUSBAND).build();
         assertTrue(ALICE.isSameModule(editedAlice));
 
         // same name, same phone, different attributes -> returns true
-        editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
+        editedAlice = new ModuleBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
         assertTrue(ALICE.isSameModule(editedAlice));
     }
 
     @Test
     public void equals() {
         // same values -> returns true
-        Module aliceCopy = new PersonBuilder(ALICE).build();
+        Module aliceCopy = new ModuleBuilder(ALICE).build();
         assertTrue(ALICE.equals(aliceCopy));
 
         // same object -> returns true
@@ -64,15 +64,15 @@ public class ModuleTest {
         assertFalse(ALICE.equals(BOB));
 
         // different name -> returns false
-        Module editedAlice = new PersonBuilder(ALICE).withName(VALID_MOD_NAME_B).build();
+        Module editedAlice = new ModuleBuilder(ALICE).withName(VALID_MOD_NAME_B).build();
         assertFalse(ALICE.equals(editedAlice));
 
         // different address -> returns false
-        editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).build();
+        editedAlice = new ModuleBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
         // different tags -> returns false
-        editedAlice = new PersonBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
+        editedAlice = new ModuleBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
         assertFalse(ALICE.equals(editedAlice));
     }
 }

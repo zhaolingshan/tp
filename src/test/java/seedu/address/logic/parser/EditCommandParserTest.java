@@ -17,9 +17,9 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-import static seedu.address.testutil.TypicalIndexes.INDEX_THIRD_PERSON;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_MODULE;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_MODULE;
+import static seedu.address.testutil.TypicalIndexes.INDEX_THIRD_MODULE;
 
 import org.junit.jupiter.api.Test;
 
@@ -86,7 +86,7 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_allFieldsSpecified_success() {
-        Index targetIndex = INDEX_SECOND_PERSON;
+        Index targetIndex = INDEX_SECOND_MODULE;
         String userInput = targetIndex.getOneBased() + TAG_DESC_HUSBAND
                 + ADDRESS_DESC_AMY + MOD_NAME_DESC_A + TAG_DESC_FRIEND;
 
@@ -114,7 +114,7 @@ public class EditCommandParserTest {
     @Test
     public void parse_oneFieldSpecified_success() {
         // name
-        Index targetIndex = INDEX_THIRD_PERSON;
+        Index targetIndex = INDEX_THIRD_MODULE;
         String userInput = targetIndex.getOneBased() + MOD_NAME_DESC_A;
         EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
@@ -135,7 +135,7 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_multipleRepeatedFields_acceptsLast() {
-        Index targetIndex = INDEX_FIRST_PERSON;
+        Index targetIndex = INDEX_FIRST_MODULE;
         String userInput = targetIndex.getOneBased() + ADDRESS_DESC_AMY
                 + TAG_DESC_FRIEND + ADDRESS_DESC_AMY + TAG_DESC_FRIEND
                 + ADDRESS_DESC_BOB + TAG_DESC_HUSBAND;
@@ -152,7 +152,7 @@ public class EditCommandParserTest {
     public void parse_invalidValueFollowedByValidValue_success() {
         //Original first assert has only phone in userInput, now deleted - kunnan 5/10/2020
         // no other valid values specified
-        Index targetIndex = INDEX_FIRST_PERSON;
+        Index targetIndex = INDEX_FIRST_MODULE;
         String userInput;
         EditCommand.EditModNameDescriptor descriptor;
         EditCommand expectedCommand;
@@ -168,7 +168,7 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_resetTags_success() {
-        Index targetIndex = INDEX_THIRD_PERSON;
+        Index targetIndex = INDEX_THIRD_MODULE;
         String userInput = targetIndex.getOneBased() + TAG_EMPTY;
 
         EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder().withTags().build();

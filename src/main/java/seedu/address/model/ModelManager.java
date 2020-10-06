@@ -34,7 +34,7 @@ public class ModelManager implements Model {
 
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredModules = new FilteredList<>(this.addressBook.getPersonList());
+        filteredModules = new FilteredList<>(this.addressBook.getModuleList());
     }
 
     public ModelManager() {
@@ -91,17 +91,17 @@ public class ModelManager implements Model {
     @Override
     public boolean hasModule(Module module) {
         requireNonNull(module);
-        return addressBook.hasPerson(module);
+        return addressBook.hasModule(module);
     }
 
     @Override
     public void deleteModule(Module target) {
-        addressBook.removePerson(target);
+        addressBook.removeModule(target);
     }
 
     @Override
     public void addModule(Module module) {
-        addressBook.addPerson(module);
+        addressBook.addModule(module);
         updateFilteredModuleList(PREDICATE_SHOW_ALL_MODULES);
     }
 
@@ -109,7 +109,7 @@ public class ModelManager implements Model {
     public void setModule(Module target, Module editedModule) {
         requireAllNonNull(target, editedModule);
 
-        addressBook.setPerson(target, editedModule);
+        addressBook.setModule(target, editedModule);
     }
 
     //=========== Filtered Person List Accessors =============================================================
