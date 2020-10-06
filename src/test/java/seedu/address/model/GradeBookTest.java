@@ -3,7 +3,7 @@ package seedu.address.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
@@ -46,7 +46,7 @@ public class GradeBookTest {
     @Test
     public void resetData_withDuplicateModules_throwsDuplicateModuleException() {
         // Two persons with the same identity fields
-        Module editedAlice = new ModuleBuilder(COM_ORG).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        Module editedAlice = new ModuleBuilder(COM_ORG).withAddress(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
                 .build();
         List<Module> newModules = Arrays.asList(COM_ORG, editedAlice);
         AddressBookStub newData = new AddressBookStub(newModules);
@@ -73,7 +73,7 @@ public class GradeBookTest {
     @Test
     public void hasModule_moduleWithSameIdentityFieldsInAddressBook_returnsTrue() {
         addressBook.addModule(COM_ORG);
-        Module editedAlice = new ModuleBuilder(COM_ORG).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        Module editedAlice = new ModuleBuilder(COM_ORG).withAddress(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
                 .build();
         assertTrue(addressBook.hasModule(editedAlice));
     }

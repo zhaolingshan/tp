@@ -32,7 +32,7 @@ public class EditModNameDescriptorBuilder {
     public EditModNameDescriptorBuilder(Module module) {
         descriptor = new EditCommand.EditModNameDescriptor();
         descriptor.setName(module.getModuleName());
-        descriptor.setAddress(module.getGrade());
+        descriptor.setGrade(module.getGrade());
         descriptor.setTags(module.getTags());
     }
 
@@ -45,10 +45,10 @@ public class EditModNameDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Address} of the {@code EditModNameDescriptor} that we are building.
+     * Sets the {@code Grade} of the {@code EditModNameDescriptor} that we are building.
      */
-    public EditModNameDescriptorBuilder withAddress(String address) {
-        descriptor.setAddress(new Grade(address));
+    public EditModNameDescriptorBuilder withGrade(String grade) {
+        descriptor.setGrade(new Grade(grade));
         return this;
     }
 

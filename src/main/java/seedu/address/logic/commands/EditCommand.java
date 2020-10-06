@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_MODULES;
@@ -34,7 +34,7 @@ public class EditCommand extends Command {
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_MOD_NAME + "NAME] "
-            + "[" + PREFIX_ADDRESS + "ADDRESS] "
+            + "[" + PREFIX_GRADE + "ADDRESS] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
@@ -86,7 +86,7 @@ public class EditCommand extends Command {
         assert moduleToEdit != null;
 
         ModuleName updatedModuleName = editModNameDescriptor.getName().orElse(moduleToEdit.getModuleName());
-        Grade updatedGrade = editModNameDescriptor.getAddress().orElse(moduleToEdit.getGrade());
+        Grade updatedGrade = editModNameDescriptor.getGrade().orElse(moduleToEdit.getGrade());
         Set<Tag> updatedTags = editModNameDescriptor.getTags().orElse(moduleToEdit.getTags());
 
         return new Module(updatedModuleName, updatedGrade, updatedTags);
@@ -127,7 +127,7 @@ public class EditCommand extends Command {
          */
         public EditModNameDescriptor(EditModNameDescriptor toCopy) {
             setName(toCopy.moduleName);
-            setAddress(toCopy.grade);
+            setGrade(toCopy.grade);
             setTags(toCopy.tags);
         }
 
@@ -146,11 +146,11 @@ public class EditCommand extends Command {
             return Optional.ofNullable(moduleName);
         }
 
-        public void setAddress(Grade grade) {
+        public void setGrade(Grade grade) {
             this.grade = grade;
         }
 
-        public Optional<Grade> getAddress() {
+        public Optional<Grade> getGrade() {
             return Optional.ofNullable(grade);
         }
 
@@ -187,7 +187,7 @@ public class EditCommand extends Command {
             EditModNameDescriptor e = (EditModNameDescriptor) other;
 
             return getName().equals(e.getName())
-                    && getAddress().equals(e.getAddress())
+                    && getGrade().equals(e.getGrade())
                     && getTags().equals(e.getTags());
         }
     }
