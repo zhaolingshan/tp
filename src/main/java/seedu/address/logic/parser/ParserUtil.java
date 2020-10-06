@@ -49,18 +49,18 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String address} into an {@code Address}.
+     * Parses a {@code String grade} into an {@code Grade}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code address} is invalid.
+     * @throws ParseException if the given {@code grade} is invalid.
      */
-    public static Grade parseAddress(String address) throws ParseException {
-        requireNonNull(address);
-        String trimmedAddress = address.trim();
-        if (!Grade.isValidGrade(trimmedAddress)) {
+    public static Grade parseGrade(String grade) throws ParseException {
+        requireNonNull(grade);
+        String trimmedGrade = grade.trim();
+        if (!Grade.isValidGrade(trimmedGrade)) {
             throw new ParseException(Grade.MESSAGE_CONSTRAINTS);
         }
-        return new Grade(trimmedAddress);
+        return new Grade(trimmedGrade);
     }
 
     /**

@@ -19,11 +19,11 @@ public class AddCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a module to the address book. "
             + "Parameters: "
             + PREFIX_MOD_NAME + "NAME "
-            + PREFIX_GRADE + "ADDRESS "
+            + PREFIX_GRADE + "GRADE "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_MOD_NAME + "CS2103T Software Engineering "
-            + PREFIX_GRADE + "311, Clementi Ave 2, #02-25 "
+            + PREFIX_GRADE + "A+ "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 

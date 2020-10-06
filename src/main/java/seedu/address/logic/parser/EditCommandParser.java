@@ -45,7 +45,7 @@ public class EditCommandParser implements Parser<EditCommand> {
             editModNameDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_MOD_NAME).get()));
         }
         if (argMultimap.getValue(PREFIX_GRADE).isPresent()) {
-            editModNameDescriptor.setGrade(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_GRADE).get()));
+            editModNameDescriptor.setGrade(ParserUtil.parseGrade(argMultimap.getValue(PREFIX_GRADE).get()));
         }
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editModNameDescriptor::setTags);
 

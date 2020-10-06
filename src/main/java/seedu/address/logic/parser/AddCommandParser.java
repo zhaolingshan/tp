@@ -35,7 +35,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         ModuleName moduleName = ParserUtil.parseName(argMultimap.getValue(PREFIX_MOD_NAME).get());
-        Grade grade = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_GRADE).get());
+        Grade grade = ParserUtil.parseGrade(argMultimap.getValue(PREFIX_GRADE).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
         Module module = new Module(moduleName, grade, tagList);
