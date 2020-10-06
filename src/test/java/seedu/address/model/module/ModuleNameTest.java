@@ -28,13 +28,13 @@ public class ModuleNameTest {
         assertFalse(ModuleName.isValidModName("")); // empty string
         assertFalse(ModuleName.isValidModName(" ")); // spaces only
         assertFalse(ModuleName.isValidModName("^")); // only non-alphanumeric characters
-        assertFalse(ModuleName.isValidModName("peter*")); // contains non-alphanumeric characters
+        assertFalse(ModuleName.isValidModName("software*")); // contains non-alphanumeric characters
 
         // valid name
-        assertTrue(ModuleName.isValidModName("peter jack")); // alphabets only
-        assertTrue(ModuleName.isValidModName("12345")); // numbers only
-        assertTrue(ModuleName.isValidModName("peter the 2nd")); // alphanumeric characters
-        assertTrue(ModuleName.isValidModName("Capital Tan")); // with capital letters
-        assertTrue(ModuleName.isValidModName("David Roger Jackson Ray Jr 2nd")); // long names
+        assertTrue(ModuleName.isValidModName("software engineering")); // alphabets only
+        assertTrue(ModuleName.isValidModName("2103")); // numbers only
+        assertTrue(ModuleName.isValidModName("programming methodology 2nd")); // alphanumeric characters
+        assertTrue(ModuleName.isValidModName("Programming Methodology")); // with capital letters
+        assertTrue(ModuleName.isValidModName("CP2106 Independent Software Development Project")); // long names
     }
 }

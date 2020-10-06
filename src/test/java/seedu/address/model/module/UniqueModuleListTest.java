@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalPersons.ALICE;
-import static seedu.address.testutil.TypicalPersons.BOB;
+import static seedu.address.testutil.TypicalModules.COM_ORG;
+import static seedu.address.testutil.TypicalModules.MOD_B;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -30,19 +30,19 @@ public class UniqueModuleListTest {
 
     @Test
     public void contains_personNotInList_returnsFalse() {
-        assertFalse(uniqueModuleList.contains(ALICE));
+        assertFalse(uniqueModuleList.contains(COM_ORG));
     }
 
     @Test
     public void contains_personInList_returnsTrue() {
-        uniqueModuleList.add(ALICE);
-        assertTrue(uniqueModuleList.contains(ALICE));
+        uniqueModuleList.add(COM_ORG);
+        assertTrue(uniqueModuleList.contains(COM_ORG));
     }
 
     @Test
     public void contains_personWithSameIdentityFieldsInList_returnsTrue() {
-        uniqueModuleList.add(ALICE);
-        Module editedAlice = new ModuleBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        uniqueModuleList.add(COM_ORG);
+        Module editedAlice = new ModuleBuilder(COM_ORG).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         assertTrue(uniqueModuleList.contains(editedAlice));
     }
@@ -54,40 +54,40 @@ public class UniqueModuleListTest {
 
     @Test
     public void add_duplicatePerson_throwsDuplicatePersonException() {
-        uniqueModuleList.add(ALICE);
-        assertThrows(DuplicateModuleException.class, () -> uniqueModuleList.add(ALICE));
+        uniqueModuleList.add(COM_ORG);
+        assertThrows(DuplicateModuleException.class, () -> uniqueModuleList.add(COM_ORG));
     }
 
     @Test
     public void setPerson_nullTargetPerson_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> uniqueModuleList.setModule(null, ALICE));
+        assertThrows(NullPointerException.class, () -> uniqueModuleList.setModule(null, COM_ORG));
     }
 
     @Test
     public void setPerson_nullEditedPerson_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> uniqueModuleList.setModule(ALICE, null));
+        assertThrows(NullPointerException.class, () -> uniqueModuleList.setModule(COM_ORG, null));
     }
 
     @Test
     public void setPerson_targetPersonNotInList_throwsPersonNotFoundException() {
-        assertThrows(ModuleNotFoundException.class, () -> uniqueModuleList.setModule(ALICE, ALICE));
+        assertThrows(ModuleNotFoundException.class, () -> uniqueModuleList.setModule(COM_ORG, COM_ORG));
     }
 
     @Test
     public void setPerson_editedPersonIsSamePerson_success() {
-        uniqueModuleList.add(ALICE);
-        uniqueModuleList.setModule(ALICE, ALICE);
+        uniqueModuleList.add(COM_ORG);
+        uniqueModuleList.setModule(COM_ORG, COM_ORG);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
-        expectedUniqueModuleList.add(ALICE);
+        expectedUniqueModuleList.add(COM_ORG);
         assertEquals(expectedUniqueModuleList, uniqueModuleList);
     }
 
     @Test
     public void setPerson_editedPersonHasSameIdentity_success() {
-        uniqueModuleList.add(ALICE);
-        Module editedAlice = new ModuleBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        uniqueModuleList.add(COM_ORG);
+        Module editedAlice = new ModuleBuilder(COM_ORG).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        uniqueModuleList.setModule(ALICE, editedAlice);
+        uniqueModuleList.setModule(COM_ORG, editedAlice);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
         expectedUniqueModuleList.add(editedAlice);
         assertEquals(expectedUniqueModuleList, uniqueModuleList);
@@ -95,18 +95,18 @@ public class UniqueModuleListTest {
 
     @Test
     public void setPerson_editedPersonHasDifferentIdentity_success() {
-        uniqueModuleList.add(ALICE);
-        uniqueModuleList.setModule(ALICE, BOB);
+        uniqueModuleList.add(COM_ORG);
+        uniqueModuleList.setModule(COM_ORG, MOD_B);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
-        expectedUniqueModuleList.add(BOB);
+        expectedUniqueModuleList.add(MOD_B);
         assertEquals(expectedUniqueModuleList, uniqueModuleList);
     }
 
     @Test
     public void setPerson_editedPersonHasNonUniqueIdentity_throwsDuplicatePersonException() {
-        uniqueModuleList.add(ALICE);
-        uniqueModuleList.add(BOB);
-        assertThrows(DuplicateModuleException.class, () -> uniqueModuleList.setModule(ALICE, BOB));
+        uniqueModuleList.add(COM_ORG);
+        uniqueModuleList.add(MOD_B);
+        assertThrows(DuplicateModuleException.class, () -> uniqueModuleList.setModule(COM_ORG, MOD_B));
     }
 
     @Test
@@ -116,13 +116,13 @@ public class UniqueModuleListTest {
 
     @Test
     public void remove_personDoesNotExist_throwsPersonNotFoundException() {
-        assertThrows(ModuleNotFoundException.class, () -> uniqueModuleList.remove(ALICE));
+        assertThrows(ModuleNotFoundException.class, () -> uniqueModuleList.remove(COM_ORG));
     }
 
     @Test
     public void remove_existingPerson_removesPerson() {
-        uniqueModuleList.add(ALICE);
-        uniqueModuleList.remove(ALICE);
+        uniqueModuleList.add(COM_ORG);
+        uniqueModuleList.remove(COM_ORG);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
         assertEquals(expectedUniqueModuleList, uniqueModuleList);
     }
@@ -134,9 +134,9 @@ public class UniqueModuleListTest {
 
     @Test
     public void setPersons_uniquePersonList_replacesOwnListWithProvidedUniquePersonList() {
-        uniqueModuleList.add(ALICE);
+        uniqueModuleList.add(COM_ORG);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
-        expectedUniqueModuleList.add(BOB);
+        expectedUniqueModuleList.add(MOD_B);
         uniqueModuleList.setModules(expectedUniqueModuleList);
         assertEquals(expectedUniqueModuleList, uniqueModuleList);
     }
@@ -148,17 +148,17 @@ public class UniqueModuleListTest {
 
     @Test
     public void setPersons_list_replacesOwnListWithProvidedList() {
-        uniqueModuleList.add(ALICE);
-        List<Module> moduleList = Collections.singletonList(BOB);
+        uniqueModuleList.add(COM_ORG);
+        List<Module> moduleList = Collections.singletonList(MOD_B);
         uniqueModuleList.setModules(moduleList);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
-        expectedUniqueModuleList.add(BOB);
+        expectedUniqueModuleList.add(MOD_B);
         assertEquals(expectedUniqueModuleList, uniqueModuleList);
     }
 
     @Test
     public void setPersons_listWithDuplicatePersons_throwsDuplicatePersonException() {
-        List<Module> listWithDuplicateModules = Arrays.asList(ALICE, ALICE);
+        List<Module> listWithDuplicateModules = Arrays.asList(COM_ORG, COM_ORG);
         assertThrows(DuplicateModuleException.class, () -> uniqueModuleList.setModules(listWithDuplicateModules));
     }
 

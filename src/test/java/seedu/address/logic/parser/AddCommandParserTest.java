@@ -18,8 +18,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.address.testutil.TypicalPersons.AMY;
-import static seedu.address.testutil.TypicalPersons.BOB;
+import static seedu.address.testutil.TypicalModules.MOD_A;
+import static seedu.address.testutil.TypicalModules.MOD_B;
 
 import org.junit.jupiter.api.Test;
 
@@ -35,7 +35,7 @@ public class AddCommandParserTest {
 
     @Test
     public void parse_allFieldsPresent_success() {
-        Module expectedModule = new ModuleBuilder(BOB).withTags(VALID_TAG_FRIEND).build();
+        Module expectedModule = new ModuleBuilder(MOD_B).withTags(VALID_TAG_FRIEND).build();
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + MOD_NAME_DESC_B
@@ -50,7 +50,7 @@ public class AddCommandParserTest {
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedModule));
 
         // multiple tags - all accepted
-        Module expectedModuleMultipleTags = new ModuleBuilder(BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
+        Module expectedModuleMultipleTags = new ModuleBuilder(MOD_B).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
                 .build();
         assertParseSuccess(parser, MOD_NAME_DESC_B + ADDRESS_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, new AddCommand(expectedModuleMultipleTags));
@@ -59,7 +59,7 @@ public class AddCommandParserTest {
     @Test
     public void parse_optionalFieldsMissing_success() {
         // zero tags
-        Module expectedModule = new ModuleBuilder(AMY).withTags().build();
+        Module expectedModule = new ModuleBuilder(MOD_A).withTags().build();
         assertParseSuccess(parser, MOD_NAME_DESC_A + ADDRESS_DESC_AMY,
                 new AddCommand(expectedModule));
     }

@@ -26,7 +26,7 @@ import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
 import seedu.address.model.module.Module;
 import seedu.address.testutil.EditModNameDescriptorBuilder;
 import seedu.address.testutil.ModuleBuilder;
-import seedu.address.testutil.PersonUtil;
+import seedu.address.testutil.ModuleUtil;
 
 public class AddressBookParserTest {
 
@@ -35,7 +35,7 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_add() throws Exception {
         Module module = new ModuleBuilder().build();
-        AddCommand command = (AddCommand) parser.parseCommand(PersonUtil.getAddCommand(module));
+        AddCommand command = (AddCommand) parser.parseCommand(ModuleUtil.getAddCommand(module));
         assertEquals(new AddCommand(module), command);
     }
 
@@ -57,7 +57,7 @@ public class AddressBookParserTest {
         Module module = new ModuleBuilder().build();
         EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder(module).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-                + INDEX_FIRST_MODULE.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
+                + INDEX_FIRST_MODULE.getOneBased() + " " + ModuleUtil.getEditModuleDescriptorDetails(descriptor));
         assertEquals(new EditCommand(INDEX_FIRST_MODULE, descriptor), command);
     }
 

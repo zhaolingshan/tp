@@ -6,7 +6,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.MOD_NAME_DESC_A;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalPersons.AMY;
+import static seedu.address.testutil.TypicalModules.MOD_A;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -79,7 +79,7 @@ public class LogicManagerTest {
         // Execute add command
         String addCommand = AddCommand.COMMAND_WORD + MOD_NAME_DESC_A
                 + ADDRESS_DESC_AMY;
-        Module expectedModule = new ModuleBuilder(AMY).withTags().build();
+        Module expectedModule = new ModuleBuilder(MOD_A).withTags().build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addModule(expectedModule);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;
