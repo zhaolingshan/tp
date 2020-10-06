@@ -20,7 +20,7 @@ public class GradeTest {
     }
 
     @Test
-    public void isValidAddress() {
+    public void isValidGrade() {
         // null address
         assertThrows(NullPointerException.class, () -> Grade.isValidGrade(null));
 
