@@ -23,17 +23,17 @@ class JsonAdaptedModule {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Module's %s field is missing!";
 
     private final String modName;
-    private final String address;
+    private final String grade;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedModule} with the given module details.
      */
     @JsonCreator
-    public JsonAdaptedModule(@JsonProperty("name") String modName, @JsonProperty("address") String address,
+    public JsonAdaptedModule(@JsonProperty("name") String modName, @JsonProperty("address") String grade,
                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.modName = modName;
-        this.address = address;
+        this.grade = grade;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -44,7 +44,7 @@ class JsonAdaptedModule {
      */
     public JsonAdaptedModule(Module source) {
         modName = source.getModuleName().fullModName;
-        address = source.getGrade().value;
+        grade = source.getGrade().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -70,13 +70,13 @@ class JsonAdaptedModule {
         }
         final ModuleName modelModuleName = new ModuleName(modName);
 
-        if (address == null) {
+        if (grade == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Grade.class.getSimpleName()));
         }
-        if (!Grade.isValidGrade(address)) {
+        if (!Grade.isValidGrade(grade)) {
             throw new IllegalValueException(Grade.MESSAGE_CONSTRAINTS);
         }
-        final Grade modelGrade = new Grade(address);
+        final Grade modelGrade = new Grade(grade);
 
         final Set<Tag> modelTags = new HashSet<>(moduleTags);
         return new Module(modelModuleName, modelGrade, modelTags);
