@@ -34,7 +34,8 @@ public class EditModNameDescriptorTest {
         assertFalse(DESC_A.equals(DESC_B));
 
         // different name -> returns false
-        EditCommand.EditModNameDescriptor editedAmy = new EditModNameDescriptorBuilder(DESC_A).withName(VALID_MOD_NAME_B).build();
+        EditCommand.EditModNameDescriptor editedAmy =
+                new EditModNameDescriptorBuilder(DESC_A).withName(VALID_MOD_NAME_B).build();
         assertFalse(DESC_A.equals(editedAmy));
 
         // different address -> returns false

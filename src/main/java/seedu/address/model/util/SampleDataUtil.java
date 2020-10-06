@@ -22,7 +22,7 @@ public class SampleDataUtil {
                 getTagSet("CS2100")),
             new Module(new ModuleName("CS2103T Software Engineering"),
                 new Address("A+"),
-                getTagSet( "CS2103T")),
+                getTagSet("CS2103T")),
             new Module(new ModuleName("GEQ1000 Asking Questions"),
                 new Address("B"),
                 getTagSet("GEQ1000")),

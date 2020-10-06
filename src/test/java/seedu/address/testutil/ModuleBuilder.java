@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.module.Address;
-import seedu.address.model.module.ModuleName;
 import seedu.address.model.module.Module;
+import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 

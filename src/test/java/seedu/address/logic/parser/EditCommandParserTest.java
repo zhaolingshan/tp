@@ -116,7 +116,8 @@ public class EditCommandParserTest {
         // name
         Index targetIndex = INDEX_THIRD_MODULE;
         String userInput = targetIndex.getOneBased() + MOD_NAME_DESC_A;
-        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A).build();
+        EditCommand.EditModNameDescriptor descriptor =
+                new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 

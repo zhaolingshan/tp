@@ -18,14 +18,17 @@ public class ModuleModuleNameContainsKeywordsPredicateTest {
         List<String> firstPredicateKeywordList = Collections.singletonList("first");
         List<String> secondPredicateKeywordList = Arrays.asList("first", "second");
 
-        ModuleNameContainsKeywordsPredicate firstPredicate = new ModuleNameContainsKeywordsPredicate(firstPredicateKeywordList);
-        ModuleNameContainsKeywordsPredicate secondPredicate = new ModuleNameContainsKeywordsPredicate(secondPredicateKeywordList);
+        ModuleNameContainsKeywordsPredicate firstPredicate =
+                new ModuleNameContainsKeywordsPredicate(firstPredicateKeywordList);
+        ModuleNameContainsKeywordsPredicate secondPredicate =
+                new ModuleNameContainsKeywordsPredicate(secondPredicateKeywordList);
 
         // same object -> returns true
         assertTrue(firstPredicate.equals(firstPredicate));
 
         // same values -> returns true
-        ModuleNameContainsKeywordsPredicate firstPredicateCopy = new ModuleNameContainsKeywordsPredicate(firstPredicateKeywordList);
+        ModuleNameContainsKeywordsPredicate firstPredicateCopy =
+                new ModuleNameContainsKeywordsPredicate(firstPredicateKeywordList);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
 
         // different types -> returns false
@@ -41,7 +44,8 @@ public class ModuleModuleNameContainsKeywordsPredicateTest {
     @Test
     public void test_nameContainsKeywords_returnsTrue() {
         // One keyword
-        ModuleNameContainsKeywordsPredicate predicate = new ModuleNameContainsKeywordsPredicate(Collections.singletonList("Alice"));
+        ModuleNameContainsKeywordsPredicate predicate =
+                new ModuleNameContainsKeywordsPredicate(Collections.singletonList("Alice"));
         assertTrue(predicate.test(new ModuleBuilder().withName("Alice Bob").build()));
 
         // Multiple keywords
@@ -60,7 +64,8 @@ public class ModuleModuleNameContainsKeywordsPredicateTest {
     @Test
     public void test_nameDoesNotContainKeywords_returnsFalse() {
         // Zero keywords
-        ModuleNameContainsKeywordsPredicate predicate = new ModuleNameContainsKeywordsPredicate(Collections.emptyList());
+        ModuleNameContainsKeywordsPredicate predicate =
+                new ModuleNameContainsKeywordsPredicate(Collections.emptyList());
         assertFalse(predicate.test(new ModuleBuilder().withName("Alice").build()));
 
         // Non-matching keyword

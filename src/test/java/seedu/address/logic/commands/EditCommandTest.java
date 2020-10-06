@@ -121,7 +121,8 @@ public class EditCommandTest {
     @Test
     public void execute_invalidModuleIndexUnfilteredList_failure() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredModuleList().size() + 1);
-        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).build();
+        EditCommand.EditModNameDescriptor descriptor =
+                new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).build();
         EditCommand editCommand = new EditCommand(outOfBoundIndex, descriptor);
 
         assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_MODULE_DISPLAYED_INDEX);

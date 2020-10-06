@@ -7,8 +7,8 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditModNameDescriptor;
 import seedu.address.model.module.Address;
-import seedu.address.model.module.ModuleName;
 import seedu.address.model.module.Module;
+import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
 
 /**

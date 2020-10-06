@@ -22,8 +22,8 @@ public class TypicalModules {
     public static final Module COM_ORG = new ModuleBuilder().withName("CS2100 Computer Organisation")
             .withAddress("A-")
             .withTags("CS2100").build();
-    public static final Module EFF_COM = new ModuleBuilder().withName("CS2101 Effective Communication for " +
-            "Computing Professionals")
+    public static final Module EFF_COM = new ModuleBuilder().withName("CS2101 Effective Communication for "
+            + "Computing Professionals")
             .withAddress("B-")
             .withTags("CS2101").build();
     public static final Module SWE = new ModuleBuilder().withName("CS2103T Software Engineering")
