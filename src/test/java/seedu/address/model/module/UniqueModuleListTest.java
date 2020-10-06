@@ -24,23 +24,23 @@ public class UniqueModuleListTest {
     private final UniqueModuleList uniqueModuleList = new UniqueModuleList();
 
     @Test
-    public void contains_nullPerson_throwsNullPointerException() {
+    public void contains_nullModule_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> uniqueModuleList.contains(null));
     }
 
     @Test
-    public void contains_personNotInList_returnsFalse() {
+    public void contains_moduleNotInList_returnsFalse() {
         assertFalse(uniqueModuleList.contains(COM_ORG));
     }
 
     @Test
-    public void contains_personInList_returnsTrue() {
+    public void contains_moduleInList_returnsTrue() {
         uniqueModuleList.add(COM_ORG);
         assertTrue(uniqueModuleList.contains(COM_ORG));
     }
 
     @Test
-    public void contains_personWithSameIdentityFieldsInList_returnsTrue() {
+    public void contains_moduleWithSameIdentityFieldsInList_returnsTrue() {
         uniqueModuleList.add(COM_ORG);
         Module editedAlice = new ModuleBuilder(COM_ORG).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
@@ -48,23 +48,23 @@ public class UniqueModuleListTest {
     }
 
     @Test
-    public void add_nullPerson_throwsNullPointerException() {
+    public void add_nullModule_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> uniqueModuleList.add(null));
     }
 
     @Test
-    public void add_duplicatePerson_throwsDuplicatePersonException() {
+    public void add_duplicateModule_throwsDuplicatePersonException() {
         uniqueModuleList.add(COM_ORG);
         assertThrows(DuplicateModuleException.class, () -> uniqueModuleList.add(COM_ORG));
     }
 
     @Test
-    public void setPerson_nullTargetPerson_throwsNullPointerException() {
+    public void setModule_nullTargetModule_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> uniqueModuleList.setModule(null, COM_ORG));
     }
 
     @Test
-    public void setPerson_nullEditedPerson_throwsNullPointerException() {
+    public void setModule_nullEditedModule_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> uniqueModuleList.setModule(COM_ORG, null));
     }
 
