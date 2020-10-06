@@ -3,7 +3,7 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import seedu.address.model.module.Address;
+import seedu.address.model.module.Grade;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
@@ -18,7 +18,7 @@ public class ModuleBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
     private ModuleName moduleName;
-    private Address address;
+    private Grade grade;
     private Set<Tag> tags;
 
     /**
@@ -26,7 +26,7 @@ public class ModuleBuilder {
      */
     public ModuleBuilder() {
         moduleName = new ModuleName(DEFAULT_NAME);
-        address = new Address(DEFAULT_ADDRESS);
+        grade = new Grade(DEFAULT_ADDRESS);
         tags = new HashSet<>();
     }
 
@@ -35,7 +35,7 @@ public class ModuleBuilder {
      */
     public ModuleBuilder(Module moduleToCopy) {
         moduleName = moduleToCopy.getModuleName();
-        address = moduleToCopy.getAddress();
+        grade = moduleToCopy.getGrade();
         tags = new HashSet<>(moduleToCopy.getTags());
     }
 
@@ -59,12 +59,12 @@ public class ModuleBuilder {
      * Sets the {@code Address} of the {@code Module} that we are building.
      */
     public ModuleBuilder withAddress(String address) {
-        this.address = new Address(address);
+        this.grade = new Grade(address);
         return this;
     }
 
     public Module build() {
-        return new Module(moduleName, address, tags);
+        return new Module(moduleName, grade, tags);
     }
 
 }

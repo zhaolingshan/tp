@@ -29,7 +29,7 @@ public class ModuleUtil {
     public static String getModuleDetails(Module module) {
         StringBuilder sb = new StringBuilder();
         sb.append(PREFIX_MOD_NAME + module.getModuleName().fullModName + " ");
-        sb.append(PREFIX_ADDRESS + module.getAddress().value + " ");
+        sb.append(PREFIX_ADDRESS + module.getGrade().value + " ");
         module.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );

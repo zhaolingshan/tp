@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditModNameDescriptor;
-import seedu.address.model.module.Address;
+import seedu.address.model.module.Grade;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
@@ -32,7 +32,7 @@ public class EditModNameDescriptorBuilder {
     public EditModNameDescriptorBuilder(Module module) {
         descriptor = new EditCommand.EditModNameDescriptor();
         descriptor.setName(module.getModuleName());
-        descriptor.setAddress(module.getAddress());
+        descriptor.setAddress(module.getGrade());
         descriptor.setTags(module.getTags());
     }
 
@@ -48,7 +48,7 @@ public class EditModNameDescriptorBuilder {
      * Sets the {@code Address} of the {@code EditModNameDescriptor} that we are building.
      */
     public EditModNameDescriptorBuilder withAddress(String address) {
-        descriptor.setAddress(new Address(address));
+        descriptor.setAddress(new Grade(address));
         return this;
     }
 

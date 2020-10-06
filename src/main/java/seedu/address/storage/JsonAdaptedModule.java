@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.module.Address;
+import seedu.address.model.module.Grade;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
@@ -44,7 +44,7 @@ class JsonAdaptedModule {
      */
     public JsonAdaptedModule(Module source) {
         modName = source.getModuleName().fullModName;
-        address = source.getAddress().value;
+        address = source.getGrade().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -71,15 +71,15 @@ class JsonAdaptedModule {
         final ModuleName modelModuleName = new ModuleName(modName);
 
         if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Grade.class.getSimpleName()));
         }
-        if (!Address.isValidAddress(address)) {
-            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
+        if (!Grade.isValidGrade(address)) {
+            throw new IllegalValueException(Grade.MESSAGE_CONSTRAINTS);
         }
-        final Address modelAddress = new Address(address);
+        final Grade modelGrade = new Grade(address);
 
         final Set<Tag> modelTags = new HashSet<>(moduleTags);
-        return new Module(modelModuleName, modelAddress, modelTags);
+        return new Module(modelModuleName, modelGrade, modelTags);
     }
 
 }

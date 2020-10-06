@@ -19,16 +19,16 @@ public class Module {
     private final ModuleName moduleName;
 
     // Data fields
-    private final Address address;
+    private final Grade grade;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Module(ModuleName moduleName, Address address, Set<Tag> tags) {
-        requireAllNonNull(moduleName, address, tags);
+    public Module(ModuleName moduleName, Grade grade, Set<Tag> tags) {
+        requireAllNonNull(moduleName, grade, tags);
         this.moduleName = moduleName;
-        this.address = address;
+        this.grade = grade;
         this.tags.addAll(tags);
     }
 
@@ -36,8 +36,8 @@ public class Module {
         return moduleName;
     }
 
-    public Address getAddress() {
-        return address;
+    public Grade getGrade() {
+        return grade;
     }
 
     /**
@@ -77,22 +77,22 @@ public class Module {
 
         Module otherModule = (Module) other;
         return otherModule.getModuleName().equals(getModuleName())
-                && otherModule.getAddress().equals(getAddress())
+                && otherModule.getGrade().equals(getGrade())
                 && otherModule.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(moduleName, address, tags);
+        return Objects.hash(moduleName, grade, tags);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getModuleName())
-                .append(" Address: ")
-                .append(getAddress())
+                .append(" Grade: ")
+                .append(getGrade())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

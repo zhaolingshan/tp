@@ -17,7 +17,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.module.Address;
+import seedu.address.model.module.Grade;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
@@ -86,10 +86,10 @@ public class EditCommand extends Command {
         assert moduleToEdit != null;
 
         ModuleName updatedModuleName = editModNameDescriptor.getName().orElse(moduleToEdit.getModuleName());
-        Address updatedAddress = editModNameDescriptor.getAddress().orElse(moduleToEdit.getAddress());
+        Grade updatedGrade = editModNameDescriptor.getAddress().orElse(moduleToEdit.getGrade());
         Set<Tag> updatedTags = editModNameDescriptor.getTags().orElse(moduleToEdit.getTags());
 
-        return new Module(updatedModuleName, updatedAddress, updatedTags);
+        return new Module(updatedModuleName, updatedGrade, updatedTags);
     }
 
     @Override
@@ -116,7 +116,7 @@ public class EditCommand extends Command {
      */
     public static class EditModNameDescriptor {
         private ModuleName moduleName;
-        private Address address;
+        private Grade grade;
         private Set<Tag> tags;
 
         public EditModNameDescriptor() {}
@@ -127,7 +127,7 @@ public class EditCommand extends Command {
          */
         public EditModNameDescriptor(EditModNameDescriptor toCopy) {
             setName(toCopy.moduleName);
-            setAddress(toCopy.address);
+            setAddress(toCopy.grade);
             setTags(toCopy.tags);
         }
 
@@ -135,7 +135,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(moduleName, address, tags);
+            return CollectionUtil.isAnyNonNull(moduleName, grade, tags);
         }
 
         public void setName(ModuleName moduleName) {
@@ -146,12 +146,12 @@ public class EditCommand extends Command {
             return Optional.ofNullable(moduleName);
         }
 
-        public void setAddress(Address address) {
-            this.address = address;
+        public void setAddress(Grade grade) {
+            this.grade = grade;
         }
 
-        public Optional<Address> getAddress() {
-            return Optional.ofNullable(address);
+        public Optional<Grade> getAddress() {
+            return Optional.ofNullable(grade);
         }
 
         /**

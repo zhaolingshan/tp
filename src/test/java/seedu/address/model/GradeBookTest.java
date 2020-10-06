@@ -22,7 +22,7 @@ import seedu.address.model.module.Module;
 import seedu.address.model.module.exceptions.DuplicateModuleException;
 import seedu.address.testutil.ModuleBuilder;
 
-public class AddressBookTest {
+public class GradeBookTest {
 
     private final AddressBook addressBook = new AddressBook();
 

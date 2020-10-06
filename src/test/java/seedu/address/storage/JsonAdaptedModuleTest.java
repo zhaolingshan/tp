@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.module.Address;
+import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModuleName;
 
 public class JsonAdaptedModuleTest {
@@ -21,7 +21,7 @@ public class JsonAdaptedModuleTest {
     private static final String INVALID_TAG = "#friend";
 
     private static final String VALID_MODULE_NAME = EFF_COM.getModuleName().toString();
-    private static final String VALID_ADDRESS = EFF_COM.getAddress().toString();
+    private static final String VALID_ADDRESS = EFF_COM.getGrade().toString();
     private static final List<JsonAdaptedTag> VALID_TAGS = EFF_COM.getTags().stream()
             .map(JsonAdaptedTag::new)
             .collect(Collectors.toList());
@@ -51,14 +51,14 @@ public class JsonAdaptedModuleTest {
     public void toModelType_invalidAddress_throwsIllegalValueException() {
         JsonAdaptedModule module =
                 new JsonAdaptedModule(VALID_MODULE_NAME, INVALID_ADDRESS, VALID_TAGS);
-        String expectedMessage = Address.MESSAGE_CONSTRAINTS;
+        String expectedMessage = Grade.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, module::toModelType);
     }
 
     @Test
     public void toModelType_nullAddress_throwsIllegalValueException() {
         JsonAdaptedModule module = new JsonAdaptedModule(VALID_MODULE_NAME, null, VALID_TAGS);
-        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName());
+        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Grade.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, module::toModelType);
     }
 
