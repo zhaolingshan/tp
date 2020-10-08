@@ -16,7 +16,7 @@ public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a module to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a module to your module list. "
             + "Parameters: "
             + PREFIX_MOD_NAME + "NAME "
             + PREFIX_GRADE + "GRADE "
@@ -28,7 +28,7 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "owesMoney";
 
     public static final String MESSAGE_SUCCESS = "New module added: %1$s";
-    public static final String MESSAGE_DUPLICATE_MODULE = "This module already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_MODULE = "This module already exists in your module list!";
 
     private final Module toAdd;
 
