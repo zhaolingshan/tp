@@ -29,7 +29,7 @@ public class ModuleCard extends UiPart<Region> {
     @FXML
     private HBox cardPane;
     @FXML
-    private Label name;
+    private Label moduleName;
     @FXML
     private Label id;
     @FXML
@@ -44,7 +44,7 @@ public class ModuleCard extends UiPart<Region> {
         super(FXML);
         this.module = module;
         id.setText(displayedIndex + ". ");
-        name.setText(module.getModuleName().fullModName);
+        moduleName.setText(module.getModuleName().fullModName);
         grade.setText(module.getGrade().value);
         module.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
