@@ -8,6 +8,6 @@ public class CliSyntax {
     /* Prefix definitions */
     public static final Prefix PREFIX_MOD_NAME = new Prefix("--mod ");
     public static final Prefix PREFIX_GRADE = new Prefix("--grade ");
-    public static final Prefix PREFIX_TAG = new Prefix("-tag ");
+    public static final Prefix PREFIX_TAG = new Prefix("t/");
 
 }
