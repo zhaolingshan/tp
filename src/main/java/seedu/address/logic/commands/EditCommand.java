@@ -13,6 +13,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.commons.core.Messages;
+import seedu.address.commons.core.index.GetModuleIndex;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -30,30 +31,30 @@ public class EditCommand extends Command {
     public static final String COMMAND_WORD = "update";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the module identified "
-            + "by the index number used in the displayed module list. "
+            + "by the module name displayed in the module list. "
             + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_MOD_NAME + "NAME] "
-            + "[" + PREFIX_GRADE + "ADDRESS] "
+            + "Parameters:"
+            + "[" + PREFIX_MOD_NAME + "MODULE_NAME] "
+            + "[" + PREFIX_GRADE + "GRADE] "
             + "[" + PREFIX_TAG + "TAG]...\n"
-            + "Example: " + COMMAND_WORD + " 1 ";
+            + "Example: " + COMMAND_WORD + " --mod CS2103T --grade A";
 
     public static final String MESSAGE_EDIT_MODULE_SUCCESS = "Edited Module: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_MODULE = "This module already exists in the address book.";
 
-    private final Index index;
+    private final ModuleName moduleName;
     private final EditModNameDescriptor editModNameDescriptor;
 
     /**
-     * @param index of the module in the filtered module list to edit
+     * @param moduleName of the module in the filtered module list to edit
      * @param editModNameDescriptor details to edit the module with
      */
-    public EditCommand(Index index, EditModNameDescriptor editModNameDescriptor) {
-        requireNonNull(index);
+    public EditCommand(ModuleName moduleName, EditModNameDescriptor editModNameDescriptor) {
+        requireNonNull(moduleName);
         requireNonNull(editModNameDescriptor);
 
-        this.index = index;
+        this.moduleName = moduleName;
         this.editModNameDescriptor = new EditModNameDescriptor(editModNameDescriptor);
     }
 
@@ -62,8 +63,12 @@ public class EditCommand extends Command {
         requireNonNull(model);
         List<Module> lastShownList = model.getFilteredModuleList();
 
-        if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_MODULE_DISPLAYED_INDEX);
+        Index index;
+        
+        try {
+            index = GetModuleIndex.getIndex(model.getFilteredModuleList(), moduleName);
+        } catch (IndexOutOfBoundsException e) {
+            throw new CommandException(Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
         }
 
         Module moduleToEdit = lastShownList.get(index.getZeroBased());
@@ -106,7 +111,7 @@ public class EditCommand extends Command {
 
         // state check
         EditCommand e = (EditCommand) other;
-        return index.equals(e.index)
+        return moduleName.equals(e.moduleName)
                 && editModNameDescriptor.equals(e.editModNameDescriptor);
     }
 

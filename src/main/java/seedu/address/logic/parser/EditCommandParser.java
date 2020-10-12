@@ -11,10 +11,11 @@ import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
 
-import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditModNameDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.module.Grade;
+import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -32,28 +33,28 @@ public class EditCommandParser implements Parser<EditCommand> {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_MOD_NAME, PREFIX_GRADE, PREFIX_TAG);
 
-        Index index;
-
-        try {
-            index = ParserUtil.parseIndex(argMultimap.getPreamble());
-        } catch (ParseException pe) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE), pe);
+        if (argMultimap.getValue(PREFIX_MOD_NAME).isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         }
+        
+        ModuleName moduleName = new ModuleName(argMultimap.getValue(PREFIX_MOD_NAME).get());
 
         EditModNameDescriptor editModNameDescriptor = new EditCommand.EditModNameDescriptor();
-        if (argMultimap.getValue(PREFIX_MOD_NAME).isPresent()) {
-            editModNameDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_MOD_NAME).get()));
-        }
+        editModNameDescriptor.setName(ParserUtil.parseName(moduleName.fullModName));
+        
         if (argMultimap.getValue(PREFIX_GRADE).isPresent()) {
             editModNameDescriptor.setGrade(ParserUtil.parseGrade(argMultimap.getValue(PREFIX_GRADE).get()));
+        } else {
+            editModNameDescriptor.setGrade(new Grade("NA"));
         }
+        
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editModNameDescriptor::setTags);
 
         if (!editModNameDescriptor.isAnyFieldEdited()) {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
         }
 
-        return new EditCommand(index, editModNameDescriptor);
+        return new EditCommand(moduleName, editModNameDescriptor);
     }
 
     /**
