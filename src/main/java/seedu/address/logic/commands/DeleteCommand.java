@@ -38,7 +38,7 @@ public class DeleteCommand extends Command {
         List<Module> lastShownList = model.getFilteredModuleList();
 
         Index targetModuleIndex;
-        
+
         try {
             targetModuleIndex = GetModuleIndex.getIndex(lastShownList, targetModuleName);
         } catch (IndexOutOfBoundsException e) {

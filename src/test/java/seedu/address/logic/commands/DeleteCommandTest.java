@@ -27,19 +27,19 @@ import seedu.address.model.module.ModuleName;
 public class DeleteCommandTest {
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-    
-    private final ModuleName NAME_FIRST_MODULE = COM_ORG.getModuleName();
-    private final ModuleName NAME_SECOND_MODULE = EFF_COM.getModuleName();
-    
-    private final Index INDEX_FIRST_MODULE =
-            GetModuleIndex.getIndex(model.getFilteredModuleList(), NAME_FIRST_MODULE);
-    private final Index INDEX_SECOND_MODULE =
-            GetModuleIndex.getIndex(model.getFilteredModuleList(), NAME_SECOND_MODULE);
+
+    private final ModuleName nameFirstModule = COM_ORG.getModuleName();
+    private final ModuleName nameSecondModule = EFF_COM.getModuleName();
+
+    private final Index indexFirstModule =
+            GetModuleIndex.getIndex(model.getFilteredModuleList(), nameFirstModule);
+    private final Index indexSecondModule =
+            GetModuleIndex.getIndex(model.getFilteredModuleList(), nameSecondModule);
 
     @Test
     public void execute_validModuleNameUnfilteredList_success() {
-        Module moduleToDelete = model.getFilteredModuleList().get(INDEX_FIRST_MODULE.getZeroBased());
-        DeleteCommand deleteCommand = new DeleteCommand(NAME_FIRST_MODULE);
+        Module moduleToDelete = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
+        DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_MODULE_SUCCESS, moduleToDelete);
 
@@ -59,10 +59,10 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validIndexFilteredList_success() {
-        showModuleAtIndex(model, INDEX_FIRST_MODULE);
+        showModuleAtIndex(model, indexFirstModule);
 
-        Module moduleToDelete = model.getFilteredModuleList().get(INDEX_FIRST_MODULE.getZeroBased());
-        DeleteCommand deleteCommand = new DeleteCommand(NAME_FIRST_MODULE);
+        Module moduleToDelete = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
+        DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_MODULE_SUCCESS, moduleToDelete);
 
@@ -75,13 +75,13 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_invalidIndexFilteredList_throwsCommandException() {
-        showModuleAtIndex(model, INDEX_FIRST_MODULE);
+        showModuleAtIndex(model, indexFirstModule);
 
-        Index outOfBoundIndex = INDEX_SECOND_MODULE;
+        Index outOfBoundIndex = indexSecondModule;
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getModuleList().size());
 
-        DeleteCommand deleteCommand = new DeleteCommand(NAME_SECOND_MODULE);
+        DeleteCommand deleteCommand = new DeleteCommand(nameSecondModule);
 
         assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
     }
