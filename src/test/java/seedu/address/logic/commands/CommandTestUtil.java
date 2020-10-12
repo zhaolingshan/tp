@@ -33,6 +33,7 @@ public class CommandTestUtil {
 
     public static final String MOD_NAME_DESC_A = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_A;
     public static final String MOD_NAME_DESC_B = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_B;
+    public static final String NO_GRADE = "NA";
     public static final String GRADE_DESC_A = " " + PREFIX_GRADE + VALID_GRADE_A;
     public static final String GRADE_DESC_B = " " + PREFIX_GRADE + VALID_GRADE_B;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
