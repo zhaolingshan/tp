@@ -12,7 +12,6 @@ import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_NON_EMPTY;
 import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
@@ -70,14 +69,6 @@ public class AddCommandParserTest {
 
         // missing name prefix
         assertParseFailure(parser, VALID_MOD_NAME_B + GRADE_DESC_B,
-                expectedMessage);
-
-        // missing address prefix
-        assertParseFailure(parser, MOD_NAME_DESC_B + VALID_GRADE_B,
-                expectedMessage);
-
-        // all prefixes missing
-        assertParseFailure(parser, VALID_MOD_NAME_B + VALID_GRADE_B,
                 expectedMessage);
     }
 

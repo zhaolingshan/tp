@@ -19,8 +19,9 @@ public class Module {
     private final ModuleName moduleName;
 
     // Data fields
-    private final Grade grade;
+    private Grade grade;
     private final Set<Tag> tags = new HashSet<>();
+    private boolean hasGrade;
 
     /**
      * Every field must be present and not null.
@@ -30,6 +31,16 @@ public class Module {
         this.moduleName = moduleName;
         this.grade = grade;
         this.tags.addAll(tags);
+        hasGrade = true;
+    }
+
+    /**
+     * Grade field can be empty.
+     */
+    public Module(ModuleName moduleName, Set<Tag> tags) {
+        this.moduleName = moduleName;
+        this.tags.addAll(tags);
+        hasGrade = false;
     }
 
     public ModuleName getModuleName() {
@@ -37,7 +48,12 @@ public class Module {
     }
 
     public Grade getGrade() {
-        return grade;
+        if (hasGrade) {
+            return grade;
+        } else {
+            String emptyGrade = "NA";
+            return new Grade(emptyGrade);
+        }
     }
 
     /**

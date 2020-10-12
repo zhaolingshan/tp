@@ -29,16 +29,19 @@ public class AddCommandParser implements Parser<AddCommand> {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_MOD_NAME, PREFIX_GRADE, PREFIX_TAG);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_MOD_NAME, PREFIX_GRADE)
+        if (!arePrefixesPresent(argMultimap, PREFIX_MOD_NAME)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
-
         ModuleName moduleName = ParserUtil.parseName(argMultimap.getValue(PREFIX_MOD_NAME).get());
-        Grade grade = ParserUtil.parseGrade(argMultimap.getValue(PREFIX_GRADE).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
-
-        Module module = new Module(moduleName, grade, tagList);
+        Module module;
+        if (!arePrefixesPresent(argMultimap, PREFIX_GRADE)) {
+            module = new Module(moduleName, tagList);
+        } else {
+            Grade grade = ParserUtil.parseGrade(argMultimap.getValue(PREFIX_GRADE).get());
+            module = new Module(moduleName, grade, tagList);
+        }
 
         return new AddCommand(module);
     }
