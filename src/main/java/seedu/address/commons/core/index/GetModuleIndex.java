@@ -1,9 +1,9 @@
 package seedu.address.commons.core.index;
 
+import java.util.List;
+
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
-
-import java.util.List;
 
 /**
  * Gets the index of a module from a module list.

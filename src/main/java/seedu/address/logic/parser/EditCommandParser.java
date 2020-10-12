@@ -36,20 +36,16 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_MOD_NAME).isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         }
-        
         ModuleName moduleName = ParserUtil.parseName(argMultimap.getValue(PREFIX_MOD_NAME).get());
 
         EditModNameDescriptor editModNameDescriptor = new EditCommand.EditModNameDescriptor();
         editModNameDescriptor.setName(moduleName);
-        
         if (argMultimap.getValue(PREFIX_GRADE).isPresent()) {
             editModNameDescriptor.setGrade(ParserUtil.parseGrade(argMultimap.getValue(PREFIX_GRADE).get()));
         } else {
             editModNameDescriptor.setGrade(new Grade("NA"));
         }
-        
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editModNameDescriptor::setTags);
-
         if (!editModNameDescriptor.isAnyFieldEdited()) {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
         }

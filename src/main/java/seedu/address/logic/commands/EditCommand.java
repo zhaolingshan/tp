@@ -64,7 +64,6 @@ public class EditCommand extends Command {
         List<Module> lastShownList = model.getFilteredModuleList();
 
         Index index;
-        
         try {
             index = GetModuleIndex.getIndex(model.getFilteredModuleList(), moduleName);
         } catch (IndexOutOfBoundsException e) {
