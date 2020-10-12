@@ -37,10 +37,10 @@ public class EditCommandParser implements Parser<EditCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         }
         
-        ModuleName moduleName = new ModuleName(argMultimap.getValue(PREFIX_MOD_NAME).get());
+        ModuleName moduleName = ParserUtil.parseName(argMultimap.getValue(PREFIX_MOD_NAME).get());
 
         EditModNameDescriptor editModNameDescriptor = new EditCommand.EditModNameDescriptor();
-        editModNameDescriptor.setName(ParserUtil.parseName(moduleName.fullModName));
+        editModNameDescriptor.setName(moduleName);
         
         if (argMultimap.getValue(PREFIX_GRADE).isPresent()) {
             editModNameDescriptor.setGrade(ParserUtil.parseGrade(argMultimap.getValue(PREFIX_GRADE).get()));

@@ -4,8 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.logic.commands.CommandTestUtil.NO_GRADE;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_MODULE;
+import static seedu.address.testutil.TypicalModules.COM_ORG;
 
 import java.util.Arrays;
 import java.util.List;
@@ -55,10 +57,11 @@ public class GradeBookParserTest {
     @Test
     public void parseCommand_edit() throws Exception {
         Module module = new ModuleBuilder().build();
-        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder(module).build();
+        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder(module)
+                .withName(COM_ORG.getModuleName().fullModName).withGrade(NO_GRADE).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-                + INDEX_FIRST_MODULE.getOneBased() + " " + ModuleUtil.getEditModuleDescriptorDetails(descriptor));
-        assertEquals(new EditCommand(INDEX_FIRST_MODULE, descriptor), command);
+                + COM_ORG.getModuleName().fullModName + " " + ModuleUtil.getEditModuleDescriptorDetails(descriptor));
+        assertEquals(new EditCommand(COM_ORG.getModuleName(), descriptor), command);
     }
 
     @Test
