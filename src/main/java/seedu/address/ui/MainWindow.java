@@ -126,6 +126,10 @@ public class MainWindow extends UiPart<Stage> {
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
 
+        refreshCapDisplay();
+    }
+
+    private void refreshCapDisplay() {
         CapBox capBox = new CapBox(logic.generateCap());
         capBoxPlaceholder.getChildren().add(capBox.getRoot());
     }
@@ -192,6 +196,8 @@ public class MainWindow extends UiPart<Stage> {
             if (commandResult.isExit()) {
                 handleExit();
             }
+
+            refreshCapDisplay();
 
             return commandResult;
         } catch (CommandException | ParseException e) {
