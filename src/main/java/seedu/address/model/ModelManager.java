@@ -12,6 +12,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.module.Module;
+import seedu.address.model.util.CapCalculator;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -148,4 +149,10 @@ public class ModelManager implements Model {
                 && filteredModules.equals(other.filteredModules);
     }
 
+    //=========== CAP Calculation ============================================================================
+    @Override
+    public String generateCap() {
+        double cap = CapCalculator.calculateCap(filteredModules);
+        return String.format("%.2f", cap);
+    }
 }

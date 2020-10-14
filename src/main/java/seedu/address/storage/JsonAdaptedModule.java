@@ -44,7 +44,7 @@ class JsonAdaptedModule {
      */
     public JsonAdaptedModule(Module source) {
         modName = source.getModuleName().fullModName;
-        grade = source.getGrade().value;
+        grade = source.getGrade().toString();
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));

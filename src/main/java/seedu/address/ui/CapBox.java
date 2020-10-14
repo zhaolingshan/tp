@@ -26,7 +26,7 @@ public class CapBox extends UiPart<Region> {
     }
 
     /**
-     * Set the display CAP's value
+     * Set the display CAP's value.
      *
      * @param currentCap
      */

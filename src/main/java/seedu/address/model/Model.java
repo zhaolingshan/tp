@@ -11,7 +11,9 @@ import seedu.address.model.module.Module;
  * The API of the Model component.
  */
 public interface Model {
-    /** {@code Predicate} that always evaluate to true */
+    /**
+     * {@code Predicate} that always evaluate to true
+     */
     Predicate<Module> PREDICATE_SHOW_ALL_MODULES = unused -> true;
 
     /**
@@ -49,7 +51,9 @@ public interface Model {
      */
     void setAddressBook(ReadOnlyAddressBook addressBook);
 
-    /** Returns the AddressBook */
+    /**
+     * Returns the AddressBook
+     */
     ReadOnlyAddressBook getAddressBook();
 
     /**
@@ -76,12 +80,17 @@ public interface Model {
      */
     void setModule(Module target, Module editedModule);
 
-    /** Returns an unmodifiable view of the filtered module list */
+    /**
+     * Returns an unmodifiable view of the filtered module list
+     */
     ObservableList<Module> getFilteredModuleList();
 
     /**
      * Updates the filter of the filtered module list to filter by the given {@code predicate}.
+     *
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredModuleList(Predicate<Module> predicate);
+
+    String generateCap();
 }
