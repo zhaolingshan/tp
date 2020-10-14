@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.module.CAP;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
@@ -44,7 +45,8 @@ class JsonAdaptedModule {
      */
     public JsonAdaptedModule(Module source) {
         modName = source.getModuleName().fullModName;
-        grade = source.getGrade().value;
+        CAP cap = source.getGrade().getCap();
+        grade = cap.getGradeString();
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));

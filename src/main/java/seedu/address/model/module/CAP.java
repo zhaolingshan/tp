@@ -13,16 +13,16 @@ public enum CAP {
     D("D",1.0),
     F("F",0.0);
 
-    private final String grade;
+    private final String gradeString;
     private final double gradePoint;
     
-    CAP(String grade, double gradePoint) {
-        this.grade = grade;
+    CAP(String gradeString, double gradePoint) {
+        this.gradeString = gradeString;
         this.gradePoint = gradePoint;
     }
 
-    public String getGrade() {
-        return grade;
+    public String getGradeString() {
+        return gradeString;
     }
 
     public double getGradePoint() {

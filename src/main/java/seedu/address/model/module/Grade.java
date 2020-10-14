@@ -40,7 +40,7 @@ public class Grade {
 
     public static boolean containsGrade(String test) {
         for (CAP c : CAP.values()) {
-            if (c.getGrade().equals(test)) {
+            if (c.getGradeString().equals(test)) {
                 return true;
             }
         }
@@ -53,7 +53,7 @@ public class Grade {
 
     @Override
     public String toString() {
-        return cap.getGrade();
+        return cap.getGradeString();
     }
 
     @Override
