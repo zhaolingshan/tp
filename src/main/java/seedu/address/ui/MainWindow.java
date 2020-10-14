@@ -34,6 +34,7 @@ public class MainWindow extends UiPart<Stage> {
     private ModuleListPanel moduleListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
+    private CapBox capBox;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -126,7 +127,7 @@ public class MainWindow extends UiPart<Stage> {
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
 
-        CapBox capBox = new CapBox(logic.generateCap());
+        capBox = new CapBox(logic.generateCap());
         capBoxPlaceholder.getChildren().add(capBox.getRoot());
     }
 
@@ -192,6 +193,8 @@ public class MainWindow extends UiPart<Stage> {
             if (commandResult.isExit()) {
                 handleExit();
             }
+
+            capBox.setCapDisplay(logic.generateCap());
 
             return commandResult;
         } catch (CommandException | ParseException e) {

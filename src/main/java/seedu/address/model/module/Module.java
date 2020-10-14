@@ -56,7 +56,7 @@ public class Module {
     }
 
     public boolean hasGrade() {
-        return hasGrade;
+        return hasGrade && !grade.toString().equals(Cap.getEmptyGrade());
     }
 
     /**
