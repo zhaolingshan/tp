@@ -22,7 +22,6 @@ public class CapBox extends UiPart<Region> {
     public CapBox(String currentCap) {
         super(FXML);
         setCapDisplay(currentCap);
-        currentCapDisplay.setFill(Color.WHITE);
     }
 
     /**
