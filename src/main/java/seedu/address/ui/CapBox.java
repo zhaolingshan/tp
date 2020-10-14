@@ -4,7 +4,6 @@ import static java.util.Objects.requireNonNull;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 /**
@@ -22,7 +21,6 @@ public class CapBox extends UiPart<Region> {
     public CapBox(String currentCap) {
         super(FXML);
         setCapDisplay(currentCap);
-        currentCapDisplay.setFill(Color.WHITE);
     }
 
     /**

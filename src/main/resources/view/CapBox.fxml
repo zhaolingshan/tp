@@ -4,6 +4,6 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Text?>
-<StackPane styleClass="stack-pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane styleClass="currentCapDisplay" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <Text fx:id="currentCapDisplay"/>
 </StackPane>
