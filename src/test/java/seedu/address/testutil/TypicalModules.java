@@ -31,17 +31,17 @@ public class TypicalModules {
     public static final Module COM_INFO = new ModuleBuilder().withName("ES2660 Communication in the Information Age")
             .withGrade("C").withTags("ES2660").build();
     public static final Module ASK_QN = new ModuleBuilder().withName("GEQ1000 Asking Questions")
-            .withGrade("GEQ1000").build();
+            .withGrade("C+").withTags("GEQ1000").build();
     public static final Module STATS = new ModuleBuilder().withName("ST2334 Probability and Statistics")
-            .withGrade("ST2334").build();
+            .withGrade("B").withTags("ST2334").build();
     public static final Module ALGO = new ModuleBuilder().withName("CS2040S Data Structures and Algorithms")
-            .withGrade("CS2040S").build();
+            .withGrade("B+").withTags("CS2040S").build();
 
     // Manually added
     public static final Module GEH = new ModuleBuilder().withName("GEH1036 Living with Mathematics")
-            .withGrade("A").build();
+            .withGrade("A").withTags("GEH").build();
     public static final Module GER = new ModuleBuilder().withName("GER1000 Quantitative Reasoning")
-            .withGrade("A").build();
+            .withGrade("A").withTags("GER").build();
 
     // Manually added - Module's details found in {@code CommandTestUtil}
     public static final Module MOD_A = new ModuleBuilder().withName(VALID_MOD_NAME_A)
@@ -52,7 +52,8 @@ public class TypicalModules {
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
-    private TypicalModules() {} // prevents instantiation
+    private TypicalModules() {
+    } // prevents instantiation
 
     /**
      * Returns an {@code AddressBook} with all the typical modules.

@@ -125,7 +125,7 @@ public class MainWindow extends UiPart<Stage> {
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
 
-        CapBox capBox = new CapBox("0");
+        CapBox capBox = new CapBox(logic.generateCap());
         capBoxPlaceholder.getChildren().add(capBox.getRoot());
     }
 

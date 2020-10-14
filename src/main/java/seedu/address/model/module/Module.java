@@ -51,9 +51,12 @@ public class Module {
         if (hasGrade) {
             return grade;
         } else {
-            String emptyGrade = "NA";
-            return new Grade(emptyGrade);
+            return new Grade(Cap.getEmptyGrade());
         }
+    }
+
+    public boolean hasGrade() {
+        return hasGrade;
     }
 
     /**
