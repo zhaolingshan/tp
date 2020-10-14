@@ -9,7 +9,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Grade {
 
-    public static final String MESSAGE_CONSTRAINTS = "Grades can take any values, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = 
+            "Grades can be either A+, A, A-, B+, B, B-, C+, C, D+, D or F, and it should not be blank";
 
     /*
      * The first character of the Grade must not be a whitespace,
@@ -17,7 +18,7 @@ public class Grade {
      */
     public static final String VALIDATION_REGEX = "[^\\s].*";
 
-    public final String value;
+    private final CAP cap;
 
     /**
      * Constructs an {@code Grade}.
@@ -27,31 +28,44 @@ public class Grade {
     public Grade(String grade) {
         requireNonNull(grade);
         checkArgument(isValidGrade(grade), MESSAGE_CONSTRAINTS);
-        value = grade;
+        cap = CAP.valueOf(grade);
     }
 
     /**
      * Returns true if a given string is a valid grade.
      */
     public static boolean isValidGrade(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return containsGrade(test) && test.matches(VALIDATION_REGEX);
+    }
+
+    public static boolean containsGrade(String test) {
+        for (CAP c : CAP.values()) {
+            if (c.getGrade().equals(test)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public CAP getCap() {
+        return cap;
     }
 
     @Override
     public String toString() {
-        return value;
+        return cap.getGrade();
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Grade // instanceof handles nulls
-                && value.equals(((Grade) other).value)); // state check
+                && cap.equals(((Grade) other).cap)); // state check
     }
 
     @Override
     public int hashCode() {
-        return value.hashCode();
+        return cap.hashCode();
     }
 
 }
