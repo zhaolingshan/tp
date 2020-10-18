@@ -9,5 +9,5 @@ public class CliSyntax {
     public static final Prefix PREFIX_MOD_NAME = new Prefix("--mod ");
     public static final Prefix PREFIX_GRADE = new Prefix("--grade ");
     public static final Prefix PREFIX_TAG = new Prefix("t/");
-
+    public static final Prefix PREFIX_MODULAR_CREDIT = new Prefix("--mc ");
 }

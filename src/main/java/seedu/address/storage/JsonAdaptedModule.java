@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.module.Grade;
+import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
@@ -24,6 +25,7 @@ class JsonAdaptedModule {
 
     private final String modName;
     private final String grade;
+    private final int modularCredit;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -31,12 +33,14 @@ class JsonAdaptedModule {
      */
     @JsonCreator
     public JsonAdaptedModule(@JsonProperty("name") String modName, @JsonProperty("address") String grade,
-                             @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+                             @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
+                             @JsonProperty("modularCredit") int modularCredit) {
         this.modName = modName;
         this.grade = grade;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
+        this.modularCredit = modularCredit;
     }
 
     /**
@@ -45,6 +49,7 @@ class JsonAdaptedModule {
     public JsonAdaptedModule(Module source) {
         modName = source.getModuleName().fullModName;
         grade = source.getGrade().toString();
+        modularCredit = source.getModularCredit().modularCredit;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -79,7 +84,10 @@ class JsonAdaptedModule {
         final Grade modelGrade = new Grade(grade);
 
         final Set<Tag> modelTags = new HashSet<>(moduleTags);
-        return new Module(modelModuleName, modelGrade, modelTags);
+
+        final ModularCredit modelModularCredit = new ModularCredit(modularCredit);
+
+        return new Module(modelModuleName, modelGrade, modelTags, modelModularCredit);
     }
 
 }

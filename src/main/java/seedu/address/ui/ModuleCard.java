@@ -44,7 +44,8 @@ public class ModuleCard extends UiPart<Region> {
         super(FXML);
         this.module = module;
         id.setText(displayedIndex + ". ");
-        moduleName.setText(module.getModuleName().fullModName);
+        moduleName.setText(module.getModuleName().fullModName + " (" + module.getModularCredit().modularCredit
+                + "MCs)");
         grade.setText(module.getGrade().toString());
         module.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))

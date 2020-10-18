@@ -20,31 +20,39 @@ public class Module {
 
     // Data fields
     private Grade grade;
+    private ModularCredit modularCredit;
     private final Set<Tag> tags = new HashSet<>();
     private boolean hasGrade;
 
     /**
      * Every field must be present and not null.
      */
-    public Module(ModuleName moduleName, Grade grade, Set<Tag> tags) {
+    public Module(ModuleName moduleName, Grade grade, Set<Tag> tags, ModularCredit modularCredit) {
         requireAllNonNull(moduleName, grade, tags);
         this.moduleName = moduleName;
+        this.modularCredit = modularCredit;
         this.grade = grade;
         this.tags.addAll(tags);
         hasGrade = true;
     }
 
     /**
-     * Grade field can be empty.
+     * Only grade field can be empty.
      */
-    public Module(ModuleName moduleName, Set<Tag> tags) {
+    public Module(ModuleName moduleName, Set<Tag> tags, ModularCredit modularCredit) {
         this.moduleName = moduleName;
         this.tags.addAll(tags);
+        this.modularCredit = modularCredit;
         hasGrade = false;
     }
 
+
     public ModuleName getModuleName() {
         return moduleName;
+    }
+
+    public ModularCredit getModularCredit() {
+        return modularCredit;
     }
 
     public Grade getGrade() {
