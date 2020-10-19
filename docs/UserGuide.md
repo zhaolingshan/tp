@@ -79,11 +79,11 @@ Examples:` `
 ### Deleting:` delete`
 Deletes a module in your modules list. If a grade is provided, the grade of the mod will be deleted instead. \
  \
-Format: `delete --mod MODULE_CODE` \
+Format: `delete MODULE_CODE` \
  \
 Examples:
-*   `delete --mod CS1101S`
-*   `delete --mod CS2103T`
+*   `delete CS1101S`
+*   `delete CS2103T`
 
 
 ### Exit Semester:` exit`
