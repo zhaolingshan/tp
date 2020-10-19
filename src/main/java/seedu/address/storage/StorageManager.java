@@ -10,6 +10,7 @@ import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.module.GoalTarget;
 
 /**
  * Manages storage of AddressBook data in local storage.
@@ -55,6 +56,11 @@ public class StorageManager implements Storage {
     }
 
     @Override
+    public GoalTarget getGoalTarget() throws DataConversionException {
+        return addressBookStorage.getGoalTarget();
+    }
+
+    @Override
     public Optional<ReadOnlyAddressBook> readAddressBook() throws DataConversionException, IOException {
         return readAddressBook(addressBookStorage.getAddressBookFilePath());
     }
@@ -66,14 +72,14 @@ public class StorageManager implements Storage {
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException {
-        saveAddressBook(addressBook, addressBookStorage.getAddressBookFilePath());
+    public void saveAddressBook(ReadOnlyAddressBook addressBook, GoalTarget goalTarget) throws IOException {
+        saveAddressBook(addressBook, addressBookStorage.getAddressBookFilePath(), goalTarget);
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
+    public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath, GoalTarget goalTarget) throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
-        addressBookStorage.saveAddressBook(addressBook, filePath);
+        addressBookStorage.saveAddressBook(addressBook, filePath, goalTarget);
     }
 
 }

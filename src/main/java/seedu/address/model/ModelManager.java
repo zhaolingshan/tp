@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.util.CapCalculator;
 
@@ -23,11 +24,12 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Module> filteredModules;
+    private GoalTarget goalTarget;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
+    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs, GoalTarget goalTarget) {
         super();
         requireAllNonNull(addressBook, userPrefs);
 
@@ -35,11 +37,12 @@ public class ModelManager implements Model {
 
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
+        this.goalTarget = goalTarget;
         filteredModules = new FilteredList<>(this.addressBook.getModuleList());
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs());
+        this(new AddressBook(), new UserPrefs(), new GoalTarget());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -154,5 +157,17 @@ public class ModelManager implements Model {
     public String generateCap() {
         double cap = CapCalculator.calculateCap(filteredModules);
         return String.format("%.2f", cap);
+    }
+
+    //=========== Goal Setting ===============================================================================
+    @Override
+    public void setGoalTarget(GoalTarget goalTarget) {
+        requireAllNonNull(goalTarget);
+        this.goalTarget = goalTarget;
+    }
+
+    @Override
+    public GoalTarget getGoalTarget() {
+        return goalTarget;
     }
 }

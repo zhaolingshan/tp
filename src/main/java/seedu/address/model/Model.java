@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 
 /**
@@ -93,4 +94,8 @@ public interface Model {
     void updateFilteredModuleList(Predicate<Module> predicate);
 
     String generateCap();
+
+    void setGoalTarget(GoalTarget goalTarget);
+
+    GoalTarget getGoalTarget();
 }
