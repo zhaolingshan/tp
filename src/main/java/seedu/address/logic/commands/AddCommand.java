@@ -22,7 +22,7 @@ public class AddCommand extends Command {
             + PREFIX_GRADE + "GRADE "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_MOD_NAME + "CS2103T Software Engineering "
+            + PREFIX_MOD_NAME + "CS2103T"
             + PREFIX_GRADE + "A+ "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
