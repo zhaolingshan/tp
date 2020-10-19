@@ -65,7 +65,8 @@ public class MainWindow extends UiPart<Stage> {
         this.primaryStage = primaryStage;
         this.logic = logic;
 
-        setStyleSheet("LightTheme");
+        //Set default theme
+        setStyleSheet("DarkTheme");
 
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
@@ -180,6 +181,16 @@ public class MainWindow extends UiPart<Stage> {
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
         primaryStage.hide();
+    }
+
+    @FXML
+    private void handleDarkThemeSelection() {
+        setStyleSheet("DarkTheme");
+    }
+
+    @FXML
+    private void handleLightThemeSelection() {
+        setStyleSheet("LightTheme");
     }
 
     public ModuleListPanel getModuleListPanel() {

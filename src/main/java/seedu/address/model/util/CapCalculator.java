@@ -37,7 +37,7 @@ public class CapCalculator {
         if (numOfModsWithGrades == 0) {
             return 0;
         }
-        
+
         return cap;
     }
 }

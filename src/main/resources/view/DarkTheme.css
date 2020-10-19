@@ -330,9 +330,13 @@
 #commandTextField {
     -fx-background-color: transparent #383838 transparent #383838;
     -fx-background-insets: 0;
+    -fx-border-color: grey grey #ffffff grey;
+    -fx-border-insets: 0;
+    -fx-border-width: 1;
     -fx-font-family: "Segoe UI Light";
-    -fx-font-size: 15pt;
+    -fx-font-size: 13pt;
     -fx-text-fill: white;
+    -fx-prompt-text-fill: grey;
 }
 
 #filterField, #personListPanel, #personWebpage {
