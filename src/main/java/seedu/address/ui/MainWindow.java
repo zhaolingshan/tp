@@ -77,6 +77,7 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     private void setStyleSheet(String cssFileName) {
+        assert cssFileName.equals("Dark") || cssFileName.equals("Light");
         Scene scene = primaryStage.getScene();
 
         String cssFile = MainWindow.class.getResource("/view/" + cssFileName + ".css").toExternalForm();
