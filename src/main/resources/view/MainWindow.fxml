@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Menu?>
@@ -18,15 +17,15 @@
   </icons>
   <scene>
     <Scene>
-      <stylesheets>
-        <URL value="@DarkTheme.css" />
-        <URL value="@Extensions.css" />
-      </stylesheets>
 
       <VBox>
         <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
           <Menu mnemonicParsing="false" text="File">
             <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+          </Menu>
+          <Menu mnemonicParsing="false" text="Theme">
+            <MenuItem fx:id="darkTheme" mnemonicParsing="false" onAction="#handleDarkThemeSelection" text="Dark" />
+            <MenuItem fx:id="lightTheme" mnemonicParsing="false" onAction="#handleLightThemeSelection" text="Light" />
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
@@ -42,7 +41,7 @@
 
           <StackPane HBox.hgrow="ALWAYS" fx:id="capBoxPlaceholder" styleClass="pane-with-border">
             <padding>
-              <Insets top="5" right="10" bottom="5" left="50"/>
+              <Insets top="15" right="30" bottom="15" left="40"/>
             </padding>
           </StackPane>
         </HBox>
