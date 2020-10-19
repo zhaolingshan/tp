@@ -33,6 +33,11 @@ public class CapCalculator {
             }
         }
         double cap = totalPoints / numOfModsWithGrades;
+
+        if (numOfModsWithGrades == 0) {
+            return 0;
+        }
+        
         return cap;
     }
 }
