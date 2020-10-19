@@ -154,16 +154,4 @@ public class EditCommandParserTest {
         expectedCommand = new EditCommand(nameFirstModule, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
     }
-
-    @Test
-    public void parse_resetTags_success() {
-        ModuleName moduleName = SWE.getModuleName();
-        String userInput = " " + PREFIX_MOD_NAME + moduleName.fullModName + TAG_EMPTY;
-
-        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder()
-                .withName(VALID_MOD_NAME_A).withGrade(NO_GRADE).withTags().build();
-        EditCommand expectedCommand = new EditCommand(moduleName, descriptor);
-
-        assertParseSuccess(parser, userInput, expectedCommand);
-    }
 }
