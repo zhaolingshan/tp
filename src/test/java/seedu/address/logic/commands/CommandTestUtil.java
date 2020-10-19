@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MODULAR_CREDIT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -24,12 +25,13 @@ import seedu.address.testutil.EditModNameDescriptorBuilder;
  */
 public class CommandTestUtil {
 
-    public static final String VALID_MOD_NAME_A = "CS2103T Software Engineering";
-    public static final String VALID_MOD_NAME_B = "CS2100 Computer Organisation";
+    public static final String VALID_MOD_NAME_A = "CS2103T";
+    public static final String VALID_MOD_NAME_B = "CS2100";
     public static final String VALID_GRADE_A = "A";
     public static final String VALID_GRADE_B = "B-";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
+    public static final int VALID_MODULAR_CREDIT = 4;
 
     public static final String MOD_NAME_DESC_A = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_A;
     public static final String MOD_NAME_DESC_B = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_B;
@@ -38,6 +40,7 @@ public class CommandTestUtil {
     public static final String GRADE_DESC_B = " " + PREFIX_GRADE + VALID_GRADE_B;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
+    public static final String MODULAR_CREDIT_DESC = " " + PREFIX_MODULAR_CREDIT + VALID_MODULAR_CREDIT;
 
     public static final String INVALID_MOD_NAME_DESC = " " + PREFIX_MOD_NAME + "James&"; // '&' not allowed in mod names
     public static final String INVALID_GRADE_DESC = " " + PREFIX_GRADE; // empty string not allowed for GRADES

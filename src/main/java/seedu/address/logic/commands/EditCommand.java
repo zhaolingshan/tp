@@ -19,6 +19,7 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.module.Grade;
+import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
@@ -92,8 +93,9 @@ public class EditCommand extends Command {
         ModuleName updatedModuleName = editModNameDescriptor.getName().orElse(moduleToEdit.getModuleName());
         Grade updatedGrade = editModNameDescriptor.getGrade().orElse(moduleToEdit.getGrade());
         Set<Tag> updatedTags = editModNameDescriptor.getTags().orElse(moduleToEdit.getTags());
-
-        return new Module(updatedModuleName, updatedGrade, updatedTags);
+        // modularCredit is not edited
+        ModularCredit modularCredit = moduleToEdit.getModularCredit();
+        return new Module(updatedModuleName, updatedGrade, updatedTags, modularCredit);
     }
 
     @Override

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.module.Grade;
+import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
@@ -16,10 +17,12 @@ public class ModuleBuilder {
 
     public static final String DEFAULT_NAME = "CS2103T Software Engineering";
     public static final String DEFAULT_GRADE = "A+";
+    public static final int DEFAULT_MODULAR_CREDIT = 4;
 
     private ModuleName moduleName;
     private Grade grade;
     private Set<Tag> tags;
+    private ModularCredit modularCredit;
 
     /**
      * Creates a {@code ModuleBuilder} with the default details.
@@ -28,6 +31,7 @@ public class ModuleBuilder {
         moduleName = new ModuleName(DEFAULT_NAME);
         grade = new Grade(DEFAULT_GRADE);
         tags = new HashSet<>();
+        modularCredit = new ModularCredit(DEFAULT_MODULAR_CREDIT);
     }
 
     /**
@@ -37,6 +41,7 @@ public class ModuleBuilder {
         moduleName = moduleToCopy.getModuleName();
         grade = moduleToCopy.getGrade();
         tags = new HashSet<>(moduleToCopy.getTags());
+        modularCredit = moduleToCopy.getModularCredit();
     }
 
     /**
@@ -63,8 +68,16 @@ public class ModuleBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code ModularCredit} of the {@code Module} that we are building.
+     */
+    public ModuleBuilder withModularCredit(int modularCredit) {
+        this.modularCredit = new ModularCredit(modularCredit);
+        return this;
+    }
+
     public Module build() {
-        return new Module(moduleName, grade, tags);
+        return new Module(moduleName, grade, tags, modularCredit);
     }
 
 }

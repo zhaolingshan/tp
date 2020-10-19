@@ -10,6 +10,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Grade;
+import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
 
@@ -46,6 +47,26 @@ public class ParserUtil {
             throw new ParseException(ModuleName.MESSAGE_CONSTRAINTS);
         }
         return new ModuleName(trimmedName);
+    }
+
+    /**
+     * Parses a {@code String modularCredit} into a {@code ModularCredit}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code name} is invalid and not an integer.
+     */
+    public static ModularCredit parseModularCredit(String modularCredit) throws ParseException {
+        requireNonNull(modularCredit);
+        String trimmedModularCredit = modularCredit.trim();
+        try {
+            int integerModularCredit = Integer.parseInt(trimmedModularCredit);
+            if (!ModularCredit.isValidModularCredit(integerModularCredit)) {
+                throw new ParseException(ModularCredit.MESSAGE_INVALID_MODULAR_CREDIT);
+            }
+            return new ModularCredit(integerModularCredit);
+        } catch (NumberFormatException e) {
+            throw new ParseException(ModularCredit.MESSAGE_INVALID_MODULAR_CREDIT);
+        }
     }
 
     /**

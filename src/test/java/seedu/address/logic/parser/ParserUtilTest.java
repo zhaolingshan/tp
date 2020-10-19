@@ -23,7 +23,7 @@ public class ParserUtilTest {
     private static final String INVALID_GRADE = " ";
     private static final String INVALID_TAG = "#friend";
 
-    private static final String VALID_MOD_NAME = "CS2100 Computer Organisation";
+    private static final String VALID_MOD_NAME = "CS2100";
     private static final String VALID_GRADE = "A+";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";

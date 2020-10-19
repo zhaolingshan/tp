@@ -20,6 +20,7 @@ public class DeleteCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsDeleteCommand() {
-        assertParseSuccess(parser, "CS2100 Computer Organisation", new DeleteCommand(COM_ORG.getModuleName()));
+        System.out.println(new DeleteCommand(COM_ORG.getModuleName()));
+        assertParseSuccess(parser, "CS2100", new DeleteCommand(COM_ORG.getModuleName()));
     }
 }
