@@ -18,10 +18,10 @@
   </icons>
   <scene>
     <Scene>
-      <stylesheets>
-        <URL value="@DarkTheme.css" />
-        <URL value="@Extensions.css" />
-      </stylesheets>
+<!--      <stylesheets>-->
+<!--        <URL value="@DarkTheme.css" />-->
+<!--        <URL value="@ExtensionsDark.css" />-->
+<!--      </stylesheets>-->
 
       <VBox>
         <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
@@ -42,7 +42,7 @@
 
           <StackPane HBox.hgrow="ALWAYS" fx:id="capBoxPlaceholder" styleClass="pane-with-border">
             <padding>
-              <Insets top="5" right="10" bottom="5" left="50"/>
+              <Insets top="15" right="10" bottom="5" left="50"/>
             </padding>
           </StackPane>
         </HBox>
