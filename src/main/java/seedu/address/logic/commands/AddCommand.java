@@ -19,7 +19,7 @@ public class AddCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a module to your module list. "
             + "Parameters: "
             + PREFIX_MOD_NAME + "NAME "
-            + PREFIX_GRADE + "GRADE "
+            + "[" + PREFIX_GRADE + "GRADE] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_MOD_NAME + "CS2103T Software Engineering "

@@ -13,6 +13,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.module.Module;
 import seedu.address.model.util.CapCalculator;
+import seedu.address.model.util.McCalculator;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -150,9 +151,22 @@ public class ModelManager implements Model {
     }
 
     //=========== CAP Calculation ============================================================================
+
     @Override
-    public String generateCap() {
-        double cap = CapCalculator.calculateCap(filteredModules);
+    public String generateCapAsString() {
+        double cap = generateCap();
         return String.format("%.2f", cap);
+    }
+
+    @Override
+    public double generateCap() {
+        return CapCalculator.calculateCap(filteredModules);
+    }
+
+    //=========== MC Calculation =============================================================================
+
+    @Override
+    public int getCurrentMc() {
+        return McCalculator.calculateMc(filteredModules);
     }
 }

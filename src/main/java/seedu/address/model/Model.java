@@ -92,5 +92,18 @@ public interface Model {
      */
     void updateFilteredModuleList(Predicate<Module> predicate);
 
-    String generateCap();
+    /**
+     * Returns the current CAP as a string.
+     */
+    String generateCapAsString();
+
+    /**
+     * Returns the current CAP as a double.
+     */
+    double generateCap();
+
+    /**
+     * Returns the total number of MCs as an integer .
+     */
+    int getCurrentMc();
 }
