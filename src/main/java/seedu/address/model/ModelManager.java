@@ -4,16 +4,20 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
+import javafx.collections.ModifiableObservableListBase;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.module.Module;
 import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.util.CapCalculator;
+import seedu.address.model.util.ModuleListFilter;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -130,6 +134,24 @@ public class ModelManager implements Model {
         requireNonNull(predicate);
         filteredModules.setPredicate(predicate);
     }
+    
+    @Override
+    public void filterModuleListBySem() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        Semester currentSemester = semesterManager.getCurrentSemester();
+        Predicate<Module> predicate = module -> module.getSemester().equals(currentSemester);
+        updateFilteredModuleList(predicate);
+    }
+
+    /**
+     * Filters the module list according to semester.
+     * 
+     * @return the filtered list of modules by semester.
+     */
+    @Override
+    public FilteredList<Module> filterModuleList() {
+        return ModuleListFilter.filterModulesBySemester(filteredModules);
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -151,6 +173,11 @@ public class ModelManager implements Model {
     }
 
     //=========== CAP Calculation ============================================================================
+
+    /**
+     * Calculates the CAP of the current list of modules.
+     * @return a string representation of the cap to 2 significant figures.
+     */
     @Override
     public String generateCap() {
         double cap = CapCalculator.calculateCap(filteredModules);

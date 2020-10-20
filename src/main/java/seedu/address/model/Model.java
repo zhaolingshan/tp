@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -92,5 +93,19 @@ public interface Model {
      */
     void updateFilteredModuleList(Predicate<Module> predicate);
 
+    /**
+     * Filters the module list by semester.
+     *
+     * @return the filtered list of modules by semester.
+     */
+    ObservableList<Module> filterModuleList();
+
+    void filterModuleListBySem();
+
+    /**
+     * Calculates the cap of the list of modules.
+     *
+     * @return a string representation of the cap to 2 significant figures.
+     */
     String generateCap();
 }

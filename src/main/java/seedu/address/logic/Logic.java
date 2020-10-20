@@ -1,6 +1,7 @@
 package seedu.address.logic;
 
 import java.nio.file.Path;
+import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
@@ -51,5 +52,17 @@ public interface Logic {
      */
     void setGuiSettings(GuiSettings guiSettings);
 
+    /**
+     * Returns the cap calculated from the list of modules.
+     * @return a string representation of the cap to 2 significant figures.
+     */
     String generateCap();
+
+    /**
+     * Returns the filtered list of modules by semester.
+     * @return the filtered module list according to semester.
+     */
+    ObservableList<Module> filterModuleList();
+
+    ObservableList<Module> filterModuleListBySem();
 }

@@ -2,6 +2,7 @@ package seedu.address.logic;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -79,8 +80,29 @@ public class LogicManager implements Logic {
         model.setGuiSettings(guiSettings);
     }
 
+    /**
+     * Generates the cap calculated from the list of modules.
+     *
+     * @return a string representation of the cap to 2 significant figures.
+     */
     @Override
     public String generateCap() {
         return model.generateCap();
+    }
+
+    /**
+     * Filters the module list according to semester.
+     *
+     * @return the filtered list of modules by semester.
+     */
+    @Override
+    public ObservableList<Module> filterModuleList() {
+        return model.filterModuleList();
+    }
+    
+    @Override
+    public ObservableList<Module> filterModuleListBySem() {
+        model.filterModuleListBySem();
+        return model.getFilteredModuleList();
     }
 }

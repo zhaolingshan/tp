@@ -6,8 +6,11 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.*;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 
 /**
  * Parses user input.
@@ -34,6 +37,13 @@ public class AddressBookParser {
 
         final String commandWord = matcher.group("commandWord");
         final String arguments = matcher.group("arguments");
+
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        Semester semester = semesterManager.getCurrentSemester();
+        if (semester == Semester.NA) {
+            throw new ParseException(Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
+        }
+        
         switch (commandWord) {
 
         case AddCommand.COMMAND_WORD:

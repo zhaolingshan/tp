@@ -116,6 +116,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     void fillInnerParts() {
         moduleListPanel = new ModuleListPanel(logic.getFilteredModuleList());
+        //moduleListPanel = new ModuleListPanel(logic.filterModuleListBySem());
         moduleListPanelPlaceholder.getChildren().add(moduleListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
