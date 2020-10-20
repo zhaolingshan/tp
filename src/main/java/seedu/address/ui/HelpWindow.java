@@ -24,6 +24,8 @@ public class HelpWindow extends UiPart<Stage> {
     private static final String listCommandFormat = "list [--sem SEMESTER]\n";
     private static final String suCommandFormat = "s/u --mod MODULE_CODE\n";
     private static final String deleteCommandFormat = "delete --mod MODULE_CODE\n";
+    private static final String findCommandFormat = "find --mod MODULE_CODE\n";
+    private static final String helpCommandFormat = "help\n";
     private static final String exitCommandFormat = "exit --mod MODULE_CODE\n";
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
@@ -58,6 +60,8 @@ public class HelpWindow extends UiPart<Stage> {
                 + listCommandFormat
                 + suCommandFormat
                 + deleteCommandFormat
+                + findCommandFormat
+                + helpCommandFormat
                 + exitCommandFormat;
 
         helpCommands.setText(helpCommandList);
