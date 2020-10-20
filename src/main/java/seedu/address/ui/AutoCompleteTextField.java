@@ -1,23 +1,22 @@
 package seedu.address.ui;
 
-import javafx.geometry.Side;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.CustomMenuItem;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+import javafx.geometry.Side;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.CustomMenuItem;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
 /**
  * This class is a TextField which implements an "autocomplete" functionality, based on a supplied list of entries.
  * @author Caleb Brinkman
  */
-public class AutoCompleteTextField extends TextField
-{
+public class AutoCompleteTextField extends TextField {
     /** The existing autocomplete entries. */
     private final SortedSet<String> entries;
     /** The popup used to select an entry. */
@@ -29,24 +28,20 @@ public class AutoCompleteTextField extends TextField
         entries = new TreeSet<>();
         entriesPopup = new ContextMenu();
         textProperty().addListener((observableValue, s, s2) -> {
-            if (getText().length() == 0)
-            {
+            if (getText().length() == 0) {
                 entriesPopup.hide();
-            } else
-            {
+            } else {
                 LinkedList<String> searchResult = new LinkedList<>();
-                final List<String> filteredEntries
-                        = entries.stream().filter(e -> e.toLowerCase().contains(getText().toLowerCase())).collect(Collectors.toList());
+                final List<String> filteredEntries =
+                        entries.stream().filter(e -> e.toLowerCase()
+                                        .contains(getText().toLowerCase())).collect(Collectors.toList());
                 searchResult.addAll(filteredEntries);
-                if (entries.size() > 0)
-                {
+                if (entries.size() > 0) {
                     populatePopup(searchResult);
-                    if (!entriesPopup.isShowing())
-                    {
+                    if (!entriesPopup.isShowing()) {
                         entriesPopup.show(AutoCompleteTextField.this, Side.BOTTOM, 0, 0);
                     }
-                } else
-                {
+                } else {
                     entriesPopup.hide();
                 }
             }
@@ -71,7 +66,9 @@ public class AutoCompleteTextField extends TextField
      * Get the existing set of autocomplete entries.
      * @return The existing autocomplete entries.
      */
-    public SortedSet<String> getEntries() { return entries; }
+    public SortedSet<String> getEntries() {
+        return entries;
+    }
 
     /**
      * Populate the entry set with the given search results.  Display is limited to 10 entries, for performance.
