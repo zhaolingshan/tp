@@ -15,6 +15,8 @@ import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -37,32 +39,34 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
         ModuleName moduleName = ParserUtil.parseName(argMultimap.getValue(PREFIX_MOD_NAME).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        Semester semester = semesterManager.getCurrentSemester();
         Module module;
         if (!arePrefixesPresent(argMultimap, PREFIX_GRADE) && arePrefixesPresent(argMultimap, PREFIX_MODULAR_CREDIT)) {
             // modular credit is inputted, grade is NOT inputted
             ModularCredit modularCredit = ParserUtil.parseModularCredit(
                     argMultimap.getValue(PREFIX_MODULAR_CREDIT).get());
-            module = new Module(moduleName, tagList, modularCredit);
+            module = new Module(moduleName, tagList, modularCredit, semester);
 
         } else if (!arePrefixesPresent(argMultimap, PREFIX_MODULAR_CREDIT)
                 && arePrefixesPresent(argMultimap, PREFIX_GRADE)) {
             // grade is inputted, modular credit is NOT inputted
             Grade grade = ParserUtil.parseGrade(argMultimap.getValue(PREFIX_GRADE).get());
             ModularCredit modularCredit = new ModularCredit(moduleName.fullModName);
-            module = new Module(moduleName, grade, tagList, modularCredit);
+            module = new Module(moduleName, grade, tagList, modularCredit, semester);
 
         } else if (!arePrefixesPresent(argMultimap, PREFIX_MODULAR_CREDIT)
                 && !arePrefixesPresent(argMultimap, PREFIX_GRADE)) {
             // both grade and modular credit are not inputted
             ModularCredit modularCredit = new ModularCredit(moduleName.fullModName);
-            module = new Module(moduleName, tagList, modularCredit);
+            module = new Module(moduleName, tagList, modularCredit, semester);
 
         } else {
             // all fields are inputted
             Grade grade = ParserUtil.parseGrade(argMultimap.getValue(PREFIX_GRADE).get());
             ModularCredit modularCredit = ParserUtil.parseModularCredit(
                     argMultimap.getValue(PREFIX_MODULAR_CREDIT).get());
-            module = new Module(moduleName, grade, tagList, modularCredit);
+            module = new Module(moduleName, grade, tagList, modularCredit, semester);
         }
 
         return new AddCommand(module);

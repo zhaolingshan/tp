@@ -1,22 +1,7 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtil.GRADE_DESC_A;
-import static seedu.address.logic.commands.CommandTestUtil.GRADE_DESC_B;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_GRADE_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_MOD_NAME_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.MODULAR_CREDIT_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.MOD_NAME_DESC_A;
-import static seedu.address.logic.commands.CommandTestUtil.MOD_NAME_DESC_B;
-import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_NON_EMPTY;
-import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
-import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_MODULAR_CREDIT;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_B;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.*;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.testutil.TypicalModules.MOD_A;
@@ -37,33 +22,33 @@ public class AddCommandParserTest {
     @Test
     public void parse_allFieldsPresent_success() {
         Module expectedModule = new ModuleBuilder(MOD_B).withTags(VALID_TAG_FRIEND)
-                .withModularCredit(VALID_MODULAR_CREDIT).build();
+                .withModularCredit(VALID_MODULAR_CREDIT).withSemester(VALID_SEMESTER.toString()).build();
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + MOD_NAME_DESC_B
-                + GRADE_DESC_B + TAG_DESC_FRIEND + MODULAR_CREDIT_DESC, new AddCommand(expectedModule));
+                + GRADE_DESC_B + TAG_DESC_FRIEND + MODULAR_CREDIT_DESC + SEMESTER_DESC, new AddCommand(expectedModule));
 
         // multiple names - last name accepted
         assertParseSuccess(parser, MOD_NAME_DESC_A + MOD_NAME_DESC_B
-                + GRADE_DESC_B + TAG_DESC_FRIEND + MODULAR_CREDIT_DESC, new AddCommand(expectedModule));
+                + GRADE_DESC_B + TAG_DESC_FRIEND + MODULAR_CREDIT_DESC + SEMESTER_DESC, new AddCommand(expectedModule));
 
         // multiple addresses - last address accepted
         assertParseSuccess(parser, MOD_NAME_DESC_B + GRADE_DESC_A
-                + GRADE_DESC_B + TAG_DESC_FRIEND + MODULAR_CREDIT_DESC, new AddCommand(expectedModule));
+                + GRADE_DESC_B + TAG_DESC_FRIEND + MODULAR_CREDIT_DESC + SEMESTER_DESC, new AddCommand(expectedModule));
 
         // multiple tags - all accepted
         Module expectedModuleMultipleTags = new ModuleBuilder(MOD_B).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
                 .build();
         assertParseSuccess(parser, MOD_NAME_DESC_B + GRADE_DESC_B
-                + TAG_DESC_HUSBAND + TAG_DESC_FRIEND + MODULAR_CREDIT_DESC, new AddCommand(expectedModuleMultipleTags));
+                + TAG_DESC_HUSBAND + TAG_DESC_FRIEND + MODULAR_CREDIT_DESC + SEMESTER_DESC, new AddCommand(expectedModuleMultipleTags));
     }
 
     @Test
     public void parse_optionalFieldsMissing_success() {
         // zero tags
         Module expectedModule = new ModuleBuilder(MOD_A).withTags()
-                .withModularCredit(VALID_MODULAR_CREDIT).build();
-        assertParseSuccess(parser, MOD_NAME_DESC_A + GRADE_DESC_A + MODULAR_CREDIT_DESC,
+                .withModularCredit(VALID_MODULAR_CREDIT).withSemester(VALID_SEMESTER.toString()).build();
+        assertParseSuccess(parser, MOD_NAME_DESC_A + GRADE_DESC_A + MODULAR_CREDIT_DESC + SEMESTER_DESC,
                 new AddCommand(expectedModule));
     }
 

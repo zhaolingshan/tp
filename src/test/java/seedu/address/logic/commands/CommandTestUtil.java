@@ -18,6 +18,7 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
+import seedu.address.model.semester.Semester;
 import seedu.address.testutil.EditModNameDescriptorBuilder;
 
 /**
@@ -32,6 +33,7 @@ public class CommandTestUtil {
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
     public static final int VALID_MODULAR_CREDIT = 4;
+    public static final Semester VALID_SEMESTER = Semester.Y1S1;
 
     public static final String MOD_NAME_DESC_A = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_A;
     public static final String MOD_NAME_DESC_B = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_B;
@@ -41,6 +43,7 @@ public class CommandTestUtil {
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
     public static final String MODULAR_CREDIT_DESC = " " + PREFIX_MODULAR_CREDIT + VALID_MODULAR_CREDIT;
+    public static final String SEMESTER_DESC = " " + VALID_SEMESTER.toString();
 
     public static final String INVALID_MOD_NAME_DESC = " " + PREFIX_MOD_NAME + "James&"; // '&' not allowed in mod names
     public static final String INVALID_GRADE_DESC = " " + PREFIX_GRADE; // empty string not allowed for GRADES
