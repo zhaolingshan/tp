@@ -16,10 +16,21 @@ import seedu.address.commons.core.LogsCenter;
 public class HelpWindow extends UiPart<Stage> {
 
     public static final String USERGUIDE_URL = "https://ay2021s1-cs2103t-t17-1.github.io/tp/UserGuide.html";
-    public static final String HELP_MESSAGE = "Refer to the user guide: " + USERGUIDE_URL;
+    public static final String HELP_MESSAGE = "OR, refer to the user guide: " + USERGUIDE_URL;
+
+    private static final String startCommandFormat = "start --sem SEMESTER\n";
+    private static final String addCommandFormat = "add --mod MODULE_CODE [--grade GRADE]\n";
+    private static final String updateCommandFormat = "update --mod MODULE_CODE [--grade GRADE]\n";
+    private static final String listCommandFormat = "list [--sem SEMESTER]\n";
+    private static final String suCommandFormat = "s/u --mod MODULE_CODE\n";
+    private static final String deleteCommandFormat = "delete --mod MODULE_CODE\n";
+    private static final String exitCommandFormat = "exit --mod MODULE_CODE\n";
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
+    
+    @FXML
+    private Label helpCommands;
 
     @FXML
     private Button copyButton;
@@ -35,6 +46,21 @@ public class HelpWindow extends UiPart<Stage> {
     public HelpWindow(Stage root) {
         super(FXML, root);
         helpMessage.setText(HELP_MESSAGE);
+        setHelpCommands();
+    }
+
+    private void setHelpCommands() {
+        String helpCommandList
+                = "Formats:\n"
+                + startCommandFormat
+                + addCommandFormat
+                + updateCommandFormat
+                + listCommandFormat
+                + suCommandFormat
+                + deleteCommandFormat
+                + exitCommandFormat;
+
+        helpCommands.setText(helpCommandList);
     }
 
     /**
