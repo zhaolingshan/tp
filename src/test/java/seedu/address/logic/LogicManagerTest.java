@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.CommandTestUtil.GRADE_DESC_A;
+import static seedu.address.logic.commands.CommandTestUtil.MODULAR_CREDIT_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.MOD_NAME_DESC_A;
+import static seedu.address.logic.commands.CommandTestUtil.SEMESTER_DESC;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.MOD_A;
 
@@ -25,6 +27,8 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.module.Module;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.storage.JsonAddressBookStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.StorageManager;
@@ -56,6 +60,8 @@ public class LogicManagerTest {
 
     @Test
     public void execute_commandExecutionError_throwsCommandException() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y1S1);
         String deleteCommand = "delete some mod";
         assertCommandException(deleteCommand, MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
     }
@@ -77,9 +83,12 @@ public class LogicManagerTest {
         logic = new LogicManager(model, storage);
 
         // Execute add command
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y1S1);
         String addCommand = AddCommand.COMMAND_WORD + MOD_NAME_DESC_A
                 + GRADE_DESC_A;
-        Module expectedModule = new ModuleBuilder(MOD_A).withTags().build();
+        Module expectedModule = new ModuleBuilder(MOD_A)
+                .withTags().withGrade("A").withSemester(Semester.Y1S1.toString()).build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addModule(expectedModule);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;
@@ -96,10 +105,11 @@ public class LogicManagerTest {
      * - no exceptions are thrown <br>
      * - the feedback message is equal to {@code expectedMessage} <br>
      * - the internal model manager state is the same as that in {@code expectedModel} <br>
+     *
      * @see #assertCommandFailure(String, Class, String, Model)
      */
     private void assertCommandSuccess(String inputCommand, String expectedMessage,
-            Model expectedModel) throws CommandException, ParseException {
+                                      Model expectedModel) throws CommandException, ParseException {
         CommandResult result = logic.execute(inputCommand);
         assertEquals(expectedMessage, result.getFeedbackToUser());
         assertEquals(expectedModel, model);
@@ -107,6 +117,7 @@ public class LogicManagerTest {
 
     /**
      * Executes the command, confirms that a ParseException is thrown and that the result message is correct.
+     *
      * @see #assertCommandFailure(String, Class, String, Model)
      */
     private void assertParseException(String inputCommand, String expectedMessage) {
@@ -115,6 +126,7 @@ public class LogicManagerTest {
 
     /**
      * Executes the command, confirms that a CommandException is thrown and that the result message is correct.
+     *
      * @see #assertCommandFailure(String, Class, String, Model)
      */
     private void assertCommandException(String inputCommand, String expectedMessage) {
@@ -123,10 +135,11 @@ public class LogicManagerTest {
 
     /**
      * Executes the command, confirms that the exception is thrown and that the result message is correct.
+     *
      * @see #assertCommandFailure(String, Class, String, Model)
      */
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
-            String expectedMessage) {
+                                      String expectedMessage) {
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         assertCommandFailure(inputCommand, expectedException, expectedMessage, expectedModel);
     }
@@ -136,10 +149,11 @@ public class LogicManagerTest {
      * - the {@code expectedException} is thrown <br>
      * - the resulting error message is equal to {@code expectedMessage} <br>
      * - the internal model manager state is the same as that in {@code expectedModel} <br>
+     *
      * @see #assertCommandSuccess(String, String, Model)
      */
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
-            String expectedMessage, Model expectedModel) {
+                                      String expectedMessage, Model expectedModel) {
         assertThrows(expectedException, expectedMessage, () -> logic.execute(inputCommand));
         assertEquals(expectedModel, model);
     }
