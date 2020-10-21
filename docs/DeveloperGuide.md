@@ -205,6 +205,49 @@ Step 4: The new module constructor is executed with the following arguments,
 and the new module with modular credit information is saved to storage.
 
 ### Recommend S/U:
+#### Implementation
+The Recommend S/U feature works in conjunction with the goal-setting feature. 
+MyMods will recommend modules to S/U based on the goal that the user has set and the user’s grade. \
+\
+The implementation of goal-setting is first done by introducing a new model class - ```GoalTarget```. 
+The ```GoalTarget``` class models the 6 different levels following the Honours Classification in NUS. 
+For the user to set their goal, there is a ```SetCommand``` class under the logic commands. 
+There will be two different variants of the goal command, there is a ```SetCommandParser``` class under parser to 
+handle the different user’s input: ```goal --set``` and ```goal --list```. 
+The goal of the user will update a field under ```ModelManager```. \
+\
+User’s goal will be written to and can be read from the ```addressbook.json``` file under the attribute 
+“```goalTarget```” which will store a default value of ```0```. \
+\
+To implement the command ```RecommendSU```, a class ```RecommendSuCommand``` is introduced in logic commands. 
+To determine which module to recommend the user to S/U the method ```RecommendSuCommand#filterModule()``` will 
+retrieve the user’s goal and modules and filter using the following three conditions:
+1. ```RecommendSuCommand#isModSuAble()``` -- Checks if module can be S/U by NUS based on data 
+file ```moduleInfo.json```. \
+2. ```RecommendSuCommand#isGradeBelowGoal()``` -- Checks if the grade of the module is below the lower bound of the 
+goal. \
+3. ```RecommendSuCommand#isGradeAboveC()``` -- Checks if the grade of the module is C and above. \
+\
+#### Design Considerations:
+Aspect: How to represent the different levels of goals (Highest Distinction, Distinction, Merit, Honours, Pass, Fail) \
+* Alternative 1 (current choice): Labels each level with a number 1 to 6 and the user inputs the level number to 
+set the goal. \
+    * Pros: \
+        1. Using number to label the goals is easier for the user to type 
+        (eg: ```goal --set 2``` instead of ```goal --set distinction```) \
+        2. Using an integer value is more efficient for comparison as compared to a String. \
+    * Cons: \
+        1. Difficult for the user to know which level represents which goal. \
+* Alternative 2: User key in the full name of the goal level. \
+    * Pros: \
+        1. User knows what to key in without referring. \
+    * Cons: \
+        1. It is longer for the user to type. \
+* Justification of choosing Alternative 1: Having a shorter command will be easier for the user. 
+To solve the con of the user not sure on which level represents which goal, the command “```goal --list```” is 
+provided.
+
+
 
 ### Dark/Light Mode:
 
