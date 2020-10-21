@@ -66,7 +66,7 @@ public class MainWindow extends UiPart<Stage> {
         this.logic = logic;
 
         //Set default theme
-        setStyleSheet("DarkTheme");
+        setStyleSheet("LightTheme");
 
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
