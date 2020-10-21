@@ -166,8 +166,51 @@ Use case ends.
     *   1a1. MyMods shows an error message suggesting user to add modules \
 Use case ends.
 
-_{More to be added}_
 
+
+#Implementations 
+This section describes some noteworthy details on how certain features are implemented.
+
+### Obtaining module information automatically:
+This feature is facilitated by ```ModuleInfoRetriever```, and is used to obtain the number of modular credits 
+when you are adding a module, or the “su” status of the module when you are recommending S/U options. 
+
+It implements the following operation:
+```ModuleInfoRetriever#retrieve(String moduleName)``` - Returns a HashMap containing module-related information.
+
+Given below is an example usage scenario and how obtaining module information is used and integrated into 
+the ```add``` command.
+
+Step 1: The users executes ```add --mod CS1101S --grade A+```, the add command executes 
+```Logic#execute(“add --mod CS1101S --grade A+”)```
+
+Step 2: Logic uses the ```AddCommandParser``` class to parse the command. 
+```AddCommandParser#parse(“add --mod CS1101S --grade A+”)``` is executed, which then executes 
+```(ModuleInfoRetriever#retrieve(“CS1101S”)``` to retrieve the number of modular credits CS1101S has.
+
+Step 3: During the call of ```ModuleInfoRetriever#retrieve(“CS1101S”)``` , it parses the JSON file 
+```moduleInfo.json```, and searches the file for “moduleCode” : “CS1101S”, retrieving the following information, 
+returning it as a HashMap. 
+\
+\
+Title: “Programming Methodology”
+\
+moduleCredit: 4
+\
+SU: True
+An exception is thrown if the module is not found.
+
+Step 4: The new module constructor is executed with the following arguments, 
+```new Module(“CS1101S”, “A+”, Set<Tag>(), 4, Y2S1)```. An AddCommand object is then returned with the module, 
+and the new module with modular credit information is saved to storage.
+
+### Recommend S/U:
+
+### Dark/Light Mode:
+
+### Start Semester:
+
+### Show progress towards target CAP:
 
 # Non-Functional Requirements
 
