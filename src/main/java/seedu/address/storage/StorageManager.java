@@ -77,7 +77,8 @@ public class StorageManager implements Storage {
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath, GoalTarget goalTarget) throws IOException {
+    public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath, GoalTarget goalTarget)
+            throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
         addressBookStorage.saveAddressBook(addressBook, filePath, goalTarget);
     }

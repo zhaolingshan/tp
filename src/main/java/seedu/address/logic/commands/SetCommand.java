@@ -1,12 +1,14 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_LIST_GOAL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SET_GOAL;
+
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.module.GoalTarget;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_LIST_GOAL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_SET_GOAL;
+
 
 /**
  * Set the goal of the user for S/U recommendations.

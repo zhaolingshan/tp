@@ -40,6 +40,10 @@ public class GoalTarget {
 
     public final int goalTarget;
 
+    /**
+     * Constructor for GoalTarget class.
+     * @param goalTarget Sets the level of the goal based on Honour's Grading System.
+     */
     public GoalTarget(int goalTarget) {
         requireNonNull(goalTarget);
         checkArgument(isValidGoal(goalTarget), MESSAGE_CONSTRAINTS);

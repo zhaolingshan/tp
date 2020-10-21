@@ -1,5 +1,7 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.module.Cap;
@@ -7,19 +9,19 @@ import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.util.ModuleInfoRetriever;
 
-import static java.util.Objects.requireNonNull;
+
 
 /**
  * Recommend modules to S/U based on user's goal.
  */
 public class RecommendSuCommand extends Command {
     public static final String COMMAND_WORD = "recommendSU";
-    public static final String MESSAGE_SUCCESS = "Here's the list of module(s) that we recommend to S/U!\n" +
-            "Use command 'list' to view all modules again.";
-    public static final String MESSAGE_SUCCESS_NO_RECOMMENDATION = "Looks like there is no module that we " +
-            "recommend to S/U based on your goal!";
-    public static final String MESSAGE_FAILURE = "Please key in your goal using 'goal' command for " +
-            "S/U recommendations!";
+    public static final String MESSAGE_SUCCESS = "Here's the list of module(s) that we recommend to S/U!\n"
+            + "Use command 'list' to view all modules again.";
+    public static final String MESSAGE_SUCCESS_NO_RECOMMENDATION = "Looks like there is no module that we "
+            + "recommend to S/U based on your goal!";
+    public static final String MESSAGE_FAILURE = "Please key in your goal using 'goal' command for "
+            + "S/U recommendations!";
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
@@ -32,7 +34,7 @@ public class RecommendSuCommand extends Command {
 
         filterModule(model, userGoal);
 
-       return getCommandResult(model);
+        return getCommandResult(model);
     }
 
     /**
@@ -54,8 +56,7 @@ public class RecommendSuCommand extends Command {
      * @param goal User's goal.
      */
     private void filterModule(Model model, GoalTarget goal) {
-        model.updateFilteredModuleList(x
-                -> isRecommendSu(goal, x));
+        model.updateFilteredModuleList(x -> isRecommendSu(goal, x));
     }
 
     /**

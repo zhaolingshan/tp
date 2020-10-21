@@ -64,7 +64,7 @@ class JsonSerializableAddressBook {
         return addressBook;
     }
 
-    @JsonProperty(value="goalTarget")
+    @JsonProperty(value = "goalTarget")
     public GoalTarget getGoalTarget() {
         return goalTarget;
     }

@@ -1,15 +1,14 @@
 package seedu.address.logic.parser;
 
-import seedu.address.logic.commands.CommandResult;
-import seedu.address.logic.commands.SetCommand;
-import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.module.GoalTarget;
-
-import java.util.stream.Stream;
-
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_LIST_GOAL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SET_GOAL;
+
+import java.util.stream.Stream;
+
+import seedu.address.logic.commands.SetCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.module.GoalTarget;
 
 /**
  * Parses input arguments and creates a new SetCommand object
