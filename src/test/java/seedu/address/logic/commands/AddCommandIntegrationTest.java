@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 
 /**
@@ -20,7 +21,7 @@ public class AddCommandIntegrationTest {
 
     @BeforeEach
     public void setUp() {
-        model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+        model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new GoalTarget());
     }
 
     // Commented away because test fails and not sure how to make it work - Aug
