@@ -11,6 +11,7 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.CustomMenuItem;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseButton;
 
 /**
  * This class is a TextField which implements an "autocomplete" functionality, based on a supplied list of entries.
@@ -58,7 +59,9 @@ public class AutoCompleteTextField extends TextField {
             LinkedList<String> searchResult = new LinkedList<>();
             searchResult.addAll(entries);
             populatePopup(searchResult);
-            entriesPopup.show(AutoCompleteTextField.this, Side.BOTTOM, 0, 0);
+            if (!entriesPopup.isShowing() && arg.getButton().equals(MouseButton.PRIMARY) && getText().isEmpty()) {
+                entriesPopup.show(AutoCompleteTextField.this, Side.BOTTOM, 0, 0);
+            }
         });
     }
 
