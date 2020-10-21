@@ -1,6 +1,8 @@
 package seedu.address.logic.commands;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.HelpCommand.SHOWING_HELP_MESSAGE;
+import static seedu.address.logic.commands.RecommendSuCommand.MESSAGE_SUCCESS_NO_RECOMMENDATION;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +29,8 @@ public class RecommendSuCommandTest {
 
     @Test
     public void execute_recommendSu_showList() {
-        assertCommandSuccess(new RecommendSuCommand(), model, RecommendSuCommand.MESSAGE_SUCCESS_NO_RECOMMENDATION,
-                expectedModel);
+        CommandResult expectedCommandResult =
+            new CommandResult(MESSAGE_SUCCESS_NO_RECOMMENDATION, false, false, true);
+        assertCommandSuccess(new RecommendSuCommand(), model, expectedCommandResult, expectedModel);
     }
 }
