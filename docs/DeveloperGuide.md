@@ -209,6 +209,14 @@ and the new module with modular credit information is saved to storage.
 ### Dark/Light Mode:
 
 ### Start Semester:
+Implementation
+
+Start is a command which allows the user to start modifying the list of modules in the semester which the user 
+specifies by adding, editing or deleting the modules in the specified semester. The user is unable to modify the list 
+of modules before typing in start followed by the semester which the user wishes to edit the module list of.
+A class StartCommand is added in the commands folder under logic to execute the command start. 
+A class SemesterManager is added in the semester folder under model to retrieve the current semester the user is in 
+and set the current semester to a specified semester. 
 
 ### Show progress towards target CAP:
 
