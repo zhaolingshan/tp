@@ -22,7 +22,7 @@ public class StartCommand extends Command {
     private final Semester toStart;
 
     /**
-     * Creates a StartCommand to add the specified {@code Module}
+     * Creates a StartCommand to add the specified {@code Semester}
      */
     public StartCommand(Semester semester) {
         requireNonNull(semester);
