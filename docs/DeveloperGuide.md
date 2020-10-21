@@ -212,6 +212,28 @@ and the new module with modular credit information is saved to storage.
 
 ### Show progress towards target CAP:
 
+####Implementation
+
+The progress feature works in conjunction with the goal-setting feature. 
+The user will first need to indicate their desired CAP using the `goal` command.
+\
+\
+Users can then use the command `progress` to calculate the required average CAP 
+they have to obtain in their remaining modules in order to achieve their 
+target CAP. The user can include the string `--ddp` to indicate if they are taking 
+a double degree programme (e.g. `progress --ddp`).
+\
+\
+A `ProgressCommand class` is added to commands under logic to execute the required
+CAP calculation. The calculation process is done as shown below:
+
+ 1. User enters their target CAP using `goal` command
+ 2. Info about current CAP and MCs taken are retrieved from the `ModelManager` class
+ 3. Total MCs required is determined by whether user is in double degree programme 
+ or not (e.g. user input is `progress --ddp` or `just progress`) 
+ 4. Target CAP is retrieved from the `ModelManager` class
+ 5. Required CAP from remaining modules is calculated.
+
 # Non-Functional Requirements
 
 
