@@ -30,10 +30,10 @@ e.g --mod MODULE_CODE [--grade GRADE] can be used as --mod CS2100 --grade A or a
 ### Start editing: `start`
 Start editing modules to the semester.
 \
-Format: `start --sem SEMESTER`
+Format: `start SEMESTER`
 \
 Examples:
-*   `start --sem Y2S1`
+*   `start Y2S1`
 
 ### Adding a module: `add`
 Adds a module to your modules list.
@@ -103,10 +103,10 @@ Examples:
 *   `delete CS2103T`
 
 
-### Exit Semester:` exit`
-Exit editing that semester. \
+### Done Semester:` done`
+Done with editing that semester. \
  \
-Format: `exit --sem SEMESTER` \
+Format: `done SEMESTER` \
  \
 Examples:
-*   `exit --sem Y2S1`
+*   `exit Y2S1`
