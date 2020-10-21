@@ -1,13 +1,10 @@
 package seedu.address.model.util;
 
-import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.model.module.Module;
 import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Predicate;
 
 /**
@@ -25,12 +22,7 @@ public class ModuleListFilter {
         SemesterManager semesterManager = SemesterManager.getInstance();
         Semester currentSemester = semesterManager.getCurrentSemester();
         Predicate<Module> predicate = module -> module.getSemester().equals(currentSemester);
-//        List<Module> filteredModuleList = new ObservableList<Module>();
-//        for (Module m : moduleList) {
-//            if (m.getSemester().equals(currentSemester)) {
-//                filteredModuleList.add(m);
-//            }
-//        }
-        return new FilteredList<Module>(moduleList, predicate);
+
+        return new FilteredList<>(moduleList, predicate);
     }
 }

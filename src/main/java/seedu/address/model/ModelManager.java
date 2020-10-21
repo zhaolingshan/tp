@@ -134,14 +134,6 @@ public class ModelManager implements Model {
         requireNonNull(predicate);
         filteredModules.setPredicate(predicate);
     }
-    
-    @Override
-    public void filterModuleListBySem() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        Semester currentSemester = semesterManager.getCurrentSemester();
-        Predicate<Module> predicate = module -> module.getSemester().equals(currentSemester);
-        updateFilteredModuleList(predicate);
-    }
 
     /**
      * Filters the module list according to semester.
@@ -149,7 +141,7 @@ public class ModelManager implements Model {
      * @return the filtered list of modules by semester.
      */
     @Override
-    public FilteredList<Module> filterModuleList() {
+    public FilteredList<Module> filterModuleListBySem() {
         return ModuleListFilter.filterModulesBySemester(filteredModules);
     }
 

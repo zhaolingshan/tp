@@ -116,7 +116,6 @@ public class MainWindow extends UiPart<Stage> {
      */
     void fillInnerParts() {
         moduleListPanel = new ModuleListPanel(logic.getFilteredModuleList());
-        //moduleListPanel = new ModuleListPanel(logic.filterModuleListBySem());
         moduleListPanelPlaceholder.getChildren().add(moduleListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
@@ -196,6 +195,9 @@ public class MainWindow extends UiPart<Stage> {
             }
 
             capBox.setCapDisplay(logic.generateCap());
+            
+            moduleListPanel = new ModuleListPanel(logic.filterModuleListBySem());
+            moduleListPanelPlaceholder.getChildren().add(moduleListPanel.getRoot());
 
             return commandResult;
         } catch (CommandException | ParseException e) {

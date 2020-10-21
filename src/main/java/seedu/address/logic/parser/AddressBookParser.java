@@ -40,7 +40,7 @@ public class AddressBookParser {
 
         SemesterManager semesterManager = SemesterManager.getInstance();
         Semester semester = semesterManager.getCurrentSemester();
-        if (semester == Semester.NA) {
+        if (semester == Semester.NA && !commandWord.equals("start")) {
             throw new ParseException(Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
         }
         

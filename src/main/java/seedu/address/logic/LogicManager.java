@@ -96,13 +96,8 @@ public class LogicManager implements Logic {
      * @return the filtered list of modules by semester.
      */
     @Override
-    public ObservableList<Module> filterModuleList() {
-        return model.filterModuleList();
-    }
-    
-    @Override
     public ObservableList<Module> filterModuleListBySem() {
-        model.filterModuleListBySem();
-        return model.getFilteredModuleList();
+        return model.filterModuleListBySem();
     }
+
 }

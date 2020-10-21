@@ -7,6 +7,7 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.module.Module;
+import seedu.address.model.semester.SemesterManager;
 
 /**
  * The API of the Model component.
@@ -16,6 +17,9 @@ public interface Model {
      * {@code Predicate} that always evaluate to true
      */
     Predicate<Module> PREDICATE_SHOW_ALL_MODULES = unused -> true;
+    
+    Predicate<Module> PREDICATE_SHOW_MODULES_IN_CURRENT_SEM = 
+            module -> module.getSemester().equals(SemesterManager.getInstance().getCurrentSemester());
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -98,9 +102,7 @@ public interface Model {
      *
      * @return the filtered list of modules by semester.
      */
-    ObservableList<Module> filterModuleList();
-
-    void filterModuleListBySem();
+    ObservableList<Module> filterModuleListBySem();
 
     /**
      * Calculates the cap of the list of modules.
