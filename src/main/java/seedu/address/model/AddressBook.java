@@ -15,7 +15,7 @@ import seedu.address.model.module.UniqueModuleList;
 public class AddressBook implements ReadOnlyAddressBook {
 
     private final UniqueModuleList modules;
-
+    private final String test = "hello boo";
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
      * between constructors. See https://docs.oracle.com/javase/tutorial/java/javaOO/initial.html
