@@ -35,6 +35,7 @@ public class CommandTestUtil {
     public static final int VALID_MODULAR_CREDIT = 4;
     public static final int VALID_GOAL_TARGET = 4;
     public static final int INVALID_GOAL_TARGET = -1;
+    public static final double VALID_CAP = 3.50;
 
     public static final Semester VALID_SEMESTER = Semester.Y1S1;
     public static final String MOD_NAME_DESC_A = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_A;

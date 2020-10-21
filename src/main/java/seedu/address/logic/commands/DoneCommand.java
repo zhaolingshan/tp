@@ -18,7 +18,7 @@ public class DoneCommand extends Command {
     public static final String COMMAND_WORD = "done";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + "Stops the adding or editing of modules in the semester stated.\n"
+            + ": Stops the adding or editing of modules in the semester stated.\n"
             + "Parameters: MODULE_NAME\n"
             + "Example: " + COMMAND_WORD;
 
@@ -36,7 +36,7 @@ public class DoneCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model) {
         requireNonNull(model);
         SemesterManager semesterManager = SemesterManager.getInstance();
         String currentSemester = semesterManager.getCurrentSemester().toString();

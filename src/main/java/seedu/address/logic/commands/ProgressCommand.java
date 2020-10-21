@@ -2,8 +2,8 @@ package seedu.address.logic.commands;
 
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DOUBLE_DEGREE;
 
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.module.GoalTarget;
 
 public class ProgressCommand extends Command {
 
@@ -35,7 +35,8 @@ public class ProgressCommand extends Command {
     public CommandResult execute(Model model) {
 
         double currentCap = model.generateCap();
-        double targetCap = model.getGoalTarget().goalTarget;
+        GoalTarget userGoalTarget = model.getGoalTarget();
+        double targetCap = GoalTarget.getUserGoalGrade(userGoalTarget);
 
         double currentMc = model.getCurrentMc();
         double totalMc = isDdp ? TOTAL_MODULAR_CREDIT_DDP : TOTAL_MODULAR_CREDIT;

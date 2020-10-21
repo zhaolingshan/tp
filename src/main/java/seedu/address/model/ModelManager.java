@@ -14,8 +14,8 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.util.CapCalculator;
-import seedu.address.model.util.ModuleListFilter;
 import seedu.address.model.util.McCalculator;
+import seedu.address.model.util.ModuleListFilter;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -179,7 +179,7 @@ public class ModelManager implements Model {
 
     /**
      * Calculates the CAP of the current list of modules and returns it as a double.
-     * 
+     *
      * @return the CAP as a double value.
      */
     @Override
