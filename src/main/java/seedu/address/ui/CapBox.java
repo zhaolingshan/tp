@@ -29,6 +29,7 @@ public class CapBox extends UiPart<Region> {
      * @param currentCap
      */
     public void setCapDisplay(String currentCap) {
+        requireNonNull(currentCap);
         currentCapDisplay.setText("Current CAP: " + currentCap);
     }
 }
