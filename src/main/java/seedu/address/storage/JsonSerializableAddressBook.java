@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 
 /**
@@ -23,11 +24,15 @@ class JsonSerializableAddressBook {
 
     private final List<JsonAdaptedModule> modules = new ArrayList<>();
 
+    private final GoalTarget goalTarget;
+
     /**
      * Constructs a {@code JsonSerializableAddressBook} with the given modules.
      */
     @JsonCreator
-    public JsonSerializableAddressBook(@JsonProperty("modules") List<JsonAdaptedModule> modules) {
+    public JsonSerializableAddressBook(@JsonProperty("modules") List<JsonAdaptedModule> modules,
+                                       @JsonProperty("goalTarget") GoalTarget goalTarget) {
+        this.goalTarget = goalTarget;
         this.modules.addAll(modules);
     }
 
@@ -35,8 +40,10 @@ class JsonSerializableAddressBook {
      * Converts a given {@code ReadOnlyAddressBook} into this class for Jackson use.
      *
      * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
+     * @param goalTarget
      */
-    public JsonSerializableAddressBook(ReadOnlyAddressBook source) {
+    public JsonSerializableAddressBook(ReadOnlyAddressBook source, GoalTarget goalTarget) {
+        this.goalTarget = goalTarget;
         modules.addAll(source.getModuleList().stream().map(JsonAdaptedModule::new).collect(Collectors.toList()));
     }
 
@@ -57,4 +64,8 @@ class JsonSerializableAddressBook {
         return addressBook;
     }
 
+    @JsonProperty(value = "goalTarget")
+    public GoalTarget getGoalTarget() {
+        return goalTarget;
+    }
 }

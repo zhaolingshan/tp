@@ -33,8 +33,10 @@ public class CommandTestUtil {
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
     public static final int VALID_MODULAR_CREDIT = 4;
-    public static final Semester VALID_SEMESTER = Semester.Y1S1;
+    public static final int VALID_GOAL_TARGET = 4;
+    public static final int INVALID_GOAL_TARGET = -1;
 
+    public static final Semester VALID_SEMESTER = Semester.Y1S1;
     public static final String MOD_NAME_DESC_A = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_A;
     public static final String MOD_NAME_DESC_B = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_B;
     public static final String NO_GRADE = "NA";
@@ -51,6 +53,7 @@ public class CommandTestUtil {
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
+    public static final String WHITESPACE = " ";
 
     public static final EditCommand.EditModNameDescriptor DESC_A;
     public static final EditCommand.EditModNameDescriptor DESC_B;

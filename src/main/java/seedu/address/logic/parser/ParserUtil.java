@@ -9,6 +9,7 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.ModuleName;
@@ -127,4 +128,21 @@ public class ParserUtil {
         }
         return tagSet;
     }
+
+    /**
+     * Parses a {@code String goal} into a {@code Goal}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code goal} is invalid.
+     */
+    public static GoalTarget parseGoal(String goal) throws ParseException {
+        requireNonNull(goal);
+        String trimmedGoal = goal.trim();
+        int intGoal = Integer.parseInt(trimmedGoal);
+        if (!GoalTarget.isValidGoal(intGoal)) {
+            throw new ParseException(GoalTarget.MESSAGE_CONSTRAINTS);
+        }
+        return new GoalTarget(intGoal);
+    }
+
 }

@@ -24,6 +24,7 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
@@ -137,8 +138,9 @@ public class LogicManagerTest {
      * @see #assertCommandFailure(String, Class, String, Model)
      */
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
-                                      String expectedMessage) {
-        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+            String expectedMessage) {
+        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget());
+
         assertCommandFailure(inputCommand, expectedException, expectedMessage, expectedModel);
     }
 
@@ -165,7 +167,8 @@ public class LogicManagerTest {
         }
 
         @Override
-        public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
+        public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath, GoalTarget goalTarget)
+                throws IOException {
             throw DUMMY_IO_EXCEPTION;
         }
     }

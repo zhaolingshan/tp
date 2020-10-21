@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.module.GoalTarget;
 
 /**
  * Represents a storage for {@link seedu.address.model.AddressBook}.
@@ -16,6 +17,8 @@ public interface AddressBookStorage {
      * Returns the file path of the data file.
      */
     Path getAddressBookFilePath();
+
+    GoalTarget getGoalTarget() throws DataConversionException;
 
     /**
      * Returns AddressBook data as a {@link ReadOnlyAddressBook}.
@@ -33,13 +36,14 @@ public interface AddressBookStorage {
     /**
      * Saves the given {@link ReadOnlyAddressBook} to the storage.
      * @param addressBook cannot be null.
+     * @param goalTarget
      * @throws IOException if there was any problem writing to the file.
      */
-    void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException;
+    void saveAddressBook(ReadOnlyAddressBook addressBook, GoalTarget goalTarget) throws IOException;
 
     /**
-     * @see #saveAddressBook(ReadOnlyAddressBook)
+     * @see #saveAddressBook(ReadOnlyAddressBook, GoalTarget)
      */
-    void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException;
+    void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath, GoalTarget goalTarget) throws IOException;
 
 }

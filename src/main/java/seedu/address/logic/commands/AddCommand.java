@@ -16,16 +16,16 @@ public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a module to your module list. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a module to your module list.\n"
             + "Parameters: "
             + PREFIX_MOD_NAME + "NAME "
             + PREFIX_GRADE + "GRADE "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_MOD_NAME + "CS2103T Software Engineering "
+            + PREFIX_MOD_NAME + "CS2103T"
             + PREFIX_GRADE + "A+ "
-            + PREFIX_TAG + "friends "
-            + PREFIX_TAG + "owesMoney";
+            + PREFIX_TAG + "SoC "
+            + PREFIX_TAG + "Requirement Module";
 
     public static final String MESSAGE_SUCCESS = "New module added: %1$s";
     public static final String MESSAGE_DUPLICATE_MODULE = "This module already exists in your module list.";

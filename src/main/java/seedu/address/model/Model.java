@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 
 /**
@@ -105,4 +106,8 @@ public interface Model {
      * @return a string representation of the cap to 2 significant figures.
      */
     String generateCap();
+
+    void setGoalTarget(GoalTarget goalTarget);
+
+    GoalTarget getGoalTarget();
 }
