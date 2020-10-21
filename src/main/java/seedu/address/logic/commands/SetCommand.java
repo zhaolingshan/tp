@@ -28,7 +28,12 @@ public class SetCommand extends Command {
 
     private final GoalTarget goalTarget;
 
+    /**
+     * Constructor for SetCommand.
+     * @param goalTarget User goal.
+     */
     public SetCommand(GoalTarget goalTarget) {
+        requireNonNull(goalTarget);
         this.goalTarget = goalTarget;
     }
 
