@@ -10,7 +10,7 @@ import javafx.scene.text.Text;
  * The UI component that is responsible for displaying CAP.
  */
 public class CapBox extends UiPart<Region> {
-    private static final String FXML = "capBox.fxml";
+    private static final String FXML = "CapBox.fxml";
 
     @FXML
     private Text currentCapDisplay;
@@ -29,7 +29,6 @@ public class CapBox extends UiPart<Region> {
      * @param currentCap
      */
     public void setCapDisplay(String currentCap) {
-        requireNonNull(currentCap);
         currentCapDisplay.setText("Current CAP: " + currentCap);
     }
 }
