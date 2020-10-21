@@ -208,6 +208,26 @@ and the new module with modular credit information is saved to storage.
 
 ### Dark/Light Mode:
 
+####Implementation
+
+The dark and light mode switch is part of the UI implementation that allows the user to instantly switch between two different styles of the application. It is facilitated by the ```MainWindow component``` in the UI component and the ```Scene``` object from the ```Stage``` object(private property in ```MainWindow```). **The stylesheet property in the ```Scene``` object is manipulated**. The two different stylings are supplied by two CSS files that contain CSS styling for both dark and light mode separately.
+
+The following method in ```MainWindow``` facilitates the switching process:
+- ```MainWindow#setStyleSheet(String cssFileName)``` - sets a specific CSS file to be the current stylesheet for UI.
+
+Flow of method:
+1. “Light” is selected
+2. ```MainWindow``` calls ```setStyleSheet(“Light”)```
+3. ```Scene``` object is obtain from ```Stage``` object
+4. An ```ObservableList<String>``` of stylesheets is obtained from ```Scene``` object
+5. File path to the “Light” CSS file is added as a string that overrides the current ```ObservableList<String>``` of stylesheets
+
+**Default theme** is Dark theme supplied by DarkTheme.css
+
+####User Interaction
+
+Users have the ability to easily choose which mode under the “Theme” menu bar. Either “Dark” or “Light”.
+
 ### Start Semester:
 
 ### Show progress towards target CAP:
