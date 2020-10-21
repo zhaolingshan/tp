@@ -13,6 +13,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.module.Module;
 import seedu.address.model.util.CapCalculator;
+import seedu.address.model.util.ModuleListFilter;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -130,6 +131,16 @@ public class ModelManager implements Model {
         filteredModules.setPredicate(predicate);
     }
 
+    /**
+     * Filters the module list according to semester.
+     *
+     * @return the filtered list of modules by semester.
+     */
+    @Override
+    public FilteredList<Module> filterModuleListBySem() {
+        return ModuleListFilter.filterModulesBySemester(filteredModules);
+    }
+
     @Override
     public boolean equals(Object obj) {
         // short circuit if same object
@@ -150,6 +161,12 @@ public class ModelManager implements Model {
     }
 
     //=========== CAP Calculation ============================================================================
+
+    /**
+     * Calculates the CAP of the current list of modules.
+     *
+     * @return a string representation of the cap to 2 significant figures.
+     */
     @Override
     public String generateCap() {
         double cap = CapCalculator.calculateCap(filteredModules);

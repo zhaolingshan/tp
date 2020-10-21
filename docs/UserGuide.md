@@ -89,7 +89,7 @@ Examples:
 ### Exit Semester:` exit`
 Exit editing that semester. \
  \
-Format: `exit --mod MODULE_CODE` \
+Format: `exit --sem SEMESTER` \
  \
 Examples:
 *   `exit --sem Y2S1`

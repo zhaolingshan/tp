@@ -12,6 +12,8 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -47,6 +49,21 @@ public class ParserUtil {
             throw new ParseException(ModuleName.MESSAGE_CONSTRAINTS);
         }
         return new ModuleName(trimmedName);
+    }
+
+    /**
+     * Parses a {@code String semester} into a {@code Semester}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code semester} is invalid.
+     */
+    public static Semester parseSemester(String semester) throws ParseException {
+        requireNonNull(semester);
+        String trimmedSemester = semester.trim();
+        if (!SemesterManager.isValidSemester(trimmedSemester)) {
+            throw new ParseException(SemesterManager.MESSAGE_INVALID_SEMESTER);
+        }
+        return Semester.valueOf(trimmedSemester);
     }
 
     /**
