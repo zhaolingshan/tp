@@ -66,7 +66,7 @@ public class MainWindow extends UiPart<Stage> {
         this.logic = logic;
 
         //Set default theme
-        setStyleSheet("DarkTheme");
+        setStyleSheet("LightTheme");
 
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
@@ -217,7 +217,9 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
-            capBox.setCapDisplay(logic.generateCap());
+            if (!commandResult.isRecommendSu()) {
+                capBox.setCapDisplay(logic.generateCap());
+            }
 
             moduleListPanel = new ModuleListPanel(logic.filterModuleListBySem());
             moduleListPanelPlaceholder.getChildren().add(moduleListPanel.getRoot());

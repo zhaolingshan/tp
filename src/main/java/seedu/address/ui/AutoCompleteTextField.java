@@ -27,9 +27,9 @@ public class AutoCompleteTextField extends TextField {
     public AutoCompleteTextField() {
         super();
         entries = new TreeSet<>();
-        entriesPopup = new ContextMenu();
+        entriesPopup = new MaxSizedContextMenu();
         textProperty().addListener((observableValue, s, s2) -> {
-            if (getText().length() == 0) {
+            if (getText().length() == 0 || getEntries().contains(getText())) {
                 entriesPopup.hide();
             } else {
                 LinkedList<String> searchResult = new LinkedList<>();
@@ -51,7 +51,6 @@ public class AutoCompleteTextField extends TextField {
         onTextFieldClicked();
 
         focusedProperty().addListener((observableValue, aBoolean, aBoolean2) -> entriesPopup.hide());
-
     }
 
     private void onTextFieldClicked() {
@@ -80,7 +79,7 @@ public class AutoCompleteTextField extends TextField {
     private void populatePopup(List<String> searchResult) {
         List<CustomMenuItem> menuItems = new LinkedList<>();
         // If you'd like more entries, modify this line.
-        int maxEntries = 10;
+        int maxEntries = 20;
         int count = Math.min(searchResult.size(), maxEntries);
         for (int i = 0; i < count; i++) {
             final String result = searchResult.get(i);
@@ -95,6 +94,6 @@ public class AutoCompleteTextField extends TextField {
         }
         entriesPopup.getItems().clear();
         entriesPopup.getItems().addAll(menuItems);
-
+        entriesPopup.setMaxHeight(300);
     }
 }

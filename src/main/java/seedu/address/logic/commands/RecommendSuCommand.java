@@ -29,11 +29,10 @@ public class RecommendSuCommand extends Command {
         GoalTarget userGoal = model.getGoalTarget();
         if (!GoalTarget.isValidGoal(userGoal.getGoalTarget())) {
             // user has yet to key in goal
-            return new CommandResult(MESSAGE_FAILURE);
+            return new CommandResult(MESSAGE_FAILURE, false, false, true);
         }
 
         filterModule(model, userGoal);
-
         return getCommandResult(model);
     }
 
@@ -45,9 +44,9 @@ public class RecommendSuCommand extends Command {
     private CommandResult getCommandResult(Model model) {
         int modListSize = model.getFilteredModuleList().size();
         if (modListSize == 0) {
-            return new CommandResult(MESSAGE_SUCCESS_NO_RECOMMENDATION);
+            return new CommandResult(MESSAGE_SUCCESS_NO_RECOMMENDATION, false, false, true);
         }
-        return new CommandResult(MESSAGE_SUCCESS);
+        return new CommandResult(MESSAGE_SUCCESS, false, false, true);
     }
 
     /**

@@ -21,8 +21,12 @@ public class ModuleListFilter {
     public static FilteredList<Module> filterModulesBySemester(FilteredList<Module> moduleList) {
         SemesterManager semesterManager = SemesterManager.getInstance();
         Semester currentSemester = semesterManager.getCurrentSemester();
-        Predicate<Module> predicate = module -> module.getSemester().equals(currentSemester);
-
+        Predicate<Module> predicate;
+        if (currentSemester.equals(Semester.NA)) {
+            predicate = unused -> true;
+        } else {
+            predicate = module -> module.getSemester().equals(currentSemester);
+        }
         return new FilteredList<>(moduleList, predicate);
     }
 }
