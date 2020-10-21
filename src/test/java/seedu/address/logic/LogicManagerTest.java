@@ -4,9 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.CommandTestUtil.GRADE_DESC_A;
-import static seedu.address.logic.commands.CommandTestUtil.MODULAR_CREDIT_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.MOD_NAME_DESC_A;
-import static seedu.address.logic.commands.CommandTestUtil.SEMESTER_DESC;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.MOD_A;
 
