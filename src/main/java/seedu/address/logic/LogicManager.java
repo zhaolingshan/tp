@@ -86,7 +86,7 @@ public class LogicManager implements Logic {
      */
     @Override
     public String generateCap() {
-        return model.generateCap();
+        return model.generateCapAsString();
     }
 
     /**

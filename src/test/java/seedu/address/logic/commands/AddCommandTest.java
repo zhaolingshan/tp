@@ -155,7 +155,17 @@ public class AddCommandTest {
         }
 
         @Override
-        public String generateCap() {
+        public String generateCapAsString() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public double generateCap() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public int getCurrentMc() {
             throw new AssertionError("This method should not be called.");
         }
 

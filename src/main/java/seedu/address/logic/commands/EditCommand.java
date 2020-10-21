@@ -36,7 +36,7 @@ public class EditCommand extends Command {
             + "by the module name displayed in the module list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters:"
-            + "[" + PREFIX_MOD_NAME + "MODULE_NAME] "
+            + PREFIX_MOD_NAME + "MODULE_NAME "
             + "[" + PREFIX_GRADE + "GRADE] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " --mod CS2103T --grade A";

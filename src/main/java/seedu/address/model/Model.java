@@ -101,11 +101,19 @@ public interface Model {
     ObservableList<Module> filterModuleListBySem();
 
     /**
-     * Calculates the cap of the list of modules.
-     *
-     * @return a string representation of the cap to 2 significant figures.
+     * Returns the current CAP as a string.
      */
-    String generateCap();
+    String generateCapAsString();
+
+    /**
+     * Returns the current CAP as a double.
+     */
+    double generateCap();
+
+    /**
+     * Returns the total number of MCs as an integer .
+     */
+    int getCurrentMc();
 
     void setGoalTarget(GoalTarget goalTarget);
 

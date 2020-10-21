@@ -14,6 +14,7 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.util.CapCalculator;
+import seedu.address.model.util.McCalculator;
 import seedu.address.model.util.ModuleListFilter;
 
 /**
@@ -166,14 +167,31 @@ public class ModelManager implements Model {
     //=========== CAP Calculation ============================================================================
 
     /**
-     * Calculates the CAP of the current list of modules.
+     * Calculates the CAP of the current list of modules and return it as a string.
      *
-     * @return a string representation of the cap to 2 significant figures.
+     * @return a string representation of the CAP to 2 significant figures.
      */
     @Override
-    public String generateCap() {
-        double cap = CapCalculator.calculateCap(filteredModules);
+    public String generateCapAsString() {
+        double cap = generateCap();
         return String.format("%.2f", cap);
+    }
+
+    /**
+     * Calculates the CAP of the current list of modules and returns it as a double.
+     *
+     * @return the CAP as a double value.
+     */
+    @Override
+    public double generateCap() {
+        return CapCalculator.calculateCap(filteredModules);
+    }
+
+    //=========== MC Calculation =============================================================================
+
+    @Override
+    public int getCurrentMc() {
+        return McCalculator.calculateMc(filteredModules);
     }
 
     //=========== Goal Setting ===============================================================================
