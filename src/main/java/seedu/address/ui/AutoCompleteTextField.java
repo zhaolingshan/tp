@@ -59,7 +59,7 @@ public class AutoCompleteTextField extends TextField {
             LinkedList<String> searchResult = new LinkedList<>();
             searchResult.addAll(entries);
             populatePopup(searchResult);
-            if(!entriesPopup.isShowing() && arg.getButton().equals(MouseButton.PRIMARY) && getText().isEmpty()) {
+            if (!entriesPopup.isShowing() && arg.getButton().equals(MouseButton.PRIMARY) && getText().isEmpty()) {
                 entriesPopup.show(AutoCompleteTextField.this, Side.BOTTOM, 0, 0);
             }
         });
