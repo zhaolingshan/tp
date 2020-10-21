@@ -217,7 +217,6 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
-            System.out.println(commandResult.isRecommendSu());
             if (!commandResult.isRecommendSu()) {
                 capBox.setCapDisplay(logic.generateCap());
             }

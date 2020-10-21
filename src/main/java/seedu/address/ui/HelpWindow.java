@@ -18,15 +18,18 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String USERGUIDE_URL = "https://ay2021s1-cs2103t-t17-1.github.io/tp/UserGuide.html";
     public static final String HELP_MESSAGE = "OR, refer to the user guide: " + USERGUIDE_URL;
 
-    private static final String startCommandFormat = "start --sem SEMESTER\n";
-    private static final String addCommandFormat = "add --mod MODULE_CODE [--grade GRADE]\n";
-    private static final String updateCommandFormat = "update --mod MODULE_CODE [--grade GRADE]\n";
-    private static final String listCommandFormat = "list [--sem SEMESTER]\n";
-    private static final String suCommandFormat = "s/u --mod MODULE_CODE\n";
-    private static final String deleteCommandFormat = "delete --mod MODULE_CODE\n";
-    private static final String findCommandFormat = "find --mod MODULE_CODE\n";
-    private static final String helpCommandFormat = "help\n";
-    private static final String exitCommandFormat = "exit --mod MODULE_CODE\n";
+    private static final String startCommandFormat = "start --sem SEMESTER\n\n";
+    private static final String doneCommandFormat = "done SEMESTER\n\n";
+    private static final String addCommandFormat = "add --mod MODULE_CODE [--grade GRADE]\n\n";
+    private static final String updateCommandFormat = "update --mod MODULE_CODE [--grade GRADE]\n\n";
+    private static final String listCommandFormat = "list [--sem SEMESTER]\n\n";
+    private static final String goalCommandFormat = "goal --set LEVEL OR goal --list\n\n";
+    private static final String recommendSuCommandFormat = "recommendSU\n\n";
+    private static final String suCommandFormat = "s/u --mod MODULE_CODE\n\n";
+    private static final String deleteCommandFormat = "delete MODULE_CODE\n\n";
+    private static final String findCommandFormat = "find --mod MODULE_CODE\n\n";
+    private static final String helpCommandFormat = "help\n\n";
+    private static final String exitCommandFormat = "exit --mod MODULE_CODE\n\n";
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
@@ -60,11 +63,14 @@ public class HelpWindow extends UiPart<Stage> {
 
     private void setHelpCommands() {
         String helpCommandList =
-                "Formats:\n"
+                "Command Formats:\n\n"
                 + startCommandFormat
+                + doneCommandFormat
                 + addCommandFormat
                 + updateCommandFormat
                 + listCommandFormat
+                + goalCommandFormat
+                + recommendSuCommandFormat
                 + suCommandFormat
                 + deleteCommandFormat
                 + findCommandFormat
