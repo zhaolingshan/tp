@@ -13,6 +13,8 @@ import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -43,11 +45,26 @@ public class ParserUtil {
      */
     public static ModuleName parseName(String name) throws ParseException {
         requireNonNull(name);
-        String trimmedName = name.trim();
+        String trimmedName = name.trim().toUpperCase();
         if (!ModuleName.isValidModName(trimmedName)) {
             throw new ParseException(ModuleName.MESSAGE_CONSTRAINTS);
         }
         return new ModuleName(trimmedName);
+    }
+
+    /**
+     * Parses a {@code String semester} into a {@code Semester}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code semester} is invalid.
+     */
+    public static Semester parseSemester(String semester) throws ParseException {
+        requireNonNull(semester);
+        String trimmedSemester = semester.trim();
+        if (!SemesterManager.isValidSemester(trimmedSemester)) {
+            throw new ParseException(SemesterManager.MESSAGE_INVALID_SEMESTER);
+        }
+        return Semester.valueOf(trimmedSemester);
     }
 
     /**
@@ -78,7 +95,7 @@ public class ParserUtil {
      */
     public static Grade parseGrade(String grade) throws ParseException {
         requireNonNull(grade);
-        String trimmedGrade = grade.trim();
+        String trimmedGrade = grade.trim().toUpperCase();
         if (!Grade.isValidGrade(trimmedGrade)) {
             throw new ParseException(Grade.MESSAGE_CONSTRAINTS);
         }

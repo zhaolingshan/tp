@@ -10,5 +10,6 @@ public class Messages {
     public static final String MESSAGE_INVALID_MODULE_DISPLAYED_INDEX = "The module index provided is invalid";
     public static final String MESSAGE_INVALID_MODULE_DISPLAYED_NAME = "The module name provided is invalid";
     public static final String MESSAGE_MODULES_LISTED_OVERVIEW = "%1$d modules listed!";
+    public static final String MESSAGE_INVALID_COMMAND_SEQUENCE = "Start a semester before modifying the module list.";
 
 }

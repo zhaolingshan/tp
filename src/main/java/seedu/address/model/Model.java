@@ -93,6 +93,18 @@ public interface Model {
      */
     void updateFilteredModuleList(Predicate<Module> predicate);
 
+    /**
+     * Filters the module list by semester.
+     *
+     * @return the filtered list of modules by semester.
+     */
+    ObservableList<Module> filterModuleListBySem();
+
+    /**
+     * Calculates the cap of the list of modules.
+     *
+     * @return a string representation of the cap to 2 significant figures.
+     */
     String generateCap();
 
     void setGoalTarget(GoalTarget goalTarget);

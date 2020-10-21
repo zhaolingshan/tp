@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import seedu.address.model.semester.Semester;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -23,26 +24,29 @@ public class Module {
     private ModularCredit modularCredit;
     private final Set<Tag> tags = new HashSet<>();
     private boolean hasGrade;
+    private Semester semester;
 
     /**
      * Every field must be present and not null.
      */
-    public Module(ModuleName moduleName, Grade grade, Set<Tag> tags, ModularCredit modularCredit) {
+    public Module(ModuleName moduleName, Grade grade, Set<Tag> tags, ModularCredit modularCredit, Semester semester) {
         requireAllNonNull(moduleName, grade, tags);
         this.moduleName = moduleName;
         this.modularCredit = modularCredit;
         this.grade = grade;
         this.tags.addAll(tags);
+        this.semester = semester;
         hasGrade = true;
     }
 
     /**
      * Only grade field can be empty.
      */
-    public Module(ModuleName moduleName, Set<Tag> tags, ModularCredit modularCredit) {
+    public Module(ModuleName moduleName, Set<Tag> tags, ModularCredit modularCredit, Semester semester) {
         this.moduleName = moduleName;
         this.tags.addAll(tags);
         this.modularCredit = modularCredit;
+        this.semester = semester;
         hasGrade = false;
     }
 
@@ -61,6 +65,10 @@ public class Module {
         } else {
             return new Grade(Cap.getEmptyGrade());
         }
+    }
+
+    public Semester getSemester() {
+        return semester;
     }
 
     public boolean hasGrade() {

@@ -150,6 +150,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public ObservableList<Module> filterModuleListBySem() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public String generateCap() {
             throw new AssertionError("This method should not be called.");
         }

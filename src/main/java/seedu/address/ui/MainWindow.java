@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
@@ -64,12 +65,24 @@ public class MainWindow extends UiPart<Stage> {
         this.primaryStage = primaryStage;
         this.logic = logic;
 
+        //Set default theme
+        setStyleSheet("DarkTheme");
+
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
 
         setAccelerators();
 
         helpWindow = new HelpWindow();
+    }
+
+    private void setStyleSheet(String cssFileName) {
+        assert cssFileName.equals("Dark") || cssFileName.equals("Light");
+        Scene scene = primaryStage.getScene();
+
+        String cssFile = MainWindow.class.getResource("/view/" + cssFileName + ".css").toExternalForm();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(cssFile);
     }
 
     public Stage getPrimaryStage() {
@@ -171,6 +184,16 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.hide();
     }
 
+    @FXML
+    private void handleDarkThemeSelection() {
+        setStyleSheet("DarkTheme");
+    }
+
+    @FXML
+    private void handleLightThemeSelection() {
+        setStyleSheet("LightTheme");
+    }
+
     public ModuleListPanel getModuleListPanel() {
         return moduleListPanel;
     }
@@ -195,6 +218,9 @@ public class MainWindow extends UiPart<Stage> {
             }
 
             capBox.setCapDisplay(logic.generateCap());
+
+            moduleListPanel = new ModuleListPanel(logic.filterModuleListBySem());
+            moduleListPanelPlaceholder.getChildren().add(moduleListPanel.getRoot());
 
             return commandResult;
         } catch (CommandException | ParseException e) {
