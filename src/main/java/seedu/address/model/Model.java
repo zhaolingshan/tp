@@ -100,6 +100,8 @@ public interface Model {
      */
     ObservableList<Module> filterModuleListBySem();
 
+    ObservableList<Module> sortModuleListBySem();
+
     /**
      * Calculates the cap of the list of modules.
      *

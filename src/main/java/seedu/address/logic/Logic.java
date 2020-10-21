@@ -62,4 +62,6 @@ public interface Logic {
      * @return the filtered module list according to semester.
      */
     ObservableList<Module> filterModuleListBySem();
+
+    ObservableList<Module> sortModuleListBySem();
 }

@@ -168,6 +168,11 @@ public class AddCommandTest {
         public GoalTarget getGoalTarget() {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public ObservableList<Module> sortModuleListBySem() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**
