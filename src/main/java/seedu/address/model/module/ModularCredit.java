@@ -10,7 +10,7 @@ import seedu.address.model.util.ModuleInfoRetriever;
  */
 public class ModularCredit {
     public static final String MESSAGE_INVALID_MODULE = "The module you have entered is not within our database."
-            + "Please check the module name again or add the module again with the --mc parameter.";
+            + "\nPlease check the module name again or add the module again with the --mc parameter.";
     public static final String MESSAGE_INVALID_MODULAR_CREDIT = "Modular Credits (MCs) should only "
             + "contain integers between 2 and 16.";
     private static final int MINIMUM_MODULE_MC = 2;

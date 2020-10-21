@@ -46,7 +46,7 @@ public class LogicManager implements Logic {
         commandResult = command.execute(model);
 
         try {
-            storage.saveAddressBook(model.getAddressBook());
+            storage.saveAddressBook(model.getAddressBook(), model.getGoalTarget());
         } catch (IOException ioe) {
             throw new CommandException(FILE_OPS_ERROR_MESSAGE + ioe, ioe);
         }
@@ -79,8 +79,24 @@ public class LogicManager implements Logic {
         model.setGuiSettings(guiSettings);
     }
 
+    /**
+     * Generates the cap calculated from the list of modules.
+     *
+     * @return a string representation of the cap to 2 significant figures.
+     */
     @Override
     public String generateCap() {
         return model.generateCapAsString();
     }
+
+    /**
+     * Filters the module list according to semester.
+     *
+     * @return the filtered list of modules by semester.
+     */
+    @Override
+    public ObservableList<Module> filterModuleListBySem() {
+        return model.filterModuleListBySem();
+    }
+
 }

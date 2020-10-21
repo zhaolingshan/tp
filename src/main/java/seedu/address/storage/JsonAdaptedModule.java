@@ -14,6 +14,7 @@ import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -26,6 +27,7 @@ class JsonAdaptedModule {
     private final String modName;
     private final String grade;
     private final int modularCredit;
+    private final String semester;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -34,13 +36,15 @@ class JsonAdaptedModule {
     @JsonCreator
     public JsonAdaptedModule(@JsonProperty("name") String modName, @JsonProperty("address") String grade,
                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
-                             @JsonProperty("modularCredit") int modularCredit) {
+                             @JsonProperty("modularCredit") int modularCredit,
+                             @JsonProperty("semester") String semester) {
         this.modName = modName;
         this.grade = grade;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
         this.modularCredit = modularCredit;
+        this.semester = semester;
     }
 
     /**
@@ -50,6 +54,7 @@ class JsonAdaptedModule {
         modName = source.getModuleName().fullModName;
         grade = source.getGrade().toString();
         modularCredit = source.getModularCredit().modularCredit;
+        semester = source.getSemester().toString();
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -81,13 +86,16 @@ class JsonAdaptedModule {
         if (!Grade.isValidGrade(grade)) {
             throw new IllegalValueException(Grade.MESSAGE_CONSTRAINTS);
         }
+
         final Grade modelGrade = new Grade(grade);
 
         final Set<Tag> modelTags = new HashSet<>(moduleTags);
 
         final ModularCredit modelModularCredit = new ModularCredit(modularCredit);
 
-        return new Module(modelModuleName, modelGrade, modelTags, modelModularCredit);
+        final Semester modelSemester = Semester.valueOf(semester);
+
+        return new Module(modelModuleName, modelGrade, modelTags, modelModularCredit, modelSemester);
     }
 
 }

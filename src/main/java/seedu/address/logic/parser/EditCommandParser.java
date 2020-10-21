@@ -11,11 +11,14 @@ import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditModNameDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -30,6 +33,11 @@ public class EditCommandParser implements Parser<EditCommand> {
      */
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        Semester semester = semesterManager.getCurrentSemester();
+        if (semester == Semester.NA) {
+            throw new ParseException(Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
+        }
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_MOD_NAME, PREFIX_GRADE, PREFIX_TAG);
 

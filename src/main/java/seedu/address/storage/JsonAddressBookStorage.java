@@ -13,6 +13,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.FileUtil;
 import seedu.address.commons.util.JsonUtil;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.module.GoalTarget;
 
 /**
  * A class to access AddressBook data stored as a json file on the hard disk.
@@ -29,6 +30,19 @@ public class JsonAddressBookStorage implements AddressBookStorage {
 
     public Path getAddressBookFilePath() {
         return filePath;
+    }
+
+    public GoalTarget getGoalTarget() throws DataConversionException {
+
+        requireNonNull(filePath);
+
+        Optional<JsonSerializableAddressBook> jsonAddressBook = JsonUtil.readJsonFile(
+                filePath, JsonSerializableAddressBook.class);
+        if (jsonAddressBook.isEmpty()) {
+            return new GoalTarget();
+        }
+
+        return jsonAddressBook.get().getGoalTarget();
     }
 
     @Override
@@ -60,21 +74,24 @@ public class JsonAddressBookStorage implements AddressBookStorage {
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException {
-        saveAddressBook(addressBook, filePath);
+    public void saveAddressBook(ReadOnlyAddressBook addressBook, GoalTarget goalTarget) throws IOException {
+        saveAddressBook(addressBook, filePath, goalTarget);
     }
 
     /**
-     * Similar to {@link #saveAddressBook(ReadOnlyAddressBook)}.
+     * Similar to {@link AddressBookStorage#saveAddressBook(ReadOnlyAddressBook, GoalTarget)}.
      *
      * @param filePath location of the data. Cannot be null.
+     * @param goalTarget
      */
-    public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
+    public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath, GoalTarget goalTarget)
+            throws IOException {
         requireNonNull(addressBook);
         requireNonNull(filePath);
+        requireNonNull(goalTarget);
 
         FileUtil.createIfMissing(filePath);
-        JsonUtil.saveJsonFile(new JsonSerializableAddressBook(addressBook), filePath);
+        JsonUtil.saveJsonFile(new JsonSerializableAddressBook(addressBook, goalTarget), filePath);
     }
 
 }

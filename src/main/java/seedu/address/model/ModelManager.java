@@ -11,8 +11,10 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.util.CapCalculator;
+import seedu.address.model.util.ModuleListFilter;
 import seedu.address.model.util.McCalculator;
 
 /**
@@ -24,11 +26,12 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Module> filteredModules;
+    private GoalTarget goalTarget;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
+    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs, GoalTarget goalTarget) {
         super();
         requireAllNonNull(addressBook, userPrefs);
 
@@ -36,11 +39,12 @@ public class ModelManager implements Model {
 
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
+        this.goalTarget = goalTarget;
         filteredModules = new FilteredList<>(this.addressBook.getModuleList());
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs());
+        this(new AddressBook(), new UserPrefs(), new GoalTarget());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -114,10 +118,10 @@ public class ModelManager implements Model {
         addressBook.setModule(target, editedModule);
     }
 
-    //=========== Filtered Person List Accessors =============================================================
+    //=========== Filtered Module List Accessors =============================================================
 
     /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
+     * Returns an unmodifiable view of the list of {@code Module} backed by the internal list of
      * {@code versionedAddressBook}
      */
     @Override
@@ -129,6 +133,16 @@ public class ModelManager implements Model {
     public void updateFilteredModuleList(Predicate<Module> predicate) {
         requireNonNull(predicate);
         filteredModules.setPredicate(predicate);
+    }
+
+    /**
+     * Filters the module list according to semester.
+     *
+     * @return the filtered list of modules by semester.
+     */
+    @Override
+    public FilteredList<Module> filterModuleListBySem() {
+        return ModuleListFilter.filterModulesBySemester(filteredModules);
     }
 
     @Override
@@ -152,6 +166,11 @@ public class ModelManager implements Model {
 
     //=========== CAP Calculation ============================================================================
 
+    /**
+     * Calculates the CAP of the current list of modules.
+     *
+     * @return a string representation of the cap to 2 significant figures.
+     */
     @Override
     public String generateCapAsString() {
         double cap = generateCap();
@@ -168,5 +187,17 @@ public class ModelManager implements Model {
     @Override
     public int getCurrentMc() {
         return McCalculator.calculateMc(filteredModules);
+    }
+
+    //=========== Goal Setting ===============================================================================
+    @Override
+    public void setGoalTarget(GoalTarget goalTarget) {
+        requireAllNonNull(goalTarget);
+        this.goalTarget = goalTarget;
+    }
+
+    @Override
+    public GoalTarget getGoalTarget() {
+        return goalTarget;
     }
 }

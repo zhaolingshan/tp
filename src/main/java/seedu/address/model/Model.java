@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 
 /**
@@ -93,6 +94,13 @@ public interface Model {
     void updateFilteredModuleList(Predicate<Module> predicate);
 
     /**
+     * Filters the module list by semester.
+     *
+     * @return the filtered list of modules by semester.
+     */
+    ObservableList<Module> filterModuleListBySem();
+
+    /**
      * Returns the current CAP as a string.
      */
     String generateCapAsString();
@@ -106,4 +114,8 @@ public interface Model {
      * Returns the total number of MCs as an integer .
      */
     int getCurrentMc();
+
+    void setGoalTarget(GoalTarget goalTarget);
+
+    GoalTarget getGoalTarget();
 }

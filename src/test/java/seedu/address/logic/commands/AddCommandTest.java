@@ -20,6 +20,7 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.testutil.ModuleBuilder;
 
@@ -149,6 +150,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public ObservableList<Module> filterModuleListBySem() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public String generateCapAsString() {
             throw new AssertionError("This method should not be called.");
         }
@@ -163,7 +169,15 @@ public class AddCommandTest {
             throw new AssertionError("This method should not be called.");
         }
 
+        @Override
+        public void setGoalTarget(GoalTarget goalTarget) {
+            throw new AssertionError("This method should not be called.");
+        }
 
+        @Override
+        public GoalTarget getGoalTarget() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**

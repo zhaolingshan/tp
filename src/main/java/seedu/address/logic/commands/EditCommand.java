@@ -22,6 +22,7 @@ import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -29,7 +30,7 @@ import seedu.address.model.tag.Tag;
  */
 public class EditCommand extends Command {
 
-    public static final String COMMAND_WORD = "update";
+    public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the module identified "
             + "by the module name displayed in the module list. "
@@ -95,7 +96,8 @@ public class EditCommand extends Command {
         Set<Tag> updatedTags = editModNameDescriptor.getTags().orElse(moduleToEdit.getTags());
         // modularCredit is not edited
         ModularCredit modularCredit = moduleToEdit.getModularCredit();
-        return new Module(updatedModuleName, updatedGrade, updatedTags, modularCredit);
+        Semester semester = moduleToEdit.getSemester();
+        return new Module(updatedModuleName, updatedGrade, updatedTags, modularCredit, semester);
     }
 
     @Override
