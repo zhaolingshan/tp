@@ -30,5 +30,4 @@ public class RecommendSuCommandTest {
         assertCommandSuccess(new RecommendSuCommand(), model, RecommendSuCommand.MESSAGE_SUCCESS_NO_RECOMMENDATION,
                 expectedModel);
     }
-
 }

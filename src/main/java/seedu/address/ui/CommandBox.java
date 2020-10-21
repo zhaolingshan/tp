@@ -1,9 +1,6 @@
 package seedu.address.ui;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,8 +17,8 @@ public class CommandBox extends UiPart<Region> {
     public static final String ERROR_STYLE_CLASS = "error";
     private static final String FXML = "CommandBox.fxml";
     private static final String[] autocompleteSuggestions =
-            new String[] {"start", "add", "update", "list", "s/u",
-                    "delete", "find", "help", "exit", "goal", "recommendSU", "done", "progress"};
+        new String[]{"start", "add", "update", "list", "s/u", "delete",
+            "find", "help", "exit", "goal", "recommendSU", "done", "progress"};
 
     private final CommandExecutor commandExecutor;
 

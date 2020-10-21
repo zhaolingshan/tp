@@ -31,7 +31,7 @@ public class AutoCompleteTextField extends TextField {
         textProperty().addListener((observableValue, s, s2) -> {
             if (getText().length() == 0 || getEntries().contains(getText())) {
                 entriesPopup.hide();
-            }else {
+            } else {
                 LinkedList<String> searchResult = new LinkedList<>();
                 final List<String> filteredEntries =
                         entries.stream().filter(e -> e.toLowerCase()
