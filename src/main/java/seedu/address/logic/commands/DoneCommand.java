@@ -7,6 +7,12 @@ import seedu.address.model.Model;
 import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
 
+/**
+ * Stops the modifying of the module list in a semester.
+ * Signifies that the user is done editing the module list
+ * and prevents the user from adding, editing or deleting
+ * modules in a particular semester.
+ */
 public class DoneCommand extends Command {
 
     public static final String COMMAND_WORD = "done";
@@ -22,7 +28,7 @@ public class DoneCommand extends Command {
     private final Semester toDone;
 
     /**
-     * Creates a StartCommand to add the specified {@code Semester}
+     * Creates a DoneCommand to add the specified {@code Semester}
      */
     public DoneCommand(Semester semester) {
         requireNonNull(semester);

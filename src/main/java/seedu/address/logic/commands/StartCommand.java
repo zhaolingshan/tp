@@ -7,6 +7,11 @@ import seedu.address.model.Model;
 import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
 
+/**
+ * Starts the editing of the module list in a semester.
+ * Enables the user to add, edit or delete modules in
+ * a particular semester.
+ */
 public class StartCommand extends Command {
 
     public static final String COMMAND_WORD = "start";

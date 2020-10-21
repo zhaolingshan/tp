@@ -29,7 +29,6 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "New module added: %1$s";
     public static final String MESSAGE_DUPLICATE_MODULE = "This module already exists in your module list.";
-    public static final String MESSAGE_SEMESTER_NOT_STARTED = "Start a semester before adding modules.";
 
     private final Module toAdd;
 
