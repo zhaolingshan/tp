@@ -44,7 +44,7 @@ public class ParserUtil {
      */
     public static ModuleName parseName(String name) throws ParseException {
         requireNonNull(name);
-        String trimmedName = name.trim();
+        String trimmedName = name.trim().toUpperCase();
         if (!ModuleName.isValidModName(trimmedName)) {
             throw new ParseException(ModuleName.MESSAGE_CONSTRAINTS);
         }
@@ -94,7 +94,7 @@ public class ParserUtil {
      */
     public static Grade parseGrade(String grade) throws ParseException {
         requireNonNull(grade);
-        String trimmedGrade = grade.trim();
+        String trimmedGrade = grade.trim().toUpperCase();
         if (!Grade.isValidGrade(trimmedGrade)) {
             throw new ParseException(Grade.MESSAGE_CONSTRAINTS);
         }

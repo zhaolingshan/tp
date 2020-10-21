@@ -16,7 +16,7 @@ import seedu.address.model.util.SampleDataUtil;
  */
 public class ModuleBuilder {
 
-    public static final String DEFAULT_NAME = "CS2103T Software Engineering";
+    public static final String DEFAULT_NAME = "CS2103T";
     public static final String DEFAULT_GRADE = "A+";
     public static final int DEFAULT_MODULAR_CREDIT = 4;
     public static final Semester DEFAULT_SEMESTER = Semester.Y1S1;
