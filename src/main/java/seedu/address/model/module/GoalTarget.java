@@ -65,6 +65,32 @@ public class GoalTarget {
         return (goalTarget > 0 && goalTarget < 7) && Integer.toString(goalTarget).matches(VALIDATION_REGEX);
     }
 
+    /**
+     * Returns the minimum CAP for each honour's grading depending on user's goal.
+     * @param userGoal Goal set by the user.
+     * @return double of the minimum CAP of each honour's grading.
+     */
+    public static double getUserGoalGrade(GoalTarget userGoal) {
+        int goalLevel = userGoal.getGoalTarget();
+        assert (goalLevel >= 1 && goalLevel <= 6) : "Invalid Goal Target";
+        switch (goalLevel) {
+        case 1:
+            return GoalTarget.HIGHEST_DISTINCTION_CAP;
+        case 2:
+            return GoalTarget.DISTINCTION_CAP;
+        case 3:
+            return GoalTarget.MERIT_CAP;
+        case 4:
+            return GoalTarget.HONOURS_CAP;
+        case 5:
+            return GoalTarget.PASS_CAP;
+        case 6:
+            return GoalTarget.FAIL_CAP;
+        default:
+            return GoalTarget.DEFAULT_GOAL;
+        }
+    }
+
     @Override
     public String toString() {
         switch (goalTarget) {
