@@ -65,6 +65,23 @@ Examples:
 *   `list --sem Y2S1 `
 *   `list --sem y2s1 `
 
+### Setting goals: `goal`
+Sets your goal level according to the Honour's Grading System or list to show the corresponding levels. \
+ \
+Format: `goal --set LEVEL` or `goal --list` \
+ \
+Examples:
+*   `goal --set 2`
+*   `goal --set 4`
+*   `goal --list`
+
+### Recommend S/U: `recommendSU`
+Recommend which module from your list to S/U based on your goal, grades and if the module can be S/U-ed. \
+ \
+Format: `recommendSU` \
+ \
+Example:
+*   `recommendSU`
 
 ### S/U module:` s/u `
 S/U a module in your modules list. \
