@@ -1,13 +1,11 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
-import java.util.List;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.module.Module;
-import seedu.address.model.semester.SemesterManager;
 
 /**
  * The API of the Model component.
@@ -17,9 +15,6 @@ public interface Model {
      * {@code Predicate} that always evaluate to true
      */
     Predicate<Module> PREDICATE_SHOW_ALL_MODULES = unused -> true;
-    
-    Predicate<Module> PREDICATE_SHOW_MODULES_IN_CURRENT_SEM = 
-            module -> module.getSemester().equals(SemesterManager.getInstance().getCurrentSemester());
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.

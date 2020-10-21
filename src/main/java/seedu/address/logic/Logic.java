@@ -1,7 +1,6 @@
 package seedu.address.logic;
 
 import java.nio.file.Path;
-import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
@@ -63,5 +62,4 @@ public interface Logic {
      * @return the filtered module list according to semester.
      */
     ObservableList<Module> filterModuleListBySem();
-    
 }

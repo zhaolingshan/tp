@@ -16,7 +16,7 @@ public class StartCommand extends Command {
             + "Parameters: MODULE_NAME\n"
             + "Example: " + COMMAND_WORD + " Y2S1";
 
-    public static final String MESSAGE_START_SEMESTER_SUCCESS = 
+    public static final String MESSAGE_START_SEMESTER_SUCCESS =
             "You are now editing: %1$s \n The modules you are taking in %1$s:";
 
     private final Semester toStart;
@@ -28,7 +28,7 @@ public class StartCommand extends Command {
         requireNonNull(semester);
         toStart = semester;
     }
-    
+
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);

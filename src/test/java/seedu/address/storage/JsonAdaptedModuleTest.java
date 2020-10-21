@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModuleName;
-import seedu.address.model.semester.Semester;
 
 public class JsonAdaptedModuleTest {
     private static final String INVALID_MODULE_NAME = "S@ftware";

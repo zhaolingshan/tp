@@ -5,13 +5,13 @@ package seedu.address.model.semester;
  * Guarantees: immutable; is valid as declared in {@link #isValidSemester(String)}
  */
 public class SemesterManager {
-    
-    private static SemesterManager semesterManager = null;
-    
-    private Semester currentSem = Semester.NA;
-    
-    public static final String MESSAGE_INVALID_SEMESTER = "The semester you have entered is invalid." 
+
+    public static final String MESSAGE_INVALID_SEMESTER = "The semester you have entered is invalid."
             + "Only Y1S1, Y1S2, Y2S1, Y2S2, Y3S1, Y3S2, Y4S1, Y4S2, Y5S1, and Y5S2 are accepted.";
+
+    private static SemesterManager semesterManager = null;
+
+    private Semester currentSem = Semester.NA;
 
     /**
      * Constructs a {@code SemesterManager}.
@@ -19,14 +19,14 @@ public class SemesterManager {
      * from instantiating a SemesterManager object at will.
      */
     private SemesterManager() {
-        
+
     }
 
     /**
-     * Instantiates a single copy of the singleton SemesterManager class 
-     * when it is executed for the first time. Returns the single 
+     * Instantiates a single copy of the singleton SemesterManager class
+     * when it is executed for the first time. Returns the single
      * instance of the class for subsequent calls to this operation;
-     * 
+     *
      * @return a single copy of the SemesterManager class.
      */
     public static SemesterManager getInstance() {
@@ -38,6 +38,7 @@ public class SemesterManager {
 
     /**
      * Sets the current semester to the semester entered by the user.
+     *
      * @param currentSemester the semester entered by the user.
      */
     public void setCurrentSemester(Semester currentSemester) {
@@ -46,6 +47,7 @@ public class SemesterManager {
 
     /**
      * Gets the current semester where modules are being added or modified.
+     *
      * @return the current semester.
      */
     public Semester getCurrentSemester() {
@@ -54,6 +56,7 @@ public class SemesterManager {
 
     /**
      * Returns true if a given string is a valid Semester.
+     *
      * @param sem the semester entered by the user.
      * @return true if a given string is a valid Semester,
      * false if a given string is an invalid Semester.
@@ -66,7 +69,7 @@ public class SemesterManager {
             if (s.name().equals(sem)) {
                 return true;
             }
-        } 
+        }
         return false;
     }
 }

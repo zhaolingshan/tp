@@ -1,11 +1,11 @@
 package seedu.address.model.util;
 
+import java.util.function.Predicate;
+
 import javafx.collections.transformation.FilteredList;
 import seedu.address.model.module.Module;
 import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
-
-import java.util.function.Predicate;
 
 /**
  * Supports the function to filter the modules by semester.

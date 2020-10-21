@@ -66,7 +66,7 @@ public class Module {
             return new Grade(Cap.getEmptyGrade());
         }
     }
-    
+
     public Semester getSemester() {
         return semester;
     }

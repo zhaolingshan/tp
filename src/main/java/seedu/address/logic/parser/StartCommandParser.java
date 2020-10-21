@@ -1,11 +1,11 @@
 package seedu.address.logic.parser;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 import seedu.address.logic.commands.StartCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.semester.Semester;
-
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 public class StartCommandParser implements Parser<StartCommand> {
 
@@ -18,7 +18,7 @@ public class StartCommandParser implements Parser<StartCommand> {
     @Override
     public StartCommand parse(String userInput) throws ParseException {
         requireNonNull(userInput);
-        try { 
+        try {
             Semester semester = ParserUtil.parseSemester(userInput);
             return new StartCommand(semester);
         } catch (ParseException pe) {

@@ -24,7 +24,7 @@ public class SampleDataUtil {
                 getTagSet("CS2100"), new ModularCredit(4), Semester.Y2S1),
             new Module(new ModuleName("CS2103T Software Engineering"),
                 new Grade("A+"),
-                getTagSet("CS2103T"), new ModularCredit(4), Semester.Y2S1), 
+                getTagSet("CS2103T"), new ModularCredit(4), Semester.Y2S1),
             new Module(new ModuleName("GEQ1000 Asking Questions"),
                 new Grade("B"),
                 getTagSet("GEQ1000"), new ModularCredit(4), Semester.Y2S1),

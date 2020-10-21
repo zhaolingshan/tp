@@ -15,7 +15,6 @@ import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.semester.Semester;
-import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -87,15 +86,13 @@ class JsonAdaptedModule {
         if (!Grade.isValidGrade(grade)) {
             throw new IllegalValueException(Grade.MESSAGE_CONSTRAINTS);
         }
-//        if (!SemesterManager.isValidSemester(semester.toString())) {
-//           throw new IllegalValueException(SemesterManager.MESSAGE_INVALID_SEMESTER); 
-//        }
+
         final Grade modelGrade = new Grade(grade);
 
         final Set<Tag> modelTags = new HashSet<>(moduleTags);
 
         final ModularCredit modelModularCredit = new ModularCredit(modularCredit);
-        
+
         final Semester modelSemester = Semester.valueOf(semester);
 
         return new Module(modelModuleName, modelGrade, modelTags, modelModularCredit, modelSemester);

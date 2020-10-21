@@ -20,7 +20,6 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
     public DeleteCommand parse(String args) throws ParseException {
         try {
             ModuleName moduleName = ParserUtil.parseName(args);
-             
             return new DeleteCommand(moduleName);
         } catch (ParseException pe) {
             throw new ParseException(
