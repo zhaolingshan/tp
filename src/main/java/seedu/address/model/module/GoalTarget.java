@@ -31,6 +31,12 @@ public class GoalTarget {
             + "\n'goal --set 5': " + PASS
             + "\n'goal --set 6': " + FAIL;
     public static final int DEFAULT_GOAL = 0;
+    public static final double HIGHEST_DISTINCTION_CAP = 4.5;
+    public static final double DISTINCTION_CAP = 4.0;
+    public static final double MERIT_CAP = 3.5;
+    public static final double HONOURS_CAP = 3.0;
+    public static final double PASS_CAP = 2.0;
+    public static final double FAIL_CAP = 0.0;
 
     public final int goalTarget;
 
