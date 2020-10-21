@@ -100,6 +100,8 @@ public interface Model {
      */
     ObservableList<Module> filterModuleListBySem();
 
+    ObservableList<Module> sortModuleListBySem();
+
     /**
      * Returns the current CAP as a string.
      */

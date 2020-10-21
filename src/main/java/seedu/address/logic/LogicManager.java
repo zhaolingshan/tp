@@ -99,4 +99,10 @@ public class LogicManager implements Logic {
         return model.filterModuleListBySem();
     }
 
+    @Override
+    public ObservableList<Module> sortModuleListBySem() {
+        System.out.println(model.sortModuleListBySem());
+        return model.sortModuleListBySem();
+    }
+
 }

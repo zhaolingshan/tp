@@ -16,6 +16,7 @@ import seedu.address.model.module.Module;
 import seedu.address.model.util.CapCalculator;
 import seedu.address.model.util.McCalculator;
 import seedu.address.model.util.ModuleListFilter;
+import seedu.address.model.util.ModuleListSorter;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -143,6 +144,11 @@ public class ModelManager implements Model {
     @Override
     public FilteredList<Module> filterModuleListBySem() {
         return ModuleListFilter.filterModulesBySemester(filteredModules);
+    }
+
+    @Override
+    public FilteredList<Module> sortModuleListBySem() {
+        return ModuleListSorter.sortModuleList(filteredModules);
     }
 
     @Override
