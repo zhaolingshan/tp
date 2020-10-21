@@ -167,9 +167,9 @@ public class ModelManager implements Model {
     //=========== CAP Calculation ============================================================================
 
     /**
-     * Calculates the CAP of the current list of modules.
+     * Calculates the CAP of the current list of modules and return it as a string.
      *
-     * @return a string representation of the cap to 2 significant figures.
+     * @return a string representation of the CAP to 2 significant figures.
      */
     @Override
     public String generateCapAsString() {
@@ -177,6 +177,11 @@ public class ModelManager implements Model {
         return String.format("%.2f", cap);
     }
 
+    /**
+     * Calculates the CAP of the current list of modules and returns it as a double.
+     * 
+     * @return the CAP as a double value.
+     */
     @Override
     public double generateCap() {
         return CapCalculator.calculateCap(filteredModules);

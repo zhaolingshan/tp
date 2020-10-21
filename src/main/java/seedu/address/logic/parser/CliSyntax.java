@@ -14,4 +14,3 @@ public class CliSyntax {
     public static final Prefix PREFIX_LIST_GOAL = new Prefix("--list");
     public static final Prefix PREFIX_DOUBLE_DEGREE = new Prefix("--ddp ");
 }
-}

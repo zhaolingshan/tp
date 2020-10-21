@@ -13,7 +13,7 @@ public class StartCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Starts adding or editing modules in the semester stated.\n"
-            + "Parameters: MODULE_NAME\n"
+            + "Parameters: SEMESTER\n"
             + "Example: " + COMMAND_WORD + " Y2S1";
 
     public static final String MESSAGE_START_SEMESTER_SUCCESS =
@@ -30,7 +30,7 @@ public class StartCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model) {
         requireNonNull(model);
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(toStart);

@@ -81,6 +81,9 @@ public class AddressBookParser {
         case RecommendSuCommand.COMMAND_WORD:
             return new RecommendSuCommand();
 
+        case ProgressCommand.COMMAND_WORD:
+            return new ProgressCommandParser().parse(arguments);
+
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
