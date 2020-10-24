@@ -10,7 +10,6 @@ import seedu.address.model.module.Module;
 import seedu.address.model.util.ModuleInfoRetriever;
 
 
-
 /**
  * Recommend modules to S/U based on user's goal.
  */
@@ -29,7 +28,8 @@ public class RecommendSuCommand extends Command {
         GoalTarget userGoal = model.getGoalTarget();
         if (!GoalTarget.isValidGoal(userGoal.getGoalTarget())) {
             // user has yet to key in goal
-            return new CommandResult(MESSAGE_FAILURE, false, false, true);
+            return new CommandResult(MESSAGE_FAILURE, false, false,
+                    true, false);
         }
 
         filterModule(model, userGoal);
@@ -38,21 +38,25 @@ public class RecommendSuCommand extends Command {
 
     /**
      * Returns command result based on the filtered module list size.
+     *
      * @param model Model.
      * @return CommandResult.
      */
     private CommandResult getCommandResult(Model model) {
         int modListSize = model.getFilteredModuleList().size();
         if (modListSize == 0) {
-            return new CommandResult(MESSAGE_SUCCESS_NO_RECOMMENDATION, false, false, true);
+            return new CommandResult(MESSAGE_SUCCESS_NO_RECOMMENDATION, false,
+                    false, true, false);
         }
-        return new CommandResult(MESSAGE_SUCCESS, false, false, true);
+        return new CommandResult(MESSAGE_SUCCESS, false,
+                false, true, false);
     }
 
     /**
      * Filter the modules to only modules that MyMods recommends to user.
+     *
      * @param model Current model.
-     * @param goal User's goal.
+     * @param goal  User's goal.
      */
     private void filterModule(Model model, GoalTarget goal) {
         model.updateFilteredModuleList(x -> isRecommendSu(goal, x));
@@ -60,8 +64,9 @@ public class RecommendSuCommand extends Command {
 
     /**
      * Recommend if user should S/U a module based on three criterion.
+     *
      * @param goal User's goal.
-     * @param x Module to be checked.
+     * @param x    Module to be checked.
      * @return boolean True if all three conditions are satisfied, else false.
      */
     private boolean isRecommendSu(GoalTarget goal, Module x) {
@@ -72,7 +77,8 @@ public class RecommendSuCommand extends Command {
 
     /**
      * Compares module's grade with user's goal.
-     * @param x Module to be compared.
+     *
+     * @param x    Module to be compared.
      * @param goal Goal set by user.
      * @return boolean True if the module grade is under user's goal, else false.
      */
@@ -82,6 +88,7 @@ public class RecommendSuCommand extends Command {
 
     /**
      * Returns true if the module's grade is C and above (condition to S/U a grade).
+     *
      * @param x Module.
      * @return boolean True is the grade of module is C and above, else false.
      */
@@ -91,6 +98,7 @@ public class RecommendSuCommand extends Command {
 
     /**
      * Returns true if module can be S/U from data.
+     *
      * @param module Module to be checked.
      * @return True if module can be S/U, false otherwise.
      */

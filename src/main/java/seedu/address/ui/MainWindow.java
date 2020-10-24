@@ -128,8 +128,7 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        //moduleListPanel = new ModuleListPanel(logic.getFilteredModuleList());
-        System.out.println("hi");
+        assert false: "this causes an assertion failure";
         moduleListPanel = new ModuleListPanel(logic.sortModuleListBySem());
         moduleListPanelPlaceholder.getChildren().add(moduleListPanel.getRoot());
 

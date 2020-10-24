@@ -19,18 +19,24 @@ public class DoneCommandParser implements Parser<DoneCommand> {
      */
     @Override
     public DoneCommand parse(String userInput) throws ParseException {
-        requireNonNull(userInput);
+//        requireNonNull(userInput);
         SemesterManager semesterManager = SemesterManager.getInstance();
         Semester semester = semesterManager.getCurrentSemester();
         if (semester == Semester.NA) {
             throw new ParseException(Messages.MESSAGE_INVALID_DONE_COMMAND);
         }
-        try {
-            Semester sem = ParserUtil.parseSemester(userInput);
-            return new DoneCommand(sem);
-        } catch (ParseException pe) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, DoneCommand.MESSAGE_USAGE), pe);
-        }
+        String trimmedInput = userInput.trim();
+            if (!trimmedInput.equals("") && trimmedInput.length() > 0) {
+                throw new ParseException(
+                        String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, DoneCommand.MESSAGE_USAGE));
+            }
+            return new DoneCommand();
+//        try {
+//            Semester sem = ParserUtil.parseSemester(userInput);
+//            return new DoneCommand();
+//        } catch (ParseException pe) {
+//            throw new ParseException(
+//                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, DoneCommand.MESSAGE_USAGE), pe);
+//        }
     }
 }
