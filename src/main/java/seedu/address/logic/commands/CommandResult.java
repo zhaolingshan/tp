@@ -70,7 +70,7 @@ public class CommandResult {
     public boolean isDoneWithSemester() {
         return isDoneWithSemester;
     }
-    
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {

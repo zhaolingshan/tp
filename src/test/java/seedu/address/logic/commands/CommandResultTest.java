@@ -39,7 +39,7 @@ public class CommandResultTest {
 
         // different isDoneWithSemester value -> returns false
         assertFalse(commandResult.equals(new CommandResult("feedback", false, false, true, true)));
-        
+
     }
 
     @Test
