@@ -1,5 +1,6 @@
 package seedu.address.ui;
 
+import java.time.LocalTime;
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
@@ -66,7 +67,7 @@ public class MainWindow extends UiPart<Stage> {
         this.logic = logic;
 
         //Set default theme
-        setStyleSheet("LightTheme");
+        setDefaultStyleSheet();
 
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
@@ -76,8 +77,19 @@ public class MainWindow extends UiPart<Stage> {
         helpWindow = new HelpWindow();
     }
 
+    private void setDefaultStyleSheet() {
+        LocalTime morning = LocalTime.of(7, 0);
+        LocalTime night = LocalTime.of(19, 0);
+        LocalTime localTime = LocalTime.now();
+        if (localTime.isAfter(morning) && localTime.isBefore(night)) {
+            setStyleSheet("LightTheme");
+        } else {
+            setStyleSheet("DarkTheme");
+        }
+    }
+
     private void setStyleSheet(String cssFileName) {
-        assert cssFileName.equals("Dark") || cssFileName.equals("Light");
+        assert cssFileName.equals("DarkTheme") || cssFileName.equals("LightTheme");
         Scene scene = primaryStage.getScene();
 
         String cssFile = MainWindow.class.getResource("/view/" + cssFileName + ".css").toExternalForm();
