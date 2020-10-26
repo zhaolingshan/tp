@@ -93,6 +93,7 @@ public class AutoCompleteTextField extends TextField {
             menuItems.add(item);
         }
         entriesPopup.getItems().clear();
+        entriesPopup = new MaxSizedContextMenu();
         entriesPopup.getItems().addAll(menuItems);
         entriesPopup.setMaxHeight(300);
     }
