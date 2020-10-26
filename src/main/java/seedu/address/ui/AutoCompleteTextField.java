@@ -14,8 +14,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 
 /**
- * This class is a TextField which implements an "autocomplete" functionality, based on a supplied list of entries.
+ * This class is a TextField which implements an "autocomplete" functionality,
+ * based on a supplied list of entries.
+ *
  * @author Caleb Brinkman
+ *
+ * Reused from https://gist.github.com/floralvikings/10290131
+ * with minor modifications by kunnan97, https://github.com/kunnan97
  */
 public class AutoCompleteTextField extends TextField {
     /** The existing autocomplete entries. */
@@ -27,6 +32,9 @@ public class AutoCompleteTextField extends TextField {
     public AutoCompleteTextField() {
         super();
         entries = new TreeSet<>();
+
+        //modification by kunnan97, use MaxSizedContextMenu instead of
+        //contextMenu to allow setMaxHeight() on contextMenu.
         entriesPopup = new MaxSizedContextMenu();
         textProperty().addListener((observableValue, s, s2) -> {
             if (getText().length() == 0 || getEntries().contains(getText())) {
@@ -53,6 +61,12 @@ public class AutoCompleteTextField extends TextField {
         focusedProperty().addListener((observableValue, aBoolean, aBoolean2) -> entriesPopup.hide());
     }
 
+    /**
+     * Modification:
+     * Event listener for when mouse is clicked, auto suggestion pops up.
+     *
+     * @author kunnan97
+     */
     private void onTextFieldClicked() {
         this.setOnMouseClicked(arg -> {
             LinkedList<String> searchResult = new LinkedList<>();
@@ -92,9 +106,15 @@ public class AutoCompleteTextField extends TextField {
             });
             menuItems.add(item);
         }
+
+        //modification by kunnan97, create a new MaxSizedContextMenu every time it is
+        //repopulated so as to avoid contextMenu staying at bottom of scroll
+        //from previous pop up scrolling.
         entriesPopup.getItems().clear();
         entriesPopup = new MaxSizedContextMenu();
         entriesPopup.getItems().addAll(menuItems);
         entriesPopup.setMaxHeight(300);
     }
 }
+//@author Caleb Brinkman
+//minor modifications by kunnan97

@@ -77,6 +77,11 @@ public class MainWindow extends UiPart<Stage> {
         helpWindow = new HelpWindow();
     }
 
+    /**
+     * Sets the default stylesheet for main window when launched, default is
+     * "LightTheme.css" in the day(7am - 7pm),
+     * "DarkTheme.css" at night(7pm - 7am).
+     */
     private void setDefaultStyleSheet() {
         LocalTime morning = LocalTime.of(7, 0);
         LocalTime night = LocalTime.of(19, 0);
@@ -88,6 +93,12 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
+    /**
+     * Sets the stylesheet for MainWindow. Scene object is accessed from the Stage object,
+     * manipulating the stylesheet property of the Scene object.
+     *
+     * @param cssFileName css file name of the theme to be set
+     */
     private void setStyleSheet(String cssFileName) {
         assert cssFileName.equals("DarkTheme") || cssFileName.equals("LightTheme");
         Scene scene = primaryStage.getScene();
@@ -197,11 +208,17 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.hide();
     }
 
+    /**
+     * Set MainWindow to Dark theme when selected through menu.
+     */
     @FXML
     private void handleDarkThemeSelection() {
         setStyleSheet("DarkTheme");
     }
 
+    /**
+     * Set MainWindow to Light theme when selected through menu.
+     */
     @FXML
     private void handleLightThemeSelection() {
         setStyleSheet("LightTheme");
