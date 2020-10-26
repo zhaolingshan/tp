@@ -29,7 +29,7 @@ public class RecommendSuCommandTest {
     @Test
     public void execute_recommendSu_showList() {
         CommandResult expectedCommandResult =
-            new CommandResult(MESSAGE_SUCCESS_NO_RECOMMENDATION, false, false, true);
+            new CommandResult(MESSAGE_SUCCESS_NO_RECOMMENDATION, false, false, true, false);
         assertCommandSuccess(new RecommendSuCommand(), model, expectedCommandResult, expectedModel);
     }
 }

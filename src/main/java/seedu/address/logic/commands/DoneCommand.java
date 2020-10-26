@@ -1,7 +1,5 @@
 package seedu.address.logic.commands;
 
-import static java.util.Objects.requireNonNull;
-
 import seedu.address.model.Model;
 import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
@@ -21,31 +19,13 @@ public class DoneCommand extends Command {
             + "Parameters: MODULE_NAME\n"
             + "Example: " + COMMAND_WORD;
 
-    public static final String MESSAGE_START_SEMESTER_SUCCESS =
-            "You are done editing: %1$s";
-
-    private final Semester toDone;
-
-    /**
-     * Creates a DoneCommand to add the specified {@code Semester}
-     */
-    public DoneCommand(Semester semester) {
-        requireNonNull(semester);
-        toDone = semester;
-    }
+    public static final String MESSAGE_DONE_SEMESTER_SUCCESS =
+            "You are done editing: " + SemesterManager.getInstance().getCurrentSemester().toString();
 
     @Override
     public CommandResult execute(Model model) {
-        requireNonNull(model);
         SemesterManager semesterManager = SemesterManager.getInstance();
-        String currentSemester = semesterManager.getCurrentSemester().toString();
         semesterManager.setCurrentSemester(Semester.NA);
-        return new CommandResult(String.format(MESSAGE_START_SEMESTER_SUCCESS, currentSemester));
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        return other instanceof DoneCommand
-                && toDone.equals(((DoneCommand) other).toDone); // instanceof handles nulls
+        return new CommandResult(MESSAGE_DONE_SEMESTER_SUCCESS, false, false, false, true);
     }
 }
