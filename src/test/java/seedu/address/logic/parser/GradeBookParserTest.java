@@ -18,11 +18,13 @@ import org.junit.jupiter.api.Test;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.DoneCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.StartCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
@@ -69,6 +71,23 @@ public class GradeBookParserTest {
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
                 + COM_ORG.getModuleName().fullModName + " " + ModuleUtil.getEditModuleDescriptorDetails(descriptor));
         assertEquals(new EditCommand(COM_ORG.getModuleName(), descriptor), command);
+    }
+    
+    @Test
+    public void parseCommand_start() throws Exception {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        StartCommand command = (StartCommand) parser.parseCommand(
+                StartCommand.COMMAND_WORD + " " + VALID_SEMESTER);
+        assertEquals(new StartCommand(VALID_SEMESTER), command);
+    }
+    
+    @Test
+    public void parseCommand_done() throws Exception {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        assertTrue(parser.parseCommand(DoneCommand.COMMAND_WORD) instanceof DoneCommand);
+        assertTrue(parser.parseCommand(DoneCommand.COMMAND_WORD + "") instanceof DoneCommand);
     }
 
     @Test
