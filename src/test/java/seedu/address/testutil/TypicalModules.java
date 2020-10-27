@@ -2,6 +2,8 @@ package seedu.address.testutil;
 
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_A;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_C;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_B;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MODULAR_CREDIT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_A;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_CODE;
@@ -47,6 +49,9 @@ public class TypicalModules {
             .withGrade(VALID_GRADE_A).withTags(VALID_TAG_FRIEND).build();
     public static final Module MOD_B = new ModuleBuilder().withName(VALID_MOD_NAME_B)
             .withGrade(VALID_GRADE_C).withTags(VALID_TAG_CODE)
+            .build();
+    public static final Module MOD_C = new ModuleBuilder().withName(VALID_MOD_NAME_B)
+            .withGrade(VALID_GRADE_B).withTags(VALID_TAG_FRIEND)
             .build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER

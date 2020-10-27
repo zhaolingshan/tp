@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_A;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
-import static seedu.address.testutil.TypicalModules.MOD_B;
+import static seedu.address.testutil.TypicalModules.MOD_A;
 
 import org.junit.jupiter.api.Test;
 
@@ -58,7 +58,7 @@ public class ModuleTest {
         assertFalse(COM_ORG.equals(5));
 
         // different module -> returns false
-        assertFalse(COM_ORG.equals(MOD_B));
+        assertFalse(COM_ORG.equals(MOD_A));
 
         // different module name -> returns false
         Module editedModule = new ModuleBuilder(COM_ORG).withName(VALID_MOD_NAME_A).build();
@@ -66,10 +66,6 @@ public class ModuleTest {
 
         // different grade -> returns false
         editedModule = new ModuleBuilder(COM_ORG).withGrade("A+").build();
-        assertFalse(COM_ORG.equals(editedModule));
-
-        // different MCs -> returns false
-        editedModule = new ModuleBuilder(COM_ORG).withModularCredit(2).build();
         assertFalse(COM_ORG.equals(editedModule));
     }
 }
