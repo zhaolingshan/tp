@@ -9,6 +9,7 @@ import seedu.address.logic.commands.EditCommand.EditModNameDescriptor;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -34,10 +35,11 @@ public class EditModNameDescriptorBuilder {
         descriptor.setName(module.getModuleName());
         descriptor.setGrade(module.getGrade());
         descriptor.setTags(module.getTags());
+        descriptor.setSemester(module.getSemester());
     }
 
     /**
-     * Sets the {@code module name} of the {@code EditModNameDescriptor} that we are building.
+     * Sets the {@code name} of the {@code EditModNameDescriptor} that we are building.
      */
     public EditModNameDescriptorBuilder withName(String name) {
         descriptor.setName(new ModuleName(name));
@@ -45,7 +47,7 @@ public class EditModNameDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Grade} of the {@code EditModNameDescriptor} that we are building.
+     * Sets the {@code grade} of the {@code EditModNameDescriptor} that we are building.
      */
     public EditModNameDescriptorBuilder withGrade(String grade) {
         descriptor.setGrade(new Grade(grade));
@@ -59,6 +61,14 @@ public class EditModNameDescriptorBuilder {
     public EditModNameDescriptorBuilder withTags(String... tags) {
         Set<Tag> tagSet = Stream.of(tags).map(Tag::new).collect(Collectors.toSet());
         descriptor.setTags(tagSet);
+        return this;
+    }
+
+    /**
+     * Sets the {@code semester} of the {@code EditModNameDescriptor} that we are building.
+     */
+    public EditModNameDescriptorBuilder withSemester(Semester semester) {
+        descriptor.setSemester(semester);
         return this;
     }
 

@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SEMESTER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Collection;
@@ -15,6 +16,7 @@ import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditModNameDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.module.Cap;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.semester.Semester;
@@ -51,12 +53,15 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_GRADE).isPresent()) {
             editModNameDescriptor.setGrade(ParserUtil.parseGrade(argMultimap.getValue(PREFIX_GRADE).get()));
         } else {
-            editModNameDescriptor.setGrade(new Grade("NA"));
+            editModNameDescriptor.setGrade(new Grade(Cap.NA.toString()));
         }
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editModNameDescriptor::setTags);
         if (!editModNameDescriptor.isAnyFieldEdited()) {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
         }
+        if (argMultimap.getValue(PREFIX_SEMESTER).isPresent()) {
+            editModNameDescriptor.setSemester(ParserUtil.parseSemester(argMultimap.getValue(PREFIX_SEMESTER).get()));
+        } 
 
         return new EditCommand(moduleName, editModNameDescriptor);
     }
