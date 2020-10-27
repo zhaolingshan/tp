@@ -57,10 +57,10 @@ public class ModuleTest {
         // different type -> returns false
         assertFalse(COM_ORG.equals(5));
 
-        // different person -> returns false
+        // different module -> returns false
         assertFalse(COM_ORG.equals(MOD_B));
 
-        // different name -> returns false
+        // different module name -> returns false
         Module editedModule = new ModuleBuilder(COM_ORG).withName(VALID_MOD_NAME_A).build();
         assertFalse(COM_ORG.equals(editedModule));
 

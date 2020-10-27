@@ -30,8 +30,10 @@ public class CommandTestUtil {
     public static final String VALID_MOD_NAME_B = "CS2100";
     public static final String VALID_GRADE_A = "A";
     public static final String VALID_GRADE_B = "B-";
+    public static final String VALID_GRADE_C = "A-";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
+    public static final String VALID_TAG_CODE = "CS2100";
     public static final int VALID_MODULAR_CREDIT = 4;
     public static final int VALID_GOAL_TARGET = 4;
     public static final int INVALID_GOAL_TARGET = -1;
