@@ -6,6 +6,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import seedu.address.logic.commands.StartCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 
 public class StartCommandParser implements Parser<StartCommand> {
 
@@ -23,7 +24,7 @@ public class StartCommandParser implements Parser<StartCommand> {
             return new StartCommand(semester);
         } catch (ParseException pe) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, StartCommand.MESSAGE_USAGE), pe);
+                    String.format(SemesterManager.MESSAGE_INVALID_SEMESTER), pe);
         }
     }
 }
