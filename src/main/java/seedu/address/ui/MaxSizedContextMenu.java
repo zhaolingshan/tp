@@ -5,6 +5,12 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.layout.Region;
 
+/**
+ * A class that extends ContextMenu which allows resizing of height programmatically.
+ *
+ * @author kleopatra
+ * Reused from https://stackoverflow.com/questions/51272738/javafx-contextmenu-max-size-has-no-effect
+ */
 public class MaxSizedContextMenu extends ContextMenu {
 
     /**
@@ -29,3 +35,4 @@ public class MaxSizedContextMenu extends ContextMenu {
         });
     }
 }
+//@author kleopatra
