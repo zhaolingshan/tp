@@ -1,5 +1,7 @@
 package seedu.address.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -46,6 +48,30 @@ public class SetCommandTest {
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget());
 
         assertCommandSuccess(setCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void equals() {
+        GoalTarget goalOne = new GoalTarget(1);
+        GoalTarget goalTwo = new GoalTarget(2);
+        SetCommand setGoalOne = new SetCommand(goalOne);
+        SetCommand setGoalTwo = new SetCommand(goalTwo);
+
+        // same object -> returns true
+        assertTrue(setGoalOne.equals(setGoalOne));
+
+        // same values -> returns true
+        SetCommand setGoalOneCopy = new SetCommand(goalOne);
+        assertTrue(setGoalOne.equals(setGoalOneCopy));
+
+        // different types -> returns false
+        assertFalse(setGoalOne.equals(1));
+
+        // null -> returns false
+        assertFalse(setGoalOne.equals(null));
+
+        // different person -> returns false
+        assertFalse(setGoalOne.equals(setGoalTwo));
     }
 
 }
