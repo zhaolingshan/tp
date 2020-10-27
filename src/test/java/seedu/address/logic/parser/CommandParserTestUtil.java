@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 
 /**
  * Contains helper methods for testing command parsers.
@@ -16,6 +18,7 @@ public class CommandParserTestUtil {
      */
     public static void assertParseSuccess(Parser parser, String userInput, Command expectedCommand) {
         try {
+            SemesterManager.getInstance().setCurrentSemester(Semester.Y1S1);
             Command command = parser.parse(userInput);
             assertEquals(expectedCommand, command);
         } catch (ParseException pe) {
