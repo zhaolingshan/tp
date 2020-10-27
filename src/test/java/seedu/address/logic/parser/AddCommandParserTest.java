@@ -48,7 +48,7 @@ public class AddCommandParserTest {
         assertParseSuccess(parser, MOD_NAME_DESC_A + MOD_NAME_DESC_B
                 + GRADE_DESC_B + TAG_DESC_FRIEND + MODULAR_CREDIT_DESC, new AddCommand(expectedModule));
 
-        // multiple addresses - last address accepted
+        // multiple grades - last grade accepted
         assertParseSuccess(parser, MOD_NAME_DESC_B + GRADE_DESC_A
                 + GRADE_DESC_B + TAG_DESC_FRIEND + MODULAR_CREDIT_DESC, new AddCommand(expectedModule));
 

@@ -73,8 +73,8 @@ public class ModuleModuleNameContainsKeywordsPredicateTest {
         assertFalse(predicate.test(new ModuleBuilder().withName("CS2100 Computer Organisation").build()));
 
         // Keywords match grade, but does not match module name
-         predicate = new ModuleNameContainsKeywordsPredicate(Arrays.asList("CS2103", "A+"));
-         assertFalse(predicate.test(new ModuleBuilder().withName("CS2100")
+        predicate = new ModuleNameContainsKeywordsPredicate(Arrays.asList("CS2103", "A+"));
+        assertFalse(predicate.test(new ModuleBuilder().withName("CS2100")
                  .withGrade("A+").build()));
     }
 }
