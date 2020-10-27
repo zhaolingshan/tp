@@ -8,10 +8,12 @@ import static seedu.address.logic.commands.CommandTestUtil.INVALID_MOD_NAME_DESC
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.MOD_NAME_DESC_A;
 import static seedu.address.logic.commands.CommandTestUtil.NO_GRADE;
+import static seedu.address.logic.commands.CommandTestUtil.SEMESTER_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_A;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_B;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MODULAR_CREDIT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_A;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
@@ -25,13 +27,18 @@ import static seedu.address.testutil.TypicalModules.SWE;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditModNameDescriptor;
 import seedu.address.model.module.Grade;
+import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.EditModNameDescriptorBuilder;
+import seedu.address.testutil.ModuleBuilder;
 
 public class EditCommandParserTest {
 
@@ -73,7 +80,7 @@ public class EditCommandParserTest {
     public void parse_allFieldsSpecified_success() {
         ModuleName nameThirdModule = SWE.getModuleName();
         String userInput = PREFIX_MOD_NAME + nameThirdModule.fullModName + TAG_DESC_HUSBAND
-                + GRADE_DESC_A + MOD_NAME_DESC_A + TAG_DESC_FRIEND;
+                + GRADE_DESC_A + MOD_NAME_DESC_A + SEMESTER_DESC + TAG_DESC_FRIEND;
 
         EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
                 .withGrade(VALID_GRADE_A)
@@ -153,5 +160,25 @@ public class EditCommandParserTest {
                 .withName(nameFirstModule.fullModName).withGrade(VALID_GRADE_B).build();
         expectedCommand = new EditCommand(nameFirstModule, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
+    }
+
+    @Test
+    public void parse_invalidSemester_failure() {
+        Semester invalidSemester = Semester.NA;
+        assertParseFailure(parser, invalidSemester.toString(), Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
+    }
+
+    @Test
+    public void parse_validSemester_success() {
+        Semester validSemester = Semester.Y3S2;
+        Module expectedModule = new ModuleBuilder(COM_ORG).withTags(VALID_TAG_FRIEND)
+                .withModularCredit(VALID_MODULAR_CREDIT).withSemester(validSemester.toString()).build();
+        
+        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder()
+                .withName(expectedModule.getModuleName().toString())
+                .withGrade(VALID_GRADE_B).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
+                .build();
+        EditCommand editCommand = new EditCommand(expectedModule.getModuleName(), descriptor);
+        assertParseSuccess(parser, expectedModule.toString(), editCommand);
     }
 }

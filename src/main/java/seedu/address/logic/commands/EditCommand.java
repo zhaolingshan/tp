@@ -126,6 +126,7 @@ public class EditCommand extends Command {
         private ModuleName moduleName;
         private Grade grade;
         private Set<Tag> tags;
+        private Semester semester;
 
         public EditModNameDescriptor() {}
 
@@ -137,27 +138,46 @@ public class EditCommand extends Command {
             setName(toCopy.moduleName);
             setGrade(toCopy.grade);
             setTags(toCopy.tags);
+            setSemester(toCopy.semester);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(moduleName, grade, tags);
+            return CollectionUtil.isAnyNonNull(moduleName, grade, tags, semester);
         }
 
+        /**
+         * Sets {@code moduleName} to this object's {@code moduleName}.
+         * A defensive copy of {@code moduleName} is used internally.
+         */
         public void setName(ModuleName moduleName) {
             this.moduleName = moduleName;
         }
 
+        /**
+         * Returns an unmodifiable moduleName set, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code moduleName} is null.
+         */
         public Optional<ModuleName> getName() {
             return Optional.ofNullable(moduleName);
         }
 
+        /**
+         * Sets {@code grade} to this object's {@code grade}.
+         * A defensive copy of {@code grade} is used internally.
+         */
         public void setGrade(Grade grade) {
             this.grade = grade;
         }
 
+        /**
+         * Returns an unmodifiable grade set, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code grade} is null.
+         */
         public Optional<Grade> getGrade() {
             return Optional.ofNullable(grade);
         }
@@ -179,6 +199,19 @@ public class EditCommand extends Command {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 
+        /**
+         * Sets {@code semester} to this object's {@code semester}.
+         * A defensive copy of {@code semester} is used internally.
+         */
+        public void setSemester(Semester semester) { this.semester = semester; }
+
+        /**
+         * Returns an unmodifiable semester set, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code semester} is null.
+         */
+        public Optional<Semester> getSemester() { return Optional.ofNullable(semester); }
+
         @Override
         public boolean equals(Object other) {
             // short circuit if same object
@@ -196,7 +229,8 @@ public class EditCommand extends Command {
 
             return getName().equals(e.getName())
                     && getGrade().equals(e.getGrade())
-                    && getTags().equals(e.getTags());
+                    && getTags().equals(e.getTags())
+                    && getSemester().equals((e.getSemester()));
         }
     }
 }
