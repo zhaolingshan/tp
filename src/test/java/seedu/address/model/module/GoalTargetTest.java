@@ -16,4 +16,23 @@ public class GoalTargetTest {
         assertFalse(GoalTarget.isValidGoal(-1));
         assertFalse(GoalTarget.isValidGoal(7));
     }
+
+    @Test
+    public void equals() {
+        GoalTarget goalTarget = new GoalTarget(1);
+        // same values -> returns true
+        assertTrue(goalTarget.equals(new GoalTarget(1)));
+
+        // same object -> returns true
+        assertTrue(goalTarget.equals(goalTarget));
+
+        // null -> returns false
+        assertFalse(goalTarget.equals(null));
+
+        // different type -> returns false
+        assertFalse(goalTarget.equals(1));
+
+        // different GoalTarget -> returns false
+        assertFalse(goalTarget.equals(new GoalTarget(2)));
+    }
 }
