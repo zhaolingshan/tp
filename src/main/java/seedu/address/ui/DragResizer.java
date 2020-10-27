@@ -34,6 +34,11 @@ public class DragResizer {
         region = aRegion;
     }
 
+    /**
+     * Allow a specific region/ui component to be resizeable.
+     *
+     * @param region region/ui component
+     */
     public static void makeResizable(Region region) {
         final DragResizer resizer = new DragResizer(region);
 
@@ -41,22 +46,26 @@ public class DragResizer {
             @Override
             public void handle(MouseEvent event) {
                 resizer.mousePressed(event);
-            }});
+            }
+        });
         region.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 resizer.mouseDragged(event);
-            }});
+            }
+        });
         region.setOnMouseMoved(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 resizer.mouseOver(event);
-            }});
+            }
+        });
         region.setOnMouseReleased(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 resizer.mouseReleased(event);
-            }});
+            }
+        });
     }
 
     protected void mouseReleased(MouseEvent event) {
@@ -65,10 +74,9 @@ public class DragResizer {
     }
 
     protected void mouseOver(MouseEvent event) {
-        if(isInDraggableZone(event) || dragging) {
+        if (isInDraggableZone(event) || dragging) {
             region.setCursor(Cursor.S_RESIZE);
-        }
-        else {
+        } else {
             region.setCursor(Cursor.DEFAULT);
         }
     }
@@ -78,7 +86,7 @@ public class DragResizer {
     }
 
     protected void mouseDragged(MouseEvent event) {
-        if(!dragging) {
+        if (!dragging) {
             return;
         }
 
@@ -94,7 +102,7 @@ public class DragResizer {
     protected void mousePressed(MouseEvent event) {
 
         // ignore clicks outside of the draggable margin
-        if(!isInDraggableZone(event)) {
+        if (!isInDraggableZone(event)) {
             return;
         }
 
