@@ -3,8 +3,10 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_LIST_GOAL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MODULAR_CREDIT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SET_GOAL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -30,10 +32,14 @@ public class CommandTestUtil {
     public static final String VALID_MOD_NAME_B = "CS2100";
     public static final String VALID_GRADE_A = "A";
     public static final String VALID_GRADE_B = "B-";
+    public static final String VALID_GRADE_C = "A-";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
+    public static final String VALID_TAG_CODE = "CS2100";
     public static final int VALID_MODULAR_CREDIT = 4;
-    public static final int VALID_GOAL_TARGET = 4;
+    public static final int VALID_GOAL_TARGET_A = 4;
+    public static final int VALID_GOAL_TARGET_B = 3;
+    public static final String VALID_GOAL_TARGET_INPUT = "4";
     public static final int INVALID_GOAL_TARGET = -1;
     public static final double VALID_CAP = 3.50;
 
@@ -46,6 +52,9 @@ public class CommandTestUtil {
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
     public static final String MODULAR_CREDIT_DESC = " " + PREFIX_MODULAR_CREDIT + VALID_MODULAR_CREDIT;
+    public static final String SET_GOAL_DESC_A = " " + PREFIX_SET_GOAL + VALID_GOAL_TARGET_A;
+    public static final String SET_GOAL_DESC_B = " " + PREFIX_SET_GOAL + VALID_GOAL_TARGET_B;
+    public static final String LIST_GOAL_DESC = " " + PREFIX_LIST_GOAL;
     public static final String SEMESTER_DESC = " " + VALID_SEMESTER.toString();
 
     public static final String INVALID_MOD_NAME_DESC = " " + PREFIX_MOD_NAME + "James&"; // '&' not allowed in mod names
