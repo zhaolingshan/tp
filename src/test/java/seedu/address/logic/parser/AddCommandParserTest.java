@@ -25,10 +25,14 @@ import static seedu.address.testutil.TypicalModules.MOD_B;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.commands.StartCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.ModuleBuilder;
 
@@ -99,5 +103,21 @@ public class AddCommandParserTest {
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + MOD_NAME_DESC_B
                 + GRADE_DESC_B + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+    }
+    
+    @Test
+    public void parse_invalidSemester_failure() {
+        Semester invalidSemester = Semester.NA;
+        assertParseFailure(parser, invalidSemester.toString(), Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
+    }
+
+    @Test
+    public void parse_validSemester_success() {
+        Semester validSemester = Semester.Y4S2;
+        Module expectedModule = new ModuleBuilder(MOD_B).withTags(VALID_TAG_FRIEND)
+                .withModularCredit(VALID_MODULAR_CREDIT).withSemester(validSemester.toString()).build();
+        AddCommand addCommand = new AddCommand(expectedModule);
+        assertParseSuccess(parser, PREAMBLE_WHITESPACE + MOD_NAME_DESC_B
+                + GRADE_DESC_B + TAG_DESC_FRIEND + MODULAR_CREDIT_DESC, addCommand);
     }
 }
