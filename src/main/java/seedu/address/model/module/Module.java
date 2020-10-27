@@ -113,7 +113,8 @@ public class Module {
         Module otherModule = (Module) other;
         return otherModule.getModuleName().equals(getModuleName())
                 && otherModule.getGrade().equals(getGrade())
-                && otherModule.getTags().equals(getTags());
+                && otherModule.getTags().equals(getTags())
+                && otherModule.getModularCredit().equals(getModularCredit());
     }
 
     @Override
