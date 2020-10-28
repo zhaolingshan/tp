@@ -26,6 +26,6 @@ public class ListCommand extends Command {
 
     @Override
     public boolean equals(Object other) {
-        return other instanceof HelpCommand; // instanceof handles nulls
+        return other instanceof ListCommand; // instanceof handles nulls
     }
 }
