@@ -72,8 +72,15 @@ Format: `goal --set LEVEL` or `goal --list` \
  \
 Examples:
 *   `goal --set 2`
-*   `goal --set 4`
 *   `goal --list`
+\
+To set your goal to 2 (CAP4.00 ~ 4.49): \
+1. Type `goal --set 2` into the command box,  and press Enter to execute it. \
+<img src="images/UG SS/2.6 Set Goals 1.png" width="989px" height="125px">
+\
+2. The result box will display the message: \
+<img src="images/UG SS/2.6 Set Goals 2.png" width="989px" height="253px">
+\
 
 ### Recommend S/U: `recommendSU`
 Recommend which module from your list to S/U based on your goal, grades and if the module can be S/U-ed. \
@@ -82,6 +89,17 @@ Format: `recommendSU` \
  \
 Example:
 *   `recommendSU`
+\
+To get recommendations on which modules to S/U:
+1. Type `recommendSU` into the command box, and press `Enter` to execute it. \
+<img src="images/UG SS/2.7 Recommend SU 1.png" width="993px" height="131px">
+\
+2. The result box will display the message (if there are suitable modules to recommend): \
+<img src="images/UG SS/2.7 Recommend SU 2.png" width="595px" height="220px">
+\
+3. Check the module(s) that are recommended to S/U in the list below:
+<img src="images/UG SS/2.7 Recommend SU 3.png" width="595px" height="336px">
+\
 
 ### S/U module:` s/u `
 S/U a module in your modules list. \
