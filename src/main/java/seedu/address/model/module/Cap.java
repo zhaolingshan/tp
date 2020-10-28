@@ -16,7 +16,8 @@ public enum Cap {
     D_PLUS("D+", 1.5),
     D("D", 1.0),
     F("F", 0.0),
-    NA("NA", 0.0);
+    NA("NA", 0.0),
+    SU("SU", 0.0);
 
     /**
      * Represents the string representation of the grade.
