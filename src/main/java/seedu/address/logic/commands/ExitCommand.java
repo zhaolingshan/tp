@@ -9,6 +9,10 @@ public class ExitCommand extends Command {
 
     public static final String COMMAND_WORD = "exit";
 
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + "Exits the application.\n"
+            + "Example: " + COMMAND_WORD;
+
     public static final String MESSAGE_EXIT_ACKNOWLEDGEMENT = "Exiting Address Book as requested ...";
 
     @Override
@@ -17,4 +21,8 @@ public class ExitCommand extends Command {
                 true, false);
     }
 
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof ExitCommand; // instanceof handles nulls
+    }
 }
