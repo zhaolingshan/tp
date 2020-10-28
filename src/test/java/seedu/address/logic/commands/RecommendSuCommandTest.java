@@ -69,7 +69,7 @@ public class RecommendSuCommandTest {
     public void execute_recommendSu_noGoal() {
         CommandResult expectedCommandResult =
             new CommandResult(MESSAGE_FAILURE,
-                false, false, true, false);
+                false, false, true);
         assertCommandSuccess(new RecommendSuCommand(), modelNoGoal, expectedCommandResult, expectedModel);
     }
 
@@ -77,7 +77,7 @@ public class RecommendSuCommandTest {
     public void execute_recommendSu_modelSizeZero() {
         CommandResult expectedCommandResult =
             new CommandResult(MESSAGE_SUCCESS_NO_RECOMMENDATION,
-                false, false, true, false);
+                false, false, true);
         assertCommandSuccess(new RecommendSuCommand(), model, expectedCommandResult, expectedModel);
     }
 
@@ -86,7 +86,7 @@ public class RecommendSuCommandTest {
         RecommendSuCommand recommendSuCommand = new RecommendSuCommand();
         CommandResult expectedCommandResult =
             new CommandResult(MESSAGE_SUCCESS,
-                false, false, true, false);
+                false, false, true);
 
         //one modules in list of 2 above goal(2, Distinction (CAP 4.00 ~ 4.49)), 1 module to SU
 

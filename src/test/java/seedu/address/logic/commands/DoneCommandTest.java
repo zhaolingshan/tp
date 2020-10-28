@@ -29,7 +29,7 @@ public class DoneCommandTest {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y5S2);
         CommandResult expectedCommandResult = new CommandResult(DoneCommand.MESSAGE_DONE_SEMESTER_SUCCESS,
-                false, false, false, true);
+                false, false, false);
         assertCommandSuccess(new DoneCommand(), model, expectedCommandResult, expectedModel);
     }
 }
