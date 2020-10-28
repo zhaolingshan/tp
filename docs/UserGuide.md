@@ -56,13 +56,13 @@ Examples:
 To add a module (e.g. add CS1101S):
 
 1. Type add --mod CS2107 into the command box, and press Enter to execute it. \
-<img src="images/UG SS/2.2 Add Module 1.png" width="989px" height="133px">
+<img src="images/UG SS/2.3 Add Module 1.png" width="989px" height="133px">
 
 2. The result box will display the message: \
-<img src="images/UG SS/2.2 Add Module 2.png" width="991px" height="729px">
+<img src="images/UG SS/2.3 Add Module 2.png" width="991px" height="729px">
 
 3. You can check that the module is added in the list below: \
-<img src="images/UG SS/2.2 Add Module 3.png" width="990px" height="484px">
+<img src="images/UG SS/2.3 Add Module 3.png" width="990px" height="484px">
 
 ### Updating a module: `update`
 Updates the module’s grade.
