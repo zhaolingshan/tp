@@ -18,7 +18,8 @@ public class UpdateModNameDescriptorTest {
     @Test
     public void equals() {
         // same values -> returns true
-        UpdateCommand.UpdateModNameDescriptor descriptorWithSameValues = new UpdateCommand.UpdateModNameDescriptor(DESC_A);
+        UpdateCommand.UpdateModNameDescriptor descriptorWithSameValues =
+                new UpdateCommand.UpdateModNameDescriptor(DESC_A);
         assertTrue(DESC_A.equals(descriptorWithSameValues));
 
         // same object -> returns true

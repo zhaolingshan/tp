@@ -12,7 +12,6 @@ import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
 
-import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.UpdateCommand;
 import seedu.address.logic.commands.UpdateCommand.UpdateModNameDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -53,7 +52,7 @@ public class UpdateCommandParser implements Parser<UpdateCommand> {
             throw new ParseException(UpdateCommand.MESSAGE_NOT_UPDATED);
         }
         if (argMultimap.getValue(PREFIX_SEMESTER).isPresent()) {
-            editModNameDescriptor.setSemester(ParserUtil.parseSemester(argMultimap.getValue(PREFIX_SEMESTER).get()));
+            updateModNameDescriptor.setSemester(ParserUtil.parseSemester(argMultimap.getValue(PREFIX_SEMESTER).get()));
         }
 
         return new UpdateCommand(moduleName, updateModNameDescriptor);

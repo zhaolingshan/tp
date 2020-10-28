@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_LIST_GOAL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MODULAR_CREDIT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SEMESTER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SET_GOAL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -55,7 +56,7 @@ public class CommandTestUtil {
     public static final String SET_GOAL_DESC_A = " " + PREFIX_SET_GOAL + VALID_GOAL_TARGET_A;
     public static final String SET_GOAL_DESC_B = " " + PREFIX_SET_GOAL + VALID_GOAL_TARGET_B;
     public static final String LIST_GOAL_DESC = " " + PREFIX_LIST_GOAL;
-    public static final String SEMESTER_DESC = " " + VALID_SEMESTER.toString();
+    public static final String SEMESTER_DESC = " " + PREFIX_SEMESTER + VALID_SEMESTER.toString();
 
     public static final String INVALID_MOD_NAME_DESC = " " + PREFIX_MOD_NAME + "James&"; // '&' not allowed in mod names
     public static final String INVALID_GRADE_DESC = " " + PREFIX_GRADE; // empty string not allowed for GRADES

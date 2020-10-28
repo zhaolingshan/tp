@@ -29,11 +29,12 @@ import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
-import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 import seedu.address.testutil.ModuleBuilder;
+import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 
 /**
- * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for UpdateCommand.
+ * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for
+ * UpdateCommand.
  */
 public class UpdateCommandTest {
 
@@ -52,7 +53,7 @@ public class UpdateCommandTest {
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y2S1);
-        
+
         Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();
         UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder(updatedModule).build();
@@ -192,12 +193,12 @@ public class UpdateCommandTest {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.NA);
 
-        Module editedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
+        Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();
-        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder(editedModule).build();
-        EditCommand editCommand = new EditCommand(nameFirstModule, descriptor);
+        UpdateCommand.UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder(updatedModule).build();
+        UpdateCommand updateCommand = new UpdateCommand(nameFirstModule, descriptor);
 
-        assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
+        assertCommandFailure(updateCommand, model, Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
     }
 
     @Test
@@ -205,10 +206,10 @@ public class UpdateCommandTest {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y4S1);
 
-        Module editedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
+        Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();
-        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder(editedModule).build();
-        EditCommand editCommand = new EditCommand(nameFirstModule, descriptor);
+        UpdateCommand.UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder(updatedModule).build();
+        UpdateCommand updateCommand = new UpdateCommand(nameFirstModule, descriptor);
 
         Semester semesterOfFirstModule = COM_ORG.getSemester();
 
@@ -217,6 +218,6 @@ public class UpdateCommandTest {
                 + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfFirstModule
                 + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_UPDATE;
 
-        assertCommandFailure(editCommand, model, expectedMessage);
+        assertCommandFailure(updateCommand, model, expectedMessage);
     }
 }

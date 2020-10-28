@@ -76,7 +76,8 @@ public class UpdateCommandParserTest {
         String userInput = PREFIX_MOD_NAME + nameThirdModule.fullModName + TAG_DESC_HUSBAND
                 + GRADE_DESC_A + MOD_NAME_DESC_A + TAG_DESC_FRIEND;
 
-        UpdateCommand.UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
+        UpdateCommand.UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder()
+                .withName(VALID_MOD_NAME_A)
                 .withGrade(VALID_GRADE_A)
                 .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
         UpdateCommand expectedCommand = new UpdateCommand(nameThirdModule, descriptor);

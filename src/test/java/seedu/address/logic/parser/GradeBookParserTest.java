@@ -30,9 +30,9 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
 import seedu.address.model.semester.SemesterManager;
-import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 import seedu.address.testutil.ModuleBuilder;
 import seedu.address.testutil.ModuleUtil;
+import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 
 public class GradeBookParserTest {
 
