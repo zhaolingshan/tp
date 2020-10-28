@@ -115,7 +115,7 @@ public class GradeBookParserTest {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(VALID_SEMESTER);
         assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD) instanceof HelpCommand);
-        assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD + " 3") instanceof HelpCommand);
+        assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD + "") instanceof HelpCommand);
     }
 
     @Test
