@@ -122,8 +122,10 @@ public class UpdateCommandParserTest {
 
         // semester
         userInput = MOD_NAME_DESC_A + SEMESTER_DESC;
-        descriptor = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
-                .withGrade(NO_GRADE).withTags(VALID_TAG_FRIEND).withSemester(VALID_SEMESTER).build();
+        descriptor = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
+                .withGrade(NO_GRADE).withSemester(VALID_SEMESTER).build();
+        expectedCommand = new UpdateCommand(nameThirdModule, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
     }
 
     @Test
