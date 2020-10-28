@@ -27,13 +27,11 @@ import static seedu.address.testutil.TypicalModules.SWE;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditModNameDescriptor;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModuleName;
-import seedu.address.model.semester.Semester;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.EditModNameDescriptorBuilder;
 
@@ -162,11 +160,5 @@ public class EditCommandParserTest {
                 .withName(nameFirstModule.fullModName).withGrade(VALID_GRADE_B).build();
         expectedCommand = new EditCommand(nameFirstModule, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
-    }
-
-    @Test
-    public void parse_invalidSemester_failure() {
-        Semester invalidSemester = Semester.NA;
-        assertParseFailure(parser, invalidSemester.toString(), Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
     }
 }
