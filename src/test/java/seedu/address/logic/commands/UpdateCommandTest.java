@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.GetModuleIndex;
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.EditCommand.EditModNameDescriptor;
+import seedu.address.logic.commands.UpdateCommand.UpdateModNameDescriptor;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
@@ -27,13 +27,13 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
-import seedu.address.testutil.EditModNameDescriptorBuilder;
+import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 import seedu.address.testutil.ModuleBuilder;
 
 /**
- * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for EditCommand.
+ * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for UpdateCommand.
  */
-public class EditCommandTest {
+public class UpdateCommandTest {
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new GoalTarget());
 
@@ -48,18 +48,18 @@ public class EditCommandTest {
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
-        Module editedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
+        Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();
-        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder(editedModule).build();
-        EditCommand editCommand = new EditCommand(nameFirstModule, descriptor);
+        UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder(updatedModule).build();
+        UpdateCommand updateCommand = new UpdateCommand(nameFirstModule, descriptor);
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_MODULE_SUCCESS, editedModule);
+        String expectedMessage = String.format(UpdateCommand.MESSAGE_UPDATE_MODULE_SUCCESS, updatedModule);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 new GoalTarget());
-        expectedModel.setModule(model.getFilteredModuleList().get(0), editedModule);
+        expectedModel.setModule(model.getFilteredModuleList().get(0), updatedModule);
 
-        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(updateCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
@@ -69,34 +69,34 @@ public class EditCommandTest {
         Module firstModule = model.getFilteredModuleList().get(indexLastModule.getZeroBased());
 
         ModuleBuilder moduleInList = new ModuleBuilder(firstModule);
-        Module editedModule = moduleInList.withName(VALID_MOD_NAME_B).withGrade(VALID_GRADE_A)
+        Module updatedModule = moduleInList.withName(VALID_MOD_NAME_B).withGrade(VALID_GRADE_A)
                 .withTags(VALID_TAG_HUSBAND).build();
 
-        EditCommand.EditModNameDescriptor descriptor =
-                new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).withGrade(VALID_GRADE_A)
+        UpdateModNameDescriptor descriptor =
+                new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).withGrade(VALID_GRADE_A)
                         .withTags(VALID_TAG_HUSBAND).build();
-        EditCommand editCommand = new EditCommand(firstModuleName, descriptor);
+        UpdateCommand updateCommand = new UpdateCommand(firstModuleName, descriptor);
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_MODULE_SUCCESS, editedModule);
+        String expectedMessage = String.format(UpdateCommand.MESSAGE_UPDATE_MODULE_SUCCESS, updatedModule);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 new GoalTarget());
-        expectedModel.setModule(firstModule, editedModule);
+        expectedModel.setModule(firstModule, updatedModule);
 
-        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(updateCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
     public void execute_noFieldSpecifiedUnfilteredList_success() {
-        EditCommand editCommand = new EditCommand(nameFirstModule, new EditModNameDescriptor());
-        Module editedModule = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
+        UpdateCommand updateCommand = new UpdateCommand(nameFirstModule, new UpdateModNameDescriptor());
+        Module updatedModule = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_MODULE_SUCCESS, editedModule);
+        String expectedMessage = String.format(UpdateCommand.MESSAGE_UPDATE_MODULE_SUCCESS, updatedModule);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 new GoalTarget());
 
-        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(updateCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
@@ -104,31 +104,31 @@ public class EditCommandTest {
         showModuleAtIndex(model, indexFirstModule);
 
         Module moduleInFilteredList = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
-        Module editedModule = new ModuleBuilder(moduleInFilteredList).withName(VALID_MOD_NAME_B).build();
-        EditCommand editCommand = new EditCommand(nameFirstModule,
-                new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).build());
+        Module updatedModule = new ModuleBuilder(moduleInFilteredList).withName(VALID_MOD_NAME_B).build();
+        UpdateCommand updateCommand = new UpdateCommand(nameFirstModule,
+                new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).build());
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_MODULE_SUCCESS, editedModule);
+        String expectedMessage = String.format(UpdateCommand.MESSAGE_UPDATE_MODULE_SUCCESS, updatedModule);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 new GoalTarget());
-        expectedModel.setModule(model.getFilteredModuleList().get(0), editedModule);
+        expectedModel.setModule(model.getFilteredModuleList().get(0), updatedModule);
 
-        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(updateCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
     public void execute_invalidModuleNameUnfilteredList_failure() {
         ModuleName invalidModuleName = new ModuleName("No such module");
-        EditCommand.EditModNameDescriptor descriptor =
-                new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).build();
-        EditCommand editCommand = new EditCommand(invalidModuleName, descriptor);
+        UpdateCommand.UpdateModNameDescriptor descriptor =
+                new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).build();
+        UpdateCommand updateCommand = new UpdateCommand(invalidModuleName, descriptor);
 
-        assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
+        assertCommandFailure(updateCommand, model, Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
     }
 
     /**
-     * Edit filtered list where module name is not in filtered list,
+     * update filtered list where module name is not in filtered list,
      * but still in address book
      */
     @Test
@@ -139,19 +139,19 @@ public class EditCommandTest {
         assertTrue(model.getAddressBook().getModuleList().get(indexSecondModule.getZeroBased()).getModuleName()
                 .equals(nameSecondModule));
 
-        EditCommand editCommand = new EditCommand(nameSecondModule,
-                new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).build());
+        UpdateCommand updateCommand = new UpdateCommand(nameSecondModule,
+                new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).build());
 
-        assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
+        assertCommandFailure(updateCommand, model, Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
     }
 
     @Test
     public void equals() {
-        final EditCommand standardCommand = new EditCommand(nameFirstModule, DESC_A);
+        final UpdateCommand standardCommand = new UpdateCommand(nameFirstModule, DESC_A);
 
         // same values -> returns true
-        EditCommand.EditModNameDescriptor copyDescriptor = new EditCommand.EditModNameDescriptor(DESC_A);
-        EditCommand commandWithSameValues = new EditCommand(nameFirstModule, copyDescriptor);
+        UpdateModNameDescriptor copyDescriptor = new UpdateModNameDescriptor(DESC_A);
+        UpdateCommand commandWithSameValues = new UpdateCommand(nameFirstModule, copyDescriptor);
         assertTrue(standardCommand.equals(commandWithSameValues));
 
         // same object -> returns true
@@ -164,10 +164,10 @@ public class EditCommandTest {
         assertFalse(standardCommand.equals(new ClearCommand()));
 
         // different index -> returns false
-        assertFalse(standardCommand.equals(new EditCommand(nameSecondModule, DESC_A)));
+        assertFalse(standardCommand.equals(new UpdateCommand(nameSecondModule, DESC_A)));
 
         // different descriptor -> returns false
-        assertFalse(standardCommand.equals(new EditCommand(nameFirstModule, DESC_B)));
+        assertFalse(standardCommand.equals(new UpdateCommand(nameFirstModule, DESC_B)));
     }
 
 }

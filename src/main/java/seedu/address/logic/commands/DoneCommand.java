@@ -6,8 +6,8 @@ import seedu.address.model.semester.SemesterManager;
 
 /**
  * Stops the modifying of the module list in a semester.
- * Signifies that the user is done editing the module list
- * and prevents the user from adding, editing or deleting
+ * Signifies that the user is done updating the module list
+ * and prevents the user from adding, updating or deleting
  * modules in a particular semester.
  */
 public class DoneCommand extends Command {
@@ -15,12 +15,12 @@ public class DoneCommand extends Command {
     public static final String COMMAND_WORD = "done";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Stops the adding or editing of modules in the semester stated.\n"
+            + ": Stops the adding or updating of modules in the semester stated.\n"
             + "Parameters: MODULE_NAME\n"
             + "Example: " + COMMAND_WORD;
 
     public static final String MESSAGE_DONE_SEMESTER_SUCCESS =
-            "You are done editing: " + SemesterManager.getInstance().getCurrentSemester().toString();
+            "You are done updating: " + SemesterManager.getInstance().getCurrentSemester().toString();
 
     @Override
     public CommandResult execute(Model model) {

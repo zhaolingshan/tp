@@ -21,7 +21,7 @@ import seedu.address.model.Model;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
 import seedu.address.model.semester.Semester;
-import seedu.address.testutil.EditModNameDescriptorBuilder;
+import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 
 /**
  * Contains helper methods for testing commands.
@@ -65,14 +65,14 @@ public class CommandTestUtil {
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
     public static final String WHITESPACE = " ";
 
-    public static final EditCommand.EditModNameDescriptor DESC_A;
-    public static final EditCommand.EditModNameDescriptor DESC_B;
+    public static final UpdateCommand.UpdateModNameDescriptor DESC_A;
+    public static final UpdateCommand.UpdateModNameDescriptor DESC_B;
 
     static {
-        DESC_A = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
+        DESC_A = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
                 .withGrade(VALID_GRADE_A)
                 .withTags(VALID_TAG_FRIEND).build();
-        DESC_B = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_B)
+        DESC_B = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_B)
                 .withGrade(VALID_GRADE_B)
                 .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
     }

@@ -10,15 +10,15 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.EditCommand.EditModNameDescriptor;
-import seedu.address.testutil.EditModNameDescriptorBuilder;
+import seedu.address.logic.commands.UpdateCommand.UpdateModNameDescriptor;
+import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 
-public class EditModNameDescriptorTest {
+public class UpdateModNameDescriptorTest {
 
     @Test
     public void equals() {
         // same values -> returns true
-        EditModNameDescriptor descriptorWithSameValues = new EditCommand.EditModNameDescriptor(DESC_A);
+        UpdateCommand.UpdateModNameDescriptor descriptorWithSameValues = new UpdateCommand.UpdateModNameDescriptor(DESC_A);
         assertTrue(DESC_A.equals(descriptorWithSameValues));
 
         // same object -> returns true
@@ -34,16 +34,16 @@ public class EditModNameDescriptorTest {
         assertFalse(DESC_A.equals(DESC_B));
 
         // different name -> returns false
-        EditCommand.EditModNameDescriptor editedAmy =
-                new EditModNameDescriptorBuilder(DESC_A).withName(VALID_MOD_NAME_B).build();
-        assertFalse(DESC_A.equals(editedAmy));
+        UpdateModNameDescriptor updatedMod =
+                new UpdateModNameDescriptorBuilder(DESC_A).withName(VALID_MOD_NAME_B).build();
+        assertFalse(DESC_A.equals(updatedMod));
 
         // different address -> returns false
-        editedAmy = new EditModNameDescriptorBuilder(DESC_A).withGrade(VALID_GRADE_B).build();
-        assertFalse(DESC_A.equals(editedAmy));
+        updatedMod = new UpdateModNameDescriptorBuilder(DESC_A).withGrade(VALID_GRADE_B).build();
+        assertFalse(DESC_A.equals(updatedMod));
 
         // different tags -> returns false
-        editedAmy = new EditModNameDescriptorBuilder(DESC_A).withTags(VALID_TAG_HUSBAND).build();
-        assertFalse(DESC_A.equals(editedAmy));
+        updatedMod = new UpdateModNameDescriptorBuilder(DESC_A).withTags(VALID_TAG_HUSBAND).build();
+        assertFalse(DESC_A.equals(updatedMod));
     }
 }

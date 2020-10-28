@@ -26,21 +26,20 @@ import static seedu.address.testutil.TypicalModules.SWE;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.EditCommand;
-import seedu.address.logic.commands.EditCommand.EditModNameDescriptor;
+import seedu.address.logic.commands.UpdateCommand;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.tag.Tag;
-import seedu.address.testutil.EditModNameDescriptorBuilder;
+import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 
-public class EditCommandParserTest {
+public class UpdateCommandParserTest {
 
     private static final String TAG_EMPTY = " " + PREFIX_TAG;
 
     private static final String MESSAGE_INVALID_FORMAT =
-            String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE);
+            String.format(MESSAGE_INVALID_COMMAND_FORMAT, UpdateCommand.MESSAGE_USAGE);
 
-    private EditCommandParser parser = new EditCommandParser();
+    private UpdateCommandParser parser = new UpdateCommandParser();
 
     @Test
     public void parse_missingParts_failure() {
@@ -56,7 +55,7 @@ public class EditCommandParserTest {
         assertParseFailure(parser, " " + PREFIX_MOD_NAME + moduleName + INVALID_TAG_DESC,
                 Tag.MESSAGE_CONSTRAINTS); // invalid tag
 
-        // while parsing {@code PREFIX_TAG} alone will reset the tags of the {@code Person} being edited,
+        // while parsing {@code PREFIX_TAG} alone will reset the tags of the {@code Module} being updated,
         // parsing it together with a valid tag results in error
         assertParseFailure(parser, " " + PREFIX_MOD_NAME + moduleName + TAG_DESC_FRIEND + TAG_DESC_HUSBAND + TAG_EMPTY,
                 Tag.MESSAGE_CONSTRAINTS);
@@ -75,10 +74,10 @@ public class EditCommandParserTest {
         String userInput = PREFIX_MOD_NAME + nameThirdModule.fullModName + TAG_DESC_HUSBAND
                 + GRADE_DESC_A + MOD_NAME_DESC_A + TAG_DESC_FRIEND;
 
-        EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
+        UpdateCommand.UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
                 .withGrade(VALID_GRADE_A)
                 .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
-        EditCommand expectedCommand = new EditCommand(nameThirdModule, descriptor);
+        UpdateCommand expectedCommand = new UpdateCommand(nameThirdModule, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
     }
@@ -91,7 +90,7 @@ public class EditCommandParserTest {
     //
     //EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder()
     //.build();
-    //EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
+    //UpdateCommand expectedCommand = new UpdateCommand(targetIndex, descriptor);
     //
     //assertParseSuccess(parser, userInput, expectedCommand);
     //}
@@ -101,22 +100,22 @@ public class EditCommandParserTest {
         // name
         ModuleName nameThirdModule = SWE.getModuleName();
         String userInput = MOD_NAME_DESC_A;
-        EditCommand.EditModNameDescriptor descriptor =
-                new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A).withGrade(NO_GRADE).build();
-        EditCommand expectedCommand = new EditCommand(nameThirdModule, descriptor);
+        UpdateCommand.UpdateModNameDescriptor descriptor =
+                new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_A).withGrade(NO_GRADE).build();
+        UpdateCommand expectedCommand = new UpdateCommand(nameThirdModule, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
         // grade
         userInput = MOD_NAME_DESC_A + GRADE_DESC_A;
-        descriptor = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A).withGrade(VALID_GRADE_A).build();
-        expectedCommand = new EditCommand(nameThirdModule, descriptor);
+        descriptor = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_A).withGrade(VALID_GRADE_A).build();
+        expectedCommand = new UpdateCommand(nameThirdModule, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
         // tags
         userInput = MOD_NAME_DESC_A + TAG_DESC_FRIEND;
-        descriptor = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
+        descriptor = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
                 .withGrade(NO_GRADE).withTags(VALID_TAG_FRIEND).build();
-        expectedCommand = new EditCommand(nameThirdModule, descriptor);
+        expectedCommand = new UpdateCommand(nameThirdModule, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
     }
 
@@ -127,11 +126,11 @@ public class EditCommandParserTest {
                 + TAG_DESC_FRIEND + GRADE_DESC_A + TAG_DESC_FRIEND
                 + GRADE_DESC_B + TAG_DESC_HUSBAND;
 
-        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder()
+        UpdateCommand.UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder()
                 .withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_B).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
                 .build();
-        EditCommand expectedCommand = new EditCommand(nameFirstModule, descriptor);
+        UpdateCommand expectedCommand = new UpdateCommand(nameFirstModule, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
     }
@@ -143,15 +142,15 @@ public class EditCommandParserTest {
         ModuleName nameFirstModule = COM_ORG.getModuleName();
         Index targetIndex = INDEX_FIRST_MODULE;
         String userInput;
-        EditCommand.EditModNameDescriptor descriptor;
-        EditCommand expectedCommand;
+        UpdateCommand.UpdateModNameDescriptor descriptor;
+        UpdateCommand expectedCommand;
         //assertParseSuccess(parser, userInput, expectedCommand);
 
         // other valid values specified
         userInput = " " + PREFIX_MOD_NAME + nameFirstModule.fullModName + GRADE_DESC_B;
-        descriptor = new EditModNameDescriptorBuilder()
+        descriptor = new UpdateModNameDescriptorBuilder()
                 .withName(nameFirstModule.fullModName).withGrade(VALID_GRADE_B).build();
-        expectedCommand = new EditCommand(nameFirstModule, descriptor);
+        expectedCommand = new UpdateCommand(nameFirstModule, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
     }
 }

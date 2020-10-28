@@ -27,19 +27,19 @@ public class ModuleTest {
         // null -> returns false
         assertFalse(COM_ORG.isSameModule(null));
 
-        Module editedModule;
+        Module updatedModule;
         // different module name -> returns false
-        editedModule = new ModuleBuilder(COM_ORG).withName(VALID_MOD_NAME_A).build();
-        assertFalse(COM_ORG.isSameModule(editedModule));
+        updatedModule = new ModuleBuilder(COM_ORG).withName(VALID_MOD_NAME_A).build();
+        assertFalse(COM_ORG.isSameModule(updatedModule));
 
         // same module name, different attributes (Grade) -> returns true
-        editedModule = new ModuleBuilder(COM_ORG).withGrade("A+")
+        updatedModule = new ModuleBuilder(COM_ORG).withGrade("A+")
                .build();
-        assertTrue(COM_ORG.isSameModule(editedModule));
+        assertTrue(COM_ORG.isSameModule(updatedModule));
 
         // same module name, same grade, different attributes (number of MCs) -> returns true
-        editedModule = new ModuleBuilder(COM_ORG).withGrade("A-").withModularCredit(2).build();
-        assertTrue(COM_ORG.isSameModule(editedModule));
+        updatedModule = new ModuleBuilder(COM_ORG).withGrade("A-").withModularCredit(2).build();
+        assertTrue(COM_ORG.isSameModule(updatedModule));
     }
 
     @Test
@@ -61,11 +61,11 @@ public class ModuleTest {
         assertFalse(COM_ORG.equals(MOD_A));
 
         // different module name -> returns false
-        Module editedModule = new ModuleBuilder(COM_ORG).withName(VALID_MOD_NAME_A).build();
-        assertFalse(COM_ORG.equals(editedModule));
+        Module updatedModule = new ModuleBuilder(COM_ORG).withName(VALID_MOD_NAME_A).build();
+        assertFalse(COM_ORG.equals(updatedModule));
 
         // different grade -> returns false
-        editedModule = new ModuleBuilder(COM_ORG).withGrade("A+").build();
-        assertFalse(COM_ORG.equals(editedModule));
+        updatedModule = new ModuleBuilder(COM_ORG).withGrade("A+").build();
+        assertFalse(COM_ORG.equals(updatedModule));
     }
 }

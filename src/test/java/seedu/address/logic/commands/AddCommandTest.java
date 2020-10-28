@@ -135,7 +135,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void setModule(Module target, Module editedModule) {
+        public void setModule(Module target, Module updatedModule) {
             throw new AssertionError("This method should not be called.");
         }
 

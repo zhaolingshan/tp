@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.logic.commands.EditCommand;
+import seedu.address.logic.commands.UpdateCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
@@ -27,7 +27,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
 import seedu.address.model.semester.SemesterManager;
-import seedu.address.testutil.EditModNameDescriptorBuilder;
+import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 import seedu.address.testutil.ModuleBuilder;
 import seedu.address.testutil.ModuleUtil;
 
@@ -60,15 +60,15 @@ public class GradeBookParserTest {
     }
 
     @Test
-    public void parseCommand_edit() throws Exception {
+    public void parseCommand_update() throws Exception {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(VALID_SEMESTER);
         Module module = new ModuleBuilder().build();
-        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder(module)
+        UpdateCommand.UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder(module)
                 .withName(COM_ORG.getModuleName().fullModName).withGrade(NO_GRADE).build();
-        EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-                + COM_ORG.getModuleName().fullModName + " " + ModuleUtil.getEditModuleDescriptorDetails(descriptor));
-        assertEquals(new EditCommand(COM_ORG.getModuleName(), descriptor), command);
+        UpdateCommand command = (UpdateCommand) parser.parseCommand(UpdateCommand.COMMAND_WORD + " "
+                + COM_ORG.getModuleName().fullModName + " " + ModuleUtil.getUpdateModuleDescriptorDetails(descriptor));
+        assertEquals(new UpdateCommand(COM_ORG.getModuleName(), descriptor), command);
     }
 
     @Test
