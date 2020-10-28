@@ -105,20 +105,4 @@ public class AddCommandParserTest {
                 + GRADE_DESC_B + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
-    
-    @Test
-    public void parse_invalidSemester_failure() {
-        Semester invalidSemester = Semester.NA;
-        assertParseFailure(parser, invalidSemester.toString(), Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
-    }
-
-    @Test
-    public void parse_validSemester_success() {
-        Semester validSemester = Semester.Y4S2;
-        Module expectedModule = new ModuleBuilder(MOD_B).withTags(VALID_TAG_FRIEND)
-                .withModularCredit(VALID_MODULAR_CREDIT).withSemester(validSemester.toString()).build();
-        AddCommand addCommand = new AddCommand(expectedModule);
-        assertParseSuccess(parser, PREAMBLE_WHITESPACE + MOD_NAME_DESC_B
-                + GRADE_DESC_B + TAG_DESC_FRIEND + MODULAR_CREDIT_DESC, addCommand);
-    }
 }
