@@ -105,11 +105,6 @@ public class MainWindow extends UiPart<Stage> {
         Scene scene = primaryStage.getScene();
 
         String cssFile = MainWindow.class.getResource("/view/" + cssFileName + ".css").toExternalForm();
-        try {
-            logger.info(MainWindow.class.getResource("/view/" + cssFileName + ".css").toURI().toString());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
         scene.getStylesheets().clear();
         scene.getStylesheets().add(cssFile);
     }
