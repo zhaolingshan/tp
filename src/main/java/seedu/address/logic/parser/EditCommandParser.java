@@ -35,11 +35,6 @@ public class EditCommandParser implements Parser<EditCommand> {
      */
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        Semester semester = semesterManager.getCurrentSemester();
-        if (semester == Semester.NA) {
-            throw new ParseException(Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
-        }
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_MOD_NAME, PREFIX_GRADE, PREFIX_TAG);
 

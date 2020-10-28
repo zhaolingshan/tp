@@ -13,7 +13,6 @@ import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_A;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_B;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_MODULAR_CREDIT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_A;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_SEMESTER;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;

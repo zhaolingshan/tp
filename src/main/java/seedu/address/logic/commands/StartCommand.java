@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.semester.Semester;
@@ -24,7 +25,7 @@ public class StartCommand extends Command {
     public static final String MESSAGE_START_SEMESTER_SUCCESS =
             "You are now editing: %1$s \n The modules you are taking in %1$s:";
 
-    private final Semester toStart;
+    private static Semester toStart = null;
 
     /**
      * Creates a StartCommand to add the specified {@code Semester}
@@ -32,12 +33,12 @@ public class StartCommand extends Command {
     public StartCommand(Semester semester) throws ParseException {
         requireNonNull(semester);
         if (!SemesterManager.isValidSemester(semester.toString())) {
-            throw new ParseException(SemesterManager.MESSAGE_INVALID_SEMESTER);
+            throw new ParseException(Messages.MESSAGE_INVALID_SEMESTER);
         }
             toStart = semester;
     }
 
-    public Semester getStartSemester() {
+    public static Semester getStartSemester() {
         return toStart;
     }
 

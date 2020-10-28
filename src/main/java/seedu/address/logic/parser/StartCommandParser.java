@@ -2,10 +2,10 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.StartCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.semester.Semester;
-import seedu.address.model.semester.SemesterManager;
 
 public class StartCommandParser implements Parser<StartCommand> {
 
@@ -23,7 +23,7 @@ public class StartCommandParser implements Parser<StartCommand> {
             return new StartCommand(semester);
         } catch (ParseException pe) {
             throw new ParseException(
-                    String.format(SemesterManager.MESSAGE_INVALID_SEMESTER), pe);
+                    String.format(Messages.MESSAGE_INVALID_SEMESTER), pe);
         }
     }
 }

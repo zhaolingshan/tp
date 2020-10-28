@@ -49,8 +49,7 @@ public class Module {
         this.semester = semester;
         hasGrade = false;
     }
-
-
+    
     public ModuleName getModuleName() {
         return moduleName;
     }

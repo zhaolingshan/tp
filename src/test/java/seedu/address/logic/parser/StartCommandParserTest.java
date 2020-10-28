@@ -4,10 +4,10 @@ import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailur
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 import org.junit.jupiter.api.Test;
+import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.StartCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.semester.Semester;
-import seedu.address.model.semester.SemesterManager;
 
 public class StartCommandParserTest {
 
@@ -16,13 +16,13 @@ public class StartCommandParserTest {
     @Test
     public void parse_invalidValue_failure() {
         final String invalidValue = "hello";
-        assertParseFailure(parser, invalidValue, SemesterManager.MESSAGE_INVALID_SEMESTER);
+        assertParseFailure(parser, invalidValue, Messages.MESSAGE_INVALID_SEMESTER);
     }
 
     @Test
     public void parse_invalidSemester_failure() {
         Semester invalidSemester = Semester.NA;
-        assertParseFailure(parser, invalidSemester.toString(), SemesterManager.MESSAGE_INVALID_SEMESTER);
+        assertParseFailure(parser, invalidSemester.toString(), Messages.MESSAGE_INVALID_SEMESTER);
     }
 
     @Test
