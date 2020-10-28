@@ -8,11 +8,13 @@ import static seedu.address.logic.commands.CommandTestUtil.INVALID_MOD_NAME_DESC
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.MOD_NAME_DESC_A;
 import static seedu.address.logic.commands.CommandTestUtil.NO_GRADE;
+import static seedu.address.logic.commands.CommandTestUtil.SEMESTER_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_A;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_A;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_SEMESTER;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
@@ -117,6 +119,11 @@ public class UpdateCommandParserTest {
                 .withGrade(NO_GRADE).withTags(VALID_TAG_FRIEND).build();
         expectedCommand = new UpdateCommand(nameThirdModule, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
+
+        // semester
+        userInput = MOD_NAME_DESC_A + SEMESTER_DESC;
+        descriptor = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
+                .withGrade(NO_GRADE).withTags(VALID_TAG_FRIEND).withSemester(VALID_SEMESTER).build();
     }
 
     @Test

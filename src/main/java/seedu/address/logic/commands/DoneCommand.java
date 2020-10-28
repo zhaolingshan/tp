@@ -1,5 +1,7 @@
 package seedu.address.logic.commands;
 
+import seedu.address.commons.core.Messages;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
@@ -16,16 +18,26 @@ public class DoneCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Stops the adding or updating of modules in the semester stated.\n"
-            + "Parameters: MODULE_NAME\n"
             + "Example: " + COMMAND_WORD;
 
-    public static final String MESSAGE_DONE_SEMESTER_SUCCESS =
-            "You are done updating: " + SemesterManager.getInstance().getCurrentSemester().toString();
+    public static final String MESSAGE_DONE_SEMESTER_SUCCESS = "You are done updating: %1$s";
 
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(Model model) throws CommandException {
         SemesterManager semesterManager = SemesterManager.getInstance();
+        Semester semester = semesterManager.getCurrentSemester();
+
+        if (semester == Semester.NA) {
+            throw new CommandException(Messages.MESSAGE_INVALID_DONE_COMMAND);
+        }
+
         semesterManager.setCurrentSemester(Semester.NA);
-        return new CommandResult(MESSAGE_DONE_SEMESTER_SUCCESS, false, false, false, true);
+        return new CommandResult(String.format(MESSAGE_DONE_SEMESTER_SUCCESS, semester),
+                false, false, false);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof DoneCommand; // instanceof handles nulls
     }
 }

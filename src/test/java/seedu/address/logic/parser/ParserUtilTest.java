@@ -16,17 +16,20 @@ import org.junit.jupiter.api.Test;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
 import seedu.address.model.tag.Tag;
 
 public class ParserUtilTest {
     private static final String INVALID_MOD_NAME = "C@2103T";
     private static final String INVALID_GRADE = " ";
     private static final String INVALID_TAG = "#friend";
+    private static final String INVALID_SEMESTER = Semester.NA.toString();
 
     private static final String VALID_MOD_NAME = "CS2100";
     private static final String VALID_GRADE = "A+";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
+    private static final String VALID_SEMESTER = Semester.Y1S2.toString();
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -37,8 +40,8 @@ public class ParserUtilTest {
 
     @Test
     public void parseIndex_outOfRangeInput_throwsParseException() {
-        assertThrows(ParseException.class, MESSAGE_INVALID_INDEX, ()
-            -> ParserUtil.parseIndex(Long.toString(Integer.MAX_VALUE + 1)));
+        assertThrows(ParseException.class, MESSAGE_INVALID_INDEX, () -> ParserUtil.parseIndex(Long.toString
+                (Integer.MAX_VALUE + 1)));
     }
 
     @Test
@@ -140,5 +143,28 @@ public class ParserUtilTest {
         Set<Tag> expectedTagSet = new HashSet<Tag>(Arrays.asList(new Tag(VALID_TAG_1), new Tag(VALID_TAG_2)));
 
         assertEquals(expectedTagSet, actualTagSet);
+    }
+
+    @Test
+    public void parseSemester_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseSemester((String) null));
+    }
+
+    @Test
+    public void parseSemester_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseSemester(INVALID_SEMESTER));
+    }
+
+    @Test
+    public void parseSemester_validValueWithoutWhitespace_returnsSemester() throws Exception {
+        Semester expectedSemester = Semester.valueOf(VALID_SEMESTER);
+        assertEquals(expectedSemester, ParserUtil.parseSemester(VALID_SEMESTER));
+    }
+
+    @Test
+    public void parseSemester_validValueWithWhitespace_returnsTrimmedSemester() throws Exception {
+        String semesterWithWhitespace = WHITESPACE + VALID_SEMESTER + WHITESPACE;
+        Semester expectedSemester = Semester.valueOf(VALID_SEMESTER);
+        assertEquals(expectedSemester, ParserUtil.parseSemester(semesterWithWhitespace));
     }
 }

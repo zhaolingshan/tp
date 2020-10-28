@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SEMESTER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Collection;
@@ -15,10 +16,9 @@ import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.UpdateCommand;
 import seedu.address.logic.commands.UpdateCommand.UpdateModNameDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.module.Cap;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModuleName;
-import seedu.address.model.semester.Semester;
-import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -33,13 +33,8 @@ public class UpdateCommandParser implements Parser<UpdateCommand> {
      */
     public UpdateCommand parse(String args) throws ParseException {
         requireNonNull(args);
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        Semester semester = semesterManager.getCurrentSemester();
-        if (semester == Semester.NA) {
-            throw new ParseException(Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
-        }
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_MOD_NAME, PREFIX_GRADE, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_MOD_NAME, PREFIX_GRADE, PREFIX_TAG, PREFIX_SEMESTER);
 
         if (argMultimap.getValue(PREFIX_MOD_NAME).isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, UpdateCommand.MESSAGE_USAGE));
@@ -51,11 +46,14 @@ public class UpdateCommandParser implements Parser<UpdateCommand> {
         if (argMultimap.getValue(PREFIX_GRADE).isPresent()) {
             updateModNameDescriptor.setGrade(ParserUtil.parseGrade(argMultimap.getValue(PREFIX_GRADE).get()));
         } else {
-            updateModNameDescriptor.setGrade(new Grade("NA"));
+            updateModNameDescriptor.setGrade(new Grade(Cap.NA.toString()));
         }
         parseTagsForUpdate(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(updateModNameDescriptor::setTags);
         if (!updateModNameDescriptor.isAnyFieldUpdated()) {
             throw new ParseException(UpdateCommand.MESSAGE_NOT_UPDATED);
+        }
+        if (argMultimap.getValue(PREFIX_SEMESTER).isPresent()) {
+            editModNameDescriptor.setSemester(ParserUtil.parseSemester(argMultimap.getValue(PREFIX_SEMESTER).get()));
         }
 
         return new UpdateCommand(moduleName, updateModNameDescriptor);

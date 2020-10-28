@@ -119,3 +119,4 @@ public class DragResizer {
         y = event.getY();
     }
 }
+//@author atill

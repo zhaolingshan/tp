@@ -9,7 +9,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Grade;
@@ -28,14 +27,10 @@ public class AddCommandParser implements Parser<AddCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand
      * and returns an AddCommand object for execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddCommand parse(String args) throws ParseException {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        Semester semester = semesterManager.getCurrentSemester();
-        if (semester == Semester.NA) {
-            throw new ParseException(Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
-        }
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_MOD_NAME, PREFIX_GRADE, PREFIX_TAG, PREFIX_MODULAR_CREDIT);
 
@@ -46,6 +41,9 @@ public class AddCommandParser implements Parser<AddCommand> {
         ModuleName moduleName = ParserUtil.parseName(argMultimap.getValue(PREFIX_MOD_NAME).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         Module module;
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        Semester semester = semesterManager.getCurrentSemester();
+
         if (!arePrefixesPresent(argMultimap, PREFIX_GRADE) && arePrefixesPresent(argMultimap, PREFIX_MODULAR_CREDIT)) {
             // modular credit is inputted, grade is NOT inputted
             ModularCredit modularCredit = ParserUtil.parseModularCredit(
@@ -83,5 +81,4 @@ public class AddCommandParser implements Parser<AddCommand> {
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
         return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
     }
-
 }

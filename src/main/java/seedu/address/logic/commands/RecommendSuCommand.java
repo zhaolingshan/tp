@@ -9,7 +9,6 @@ import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.util.ModuleInfoRetriever;
 
-
 /**
  * Recommend modules to S/U based on user's goal.
  */
@@ -29,7 +28,7 @@ public class RecommendSuCommand extends Command {
         if (!GoalTarget.isValidGoal(userGoal.getGoalTarget())) {
             // user has yet to key in goal
             return new CommandResult(MESSAGE_FAILURE, false, false,
-                    true, false);
+                    true);
         }
 
         filterModule(model, userGoal);
@@ -46,10 +45,10 @@ public class RecommendSuCommand extends Command {
         int modListSize = model.getFilteredModuleList().size();
         if (modListSize == 0) {
             return new CommandResult(MESSAGE_SUCCESS_NO_RECOMMENDATION, false,
-                    false, true, false);
+                    false, true);
         }
         return new CommandResult(MESSAGE_SUCCESS, false,
-                false, true, false);
+                false, true);
     }
 
     /**

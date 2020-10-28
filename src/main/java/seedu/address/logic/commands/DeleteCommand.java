@@ -11,6 +11,8 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 
 /**
  * Deletes a module identified using it's displayed name from the module list.
@@ -28,7 +30,14 @@ public class DeleteCommand extends Command {
 
     private final ModuleName targetModuleName;
 
+    /**
+     * Instantiates a DeleteCommand object with a module name.
+     * The module name must not be null.
+     *
+     * @param targetModuleName the name of the module to be deleted.
+     */
     public DeleteCommand(ModuleName targetModuleName) {
+        requireNonNull(targetModuleName);
         this.targetModuleName = targetModuleName;
     }
 
@@ -36,16 +45,27 @@ public class DeleteCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         List<Module> lastShownList = model.getFilteredModuleList();
-
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        Semester currentSemester = semesterManager.getCurrentSemester();
+        if (currentSemester == Semester.NA) {
+            throw new CommandException(Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
+        }
         Index targetModuleIndex;
-
         try {
             targetModuleIndex = GetModuleIndex.getIndex(lastShownList, targetModuleName);
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException(Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
         }
-
         Module moduleToDelete = lastShownList.get(targetModuleIndex.getZeroBased());
+        Semester semesterOfModuleToDelete = moduleToDelete.getSemester();
+
+        if (semesterOfModuleToDelete != currentSemester) {
+            throw new CommandException(
+                    Messages.MESSAGE_DELETE_MODULE_IN_WRONG_SEMESTER + semesterOfModuleToDelete + ".\n" + Messages
+                            .MESSAGE_CURRENT_SEMESTER + currentSemester + ".\n" + Messages
+                            .MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfModuleToDelete + Messages
+                            .MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_DELETE);
+        }
         model.deleteModule(moduleToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_MODULE_SUCCESS, moduleToDelete));
     }

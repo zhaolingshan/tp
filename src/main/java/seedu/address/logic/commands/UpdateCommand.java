@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SEMESTER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_MODULES;
 
@@ -23,6 +24,7 @@ import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -30,7 +32,7 @@ import seedu.address.model.tag.Tag;
  */
 public class UpdateCommand extends Command {
 
-    public static final String COMMAND_WORD = "Update";
+    public static final String COMMAND_WORD = "update";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Updates the details of the module identified "
             + "by the module name displayed in the module list. "
@@ -39,6 +41,7 @@ public class UpdateCommand extends Command {
             + PREFIX_MOD_NAME + "MODULE_NAME "
             + "[" + PREFIX_GRADE + "GRADE] "
             + "[" + PREFIX_TAG + "TAG]...\n"
+            + "[" + PREFIX_SEMESTER + "SEM] "
             + "Example: " + COMMAND_WORD + " --mod CS2103T --grade A";
 
     public static final String MESSAGE_UPDATE_MODULE_SUCCESS = "Updated Module: %1$s";
@@ -64,7 +67,11 @@ public class UpdateCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         List<Module> lastShownList = model.getFilteredModuleList();
-
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        Semester currentSemester = semesterManager.getCurrentSemester();
+        if (currentSemester == Semester.NA) {
+            throw new CommandException(Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
+        }
         Index index;
         try {
             index = GetModuleIndex.getIndex(model.getFilteredModuleList(), moduleName);
@@ -74,7 +81,14 @@ public class UpdateCommand extends Command {
 
         Module moduleToUpdate = lastShownList.get(index.getZeroBased());
         Module updatedModule = createUpdatedModule(moduleToUpdate, updateModNameDescriptor);
-
+        Semester semesterOfUpdatedModule = updatedModule.getSemester();
+        if (semesterOfUpdatedModule != currentSemester) {
+            throw new CommandException(
+                    Messages.MESSAGE_UPDATE_MODULE_IN_WRONG_SEMESTER + semesterOfUpdatedModule + ".\n"
+                            + Messages.MESSAGE_CURRENT_SEMESTER + currentSemester + ".\n"
+                            + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfUpdatedModule
+                            + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_UPDATE);
+        }
         if (!moduleToUpdate.isSameModule(updatedModule) && model.hasModule(updatedModule)) {
             throw new CommandException(MESSAGE_DUPLICATE_MODULE);
         }
@@ -126,6 +140,7 @@ public class UpdateCommand extends Command {
         private ModuleName moduleName;
         private Grade grade;
         private Set<Tag> tags;
+        private Semester semester;
 
         public UpdateModNameDescriptor() {}
 
@@ -137,27 +152,46 @@ public class UpdateCommand extends Command {
             setName(toCopy.moduleName);
             setGrade(toCopy.grade);
             setTags(toCopy.tags);
+            setSemester(toCopy.semester);
         }
 
         /**
          * Returns true if at least one field is updated.
          */
         public boolean isAnyFieldUpdated() {
-            return CollectionUtil.isAnyNonNull(moduleName, grade, tags);
+            return CollectionUtil.isAnyNonNull(moduleName, grade, tags, semester);
         }
 
+        /**
+         * Sets {@code moduleName} to this object's {@code moduleName}.
+         * A defensive copy of {@code moduleName} is used internally.
+         */
         public void setName(ModuleName moduleName) {
             this.moduleName = moduleName;
         }
 
+        /**
+         * Returns an unmodifiable moduleName set, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code moduleName} is null.
+         */
         public Optional<ModuleName> getName() {
             return Optional.ofNullable(moduleName);
         }
 
+        /**
+         * Sets {@code grade} to this object's {@code grade}.
+         * A defensive copy of {@code grade} is used internally.
+         */
         public void setGrade(Grade grade) {
             this.grade = grade;
         }
 
+        /**
+         * Returns an unmodifiable grade set, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code grade} is null.
+         */
         public Optional<Grade> getGrade() {
             return Optional.ofNullable(grade);
         }
@@ -179,6 +213,23 @@ public class UpdateCommand extends Command {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 
+        /**
+         * Sets {@code semester} to this object's {@code semester}.
+         * A defensive copy of {@code semester} is used internally.
+         */
+        public void setSemester(Semester semester) {
+            this.semester = semester;
+        }
+
+        /**
+         * Returns an unmodifiable semester set, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code semester} is null.
+         */
+        public Optional<Semester> getSemester() {
+            return Optional.ofNullable(semester);
+        }
+
         @Override
         public boolean equals(Object other) {
             // short circuit if same object
@@ -196,7 +247,8 @@ public class UpdateCommand extends Command {
 
             return getName().equals(e.getName())
                     && getGrade().equals(e.getGrade())
-                    && getTags().equals(e.getTags());
+                    && getTags().equals(e.getTags())
+                    && getSemester().equals((e.getSemester()));
         }
     }
 }

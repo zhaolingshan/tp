@@ -27,6 +27,8 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 import seedu.address.testutil.ModuleBuilder;
 
@@ -48,6 +50,9 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y2S1);
+        
         Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();
         UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder(updatedModule).build();
@@ -64,6 +69,9 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_someFieldsSpecifiedUnfilteredList_success() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y2S1);
+
         ModuleName firstModuleName = COM_ORG.getModuleName();
         Index indexLastModule = GetModuleIndex.getIndex(model.getFilteredModuleList(), firstModuleName);
         Module firstModule = model.getFilteredModuleList().get(indexLastModule.getZeroBased());
@@ -88,6 +96,9 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_noFieldSpecifiedUnfilteredList_success() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y2S1);
+
         UpdateCommand updateCommand = new UpdateCommand(nameFirstModule, new UpdateModNameDescriptor());
         Module updatedModule = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
 
@@ -101,6 +112,9 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_filteredList_success() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y2S1);
+
         showModuleAtIndex(model, indexFirstModule);
 
         Module moduleInFilteredList = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
@@ -133,6 +147,9 @@ public class UpdateCommandTest {
      */
     @Test
     public void execute_invalidModuleNameFilteredList_failure() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y5S1);
+
         showModuleAtIndex(model, indexFirstModule);
         Index outOfBoundIndex = indexSecondModule;
         // ensures that outOfBoundIndex is still in bounds of address book list
@@ -170,4 +187,36 @@ public class UpdateCommandTest {
         assertFalse(standardCommand.equals(new UpdateCommand(nameFirstModule, DESC_B)));
     }
 
+    @Test
+    public void execute_invalidSemester_throwsCommandException() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.NA);
+
+        Module editedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
+                .withGrade(VALID_GRADE_A).build();
+        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder(editedModule).build();
+        EditCommand editCommand = new EditCommand(nameFirstModule, descriptor);
+
+        assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
+    }
+
+    @Test
+    public void execute_wrongSemester_throwsCommandException() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y4S1);
+
+        Module editedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
+                .withGrade(VALID_GRADE_A).build();
+        EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder(editedModule).build();
+        EditCommand editCommand = new EditCommand(nameFirstModule, descriptor);
+
+        Semester semesterOfFirstModule = COM_ORG.getSemester();
+
+        String expectedMessage = Messages.MESSAGE_UPDATE_MODULE_IN_WRONG_SEMESTER + semesterOfFirstModule + ".\n"
+                + Messages.MESSAGE_CURRENT_SEMESTER + semesterManager.getCurrentSemester() + ".\n"
+                + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfFirstModule
+                + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_UPDATE;
+
+        assertCommandFailure(editCommand, model, expectedMessage);
+    }
 }

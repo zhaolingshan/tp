@@ -50,7 +50,6 @@ public class Module {
         hasGrade = false;
     }
 
-
     public ModuleName getModuleName() {
         return moduleName;
     }
