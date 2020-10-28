@@ -104,6 +104,7 @@ public class MainWindow extends UiPart<Stage> {
         Scene scene = primaryStage.getScene();
 
         String cssFile = MainWindow.class.getResource("/view/" + cssFileName + ".css").toExternalForm();
+        System.out.println(cssFile);
         scene.getStylesheets().clear();
         scene.getStylesheets().add(cssFile);
     }
@@ -213,7 +214,7 @@ public class MainWindow extends UiPart<Stage> {
      * Set MainWindow to Dark theme when selected through menu.
      */
     @FXML
-    private void handleDarkThemeSelection() {
+    public void handleDarkThemeSelection() {
         setStyleSheet("DarkTheme");
     }
 
@@ -221,7 +222,7 @@ public class MainWindow extends UiPart<Stage> {
      * Set MainWindow to Light theme when selected through menu.
      */
     @FXML
-    private void handleLightThemeSelection() {
+    public void handleLightThemeSelection() {
         setStyleSheet("LightTheme");
     }
 
