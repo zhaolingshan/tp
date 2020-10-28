@@ -1,19 +1,12 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.logic.commands.CommandTestUtil.VALID_MODULAR_CREDIT;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
-import seedu.address.model.semester.Semester;
-import seedu.address.testutil.ModuleBuilder;
 
 /**
  * As we are only doing white-box testing, our test cases do not cover path variations
