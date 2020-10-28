@@ -48,7 +48,7 @@ public class DeleteCommandTest {
     @Test
     public void execute_validModuleNameUnfilteredList_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y3S2);
+        semesterManager.setCurrentSemester(Semester.Y2S1);
 
         Module moduleToDelete = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
@@ -56,6 +56,7 @@ public class DeleteCommandTest {
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_MODULE_SUCCESS, moduleToDelete);
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget());
+
         expectedModel.deleteModule(moduleToDelete);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
@@ -72,7 +73,7 @@ public class DeleteCommandTest {
     @Test
     public void execute_validIndexFilteredList_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y3S1);
+        semesterManager.setCurrentSemester(Semester.Y2S1);
 
         showModuleAtIndex(model, indexFirstModule);
 
@@ -140,5 +141,21 @@ public class DeleteCommandTest {
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
 
         assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
+    }
+
+    @Test
+    public void execute_wrongSemester_throwsCommandException() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y4S2);
+
+        DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
+        Semester semesterOfFirstModule = COM_ORG.getSemester();
+
+        String expectedMessage = Messages.MESSAGE_DELETE_MODULE_IN_WRONG_SEMESTER + semesterOfFirstModule + ".\n"
+                + Messages.MESSAGE_CURRENT_SEMESTER + semesterManager.getCurrentSemester() + ".\n"
+                + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfFirstModule
+                + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_DELETE;
+
+        assertCommandFailure(deleteCommand, model, expectedMessage);
     }
 }

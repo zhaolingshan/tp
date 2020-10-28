@@ -14,4 +14,10 @@ public class Messages {
     public static final String MESSAGE_INVALID_DONE_COMMAND = "There is no semester being modified.";
     public static final String MESSAGE_INVALID_SEMESTER = "The semester you have entered is invalid.\n"
             + "Only Y1S1, Y1S2, Y2S1, Y2S2, Y3S1, Y3S2, Y4S1, Y4S2, Y5S1, and Y5S2 are accepted.";
+    public static final String MESSAGE_DELETE_MODULE_IN_WRONG_SEMESTER = "The module you are trying to delete is in ";
+    public static final String MESSAGE_UPDATE_MODULE_IN_WRONG_SEMESTER = "The module you are trying to update is in ";
+    public static final String MESSAGE_CURRENT_SEMESTER = "The semester you are currently editing is ";
+    public static final String MESSAGE_DIRECT_TO_CORRECT_SEMESTER = "Please navigate to ";
+    public static final String MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_DELETE = " to delete the module.";
+    public static final String MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_UPDATE = " to update the module.";
 }
