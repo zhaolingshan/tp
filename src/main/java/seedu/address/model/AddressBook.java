@@ -75,14 +75,14 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Replaces the given module {@code target} in the list with {@code editedModule}.
+     * Replaces the given module {@code target} in the list with {@code updateModule}.
      * {@code target} must exist in the address book.
-     * The module identity of {@code editedModule} must not be the same as another existing module in the address book.
+     * The module identity of {@code updateModule} must not be the same as another existing module in the address book.
      */
-    public void setModule(Module target, Module editedModule) {
-        requireNonNull(editedModule);
+    public void setModule(Module target, Module updateModule) {
+        requireNonNull(updateModule);
 
-        modules.setModule(target, editedModule);
+        modules.setModule(target, updateModule);
     }
 
     /**

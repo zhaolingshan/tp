@@ -9,8 +9,8 @@ import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
 
 /**
- * Starts the editing of the module list in a semester.
- * Enables the user to add, edit or delete modules in
+ * Starts the updating of the module list in a semester.
+ * Enables the user to add,  or delete modules in
  * a particular semester.
  */
 public class StartCommand extends Command {
@@ -18,12 +18,12 @@ public class StartCommand extends Command {
     public static final String COMMAND_WORD = "start";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Starts adding or editing modules in the semester stated.\n"
+            + ": Starts adding or updating modules in the semester stated.\n"
             + "Parameters: SEMESTER\n"
             + "Example: " + COMMAND_WORD + " Y2S1";
 
     public static final String MESSAGE_START_SEMESTER_SUCCESS =
-            "You are now editing: %1$s \n The modules you are taking in %1$s:";
+            "You are now updating: %1$s \n The modules you are taking in %1$s:";
 
     private final Semester toStart;
 

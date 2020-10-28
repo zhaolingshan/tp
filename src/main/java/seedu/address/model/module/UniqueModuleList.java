@@ -49,23 +49,23 @@ public class UniqueModuleList implements Iterable<Module> {
     }
 
     /**
-     * Replaces the module {@code target} in the list with {@code editedPerson}.
+     * Replaces the module {@code target} in the list with {@code updatedModule}.
      * {@code target} must exist in the list.
-     * The module identity of {@code editedPerson} must not be the same as another existing module in the list.
+     * The module identity of {@code updatedModule} must not be the same as another existing module in the list.
      */
-    public void setModule(Module target, Module editedModule) {
-        requireAllNonNull(target, editedModule);
+    public void setModule(Module target, Module updatedModule) {
+        requireAllNonNull(target, updatedModule);
 
         int index = internalList.indexOf(target);
         if (index == -1) {
             throw new ModuleNotFoundException();
         }
 
-        if (!target.isSameModule(editedModule) && contains(editedModule)) {
+        if (!target.isSameModule(updatedModule) && contains(updatedModule)) {
             throw new DuplicateModuleException();
         }
 
-        internalList.set(index, editedModule);
+        internalList.set(index, updatedModule);
     }
 
     /**

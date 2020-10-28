@@ -28,13 +28,13 @@ import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.tag.Tag;
 
 /**
- * Edits the details of an existing module in the address book.
+ * Updates the details of an existing module in the address book.
  */
-public class EditCommand extends Command {
+public class UpdateCommand extends Command {
 
     public static final String COMMAND_WORD = "update";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the module identified "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Updates the details of the module identified "
             + "by the module name displayed in the module list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters:"
@@ -44,23 +44,23 @@ public class EditCommand extends Command {
             + "[" + PREFIX_SEMESTER + "SEM] "
             + "Example: " + COMMAND_WORD + " --mod CS2103T --grade A";
 
-    public static final String MESSAGE_EDIT_MODULE_SUCCESS = "Edited Module: %1$s";
-    public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
+    public static final String MESSAGE_UPDATE_MODULE_SUCCESS = "Updated Module: %1$s";
+    public static final String MESSAGE_NOT_UPDATED = "At least one field to update must be provided.";
     public static final String MESSAGE_DUPLICATE_MODULE = "This module already exists in the address book.";
 
     private final ModuleName moduleName;
-    private final EditModNameDescriptor editModNameDescriptor;
+    private final UpdateModNameDescriptor updateModNameDescriptor;
 
     /**
-     * @param moduleName            of the module in the filtered module list to edit
-     * @param editModNameDescriptor details to edit the module with
+     * @param moduleName of the module in the filtered module list to update
+     * @param updateModNameDescriptor details to update the module with
      */
-    public EditCommand(ModuleName moduleName, EditModNameDescriptor editModNameDescriptor) {
+    public UpdateCommand(ModuleName moduleName, UpdateModNameDescriptor updateModNameDescriptor) {
         requireNonNull(moduleName);
-        requireNonNull(editModNameDescriptor);
+        requireNonNull(updateModNameDescriptor);
 
         this.moduleName = moduleName;
-        this.editModNameDescriptor = new EditModNameDescriptor(editModNameDescriptor);
+        this.updateModNameDescriptor = new UpdateModNameDescriptor(updateModNameDescriptor);
     }
 
     @Override
@@ -78,37 +78,39 @@ public class EditCommand extends Command {
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException(Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
         }
-        Module moduleToEdit = lastShownList.get(index.getZeroBased());
-        Module editedModule = createEditedModule(moduleToEdit, editModNameDescriptor);
-        Semester semesterOfEditedModule = editedModule.getSemester();
-        if (semesterOfEditedModule != currentSemester) {
+
+        Module moduleToUpdate = lastShownList.get(index.getZeroBased());
+        Module updatedModule = createUpdatedModule(moduleToUpdate, updateModNameDescriptor);
+        Semester semesterOfUpdatedModule = updatedModule.getSemester();
+        if (semesterOfUpdatedModule != currentSemester) {
             throw new CommandException(
-                    Messages.MESSAGE_UPDATE_MODULE_IN_WRONG_SEMESTER + semesterOfEditedModule + ".\n"
+                    Messages.MESSAGE_UPDATE_MODULE_IN_WRONG_SEMESTER + semesterOfUpdatedModule + ".\n"
                             + Messages.MESSAGE_CURRENT_SEMESTER + currentSemester + ".\n"
-                            + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfEditedModule
+                            + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfUpdatedModule
                             + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_UPDATE);
         }
-        if (!moduleToEdit.isSameModule(editedModule) && model.hasModule(editedModule)) {
+        if (!moduleToUpdate.isSameModule(updatedModule) && model.hasModule(updatedModule)) {
             throw new CommandException(MESSAGE_DUPLICATE_MODULE);
         }
-        model.setModule(moduleToEdit, editedModule);
+
+        model.setModule(moduleToUpdate, updatedModule);
         model.updateFilteredModuleList(PREDICATE_SHOW_ALL_MODULES);
-        return new CommandResult(String.format(MESSAGE_EDIT_MODULE_SUCCESS, editedModule));
+        return new CommandResult(String.format(MESSAGE_UPDATE_MODULE_SUCCESS, updatedModule));
     }
 
     /**
-     * Creates and returns a {@code Module} with the details of {@code moduleToEdit}
-     * edited with {@code editModuleDescriptor}.
+     * Creates and returns a {@code Module} with the details of {@code moduleToUpdate}
+     * updated with {@code updatedModuleDescriptor}.
      */
-    private static Module createEditedModule(Module moduleToEdit, EditModNameDescriptor editModNameDescriptor) {
-        assert moduleToEdit != null;
+    private static Module createUpdatedModule(Module moduleToUpdate, UpdateModNameDescriptor updateModNameDescriptor) {
+        assert moduleToUpdate != null;
 
-        ModuleName updatedModuleName = editModNameDescriptor.getName().orElse(moduleToEdit.getModuleName());
-        Grade updatedGrade = editModNameDescriptor.getGrade().orElse(moduleToEdit.getGrade());
-        Set<Tag> updatedTags = editModNameDescriptor.getTags().orElse(moduleToEdit.getTags());
+        ModuleName updatedModuleName = updateModNameDescriptor.getName().orElse(moduleToUpdate.getModuleName());
+        Grade updatedGrade = updateModNameDescriptor.getGrade().orElse(moduleToUpdate.getGrade());
+        Set<Tag> updatedTags = updateModNameDescriptor.getTags().orElse(moduleToUpdate.getTags());
         // modularCredit is not edited
-        ModularCredit modularCredit = moduleToEdit.getModularCredit();
-        Semester semester = moduleToEdit.getSemester();
+        ModularCredit modularCredit = moduleToUpdate.getModularCredit();
+        Semester semester = moduleToUpdate.getSemester();
         return new Module(updatedModuleName, updatedGrade, updatedTags, modularCredit, semester);
     }
 
@@ -120,34 +122,33 @@ public class EditCommand extends Command {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof EditCommand)) {
+        if (!(other instanceof UpdateCommand)) {
             return false;
         }
 
         // state check
-        EditCommand e = (EditCommand) other;
+        UpdateCommand e = (UpdateCommand) other;
         return moduleName.equals(e.moduleName)
-                && editModNameDescriptor.equals(e.editModNameDescriptor);
+                && updateModNameDescriptor.equals(e.updateModNameDescriptor);
     }
 
     /**
-     * Stores the details to edit the module with. Each non-empty field value will replace the
+     * Stores the details to update the module with. Each non-empty field value will replace the
      * corresponding field value of the module.
      */
-    public static class EditModNameDescriptor {
+    public static class UpdateModNameDescriptor {
         private ModuleName moduleName;
         private Grade grade;
         private Set<Tag> tags;
         private Semester semester;
 
-        public EditModNameDescriptor() {
-        }
+        public UpdateModNameDescriptor() {}
 
         /**
          * Copy constructor.
          * A defensive copy of {@code tags} is used internally.
          */
-        public EditModNameDescriptor(EditModNameDescriptor toCopy) {
+        public UpdateModNameDescriptor(UpdateModNameDescriptor toCopy) {
             setName(toCopy.moduleName);
             setGrade(toCopy.grade);
             setTags(toCopy.tags);
@@ -155,9 +156,9 @@ public class EditCommand extends Command {
         }
 
         /**
-         * Returns true if at least one field is edited.
+         * Returns true if at least one field is updated.
          */
-        public boolean isAnyFieldEdited() {
+        public boolean isAnyFieldUpdated() {
             return CollectionUtil.isAnyNonNull(moduleName, grade, tags, semester);
         }
 
@@ -237,12 +238,12 @@ public class EditCommand extends Command {
             }
 
             // instanceof handles nulls
-            if (!(other instanceof EditModNameDescriptor)) {
+            if (!(other instanceof UpdateModNameDescriptor)) {
                 return false;
             }
 
             // state check
-            EditModNameDescriptor e = (EditModNameDescriptor) other;
+            UpdateModNameDescriptor e = (UpdateModNameDescriptor) other;
 
             return getName().equals(e.getName())
                     && getGrade().equals(e.getGrade())

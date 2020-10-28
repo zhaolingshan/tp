@@ -75,11 +75,11 @@ public interface Model {
     void addModule(Module module);
 
     /**
-     * Replaces the given module {@code target} with {@code editedModule}.
+     * Replaces the given module {@code target} with {@code updatedModule}.
      * {@code target} must exist in the address book.
-     * The module identity of {@code editedModule} must not be the same as another existing module in the address book.
+     * The module identity of {@code updatedModule} must not be the same as another existing module in the address book.
      */
-    void setModule(Module target, Module editedModule);
+    void setModule(Module target, Module updatedModule);
 
     /**
      * Returns an unmodifiable view of the filtered module list

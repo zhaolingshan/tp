@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_LIST_GOAL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MODULAR_CREDIT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SEMESTER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SET_GOAL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -21,7 +22,7 @@ import seedu.address.model.Model;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
 import seedu.address.model.semester.Semester;
-import seedu.address.testutil.EditModNameDescriptorBuilder;
+import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 
 /**
  * Contains helper methods for testing commands.
@@ -55,7 +56,7 @@ public class CommandTestUtil {
     public static final String SET_GOAL_DESC_A = " " + PREFIX_SET_GOAL + VALID_GOAL_TARGET_A;
     public static final String SET_GOAL_DESC_B = " " + PREFIX_SET_GOAL + VALID_GOAL_TARGET_B;
     public static final String LIST_GOAL_DESC = " " + PREFIX_LIST_GOAL;
-    public static final String SEMESTER_DESC = " " + VALID_SEMESTER.toString();
+    public static final String SEMESTER_DESC = " " + PREFIX_SEMESTER + VALID_SEMESTER.toString();
 
     public static final String INVALID_MOD_NAME_DESC = " " + PREFIX_MOD_NAME + "James&"; // '&' not allowed in mod names
     public static final String INVALID_GRADE_DESC = " " + PREFIX_GRADE; // empty string not allowed for GRADES
@@ -65,14 +66,14 @@ public class CommandTestUtil {
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
     public static final String WHITESPACE = " ";
 
-    public static final EditCommand.EditModNameDescriptor DESC_A;
-    public static final EditCommand.EditModNameDescriptor DESC_B;
+    public static final UpdateCommand.UpdateModNameDescriptor DESC_A;
+    public static final UpdateCommand.UpdateModNameDescriptor DESC_B;
 
     static {
-        DESC_A = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
+        DESC_A = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
                 .withGrade(VALID_GRADE_A)
                 .withTags(VALID_TAG_FRIEND).build();
-        DESC_B = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_B)
+        DESC_B = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_B)
                 .withGrade(VALID_GRADE_B)
                 .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
     }

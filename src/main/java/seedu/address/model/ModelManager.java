@@ -113,10 +113,10 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void setModule(Module target, Module editedModule) {
-        requireAllNonNull(target, editedModule);
+    public void setModule(Module target, Module updatedModule) {
+        requireAllNonNull(target, updatedModule);
 
-        addressBook.setModule(target, editedModule);
+        addressBook.setModule(target, updatedModule);
     }
 
     //=========== Filtered Module List Accessors =============================================================

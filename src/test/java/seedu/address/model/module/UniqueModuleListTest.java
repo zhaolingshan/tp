@@ -42,9 +42,9 @@ public class UniqueModuleListTest {
     @Test
     public void contains_moduleWithSameIdentityFieldsInList_returnsTrue() {
         uniqueModuleList.add(COM_ORG);
-        Module editedAlice = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
+        Module updatedModule = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertTrue(uniqueModuleList.contains(editedAlice));
+        assertTrue(uniqueModuleList.contains(updatedModule));
     }
 
     @Test
@@ -64,7 +64,7 @@ public class UniqueModuleListTest {
     }
 
     @Test
-    public void setModule_nullEditedModule_throwsNullPointerException() {
+    public void setModule_nullUpdatedModule_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> uniqueModuleList.setModule(COM_ORG, null));
     }
 
@@ -74,7 +74,7 @@ public class UniqueModuleListTest {
     }
 
     @Test
-    public void setModule_editedModuleIsSameModule_success() {
+    public void setModule_updatedModuleIsSameModule_success() {
         uniqueModuleList.add(COM_ORG);
         uniqueModuleList.setModule(COM_ORG, COM_ORG);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
@@ -83,18 +83,18 @@ public class UniqueModuleListTest {
     }
 
     @Test
-    public void setModule_editedModuleHasSameIdentity_success() {
+    public void setModule_updatedModuleHasSameIdentity_success() {
         uniqueModuleList.add(COM_ORG);
-        Module editedAlice = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
+        Module updatedAlice = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
                 .build();
-        uniqueModuleList.setModule(COM_ORG, editedAlice);
+        uniqueModuleList.setModule(COM_ORG, updatedAlice);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
-        expectedUniqueModuleList.add(editedAlice);
+        expectedUniqueModuleList.add(updatedAlice);
         assertEquals(expectedUniqueModuleList, uniqueModuleList);
     }
 
     @Test
-    public void setModule_editedModuleHasDifferentIdentity_success() {
+    public void setModule_updatedModuleHasDifferentIdentity_success() {
         uniqueModuleList.add(COM_ORG);
         uniqueModuleList.setModule(COM_ORG, MOD_B);
         UniqueModuleList expectedUniqueModuleList = new UniqueModuleList();
