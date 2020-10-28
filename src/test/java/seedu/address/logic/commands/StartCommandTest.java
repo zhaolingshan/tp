@@ -44,7 +44,7 @@ public class StartCommandTest {
         // null -> returns false
         assertFalse(startY1s1.equals(null));
 
-        // different person -> returns false
+        // different sem -> returns false
         assertFalse(startY1s1.equals(startY1s2));
     }
     

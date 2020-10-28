@@ -25,7 +25,7 @@ public class StartCommand extends Command {
     public static final String MESSAGE_START_SEMESTER_SUCCESS =
             "You are now editing: %1$s \n The modules you are taking in %1$s:";
 
-    private static Semester toStart = null;
+    private final Semester toStart;
 
     /**
      * Creates a StartCommand to add the specified {@code Semester}
@@ -38,7 +38,7 @@ public class StartCommand extends Command {
             toStart = semester;
     }
 
-    public static Semester getStartSemester() {
+    public Semester getStartSemester() {
         return toStart;
     }
 
