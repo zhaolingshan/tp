@@ -4,6 +4,9 @@ import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.DoneCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
+/**
+ * Parses input arguments and creates a new DoneCommand object
+ */
 public class DoneCommandParser implements Parser<DoneCommand> {
 
     /**
