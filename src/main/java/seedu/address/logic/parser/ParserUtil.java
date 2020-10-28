@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -62,7 +63,7 @@ public class ParserUtil {
         requireNonNull(semester);
         String trimmedSemester = semester.trim();
         if (!SemesterManager.isValidSemester(trimmedSemester)) {
-            throw new ParseException(SemesterManager.MESSAGE_INVALID_SEMESTER);
+            throw new ParseException(Messages.MESSAGE_INVALID_SEMESTER);
         }
         return Semester.valueOf(trimmedSemester);
     }

@@ -12,6 +12,8 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.testutil.ModuleBuilder;
 
 /**
@@ -28,6 +30,9 @@ public class AddCommandIntegrationTest {
 
     @Test
     public void execute_newModule_success() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y4S2);
+
         Module validModule = new ModuleBuilder().withName("IS1103").build();
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget());
@@ -39,6 +44,9 @@ public class AddCommandIntegrationTest {
 
     @Test
     public void execute_duplicateModule_throwsCommandException() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y4S1);
+
         Module moduleInList = model.getAddressBook().getModuleList().get(0);
         assertCommandFailure(new AddCommand(moduleInList), model, AddCommand.MESSAGE_DUPLICATE_MODULE);
     }

@@ -2,6 +2,8 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.commons.core.Messages;
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
@@ -28,8 +30,11 @@ public class StartCommand extends Command {
     /**
      * Creates a StartCommand to add the specified {@code Semester}
      */
-    public StartCommand(Semester semester) {
+    public StartCommand(Semester semester) throws ParseException {
         requireNonNull(semester);
+        if (!SemesterManager.isValidSemester(semester.toString())) {
+            throw new ParseException(Messages.MESSAGE_INVALID_SEMESTER);
+        }
         toStart = semester;
     }
 

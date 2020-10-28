@@ -6,6 +6,7 @@ import static seedu.address.testutil.TypicalModules.COM_ORG;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.model.module.ModuleName;
 
 /**
  * As we are only doing white-box testing, our test cases do not cover path variations
@@ -17,10 +18,12 @@ import seedu.address.logic.commands.DeleteCommand;
 public class DeleteCommandParserTest {
 
     private DeleteCommandParser parser = new DeleteCommandParser();
+    private final ModuleName moduleName = COM_ORG.getModuleName();
+    private final String userInputModuleName = "CS2100";
 
     @Test
     public void parse_validArgs_returnsDeleteCommand() {
-        System.out.println(new DeleteCommand(COM_ORG.getModuleName()));
-        assertParseSuccess(parser, "CS2100", new DeleteCommand(COM_ORG.getModuleName()));
+        System.out.println(new DeleteCommand(moduleName));
+        assertParseSuccess(parser, userInputModuleName, new DeleteCommand(moduleName));
     }
 }

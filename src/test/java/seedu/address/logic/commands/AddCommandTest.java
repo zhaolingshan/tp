@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
@@ -22,6 +23,8 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.testutil.ModuleBuilder;
 
 public class AddCommandTest {
@@ -33,6 +36,9 @@ public class AddCommandTest {
 
     @Test
     public void execute_moduleAcceptedByModel_addSuccessful() throws Exception {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y4S2);
+
         ModelStubAcceptingModuleAdded modelStub = new ModelStubAcceptingModuleAdded();
         Module validModule = new ModuleBuilder().build();
 
@@ -225,6 +231,19 @@ public class AddCommandTest {
         public ReadOnlyAddressBook getAddressBook() {
             return new AddressBook();
         }
+
     }
 
+    @Test
+    public void execute_invalidSemester_throwsCommandException() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.NA);
+
+        Module validModule = new ModuleBuilder().build();
+        AddCommand addCommand = new AddCommand(validModule);
+        ModelStub modelStub = new ModelStubWithModule(validModule);
+
+        assertThrows(CommandException.class, Messages.MESSAGE_INVALID_COMMAND_SEQUENCE, () ->
+                addCommand.execute(modelStub));
+    }
 }

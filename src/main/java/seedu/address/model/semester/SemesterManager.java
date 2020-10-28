@@ -6,9 +6,6 @@ package seedu.address.model.semester;
  */
 public class SemesterManager {
 
-    public static final String MESSAGE_INVALID_SEMESTER = "The semester you have entered is invalid."
-            + "Only Y1S1, Y1S2, Y2S1, Y2S2, Y3S1, Y3S2, Y4S1, Y4S2, Y5S1, and Y5S2 are accepted.";
-
     private static SemesterManager semesterManager = null;
 
     private Semester currentSem = Semester.NA;
