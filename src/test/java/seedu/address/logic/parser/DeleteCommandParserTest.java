@@ -33,19 +33,4 @@ public class DeleteCommandParserTest {
         System.out.println(new DeleteCommand(moduleName));
         assertParseSuccess(parser, userInputModuleName, new DeleteCommand(moduleName));
     }
-
-    @Test
-    public void parse_invalidSemester_failure() {
-        Semester invalidSemester = Semester.NA;
-        assertParseFailure(parser, invalidSemester.toString(), Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
-    }
-
-    @Test
-    public void parse_validSemester_success() {
-        Semester validSemester = Semester.Y4S1;
-        Module expectedModule = new ModuleBuilder(COM_ORG).withTags(VALID_TAG_FRIEND)
-                .withModularCredit(VALID_MODULAR_CREDIT).withSemester(validSemester.toString()).build();
-        DeleteCommand deleteCommand = new DeleteCommand(expectedModule.getModuleName());
-        assertParseSuccess(parser, userInputModuleName, deleteCommand);
-    }
 }
