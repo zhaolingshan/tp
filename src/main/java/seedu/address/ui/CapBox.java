@@ -32,4 +32,8 @@ public class CapBox extends UiPart<Region> {
         requireNonNull(currentCap);
         currentCapDisplay.setText("Current CAP: " + currentCap);
     }
+
+    public Text getCurrentCapDisplay() {
+        return currentCapDisplay;
+    }
 }
