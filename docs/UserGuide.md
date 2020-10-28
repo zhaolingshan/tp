@@ -114,6 +114,9 @@ Examples:` `
 *   `s/u --mod CS1101S`
 *   `s/u --mod CS1231S`
 
+To S/U a module (e.g. CS1231):
+1. Type s/u --mod CS1231 into the command box, and press Enter to execute it.
+<img src="images/UG SS/2.8 SU Module 1.png" width="603px" height="84px">
 
 ### Deleting:` delete`
 Deletes a module in your modules list. If a grade is provided, the grade of the mod will be deleted instead. \
@@ -123,6 +126,18 @@ Format: `delete MODULE_CODE` \
 Examples:
 *   `delete CS1101S`
 *   `delete CS2103T`
+
+To delete a module (e.g. CS1231) from the list:
+<img src="images/UG SS/2.9 Delete Module 1.png" width="602px" height="347px">
+
+1. Type delete CS1231 into the command box, and press Enter to execute it.
+<img src="images/UG SS/2.9 Delete Module 2.png" width="605px" height="85px">
+
+2. The result box will display the message:
+<img src="images/UG SS/2.9 Delete Module 3.png" width="604px" height="152px">
+
+3. The module CS1231 will be deleted from the list below:
+<img src="images/UG SS/2.9 Delete Module 4.png" width="603px" height="445px">
 
 
 ### Done Semester:` done`
