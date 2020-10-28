@@ -28,7 +28,8 @@ public class DoneCommandTest {
     public void execute_validSemester_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y5S2);
-        CommandResult expectedCommandResult = new CommandResult(DoneCommand.MESSAGE_DONE_SEMESTER_SUCCESS,
+        CommandResult expectedCommandResult = new CommandResult(
+                String.format(DoneCommand.MESSAGE_DONE_SEMESTER_SUCCESS, semesterManager.getCurrentSemester()),
                 false, false, false);
         assertCommandSuccess(new DoneCommand(), model, expectedCommandResult, expectedModel);
     }
