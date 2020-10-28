@@ -27,22 +27,42 @@ e.g. in add --mod MODULE_CODE, MODULE_CODE is a parameter which can be used as a
 e.g --mod MODULE_CODE [--grade GRADE] can be used as --mod CS2100 --grade A or as --mod CS2100.
 *   Parameters are not case-sensitive. e.g. add --mod CS2100 is the same as add --mod cs2100
 
-### Start editing: `start`
-Start editing modules to the semester.
+### Edit Semester: `start`
+Start modifying the modules in a particular semester by adding, editing or deleting modules. 
+You can only add, edit or delete modules after starting a particular semester. \
 \
-Format: `start SEMESTER`
+Format: `start SEMESTER` \
 \
 Examples:
-*   `start Y2S1`
+*   `start Y2S1` 
 
-### Adding a module: `add`
-Adds a module to your modules list.
+To edit a Semester (e.g. Y2S1):
+
+1. Type `start Y2S1` into the command box, and press Enter to execute it. \
+<img src="images/UG SS/2.2 Edit Semester 1.png" width="990px" height="150px">
+
+2. The result box will display the message: \
+<img src="images/UG SS/2.2 Edit Semester 2.png" width="990px" height="282px">
+
+### Add a module: `add`
+Adds a module to your modules list. \
 \
 Format: `add --mod MODULE_CODE [--grade GRADE]`
 \
 Examples:
 *   `add --mod CS1101S`
 *   `add --mod CS1231S --grade A`
+
+To add a module (e.g. add CS1101S):
+
+1. Type add --mod CS2107 into the command box, and press Enter to execute it. \
+<img src="images/UG SS/2.3 Add Module 1.png" width="989px" height="133px">
+
+2. The result box will display the message: \
+<img src="images/UG SS/2.3 Add Module 2.png" width="991px" height="729px">
+
+3. You can check that the module is added in the list below: \
+<img src="images/UG SS/2.3 Add Module 3.png" width="990px" height="484px">
 
 ### Updating a module: `update`
 Updates the module’s grade.
@@ -72,8 +92,18 @@ Format: `goal --set LEVEL` or `goal --list` \
  \
 Examples:
 *   `goal --set 2`
-*   `goal --set 4`
 *   `goal --list`
+
+
+
+To set your goal to 2 (CAP4.00 ~ 4.49):
+
+1. Type `goal --set 2` into the command box,  and press Enter to execute it. \
+<img src="images/UG SS/2.6 Set Goals 1.png" width="989px" height="125px">
+
+2. The result box will display the message: 
+<img src="images/UG SS/2.6 Set Goals 2.png" width="989px" height="253px">
+
 
 ### Recommend S/U: `recommendSU`
 Recommend which module from your list to S/U based on your goal, grades and if the module can be S/U-ed. \
@@ -82,6 +112,18 @@ Format: `recommendSU` \
  \
 Example:
 *   `recommendSU`
+
+
+To get recommendations on which modules to S/U:
+1. Type `recommendSU` into the command box, and press `Enter` to execute it. \
+<img src="images/UG SS/2.7 Recommend SU 1.png" width="993px" height="131px">
+
+2. The result box will display the message (if there are suitable modules to recommend): \
+<img src="images/UG SS/2.7 Recommend SU 2.png" width="595px" height="220px">
+
+3. Check the module(s) that are recommended to S/U in the list below:
+<img src="images/UG SS/2.7 Recommend SU 3.png" width="595px" height="336px">
+
 
 ### S/U module:` s/u `
 S/U a module in your modules list. \
@@ -92,6 +134,9 @@ Examples:` `
 *   `s/u --mod CS1101S`
 *   `s/u --mod CS1231S`
 
+To S/U a module (e.g. CS1231):
+1. Type s/u --mod CS1231 into the command box, and press Enter to execute it.
+<img src="images/UG SS/2.8 SU Module 1.png" width="603px" height="84px">
 
 ### Deleting:` delete`
 Deletes a module in your modules list. If a grade is provided, the grade of the mod will be deleted instead. \
@@ -101,6 +146,18 @@ Format: `delete MODULE_CODE` \
 Examples:
 *   `delete CS1101S`
 *   `delete CS2103T`
+
+To delete a module (e.g. CS1231) from the list:
+<img src="images/UG SS/2.9 Delete Module 1.png" width="602px" height="347px">
+
+1. Type delete CS1231 into the command box, and press Enter to execute it.
+<img src="images/UG SS/2.9 Delete Module 2.png" width="605px" height="85px">
+
+2. The result box will display the message:
+<img src="images/UG SS/2.9 Delete Module 3.png" width="604px" height="152px">
+
+3. The module CS1231 will be deleted from the list below:
+<img src="images/UG SS/2.9 Delete Module 4.png" width="603px" height="445px">
 
 
 ### Done Semester:` done`

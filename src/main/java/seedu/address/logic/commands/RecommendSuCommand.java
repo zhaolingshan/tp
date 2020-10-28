@@ -9,7 +9,6 @@ import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.util.ModuleInfoRetriever;
 
-
 /**
  * Recommend modules to S/U based on user's goal.
  */
