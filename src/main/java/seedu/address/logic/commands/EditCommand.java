@@ -85,8 +85,8 @@ public class EditCommand extends Command {
             throw new CommandException(
                     Messages.MESSAGE_UPDATE_MODULE_IN_WRONG_SEMESTER + semesterOfEditedModule + ".\n"
                             + Messages.MESSAGE_CURRENT_SEMESTER + currentSemester + ".\n"
-                            + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfEditedModule +
-                            Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_UPDATE);
+                            + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfEditedModule
+                            + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_UPDATE);
         }
         if (!moduleToEdit.isSameModule(editedModule) && model.hasModule(editedModule)) {
             throw new CommandException(MESSAGE_DUPLICATE_MODULE);

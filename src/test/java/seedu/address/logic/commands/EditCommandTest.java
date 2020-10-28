@@ -209,13 +209,13 @@ public class EditCommandTest {
                 .withGrade(VALID_GRADE_A).build();
         EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder(editedModule).build();
         EditCommand editCommand = new EditCommand(nameFirstModule, descriptor);
-        
+
         Semester semesterOfFirstModule = COM_ORG.getSemester();
 
         String expectedMessage = Messages.MESSAGE_UPDATE_MODULE_IN_WRONG_SEMESTER + semesterOfFirstModule + ".\n"
                 + Messages.MESSAGE_CURRENT_SEMESTER + semesterManager.getCurrentSemester() + ".\n"
-                + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfFirstModule +
-                Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_UPDATE;
+                + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfFirstModule
+                + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_UPDATE;
 
         assertCommandFailure(editCommand, model, expectedMessage);
     }

@@ -33,6 +33,7 @@ public class DeleteCommand extends Command {
     /**
      * Instantiates a DeleteCommand object with a module name.
      * The module name must not be null.
+     *
      * @param targetModuleName the name of the module to be deleted.
      */
     public DeleteCommand(ModuleName targetModuleName) {
@@ -57,13 +58,13 @@ public class DeleteCommand extends Command {
         }
         Module moduleToDelete = lastShownList.get(targetModuleIndex.getZeroBased());
         Semester semesterOfModuleToDelete = moduleToDelete.getSemester();
-        
+
         if (semesterOfModuleToDelete != currentSemester) {
             throw new CommandException(
-                    Messages.MESSAGE_DELETE_MODULE_IN_WRONG_SEMESTER + semesterOfModuleToDelete + ".\n"
-            + Messages.MESSAGE_CURRENT_SEMESTER + currentSemester + ".\n"
-            + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfModuleToDelete + 
-                            Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_DELETE);
+                    Messages.MESSAGE_DELETE_MODULE_IN_WRONG_SEMESTER + semesterOfModuleToDelete + ".\n" + Messages
+                            .MESSAGE_CURRENT_SEMESTER + currentSemester + ".\n" + Messages
+                            .MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfModuleToDelete + Messages
+                            .MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_DELETE);
         }
         model.deleteModule(moduleToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_MODULE_SUCCESS, moduleToDelete));
