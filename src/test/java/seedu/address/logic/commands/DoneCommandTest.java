@@ -15,7 +15,7 @@ import seedu.address.model.semester.SemesterManager;
 public class DoneCommandTest {
     private Model model = new ModelManager();
     private Model expectedModel = new ModelManager();
-    
+
     @Test
     public void execute_invalidSemester_throwsCommandException() {
         SemesterManager semesterManager = SemesterManager.getInstance();

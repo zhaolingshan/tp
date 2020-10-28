@@ -12,15 +12,12 @@ import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
 
-import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditModNameDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Cap;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModuleName;
-import seedu.address.model.semester.Semester;
-import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -31,6 +28,7 @@ public class EditCommandParser implements Parser<EditCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the EditCommand
      * and returns an EditCommand object for execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public EditCommand parse(String args) throws ParseException {
@@ -56,7 +54,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
         if (argMultimap.getValue(PREFIX_SEMESTER).isPresent()) {
             editModNameDescriptor.setSemester(ParserUtil.parseSemester(argMultimap.getValue(PREFIX_SEMESTER).get()));
-        } 
+        }
 
         return new EditCommand(moduleName, editModNameDescriptor);
     }

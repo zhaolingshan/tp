@@ -47,14 +47,14 @@ public class StartCommandTest {
         // different sem -> returns false
         assertFalse(startY1s1.equals(startY1s2));
     }
-    
+
     @Test
     public void execute_validSemester_success() throws ParseException {
         Semester semesterToStart = Semester.Y1S1;
         StartCommand startCommand = new StartCommand(semesterToStart);
-        
+
         String expectedMessage = String.format(StartCommand.MESSAGE_START_SEMESTER_SUCCESS, semesterToStart);
-        
+
         assertCommandSuccess(startCommand, model, expectedMessage, model);
     }
 }

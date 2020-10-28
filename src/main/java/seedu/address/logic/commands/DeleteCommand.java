@@ -8,7 +8,6 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.GetModuleIndex;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
@@ -30,7 +29,12 @@ public class DeleteCommand extends Command {
     public static final String MESSAGE_DELETE_MODULE_SUCCESS = "Deleted Module: %1$s";
 
     private final ModuleName targetModuleName;
-    
+
+    /**
+     * Instantiates a DeleteCommand object with a module name.
+     * The module name must not be null.
+     * @param targetModuleName the name of the module to be deleted.
+     */
     public DeleteCommand(ModuleName targetModuleName) {
         requireNonNull(targetModuleName);
         this.targetModuleName = targetModuleName;

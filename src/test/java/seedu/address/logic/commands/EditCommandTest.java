@@ -52,7 +52,7 @@ public class EditCommandTest {
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y4S1);
-        
+
         Module editedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();
         EditCommand.EditModNameDescriptor descriptor = new EditModNameDescriptorBuilder(editedModule).build();
@@ -71,7 +71,7 @@ public class EditCommandTest {
     public void execute_someFieldsSpecifiedUnfilteredList_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y3S2);
-        
+
         ModuleName firstModuleName = COM_ORG.getModuleName();
         Index indexLastModule = GetModuleIndex.getIndex(model.getFilteredModuleList(), firstModuleName);
         Module firstModule = model.getFilteredModuleList().get(indexLastModule.getZeroBased());
@@ -98,7 +98,7 @@ public class EditCommandTest {
     public void execute_noFieldSpecifiedUnfilteredList_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y3S1);
-        
+
         EditCommand editCommand = new EditCommand(nameFirstModule, new EditModNameDescriptor());
         Module editedModule = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
 
@@ -114,7 +114,7 @@ public class EditCommandTest {
     public void execute_filteredList_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y5S2);
-        
+
         showModuleAtIndex(model, indexFirstModule);
 
         Module moduleInFilteredList = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
@@ -149,7 +149,7 @@ public class EditCommandTest {
     public void execute_invalidModuleNameFilteredList_failure() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y5S1);
-        
+
         showModuleAtIndex(model, indexFirstModule);
         Index outOfBoundIndex = indexSecondModule;
         // ensures that outOfBoundIndex is still in bounds of address book list

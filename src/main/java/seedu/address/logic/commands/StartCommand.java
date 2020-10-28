@@ -35,7 +35,7 @@ public class StartCommand extends Command {
         if (!SemesterManager.isValidSemester(semester.toString())) {
             throw new ParseException(Messages.MESSAGE_INVALID_SEMESTER);
         }
-            toStart = semester;
+        toStart = semester;
     }
 
     public Semester getStartSemester() {

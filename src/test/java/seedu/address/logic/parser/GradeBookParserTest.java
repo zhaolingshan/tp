@@ -29,7 +29,6 @@ import seedu.address.logic.commands.StartCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
-import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
 import seedu.address.testutil.EditModNameDescriptorBuilder;
 import seedu.address.testutil.ModuleBuilder;
@@ -75,7 +74,7 @@ public class GradeBookParserTest {
                 + ModuleUtil.getEditModuleDescriptorDetails(descriptor));
         assertEquals(new EditCommand(COM_ORG.getModuleName(), descriptor), command);
     }
-    
+
     @Test
     public void parseCommand_start() throws Exception {
         SemesterManager semesterManager = SemesterManager.getInstance();
@@ -84,7 +83,7 @@ public class GradeBookParserTest {
                 StartCommand.COMMAND_WORD + " " + VALID_SEMESTER);
         assertEquals(new StartCommand(VALID_SEMESTER), command);
     }
-    
+
     @Test
     public void parseCommand_done() throws Exception {
         SemesterManager semesterManager = SemesterManager.getInstance();
@@ -131,8 +130,8 @@ public class GradeBookParserTest {
     public void parseCommand_unrecognisedInput_throwsParseException() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(VALID_SEMESTER);
-        assertThrows(ParseException.class, String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE), ()
-            -> parser.parseCommand(""));
+        assertThrows(ParseException.class, String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE), (
+        ) -> parser.parseCommand(""));
     }
 
     @Test

@@ -9,7 +9,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Grade;
@@ -28,6 +27,7 @@ public class AddCommandParser implements Parser<AddCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand
      * and returns an AddCommand object for execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddCommand parse(String args) throws ParseException {
@@ -43,7 +43,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         Module module;
         SemesterManager semesterManager = SemesterManager.getInstance();
         Semester semester = semesterManager.getCurrentSemester();
-        
+
         if (!arePrefixesPresent(argMultimap, PREFIX_GRADE) && arePrefixesPresent(argMultimap, PREFIX_MODULAR_CREDIT)) {
             // modular credit is inputted, grade is NOT inputted
             ModularCredit modularCredit = ParserUtil.parseModularCredit(

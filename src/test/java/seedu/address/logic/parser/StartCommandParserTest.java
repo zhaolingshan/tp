@@ -4,6 +4,7 @@ import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailur
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 import org.junit.jupiter.api.Test;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.StartCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -12,7 +13,7 @@ import seedu.address.model.semester.Semester;
 public class StartCommandParserTest {
 
     private StartCommandParser parser = new StartCommandParser();
-    
+
     @Test
     public void parse_invalidValue_failure() {
         final String invalidValue = "hello";

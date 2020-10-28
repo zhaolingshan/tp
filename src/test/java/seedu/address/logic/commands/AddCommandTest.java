@@ -243,8 +243,7 @@ public class AddCommandTest {
         AddCommand addCommand = new AddCommand(validModule);
         ModelStub modelStub = new ModelStubWithModule(validModule);
 
-        assertThrows(CommandException.class,
-                Messages.MESSAGE_INVALID_COMMAND_SEQUENCE,
-                () -> addCommand.execute(modelStub));
+        assertThrows(CommandException.class, Messages.MESSAGE_INVALID_COMMAND_SEQUENCE, () ->
+                addCommand.execute(modelStub));
     }
 }

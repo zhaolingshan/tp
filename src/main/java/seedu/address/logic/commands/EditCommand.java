@@ -52,7 +52,7 @@ public class EditCommand extends Command {
     private final EditModNameDescriptor editModNameDescriptor;
 
     /**
-     * @param moduleName of the module in the filtered module list to edit
+     * @param moduleName            of the module in the filtered module list to edit
      * @param editModNameDescriptor details to edit the module with
      */
     public EditCommand(ModuleName moduleName, EditModNameDescriptor editModNameDescriptor) {
@@ -134,7 +134,8 @@ public class EditCommand extends Command {
         private Set<Tag> tags;
         private Semester semester;
 
-        public EditModNameDescriptor() {}
+        public EditModNameDescriptor() {
+        }
 
         /**
          * Copy constructor.
@@ -209,14 +210,18 @@ public class EditCommand extends Command {
          * Sets {@code semester} to this object's {@code semester}.
          * A defensive copy of {@code semester} is used internally.
          */
-        public void setSemester(Semester semester) { this.semester = semester; }
+        public void setSemester(Semester semester) {
+            this.semester = semester;
+        }
 
         /**
          * Returns an unmodifiable semester set, which throws {@code UnsupportedOperationException}
          * if modification is attempted.
          * Returns {@code Optional#empty()} if {@code semester} is null.
          */
-        public Optional<Semester> getSemester() { return Optional.ofNullable(semester); }
+        public Optional<Semester> getSemester() {
+            return Optional.ofNullable(semester);
+        }
 
         @Override
         public boolean equals(Object other) {

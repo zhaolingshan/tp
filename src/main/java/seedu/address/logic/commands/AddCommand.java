@@ -46,7 +46,7 @@ public class AddCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        
+
         SemesterManager semesterManager = SemesterManager.getInstance();
         Semester semester = semesterManager.getCurrentSemester();
         if (semester == Semester.NA) {

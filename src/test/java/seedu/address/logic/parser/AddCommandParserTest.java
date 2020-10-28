@@ -25,15 +25,10 @@ import static seedu.address.testutil.TypicalModules.MOD_B;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.StartCommand;
-import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
-import seedu.address.model.semester.Semester;
-import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.ModuleBuilder;
 

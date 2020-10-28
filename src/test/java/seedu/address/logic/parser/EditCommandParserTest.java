@@ -120,7 +120,7 @@ public class EditCommandParserTest {
                 .withGrade(NO_GRADE).withTags(VALID_TAG_FRIEND).build();
         expectedCommand = new EditCommand(nameThirdModule, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
-        
+
         // semester
         userInput = MOD_NAME_DESC_A + SEMESTER_DESC;
         descriptor = new EditModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
