@@ -13,6 +13,7 @@ import java.util.List;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.module.Module;
+import seedu.address.model.semester.Semester;
 
 /**
  * A utility class containing a list of {@code Module} objects to be used in tests.
@@ -21,10 +22,12 @@ public class TypicalModules {
 
     public static final Module COM_ORG = new ModuleBuilder().withName("CS2100")
             .withGrade("A-")
-            .withTags("CS2100").build();
+            .withTags("CS2100")
+            .withSemester(Semester.Y2S1.toString()).build();
     public static final Module EFF_COM = new ModuleBuilder().withName("CS2101")
             .withGrade("B-")
-            .withTags("CS2101").build();
+            .withTags("CS2101")
+            .withSemester(Semester.Y2S1.toString()).build();
     public static final Module SWE = new ModuleBuilder().withName("CS2103T")
             .withGrade("A+").build();
     public static final Module COM_INFO = new ModuleBuilder().withName("ES2660")

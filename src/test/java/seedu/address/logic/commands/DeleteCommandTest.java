@@ -48,7 +48,7 @@ public class DeleteCommandTest {
     @Test
     public void execute_validModuleNameUnfilteredList_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y3S2);
+        semesterManager.setCurrentSemester(Semester.Y2S1);
 
         Module moduleToDelete = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
@@ -56,8 +56,9 @@ public class DeleteCommandTest {
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_MODULE_SUCCESS, moduleToDelete);
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget());
+        
         expectedModel.deleteModule(moduleToDelete);
-
+        
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
 
@@ -72,7 +73,7 @@ public class DeleteCommandTest {
     @Test
     public void execute_validIndexFilteredList_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y3S1);
+        semesterManager.setCurrentSemester(Semester.Y2S1);
 
         showModuleAtIndex(model, indexFirstModule);
 
