@@ -1,21 +1,26 @@
 package seedu.address.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.RecommendSuCommand.*;
+import static seedu.address.logic.commands.RecommendSuCommand.MESSAGE_FAILURE;
+import static seedu.address.logic.commands.RecommendSuCommand.MESSAGE_SUCCESS;
+import static seedu.address.logic.commands.RecommendSuCommand.MESSAGE_SUCCESS_NO_RECOMMENDATION;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.*;
+import seedu.address.model.AddressBook;
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.UserPrefs;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.testutil.ModuleBuilder;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for RecommendSuCommand.
@@ -55,12 +60,13 @@ public class RecommendSuCommandTest {
         modelWithModuleA = new ModelManager(addressBookWithModulesA, new UserPrefs(), new GoalTarget(2));
         modelWithModuleB = new ModelManager(addressBookWithModulesB, new UserPrefs(), new GoalTarget(2));
 
-        expectedModelWithModuleA = new ModelManager(expectedAddressBookWithModulesA, new UserPrefs(), new GoalTarget(2));
+        expectedModelWithModuleA =
+            new ModelManager(expectedAddressBookWithModulesA, new UserPrefs(), new GoalTarget(2));
         expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget(4));
     }
 
     @Test
-    public void execute_recommendSu_no_goal() {
+    public void execute_recommendSu_noGoal() {
         CommandResult expectedCommandResult =
             new CommandResult(MESSAGE_FAILURE,
                 false, false, true, false);
@@ -68,7 +74,7 @@ public class RecommendSuCommandTest {
     }
 
     @Test
-    public void execute_recommendSu_model_size_zero() {
+    public void execute_recommendSu_modelSizeZero() {
         CommandResult expectedCommandResult =
             new CommandResult(MESSAGE_SUCCESS_NO_RECOMMENDATION,
                 false, false, true, false);
