@@ -27,20 +27,14 @@ public class CommandResult {
     private final boolean isRecommendSu;
 
     /**
-     * done command is called.
-     */
-    private final boolean isDoneWithSemester;
-
-    /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
     public CommandResult(String feedbackToUser, boolean showHelp, boolean exit,
-                         boolean isRecommendSu, boolean isDoneWithSemester) {
+                         boolean isRecommendSu) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
         this.isRecommendSu = isRecommendSu;
-        this.isDoneWithSemester = isDoneWithSemester;
     }
 
     /**
@@ -48,7 +42,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false, false, false);
+        this(feedbackToUser, false, false, false);
     }
 
     public String getFeedbackToUser() {
@@ -67,10 +61,6 @@ public class CommandResult {
         return isRecommendSu;
     }
 
-    public boolean isDoneWithSemester() {
-        return isDoneWithSemester;
-    }
-
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -86,13 +76,12 @@ public class CommandResult {
         return feedbackToUser.equals(otherCommandResult.feedbackToUser)
                 && showHelp == otherCommandResult.showHelp
                 && exit == otherCommandResult.exit
-                && isRecommendSu == otherCommandResult.isRecommendSu
-                && isDoneWithSemester == otherCommandResult.isDoneWithSemester;
+                && isRecommendSu == otherCommandResult.isRecommendSu;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(feedbackToUser, showHelp, exit, isRecommendSu, isDoneWithSemester);
+        return Objects.hash(feedbackToUser, showHelp, exit, isRecommendSu);
     }
 
 }

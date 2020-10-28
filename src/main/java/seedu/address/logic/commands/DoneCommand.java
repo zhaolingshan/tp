@@ -20,8 +20,7 @@ public class DoneCommand extends Command {
             + ": Stops the adding or editing of modules in the current semester.\n"
             + "Example: " + COMMAND_WORD;
 
-    public static final String MESSAGE_DONE_SEMESTER_SUCCESS =
-            "You are done editing: " + SemesterManager.getInstance().getCurrentSemester().toString();
+    public static final String MESSAGE_DONE_SEMESTER_SUCCESS = "You are done editing: %1$s";
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
@@ -33,7 +32,8 @@ public class DoneCommand extends Command {
         }
 
         semesterManager.setCurrentSemester(Semester.NA);
-        return new CommandResult(MESSAGE_DONE_SEMESTER_SUCCESS, false, false, false, true);
+        return new CommandResult(String.format(MESSAGE_DONE_SEMESTER_SUCCESS, semester),
+                false, false, false);
     }
 
     @Override
