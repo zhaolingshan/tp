@@ -73,6 +73,17 @@ Examples:
 *   `update --mod CS1101S`
 *   `Update --mod CS1101S --grade A+`
 
+To update a module (e.g. CS2030):
+
+1. Type `update --mod CS2030 --grade A` into the command box, and press Enter to execute it.
+<img src="images/UG SS/2.4 Update Module 1.png" width="989px" height="133px">
+
+2. The result box will display the message:
+<img src="images/UG SS/2.4 Update Module 2.png" width="989px" height="133px">
+
+3. You can check that the module is updated from the list below:
+<img src="images/UG SS/2.4 Update Module 3.png" width="990px" height="484px">
+
 
 ### View modules: `list`
 Displays the list of modules and their respective grades (if any). Narrow to specific semester if stated. \
@@ -84,6 +95,18 @@ Examples:
 *   `list --sem Y1S1`
 *   `list --sem Y2S1 `
 *   `list --sem y2s1 `
+
+To view all the modules that you have taken:
+
+1. Type list into the command box, and press Enter to execute it.
+<img src="images/UG SS/2.5 List all Modules 1.png" width="989px" height="133px">
+
+2. The result box will display the message:
+<img src="images/UG SS/2.5 List all Modules 2.png" width="990px" height="282px">
+
+3. You can check that all the modules are shown in the list below:
+<img src="images/UG SS/2.5 List all Modules 3.png" width="990px" height="484px">
+
 
 ### Setting goals: `goal`
 Sets your goal level according to the Honour's Grading System or list to show the corresponding levels. \
