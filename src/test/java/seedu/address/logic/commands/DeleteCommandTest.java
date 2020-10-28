@@ -142,4 +142,20 @@ public class DeleteCommandTest {
 
         assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
     }
+    
+    @Test
+    public void execute_wrongSemester_throwsCommandException() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y4S2);
+
+        DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
+        Semester semesterOfFirstModule = COM_ORG.getSemester();
+        
+        String expectedMessage = Messages.MESSAGE_DELETE_MODULE_IN_WRONG_SEMESTER + semesterOfFirstModule + ".\n"
+                + Messages.MESSAGE_CURRENT_SEMESTER + semesterManager.getCurrentSemester() + ".\n"
+                + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfFirstModule +
+                Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_DELETE;
+
+        assertCommandFailure(deleteCommand, model, expectedMessage);
+    }
 }
