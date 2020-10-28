@@ -68,8 +68,8 @@ public class EditCommand extends Command {
         requireNonNull(model);
         List<Module> lastShownList = model.getFilteredModuleList();
         SemesterManager semesterManager = SemesterManager.getInstance();
-        Semester semester = semesterManager.getCurrentSemester();
-        if (semester == Semester.NA) {
+        Semester currentSemester = semesterManager.getCurrentSemester();
+        if (currentSemester == Semester.NA) {
             throw new CommandException(Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
         }
         Index index;
@@ -80,11 +80,17 @@ public class EditCommand extends Command {
         }
         Module moduleToEdit = lastShownList.get(index.getZeroBased());
         Module editedModule = createEditedModule(moduleToEdit, editModNameDescriptor);
-
+        Semester semesterOfEditedModule = editedModule.getSemester();
+        if (semesterOfEditedModule != currentSemester) {
+            throw new CommandException(
+                    Messages.MESSAGE_UPDATE_MODULE_IN_WRONG_SEMESTER + semesterOfEditedModule + ".\n"
+                            + Messages.MESSAGE_CURRENT_SEMESTER + currentSemester + ".\n"
+                            + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfEditedModule +
+                            Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_UPDATE);
+        }
         if (!moduleToEdit.isSameModule(editedModule) && model.hasModule(editedModule)) {
             throw new CommandException(MESSAGE_DUPLICATE_MODULE);
         }
-
         model.setModule(moduleToEdit, editedModule);
         model.updateFilteredModuleList(PREDICATE_SHOW_ALL_MODULES);
         return new CommandResult(String.format(MESSAGE_EDIT_MODULE_SUCCESS, editedModule));
