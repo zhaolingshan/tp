@@ -19,4 +19,9 @@ public class HelpCommand extends Command {
         return new CommandResult(SHOWING_HELP_MESSAGE, true, false,
                 false);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof HelpCommand; // instanceof handles nulls
+    }
 }
