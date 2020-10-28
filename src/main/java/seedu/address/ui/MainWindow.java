@@ -1,6 +1,5 @@
 package seedu.address.ui;
 
-import java.net.URISyntaxException;
 import java.time.LocalTime;
 import java.util.logging.Logger;
 
