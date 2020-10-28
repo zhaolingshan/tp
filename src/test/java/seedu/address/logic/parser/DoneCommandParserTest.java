@@ -12,7 +12,7 @@ import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSucces
 public class DoneCommandParserTest {
 
     private DoneCommandParser parser = new DoneCommandParser();
-    
+
     @Test
     public void parse_invalidValue_failure() {
         SemesterManager semesterManager = SemesterManager.getInstance();
