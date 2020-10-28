@@ -15,8 +15,7 @@ public class DoneCommand extends Command {
     public static final String COMMAND_WORD = "done";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Stops the adding or editing of modules in the semester stated.\n"
-            + "Parameters: MODULE_NAME\n"
+            + ": Stops the adding or editing of modules in the current semester.\n"
             + "Example: " + COMMAND_WORD;
 
     public static final String MESSAGE_DONE_SEMESTER_SUCCESS =
