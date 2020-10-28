@@ -1,6 +1,5 @@
 package seedu.address.model.module;
 
-import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
@@ -45,7 +44,6 @@ public class GoalTarget {
      * @param goalTarget Sets the level of the goal based on Honour's Grading System.
      */
     public GoalTarget(int goalTarget) {
-        requireNonNull(goalTarget);
         checkArgument(isValidGoal(goalTarget), MESSAGE_CONSTRAINTS);
         this.goalTarget = goalTarget;
     }
@@ -89,6 +87,24 @@ public class GoalTarget {
         default:
             return GoalTarget.DEFAULT_GOAL;
         }
+    }
+
+    /**
+     * Returns true if both GoalTarget have the same identity and data fields.
+     * This defines a stronger notion of equality between two GoalTarget.
+     */
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof GoalTarget)) {
+            return false;
+        }
+
+        GoalTarget otherGoal = (GoalTarget) other;
+        return otherGoal.getGoalTarget() == getGoalTarget();
     }
 
     @Override

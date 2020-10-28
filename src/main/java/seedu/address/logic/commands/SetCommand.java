@@ -46,4 +46,11 @@ public class SetCommand extends Command {
         model.setGoalTarget(goalTarget);
         return new CommandResult(String.format(MESSAGE_SUCCESS, goalTarget));
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof SetCommand // instanceof handles nulls
+                && goalTarget.equals(((SetCommand) other).goalTarget));
+    }
 }
