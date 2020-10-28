@@ -12,13 +12,20 @@ public class ListCommand extends Command {
 
     public static final String COMMAND_WORD = "list";
 
-    public static final String MESSAGE_SUCCESS = "Listed all modules";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Lists all modules.\n"
+            + "Example: " + COMMAND_WORD;
 
+    public static final String MESSAGE_SUCCESS = "Listed all modules";
 
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.updateFilteredModuleList(PREDICATE_SHOW_ALL_MODULES);
         return new CommandResult(MESSAGE_SUCCESS);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof ListCommand; // instanceof handles nulls
     }
 }
