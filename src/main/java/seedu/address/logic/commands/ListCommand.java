@@ -23,4 +23,9 @@ public class ListCommand extends Command {
         model.updateFilteredModuleList(PREDICATE_SHOW_ALL_MODULES);
         return new CommandResult(MESSAGE_SUCCESS);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof HelpCommand; // instanceof handles nulls
+    }
 }
