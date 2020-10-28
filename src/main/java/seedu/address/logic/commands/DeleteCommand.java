@@ -32,6 +32,7 @@ public class DeleteCommand extends Command {
     private final ModuleName targetModuleName;
     
     public DeleteCommand(ModuleName targetModuleName) {
+        requireNonNull(targetModuleName);
         this.targetModuleName = targetModuleName;
     }
 

@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showModuleAtIndex;
+import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
 import static seedu.address.testutil.TypicalModules.EFF_COM;
 import static seedu.address.testutil.TypicalModules.getTypicalAddressBook;
@@ -20,6 +21,8 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 
 /**
  * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for
@@ -38,7 +41,15 @@ public class DeleteCommandTest {
             GetModuleIndex.getIndex(model.getFilteredModuleList(), nameSecondModule);
 
     @Test
+    public void constructor_nullModuleName_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new DeleteCommand(null));
+    }
+
+    @Test
     public void execute_validModuleNameUnfilteredList_success() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y3S2);
+
         Module moduleToDelete = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
 
@@ -60,6 +71,9 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validIndexFilteredList_success() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y3S1);
+
         showModuleAtIndex(model, indexFirstModule);
 
         Module moduleToDelete = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
@@ -116,5 +130,15 @@ public class DeleteCommandTest {
         model.updateFilteredModuleList(p -> false);
 
         assertTrue(model.getFilteredModuleList().isEmpty());
+    }
+
+    @Test
+    public void execute_invalidSemester_throwsCommandException() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.NA);
+
+        DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
+
+        assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
     }
 }
