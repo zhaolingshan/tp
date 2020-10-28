@@ -12,35 +12,21 @@ import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSucces
 public class DoneCommandParserTest {
 
     private DoneCommandParser parser = new DoneCommandParser();
-    private final String invalidValue = "hi";
-    private final String validValue = "";
-
+    
     @Test
-    public void parse_invalidValue_validSemester_failure() {
+    public void parse_invalidValue_failure() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y1S1);
+        final String invalidValue = "hi";
         assertParseFailure(parser, invalidValue, Messages.MESSAGE_INVALID_SEMESTER);
     }
 
     @Test
-    public void parse_invalidValue_invalidSemester_failure() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.NA);
-        assertParseFailure(parser, invalidValue, Messages.MESSAGE_INVALID_DONE_COMMAND);
-    }
-
-    @Test
-    public void parse_validValue_invalidSemester_failure() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.NA);
-        assertParseFailure(parser, validValue, Messages.MESSAGE_INVALID_DONE_COMMAND);
-    }
-
-    @Test
-    public void parse_validValue_validSemester_success() {
+    public void parse_validValue_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y1S1);
+        final String validValue = "";
         DoneCommand doneCommand = new DoneCommand();
-        assertParseSuccess(parser, "", new DoneCommand());
+        assertParseSuccess(parser, validValue, doneCommand);
     }
 }
