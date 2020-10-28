@@ -113,7 +113,6 @@ Format: `recommendSU` \
 Example:
 *   `recommendSU`
 
-
 To get recommendations on which modules to S/U:
 1. Type `recommendSU` into the command box, and press `Enter` to execute it. \
 <img src="images/UG SS/2.7 Recommend SU 1.png" width="993px" height="131px">
@@ -160,10 +159,70 @@ To delete a module (e.g. CS1231) from the list:
 <img src="images/UG SS/2.9 Delete Module 4.png" width="603px" height="445px">
 
 
-### Done Semester:` done`
-Done with editing that semester. \
+### Exit Semester:` done`
+Stops editing the semester you are currently editing.
+You will not be able to change any module in a particular semester until you start another semester. \
  \
 Format: `done SEMESTER` \
  \
 Examples:
-*   `exit Y2S1`
+*   `done Y2S1`
+
+To stop editing a semester (e.g. Y1S1):
+
+1. Type done into the command box, and press Enter to execute it.
+<img src="images/UG SS/2.10 Exit Semester 1.png" width="605px" height="81px">
+
+2. The result box will display the message:
+<img src="images/UG SS/2.10 Exit Semester 2.png" width="603px" height="154px">
+
+
+### Progress Report:` progress`
+Calculates the average CAP required for your remaining modules to achieve your target CAP.
+
+Format: `progress [--ddp]` 
+ 
+Examples:
+*   `progress`
+*   `progress --ddp`
+ 
+To calculate the CAP required to achieve your goal:
+
+1. Type progress into the command box, and press Enter to execute it.
+<img src="images/UG SS/2.11 Progress Report 1.png" width="606px" height="74px">
+
+2. The result box will display the message:
+<img src="images/UG SS/2.11 Progress Report 1.png" width="607px" height="155px">
+
+
+### Get Help:` help`
+If you are lost, this command will be helpful. 
+
+Format: `help` \
+ \
+Examples:
+*   `help`
+
+To seek help:
+
+1. Type help in the command box, and press Enter to execute it.
+<img src="images/UG SS/2.12 Get Help 1.png" width="642px" height="111px">
+
+2. The result box will display the message with an additional pop-up window:
+<img src="images/UG SS/2.12 Get Help 2.png" width="641px" height="468px">
+
+
+### Exit Application:` exit`
+Exits the application. 
+
+Format: `exit` \
+ \
+Examples:
+*   `exit`
+
+To exit the application:
+1. Type exit into the command box, and press Enter to execute it.
+<img src="images/UG SS/2.13 Exit Application 1.png" width="602px" height="74px">
+
+
+
