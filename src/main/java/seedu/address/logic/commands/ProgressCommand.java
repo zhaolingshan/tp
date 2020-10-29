@@ -5,8 +5,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_DOUBLE_DEGREE;
 import seedu.address.model.Model;
 import seedu.address.model.module.GoalTarget;
 
-import java.util.Objects;
-
 public class ProgressCommand extends Command {
 
     public static final String COMMAND_WORD = "progress";

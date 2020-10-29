@@ -14,13 +14,13 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.module.GoalTarget;
 
 public class ProgressCommandTest {
-    
+
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new GoalTarget());
 
     private final boolean isDdp = true;
-    
+
     @Test
-    public void execute_progress_without_ddp_success() {
+    public void execute_progressWithoutDdp_success() {
         model.setGoalTarget(new GoalTarget(3));
         CommandResult expectedCommandResult = new CommandResult(
                 String.format(MESSAGE_CURRENT_CAP, VALID_CAP)
@@ -31,9 +31,9 @@ public class ProgressCommandTest {
         ProgressCommand progressCommand = new ProgressCommand(!isDdp);
         assertCommandSuccess(progressCommand, model, expectedCommandResult, expectedModel);
     }
-    
+
     @Test
-    public void execute_progress_with_ddp_success() {
+    public void execute_progressWithDdp_success() {
         model.setGoalTarget(new GoalTarget(3));
         CommandResult expectedCommandResult = new CommandResult(
                 String.format(MESSAGE_CURRENT_CAP, VALID_CAP)
