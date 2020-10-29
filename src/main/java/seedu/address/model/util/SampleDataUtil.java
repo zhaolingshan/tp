@@ -19,24 +19,7 @@ import seedu.address.model.tag.Tag;
 public class SampleDataUtil {
     public static Module[] getSampleModule() {
         return new Module[] {
-            new Module(new ModuleName("CS2100 Computer Organisation"),
-                new Grade("A"),
-                getTagSet("CS2100"), new ModularCredit(4), Semester.Y2S1),
-            new Module(new ModuleName("CS2103T Software Engineering"),
-                new Grade("A+"),
-                getTagSet("CS2103T"), new ModularCredit(4), Semester.Y2S1),
-            new Module(new ModuleName("GEQ1000 Asking Questions"),
-                new Grade("B"),
-                getTagSet("GEQ1000"), new ModularCredit(4), Semester.Y2S1),
-            new Module(new ModuleName("ST2334 Probability and Statistics"),
-                new Grade("B+"),
-                getTagSet("ST2334"), new ModularCredit(4), Semester.Y2S1),
-            new Module(new ModuleName("GER1000 Quantitative Reasoning"),
-                new Grade("A"),
-                getTagSet("GER1000"), new ModularCredit(4), Semester.Y1S2),
-            new Module(new ModuleName("MA1521 Calculus for Computing"),
-                new Grade("A-"),
-                getTagSet("MA1521"), new ModularCredit(4), Semester.Y1S1)
+
         };
     }
 
