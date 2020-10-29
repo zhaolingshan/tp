@@ -55,4 +55,17 @@ public class ProgressCommand extends Command {
                     + String.format(MESSAGE_TARGET_CAP, requiredCap));
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof ProgressCommand)) {
+            return false;
+        }
+
+        return isDdp == ((ProgressCommand) other).isDdp;
+    }
 }
