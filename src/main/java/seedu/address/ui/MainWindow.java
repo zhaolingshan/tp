@@ -104,7 +104,6 @@ public class MainWindow extends UiPart<Stage> {
         Scene scene = primaryStage.getScene();
 
         String cssFile = MainWindow.class.getResource("/view/" + cssFileName + ".css").toExternalForm();
-        System.out.println(cssFile);
         scene.getStylesheets().clear();
         scene.getStylesheets().add(cssFile);
     }

@@ -1,18 +1,18 @@
 package seedu.address.model.util;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
 import java.util.HashMap;
 
-import seedu.address.commons.util.FileUtil;
+import seedu.address.ui.MainWindow;
 
 /**
  * Retrieve information from moduleInfo.json about a specific module
  */
 public class ModuleInfoRetriever {
     private static final int STRING_OFFSET = 3; //An offset to cancel out unnecessary characters from JSON file.
-    private static final String filePath = "moduleInfo.json";
+
     /**
      * Return module-related information.
      * @param moduleName Name of module to retrieve information about
@@ -20,15 +20,10 @@ public class ModuleInfoRetriever {
      */
     public static HashMap<String, String> retrieve(String moduleName) {
         HashMap<String, String> map = new HashMap<String, String>();
-
-        // Assumes "moduleInfo.json" is a valid path
-        assert(FileUtil.isValidPath(filePath));
-        Path moduleInfoPath = Paths.get(filePath);
+        InputStream stream = MainWindow.class.getResourceAsStream("/" + "moduleInfo.json");
         try {
-            // Assumes file is valid
-            assert(FileUtil.isFileExists(moduleInfoPath));
-            String s = FileUtil.readFromFile(moduleInfoPath);
-
+            String s = streamToString(stream);
+            stream.close();
             int moduleStartIndex = s.lastIndexOf("\"moduleCode\": \"" + moduleName.toUpperCase() + "\",");
             if (moduleStartIndex == -1) {
                 return getInvalidMap();
@@ -74,5 +69,23 @@ public class ModuleInfoRetriever {
         map.put("moduleCredit", "N/A");
         map.put("su", "N/A");
         return map;
+    }
+
+
+    /**
+     * Reads an InputStream and converts it to a String
+     * @param inputStream Stream to get input from
+     * @return A String containing the contents of the inputStream
+     */
+    public static String streamToString(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream result = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = inputStream.read(buffer)) != -1) {
+            result.write(buffer, 0, length);
+        }
+        inputStream.close();
+        result.close();
+        return result.toString("UTF-8");
     }
 }
