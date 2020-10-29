@@ -24,7 +24,7 @@ public class HelpWindow extends UiPart<Stage> {
     private static final String listCommandFormat = "list [--sem SEMESTER]\n\n";
     private static final String goalCommandFormat = "goal --set LEVEL OR goal --list\n\n";
     private static final String recommendSuCommandFormat = "recommendSU\n\n";
-    private static final String suCommandFormat = "s/u --mod MODULE_CODE\n\n";
+    private static final String suCommandFormat = "su --mod MODULE_CODE\n\n";
     private static final String deleteCommandFormat = "delete MODULE_CODE [--grade GRADE]\n\n";
     private static final String doneCommandFormat = "done SEMESTER\n\n";
     private static final String findCommandFormat = "find --mod MODULE_CODE\n\n";
