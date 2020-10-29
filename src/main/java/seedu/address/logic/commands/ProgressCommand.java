@@ -5,6 +5,8 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_DOUBLE_DEGREE;
 import seedu.address.model.Model;
 import seedu.address.model.module.GoalTarget;
 
+import java.util.Objects;
+
 public class ProgressCommand extends Command {
 
     public static final String COMMAND_WORD = "progress";
@@ -54,5 +56,18 @@ public class ProgressCommand extends Command {
             return new CommandResult(String.format(MESSAGE_CURRENT_CAP, currentCap)
                     + String.format(MESSAGE_TARGET_CAP, requiredCap));
         }
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof ProgressCommand)) {
+            return false;
+        }
+
+        return isDdp == ((ProgressCommand) other).isDdp;
     }
 }
