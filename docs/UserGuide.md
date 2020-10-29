@@ -55,7 +55,7 @@ Examples:
 
 To add a module (e.g. add CS1101S):
 
-1. Type add --mod CS2107 into the command box, and press Enter to execute it. \
+1. Type `add --mod CS2107` into the command box, and press Enter to execute it. \
 <img src="images/UG SS/2.3 Add Module 1.png" width="989px" height="133px">
 
 2. The result box will display the message: \
@@ -98,7 +98,7 @@ Examples:
 
 To view all the modules that you have taken:
 
-1. Type list into the command box, and press Enter to execute it.
+1. Type `list` into the command box, and press Enter to execute it.
 <img src="images/UG SS/2.5 List all Modules 1.png" width="989px" height="133px">
 
 2. The result box will display the message:
@@ -137,7 +137,7 @@ Example:
 *   `recommendSU`
 
 To get recommendations on which modules to S/U:
-1. Type `recommendSU` into the command box, and press `Enter` to execute it. \
+1. Type `recommendSU` into the command box, and press Enter to execute it. \
 <img src="images/UG SS/2.7 Recommend SU 1.png" width="993px" height="131px">
 
 2. The result box will display the message (if there are suitable modules to recommend): \
@@ -147,7 +147,7 @@ To get recommendations on which modules to S/U:
 <img src="images/UG SS/2.7 Recommend SU 3.png" width="595px" height="336px">
 
 
-### S/U module:` s/u `
+### S/U module: `s/u `
 S/U a module in your modules list. \
  \
 Format: `s/u --mod MODULE_CODE` \
@@ -157,10 +157,10 @@ Examples:` `
 *   `s/u --mod CS1231S`
 
 To S/U a module (e.g. CS1231):
-1. Type s/u --mod CS1231 into the command box, and press Enter to execute it.
+1. Type `s/u --mod CS1231` into the command box, and press Enter to execute it.
 <img src="images/UG SS/2.8 SU Module 1.png" width="603px" height="84px">
 
-### Deleting:` delete`
+### Deleting: `delete`
 Deletes a module in your modules list. If a grade is provided, the grade of the mod will be deleted instead. \
  \
 Format: `delete MODULE_CODE` \
@@ -172,7 +172,7 @@ Examples:
 To delete a module (e.g. CS1231) from the list:
 <img src="images/UG SS/2.9 Delete Module 1.png" width="602px" height="347px">
 
-1. Type delete CS1231 into the command box, and press Enter to execute it.
+1. Type `delete CS1231` into the command box, and press Enter to execute it.
 <img src="images/UG SS/2.9 Delete Module 2.png" width="605px" height="85px">
 
 2. The result box will display the message:
@@ -182,7 +182,7 @@ To delete a module (e.g. CS1231) from the list:
 <img src="images/UG SS/2.9 Delete Module 4.png" width="603px" height="445px">
 
 
-### Exit Semester:` done`
+### Exit Semester: `done`
 Stops editing the semester you are currently editing.
 You will not be able to change any module in a particular semester until you start another semester. \
  \
@@ -193,14 +193,14 @@ Examples:
 
 To stop editing a semester (e.g. Y1S1):
 
-1. Type done into the command box, and press Enter to execute it.
+1. Type `done` into the command box, and press Enter to execute it.
 <img src="images/UG SS/2.10 Exit Semester 1.png" width="605px" height="81px">
 
 2. The result box will display the message:
 <img src="images/UG SS/2.10 Exit Semester 2.png" width="603px" height="154px">
 
 
-### Progress Report:` progress`
+### Progress Report: `progress`
 Calculates the average CAP required for your remaining modules to achieve your target CAP.
 
 Format: `progress [--ddp]` 
@@ -211,14 +211,14 @@ Examples:
  
 To calculate the CAP required to achieve your goal:
 
-1. Type progress into the command box, and press Enter to execute it.
+1. Type `progress` into the command box, and press Enter to execute it.
 <img src="images/UG SS/2.11 Progress Report 1.png" width="606px" height="74px">
 
 2. The result box will display the message:
-<img src="images/UG SS/2.11 Progress Report 1.png" width="607px" height="155px">
+<img src="images/UG SS/2.11 Progress Report 2.png" width="607px" height="155px">
 
 
-### Get Help:` help`
+### Get Help: `help`
 If you are lost, this command will be helpful. 
 
 Format: `help` \
@@ -228,7 +228,7 @@ Examples:
 
 To seek help:
 
-1. Type help in the command box, and press Enter to execute it.
+1. Type `help` in the command box, and press Enter to execute it.
 <img src="images/UG SS/2.12 Get Help 1.png" width="642px" height="111px">
 
 2. The result box will display the message with an additional pop-up window:
@@ -244,7 +244,7 @@ Examples:
 *   `exit`
 
 To exit the application:
-1. Type exit into the command box, and press Enter to execute it.
+1. Type `exit` into the command box, and press Enter to execute it.
 <img src="images/UG SS/2.13 Exit Application 1.png" width="602px" height="74px">
 
 
