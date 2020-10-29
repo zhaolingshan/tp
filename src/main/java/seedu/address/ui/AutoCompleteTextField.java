@@ -104,7 +104,7 @@ public class AutoCompleteTextField extends TextField {
             entryLabel.setPrefWidth(150);
             item.setOnAction(actionEvent -> {
                 int stringLength = result.length();
-                if (stringLength == 13) {
+                if (stringLength == 14) {
                     setText(result + " ");
                 } else {
                     setText(result.substring(0, stringLength - 12));
