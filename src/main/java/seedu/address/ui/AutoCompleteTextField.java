@@ -1,9 +1,6 @@
 package seedu.address.ui;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import javafx.geometry.Side;
@@ -36,8 +33,11 @@ public class AutoCompleteTextField extends TextField {
         //modification by kunnan97, use MaxSizedContextMenu instead of
         //contextMenu to allow setMaxHeight() on contextMenu.
         entriesPopup = new MaxSizedContextMenu();
+
         textProperty().addListener((observableValue, s, s2) -> {
-            if (getText().length() == 0 || getEntries().contains(getText())) {
+            if (getText().length() == 0
+                || Arrays.asList(getEntries().stream().map(String::trim).toArray()).contains(getText())
+            || Arrays.asList(getEntries().stream().map(string -> string.trim() + " ").toArray()).contains(getText())) {
                 entriesPopup.hide();
             } else {
                 LinkedList<String> searchResult = new LinkedList<>();
@@ -105,7 +105,7 @@ public class AutoCompleteTextField extends TextField {
             item.setOnAction(actionEvent -> {
                 int stringLength = result.length();
                 if (stringLength == 14) {
-                    setText(result + " ");
+                    setText(result.trim() + " ");
                 } else {
                     setText(result.substring(0, stringLength - 12));
                 }
@@ -119,9 +119,8 @@ public class AutoCompleteTextField extends TextField {
         //repopulated so as to avoid contextMenu staying at bottom of scroll
         //from previous pop up scrolling.
         entriesPopup.getItems().clear();
-        entriesPopup = new MaxSizedContextMenu();
         entriesPopup.getItems().addAll(menuItems);
-        entriesPopup.setMaxHeight(300);
+        entriesPopup.setMaxHeight(450);
     }
 }
 //@author Caleb Brinkman
