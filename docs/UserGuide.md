@@ -147,18 +147,24 @@ To get recommendations on which modules to S/U:
 <img src="images/UG SS/2.7 Recommend SU 3.png" width="595px" height="336px">
 
 
-### S/U module: `s/u `
+### S/U module: `su `
 S/U a module in your modules list. \
  \
-Format: `s/u --mod MODULE_CODE` \
+Format: `su --mod MODULE_CODE` \
  \
 Examples:` `
-*   `s/u --mod CS1101S`
-*   `s/u --mod CS1231S`
+*   `su --mod CS1101S`
+*   `su --mod CS1231S`
 
 To S/U a module (e.g. CS1231):
-1. Type `s/u --mod CS1231` into the command box, and press Enter to execute it.
-<img src="images/UG SS/2.8 SU Module 1.png" width="603px" height="84px">
+1. Type `su --mod CS1231` into the command box, and press Enter to execute it.
+<img src="images/UG SS/2.8 SU Module 1.png" width="643px" height="93px">
+
+2. The result box will display the message (if the module can be S/U-ed):
+<img src="images/UG SS/2.8 SU Module 2.png" width="641px" height="171px">
+
+3. Check the module’s grade is changed to “SU” in the list below:
+<img src="images/UG SS/2.8 SU Module 3.png" width="642px" height="471px">
 
 ### Deleting: `delete`
 Deletes a module in your modules list. If a grade is provided, the grade of the mod will be deleted instead. \
