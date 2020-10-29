@@ -108,6 +108,7 @@ public class RecommendSuCommandTest {
             throw new AssertionError("Execution of command should not fail.", e);
         }
 
+        System.out.println(commandResult.getFeedbackToUser());
         assertEquals(expectedCommandResult, commandResult);
         assertEquals(modelWithModuleB.getFilteredModuleList(), modelWithModuleB.getFilteredModuleList());
 

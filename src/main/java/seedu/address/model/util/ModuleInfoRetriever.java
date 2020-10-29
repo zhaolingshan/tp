@@ -12,7 +12,6 @@ import seedu.address.ui.MainWindow;
  */
 public class ModuleInfoRetriever {
     private static final int STRING_OFFSET = 3; //An offset to cancel out unnecessary characters from JSON file.
-    private static InputStream stream = MainWindow.class.getResourceAsStream("/" + "moduleInfo.json");
 
     /**
      * Return module-related information.
@@ -21,8 +20,10 @@ public class ModuleInfoRetriever {
      */
     public static HashMap<String, String> retrieve(String moduleName) {
         HashMap<String, String> map = new HashMap<String, String>();
+        InputStream stream = MainWindow.class.getResourceAsStream("/" + "moduleInfo.json");
         try {
             String s = streamToString(stream);
+            stream.close();
             int moduleStartIndex = s.lastIndexOf("\"moduleCode\": \"" + moduleName.toUpperCase() + "\",");
             if (moduleStartIndex == -1) {
                 return getInvalidMap();
@@ -83,6 +84,8 @@ public class ModuleInfoRetriever {
         while ((length = inputStream.read(buffer)) != -1) {
             result.write(buffer, 0, length);
         }
+        inputStream.close();
+        result.close();
         return result.toString("UTF-8");
     }
 }
