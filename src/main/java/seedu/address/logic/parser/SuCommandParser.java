@@ -2,6 +2,7 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.commons.core.Messages.MESSAGE_MODULE_CANNOT_BE_SU;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
 
 import seedu.address.logic.commands.SuCommand;
@@ -28,6 +29,11 @@ public class SuCommandParser {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SuCommand.MESSAGE_USAGE));
         }
         ModuleName moduleName = ParserUtil.parseName(argMultimap.getValue(PREFIX_MOD_NAME).get());
+
+        // checks if module can be SU from database
+        if (!SuCommand.isModSuAble(moduleName)) {
+            throw new ParseException(String.format(MESSAGE_MODULE_CANNOT_BE_SU, moduleName.fullModName));
+        }
 
         UpdateCommand.UpdateModNameDescriptor updateModNameDescriptor = new UpdateCommand.UpdateModNameDescriptor();
         updateModNameDescriptor.setName(moduleName);
