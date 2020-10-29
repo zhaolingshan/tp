@@ -17,7 +17,7 @@ public class CommandBox extends UiPart<Region> {
     public static final String ERROR_STYLE_CLASS = "error";
     private static final String FXML = "CommandBox.fxml";
     private static final String[] autocompleteSuggestions =
-        new String[]{"start", "add", "update", "list", "SU", "delete",
+        new String[]{"start", "add", "update", "list", "su", "delete",
             "find", "help", "exit", "goal", "recommendSU", "done", "progress"};
 
     private final CommandExecutor commandExecutor;
