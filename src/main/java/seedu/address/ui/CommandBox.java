@@ -21,7 +21,7 @@ public class CommandBox extends UiPart<Region> {
             "add             ",
             "update             ",
             "list             ",
-            "SU             ",
+            "su             ",
             "delete             ",
             "find             ",
             "help             ",
