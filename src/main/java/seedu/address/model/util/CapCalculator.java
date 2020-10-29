@@ -25,7 +25,7 @@ public class CapCalculator {
         double totalPoints = 0.0;
         int numOfModsWithGrades = 0;
         for (Module m : moduleList) {
-            if (m.hasGrade()) {
+            if (m.hasGrade() && m.getGrade().toString() != "SU") {
                 Grade currentGrade = m.getGrade();
                 double currentGradePoint = currentGrade.getGradePoint();
                 totalPoints += currentGradePoint;
