@@ -101,8 +101,14 @@ public class AutoCompleteTextField extends TextField {
             final String result = searchResult.get(i);
             Label entryLabel = new Label(result);
             CustomMenuItem item = new CustomMenuItem(entryLabel, true);
+            entryLabel.setPrefWidth(150);
             item.setOnAction(actionEvent -> {
-                setText(result + " ");
+                int stringLength = result.length();
+                if (stringLength == 13) {
+                    setText(result + " ");
+                } else {
+                    setText(result.substring(0, stringLength - 12));
+                }
                 entriesPopup.hide();
                 this.end();
             });
