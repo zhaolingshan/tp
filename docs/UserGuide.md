@@ -5,17 +5,38 @@ MyMods is a **desktop app for tracking modules and grades, optimized for use via
 
 
 *   Features
-    *   Adding a module: add
-    *   View modules added up to date, and current CAP: list
-    *   S/U a module: s/u
-    *   Deleting a module: delete
-    *   Start editing modules: start
-    *   Exit editing semester: exit
-
-
+    *   Start editing modules: `start`
+    *   Adding a module: `add`
+    *   Modify module grade: `update`
+    *   View modules added up to date, and current CAP: `list`
+    *   Set your goal level according to the Honour's Grading System: `goal` 
+    *   Recommend modules to SU: `recommendSU`
+    *   S/U a module: `su`
+    *   Deleting a module: `delete`
+    *   Get progress report: `progress`
+    *   Done editing semester: `done`
 
 ---
 
+## Getting Started
+
+#### Installation
+
+1. Ensure you have Java 11 or above installed in your computer.
+2. Download the last MyMods.jar file from [here](https://github.com/AY2021S1-CS2103T-T17-1/tp/releases/tag/v1.3.1)
+3. Place the file in any folder that you want to be the home folder for **MyMods**.
+4. Start the web application by double-clicking the file or run it with `java -jar MyMods.jar` on your command line. 
+The window (without any modules) similar to the interface shown below will appear.
+
+#### The Interface
+
+This is how **MyMods** looks like: \
+<img src="images/UG SS/1.5 The Interface.png" width="512px" height="288px">
+
+💡 Tip: Default colours looking different? Fret not! The theme of MyMods is determined by the time of the day. 
+You can change the colours using the tab “Theme”.
+
+---
 
 ## Features
 
@@ -147,7 +168,7 @@ To get recommendations on which modules to S/U:
 <img src="images/UG SS/2.7 Recommend SU 3.png" width="595px" height="336px">
 
 
-### S/U module: `su `
+### S/U module: `su`
 S/U a module in your modules list. \
  \
 Format: `su --mod MODULE_CODE` \
@@ -241,7 +262,7 @@ To seek help:
 <img src="images/UG SS/2.12 Get Help 2.png" width="641px" height="468px">
 
 
-### Exit Application:` exit`
+### Exit Application: `exit`
 Exits the application. 
 
 Format: `exit` \
