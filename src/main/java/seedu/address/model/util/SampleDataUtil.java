@@ -6,11 +6,7 @@ import java.util.stream.Collectors;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.module.Grade;
-import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.Module;
-import seedu.address.model.module.ModuleName;
-import seedu.address.model.semester.Semester;
 import seedu.address.model.tag.Tag;
 
 /**
