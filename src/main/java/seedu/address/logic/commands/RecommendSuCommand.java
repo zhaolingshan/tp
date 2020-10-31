@@ -69,8 +69,7 @@ public class RecommendSuCommand extends Command {
      * @return boolean True if all three conditions are satisfied, else false.
      */
     private boolean isRecommendSu(GoalTarget goal, Module x) {
-        return isGradeAboveC(x)
-                && isModSuAble(x)
+        return isModSuAble(x)
                 && isGradeBelowGoal(x, goal);
     }
 
