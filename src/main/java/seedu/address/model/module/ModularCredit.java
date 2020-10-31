@@ -13,7 +13,7 @@ public class ModularCredit {
             + "\nPlease check the module name again or add the module again with the --mc parameter.";
     public static final String MESSAGE_INVALID_MODULAR_CREDIT = "Modular Credits (MCs) should only "
             + "contain integers between 2 and 16.";
-    private static final int MINIMUM_MODULE_MC = 2;
+    private static final int MINIMUM_MODULE_MC = 1;
     private static final int MAXIMUM_MODULE_MC = 16;
 
     public final int modularCredit;
