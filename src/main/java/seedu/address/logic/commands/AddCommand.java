@@ -1,9 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.*;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -22,13 +20,11 @@ public class AddCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a module to your module list.\n"
             + "Parameters: "
             + PREFIX_MOD_NAME + "NAME "
-            + "[" + PREFIX_GRADE + "GRADE] "
-            + "[" + PREFIX_TAG + "TAG]...\n"
+            + "[" + PREFIX_GRADE + "GRADE "
+            + PREFIX_MODULAR_CREDIT + "MC] \n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_MOD_NAME + "CS2103T"
-            + PREFIX_GRADE + "A+ "
-            + PREFIX_TAG + "SoC "
-            + PREFIX_TAG + "Requirement Module";
+            + PREFIX_GRADE + "A+ ";
 
     public static final String MESSAGE_SUCCESS = "New module added: %1$s";
     public static final String MESSAGE_DUPLICATE_MODULE = "This module already exists in your module list.";

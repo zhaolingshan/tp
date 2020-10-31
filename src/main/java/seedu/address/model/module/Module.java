@@ -126,9 +126,7 @@ public class Module {
         final StringBuilder builder = new StringBuilder();
         builder.append(getModuleName())
                 .append(" Grade: ")
-                .append(getGrade())
-                .append(" Tags: ");
-        getTags().forEach(builder::append);
+                .append(getGrade());
         return builder.toString();
     }
 

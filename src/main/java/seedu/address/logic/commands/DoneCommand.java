@@ -33,7 +33,7 @@ public class DoneCommand extends Command {
 
         semesterManager.setCurrentSemester(Semester.NA);
         return new CommandResult(String.format(MESSAGE_DONE_SEMESTER_SUCCESS, semester),
-                false, false, false);
+                false, false, false, false);
     }
 
     @Override

@@ -252,7 +252,12 @@ public class MainWindow extends UiPart<Stage> {
                 capBox.setCapDisplay(logic.generateCap());
             }
 
-            moduleListPanel = new ModuleListPanel(logic.filterModuleListBySem());
+            if (commandResult.isList()) {
+                moduleListPanel = new ModuleListPanel(logic.filterModuleListByReadOnlySem());
+            } else {
+                moduleListPanel = new ModuleListPanel(logic.filterModuleListBySem());
+            }
+
             moduleListPanelPlaceholder.getChildren().add(moduleListPanel.getRoot());
 
             return commandResult;

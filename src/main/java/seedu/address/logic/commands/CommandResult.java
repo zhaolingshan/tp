@@ -27,14 +27,20 @@ public class CommandResult {
     private final boolean isRecommendSu;
 
     /**
+     * List command is called.
+     */
+    private final boolean isList;
+
+    /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
     public CommandResult(String feedbackToUser, boolean showHelp, boolean exit,
-                         boolean isRecommendSu) {
+                         boolean isRecommendSu, boolean isList) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
         this.isRecommendSu = isRecommendSu;
+        this.isList = isList;
     }
 
     /**
@@ -42,7 +48,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false, false);
+        this(feedbackToUser, false, false, false, false);
     }
 
     public String getFeedbackToUser() {
@@ -51,6 +57,10 @@ public class CommandResult {
 
     public boolean isShowHelp() {
         return showHelp;
+    }
+
+    public boolean isList() {
+        return isList;
     }
 
     public boolean isExit() {

@@ -63,5 +63,11 @@ public interface Logic {
      */
     ObservableList<Module> filterModuleListBySem();
 
+    /**
+     * Returns the filtered list of modules by read only semester.
+     * @return the filtered module list according to semester.
+     */
+    ObservableList<Module> filterModuleListByReadOnlySem();
+
     ObservableList<Module> sortModuleListBySem();
 }

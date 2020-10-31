@@ -9,6 +9,7 @@ public class SemesterManager {
     private static SemesterManager semesterManager = null;
 
     private Semester currentSem = Semester.NA;
+    private Semester readOnlySem = Semester.NA;
 
     /**
      * Constructs a {@code SemesterManager}.
@@ -43,12 +44,30 @@ public class SemesterManager {
     }
 
     /**
+     * Sets the current read-only semester to the semester entered by the user.
+     *
+     * @param readOnlySem the semester entered by the user.
+     */
+    public void setReadOnlySem(Semester readOnlySem) {
+        this.readOnlySem = readOnlySem;
+    }
+
+    /**
      * Gets the current semester where modules are being added or modified.
      *
      * @return the current semester.
      */
     public Semester getCurrentSemester() {
         return currentSem;
+    }
+
+    /**
+     * Gets the current read-only semester where modules are viewed.
+     *
+     * @return the current semester to read only.
+     */
+    public Semester getReadOnlySem() {
+        return readOnlySem;
     }
 
     /**
