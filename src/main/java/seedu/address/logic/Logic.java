@@ -64,4 +64,6 @@ public interface Logic {
     ObservableList<Module> filterModuleListBySem();
 
     ObservableList<Module> sortModuleListBySem();
+    
+    void resetFilteredList();
 }

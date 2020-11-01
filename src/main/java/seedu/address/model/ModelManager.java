@@ -151,6 +151,14 @@ public class ModelManager implements Model {
         return ModuleListSorter.sortModuleList(filteredModules);
     }
 
+    /**
+     * Resets the filtered list to contain all modules.
+     */
+    @Override
+    public void resetFilteredList() {
+        updateFilteredModuleList(PREDICATE_SHOW_ALL_MODULES);
+    }
+
     @Override
     public boolean equals(Object obj) {
         // short circuit if same object

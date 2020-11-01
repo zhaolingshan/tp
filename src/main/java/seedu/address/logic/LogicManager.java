@@ -104,4 +104,8 @@ public class LogicManager implements Logic {
         return model.sortModuleListBySem();
     }
 
+    @Override
+    public void resetFilteredList() {
+        model.resetFilteredList();
+    }
 }

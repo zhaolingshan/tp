@@ -116,8 +116,13 @@ public interface Model {
      * Returns the total number of MCs as an integer .
      */
     int getCurrentMc();
-
+    
     void setGoalTarget(GoalTarget goalTarget);
 
     GoalTarget getGoalTarget();
+
+    /**
+     * Resets the filtered list to contain all modules.
+     */
+    void resetFilteredList();
 }
