@@ -120,4 +120,9 @@ public interface Model {
     void setGoalTarget(GoalTarget goalTarget);
 
     GoalTarget getGoalTarget();
+
+    /**
+     * Resets the filtered list to contain all modules.
+     */
+    void resetFilteredList();
 }

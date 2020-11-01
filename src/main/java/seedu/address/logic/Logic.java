@@ -53,15 +53,19 @@ public interface Logic {
 
     /**
      * Returns the cap calculated from the list of modules.
+     *
      * @return a string representation of the cap to 2 significant figures.
      */
     String generateCap();
 
     /**
      * Returns the filtered list of modules by semester.
+     *
      * @return the filtered module list according to semester.
      */
     ObservableList<Module> filterModuleListBySem();
 
     ObservableList<Module> sortModuleListBySem();
+
+    void resetFilteredList();
 }
