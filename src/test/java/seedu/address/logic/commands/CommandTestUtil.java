@@ -40,9 +40,11 @@ public class CommandTestUtil {
     public static final int VALID_MODULAR_CREDIT = 4;
     public static final int VALID_GOAL_TARGET_A = 4;
     public static final int VALID_GOAL_TARGET_B = 3;
+    public static final int VALID_GOAL_TARGET_C = 6;
     public static final String VALID_GOAL_TARGET_INPUT = "4";
     public static final int INVALID_GOAL_TARGET = -1;
-    public static final double VALID_CAP = 3.50;
+    public static final double VALID_CAP_A = 3.50;
+    public static final double VALID_CAP_B = 0;
 
     public static final Semester VALID_SEMESTER = Semester.Y1S1;
     public static final String MOD_NAME_DESC_A = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_A;
@@ -84,7 +86,7 @@ public class CommandTestUtil {
      * - the {@code actualModel} matches {@code expectedModel}
      */
     public static void assertCommandSuccess(Command command, Model actualModel, CommandResult expectedCommandResult,
-            Model expectedModel) {
+                                            Model expectedModel) {
         try {
             CommandResult result = command.execute(actualModel);
             assertEquals(expectedCommandResult, result);
@@ -99,7 +101,7 @@ public class CommandTestUtil {
      * that takes a string {@code expectedMessage}.
      */
     public static void assertCommandSuccess(Command command, Model actualModel, String expectedMessage,
-            Model expectedModel) {
+                                            Model expectedModel) {
         CommandResult expectedCommandResult = new CommandResult(expectedMessage);
         assertCommandSuccess(command, actualModel, expectedCommandResult, expectedModel);
     }
