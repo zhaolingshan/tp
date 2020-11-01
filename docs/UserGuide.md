@@ -107,15 +107,16 @@ To update a module (e.g. CS2030):
 
 
 ### View modules: `list`
-Displays the list of modules and their respective grades (if any). Narrow to specific semester if stated. \
+Displays the list of modules and their respective grades (if any). 
+Narrow to specific semester if stated. If no semester is stated, the current semester you
+are editing will be displayed.\
  \
-Format: `list [--sem SEMESTER]` \
+Format: `list [SEMESTER]` \
  \
 Examples:
 *   `list`
-*   `list --sem Y1S1`
-*   `list --sem Y2S1 `
-*   `list --sem y2s1 `
+*   `list Y1S1`
+*   `list Y2S1 `
 
 To view all the modules that you have taken:
 

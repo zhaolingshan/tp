@@ -20,7 +20,7 @@ public class ListCommandParserTest {
         semesterManager.setCurrentSemester(Semester.Y1S1);
         final String invalidValue = "hello";
         assertParseFailure(parser, invalidValue,
-                String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, ListCommand.MESSAGE_USAGE));
+                String.format(Messages.MESSAGE_INVALID_SEMESTER, ListCommand.MESSAGE_USAGE));
     }
 
     @Test
