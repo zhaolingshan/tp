@@ -189,6 +189,11 @@ public class AddCommandTest {
         public ObservableList<Module> sortModuleListBySem() {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void resetFilteredList() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**
