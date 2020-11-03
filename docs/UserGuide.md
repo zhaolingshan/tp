@@ -115,13 +115,13 @@ You can change the colours using the tab “Theme”.
 Below is information about the features and commands of `MyMods`.
 
 <div markdown="span" class="alert alert-info">
-⚠️ <strong>Important information about the command format:</strong>
+⚠️ <strong>Important information about the command format:</strong><br>
 
 * Words in **UPPER_CASE** are the parameters to be supplied by the user. 
-e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.
+e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.<br>
 
 * Items in **SQUARE BRACKETS** are optional input parameters. 
-e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.
+e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br>
 
 * Parameters are **NOT case-sensitive**. e.g. `add m/CS2100` is the same as `add m/cs2100`
 </div>
@@ -193,7 +193,7 @@ To add a module (e.g. add CS1101S):
 <div markdown="span" class="alert alert-info">
 ⚠️ Our database is valid up to modules in the AY19/20 academic year. So if the modules you are adding is 
 new in AY20/21 academic year, the following message will be shown:<br><br>
-To add a module that is not in our database(e.g. CS1101A):
+To add a module that is not in our database(e.g. CS1101A):<br>
 
 1. Type `add m/CS1101A mc/4` (with `mc/`) into the command box, and press Enter to execute it.
 
@@ -257,13 +257,13 @@ Examples:
 *   `goal list`
 
 <div markdown="span" class="alert alert-primary">
-:bulb: Below is the NUS Honours Classification System :
+:bulb: Below is the NUS Honours Classification System :<br>
 
-* Highest Distinction (CAP **4.50 ~ 5.00**)
-* Distinction (CAP **4.00 ~ 4.49**)
-* Merit (CAP **3.50 ~ 3.99**)
-* Honours (CAP **3.00 ~ 3.49**)
-* Pass (CAP **2.00 ~ 2.99**)
+* Highest Distinction (CAP **4.50 ~ 5.00**)<br>
+* Distinction (CAP **4.00 ~ 4.49**)<br>
+* Merit (CAP **3.50 ~ 3.99**)<br>
+* Honours (CAP **3.00 ~ 3.49**)<br>
+* Pass (CAP **2.00 ~ 2.99**)<br>
 * Fail (CAP **< 2.00**)<br>
 
 :bulb: You can also show the same list in MyMods using `goal list`:
@@ -304,7 +304,7 @@ To get recommendations on which modules to S/U:
 <img src="images/UG SS/2.7 Recommend SU 3.png">
 
 <div markdown="span" class="alert alert-info">
-⚠️If there are no modules for us to recommend you to S/U, the result box will show:
+⚠️ If there are no modules for us to recommend you to S/U, the result box will show:
 
 </div>
 
@@ -328,7 +328,7 @@ To S/U a module (e.g. CS1231):
 <img src="images/UG SS/2.8 SU Module 3.png">
 
 <div markdown="span" class="alert alert-primary">
-:bulb: If the module cannot be S/U-ed according to NUS’ guidelines, the command box will display:<br>
+:bulb: If the module cannot be S/U-ed according to NUS’ guidelines, the command box will display:<br><br>
 <img src="images/UG SS/2.8 SU Module 4.png">
 
 </div>
