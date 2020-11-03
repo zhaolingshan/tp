@@ -168,29 +168,29 @@ Use case ends.
 
 
 
-#Implementations 
+#Implementations
 This section describes some noteworthy details on how certain features are implemented.
 
 ### Obtaining module information automatically:
-This feature is facilitated by ```ModuleInfoRetriever```, and is used to obtain the number of modular credits 
-when you are adding a module, or the “su” status of the module when you are recommending S/U options. 
+This feature is facilitated by ```ModuleInfoRetriever```, and is used to obtain the number of modular credits
+when you are adding a module, or the “su” status of the module when you are recommending S/U options.
 
 It implements the following operation:
 ```ModuleInfoRetriever#retrieve(String moduleName)``` - Returns a HashMap containing module-related information.
 
-Given below is an example usage scenario and how obtaining module information is used and integrated into 
+Given below is an example usage scenario and how obtaining module information is used and integrated into
 the ```add``` command.
 
-Step 1: The users executes ```add --mod CS1101S --grade A+```, the add command executes 
+Step 1: The users executes ```add --mod CS1101S --grade A+```, the add command executes
 ```Logic#execute(“add --mod CS1101S --grade A+”)```
 
-Step 2: Logic uses the ```AddCommandParser``` class to parse the command. 
-```AddCommandParser#parse(“add --mod CS1101S --grade A+”)``` is executed, which then executes 
+Step 2: Logic uses the ```AddCommandParser``` class to parse the command.
+```AddCommandParser#parse(“add --mod CS1101S --grade A+”)``` is executed, which then executes
 ```(ModuleInfoRetriever#retrieve(“CS1101S”)``` to retrieve the number of modular credits CS1101S has.
 
-Step 3: During the call of ```ModuleInfoRetriever#retrieve(“CS1101S”)``` , it parses the JSON file 
-```moduleInfo.json```, and searches the file for “moduleCode” : “CS1101S”, retrieving the following information, 
-returning it as a HashMap. 
+Step 3: During the call of ```ModuleInfoRetriever#retrieve(“CS1101S”)``` , it parses the JSON file
+```moduleInfo.json```, and searches the file for “moduleCode” : “CS1101S”, retrieving the following information,
+returning it as a HashMap.
 \
 \
 Title: “Programming Methodology”
@@ -200,40 +200,40 @@ moduleCredit: 4
 SU: True
 An exception is thrown if the module is not found.
 
-Step 4: The new module constructor is executed with the following arguments, 
-```new Module(“CS1101S”, “A+”, Set<Tag>(), 4, Y2S1)```. An AddCommand object is then returned with the module, 
+Step 4: The new module constructor is executed with the following arguments,
+```new Module(“CS1101S”, “A+”, Set<Tag>(), 4, Y2S1)```. An AddCommand object is then returned with the module,
 and the new module with modular credit information is saved to storage.
 
 ### Recommend S/U:
 #### Implementation
-The Recommend S/U feature works in conjunction with the goal-setting feature. 
+The Recommend S/U feature works in conjunction with the goal-setting feature.
 MyMods will recommend modules to S/U based on the goal that the user has set and the user’s grade. \
 \
-The implementation of goal-setting is first done by introducing a new model class - ```GoalTarget```. 
-The ```GoalTarget``` class models the 6 different levels following the Honours Classification in NUS. 
-For the user to set their goal, there is a ```SetCommand``` class under the logic commands. 
-There will be two different variants of the goal command, there is a ```SetCommandParser``` class under parser to 
-handle the different user’s input: ```goal --set``` and ```goal --list```. 
+The implementation of goal-setting is first done by introducing a new model class - ```GoalTarget```.
+The ```GoalTarget``` class models the 6 different levels following the Honours Classification in NUS.
+For the user to set their goal, there is a ```SetCommand``` class under the logic commands.
+There will be two different variants of the goal command, there is a ```SetCommandParser``` class under parser to
+handle the different user’s input: ```goal --set``` and ```goal --list```.
 The goal of the user will update a field under ```ModelManager```. \
 \
-User’s goal will be written to and can be read from the ```addressbook.json``` file under the attribute 
+User’s goal will be written to and can be read from the ```addressbook.json``` file under the attribute
 “```goalTarget```” which will store a default value of ```0```. \
 \
-To implement the command ```RecommendSU```, a class ```RecommendSuCommand``` is introduced in logic commands. 
-To determine which module to recommend the user to S/U the method ```RecommendSuCommand#filterModule()``` will 
+To implement the command ```RecommendSU```, a class ```RecommendSuCommand``` is introduced in logic commands.
+To determine which module to recommend the user to S/U the method ```RecommendSuCommand#filterModule()``` will
 retrieve the user’s goal and modules and filter using the following three conditions:
-1. ```RecommendSuCommand#isModSuAble()``` -- Checks if module can be S/U by NUS based on data 
+1. ```RecommendSuCommand#isModSuAble()``` -- Checks if module can be S/U by NUS based on data
 file ```moduleInfo.json```. \
-2. ```RecommendSuCommand#isGradeBelowGoal()``` -- Checks if the grade of the module is below the lower bound of the 
+2. ```RecommendSuCommand#isGradeBelowGoal()``` -- Checks if the grade of the module is below the lower bound of the
 goal. \
 3. ```RecommendSuCommand#isGradeAboveC()``` -- Checks if the grade of the module is C and above. \
 \
 #### Design Considerations:
 Aspect: How to represent the different levels of goals (Highest Distinction, Distinction, Merit, Honours, Pass, Fail) \
-* Alternative 1 (current choice): Labels each level with a number 1 to 6 and the user inputs the level number to 
+* Alternative 1 (current choice): Labels each level with a number 1 to 6 and the user inputs the level number to
 set the goal. \
     * Pros: \
-        1. Using number to label the goals is easier for the user to type 
+        1. Using number to label the goals is easier for the user to type
         (eg: ```goal --set 2``` instead of ```goal --set distinction```) \
         2. Using an integer value is more efficient for comparison as compared to a String. \
     * Cons: \
@@ -243,8 +243,8 @@ set the goal. \
         1. User knows what to key in without referring. \
     * Cons: \
         1. It is longer for the user to type. \
-* Justification of choosing Alternative 1: Having a shorter command will be easier for the user. 
-To solve the con of the user not sure on which level represents which goal, the command “```goal --list```” is 
+* Justification of choosing Alternative 1: Having a shorter command will be easier for the user.
+To solve the con of the user not sure on which level represents which goal, the command “```goal --list```” is
 provided.
 
 
@@ -274,24 +274,24 @@ Users have the ability to easily choose which mode under the “Theme” menu ba
 ### Start Semester:
 Implementation
 
-Start is a command which allows the user to start modifying the list of modules in the semester which the user 
-specifies by adding, editing or deleting the modules in the specified semester. The user is unable to modify the list 
+Start is a command which allows the user to start modifying the list of modules in the semester which the user
+specifies by adding, editing or deleting the modules in the specified semester. The user is unable to modify the list
 of modules before typing in start followed by the semester which the user wishes to edit the module list of.
-A class StartCommand is added in the commands folder under logic to execute the command start. 
-A class SemesterManager is added in the semester folder under model to retrieve the current semester the user is in 
-and set the current semester to a specified semester. 
+A class StartCommand is added in the commands folder under logic to execute the command start.
+A class SemesterManager is added in the semester folder under model to retrieve the current semester the user is in
+and set the current semester to a specified semester.
 
 ### Show progress towards target CAP:
 
 ####Implementation
 
-The progress feature works in conjunction with the goal-setting feature. 
+The progress feature works in conjunction with the goal-setting feature.
 The user will first need to indicate their desired CAP using the `goal` command.
 \
 \
-Users can then use the command `progress` to calculate the required average CAP 
-they have to obtain in their remaining modules in order to achieve their 
-target CAP. The user can include the string `--ddp` to indicate if they are taking 
+Users can then use the command `progress` to calculate the required average CAP
+they have to obtain in their remaining modules in order to achieve their
+target CAP. The user can include the string `--ddp` to indicate if they are taking
 a double degree programme (e.g. `progress --ddp`).
 \
 \
@@ -300,8 +300,8 @@ CAP calculation. The calculation process is done as shown below:
 
  1. User enters their target CAP using `goal` command
  2. Info about current CAP and MCs taken are retrieved from the `ModelManager` class
- 3. Total MCs required is determined by whether user is in double degree programme 
- or not (e.g. user input is `progress --ddp` or `just progress`) 
+ 3. Total MCs required is determined by whether user is in double degree programme
+ or not (e.g. user input is `progress --ddp` or `just progress`)
  4. Target CAP is retrieved from the `ModelManager` class
  5. Required CAP from remaining modules is calculated.
 
