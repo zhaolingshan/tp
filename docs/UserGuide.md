@@ -14,7 +14,7 @@ Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in th
     * [1.3 Introduction](#Introduction)
     * [1.4 Glossaries](#Glossaries)
     * [1.5 Getting Started](#Getting_Started)
-    
+
 * [2. Key Features](#Key_Features)
     * [2.1 Summary of Key Features](#Summary_of_Key_Features)
     * [2.2 Edit Semester](#Edit_Semester)
@@ -33,16 +33,16 @@ Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in th
 
 ### 1.2 About <a name="About"></a>
 
-Are you a NUS student who wants a clean Command Line Interface (CLI) to keep track of your modules and grades? 
+Are you a NUS student who wants a clean Command Line Interface (CLI) to keep track of your modules and grades?
 If yes, then this user guide is for you!
 
-Want to know the common use cases, how to get started or in-depth documentation of all of our 13 key features in MyMods? 
-We got that all covered for you in this user guide. 
+Want to know the common use cases, how to get started or in-depth documentation of all of our 13 key features in MyMods?
+We got that all covered for you in this user guide.
 
-And yes, that is right! We have 13 key features in MyMods: `start`, `add`, `update`, `list`, `goal`, `recommendSU`, 
-`su`, `delete`, `done`, `find`, `progress`, `help` and `exit` commands. 
+And yes, that is right! We have 13 key features in MyMods: `start`, `add`, `update`, `list`, `goal`, `recommendSU`,
+`su`, `delete`, `done`, `find`, `progress`, `help` and `exit` commands.
 
-You do not need any prior technical knowledge to understand this document, however, you will need to know how to read 
+You do not need any prior technical knowledge to understand this document, however, you will need to know how to read
 English though!
 
 **Navigating this user guide:**
@@ -56,15 +56,15 @@ English though!
 :warning: This symbol indicates important information.
 </div>
 
-* `start`: A grey highlight (called a mark-up) indicates that this is a command that can be typed into the command line 
+* `start`: A grey highlight (called a mark-up) indicates that this is a command that can be typed into the command line
 and executed by the application.
 
 
 ### 1.3 Introduction <a name="Introduction"></a>
 
-So what exactly is **MyMods**? It is a desktop app for tracking modules and grades, optimized for use for students who 
-prefer typing via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). 
-With **MyMods**, you are able to keep track of your module results efficiently, easily make S/U decisions, and view your 
+So what exactly is **MyMods**? It is a desktop app for tracking modules and grades, optimized for use for students who
+prefer typing via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
+With **MyMods**, you are able to keep track of your module results efficiently, easily make S/U decisions, and view your
 academic progress. **MyMods** is available for the Linux, Unix, Windows XP and Mac OS X operating systems.
 
 ### 1.4 Glossaries <a name="Glossaries"></a>
@@ -95,7 +95,7 @@ MyMods.jar`. The window (without any modules) similar to the interface shown bel
 <img src="images/UG SS/1.5 Getting Started 1.png">
 </div>
 
-The data of all of your modules can be found on your local disk. It is located in the “data” folder found at the 
+The data of all of your modules can be found on your local disk. It is located in the “data” folder found at the
 home folder.
 
 #### The Interface
@@ -104,7 +104,7 @@ This is what MyMods looks like: \
 <img src="images/UG SS/1.5 Getting Started 2.png">
 
 <div markdown="span" class="alert alert-primary">
-:bulb: Default colours looking different? Fret not! The theme of MyMods is determined by the time of the day. 
+:bulb: Default colours looking different? Fret not! The theme of MyMods is determined by the time of the day.
 You can change the colours using the tab “Theme”.
 </div>
 
@@ -149,7 +149,7 @@ Can’t wait to add your modules into MyMods? You can start modifying the module
 Format: `start SEMESTER` \
 \
 Examples:
-*   `start Y2S1` 
+*   `start Y2S1`
 
 * Important information will be shown in a box:
 <div markdown="span" class="alert alert-info">
@@ -190,7 +190,7 @@ To add a module (e.g. add CS1101S):
 <img src="images/UG SS/2.3 Add Module 3.png">
 
 <div markdown="span" class="alert alert-info">
-:warning: Our database is valid up to modules in the AY19/20 academic year. So if the modules you are adding is 
+:warning: Our database is valid up to modules in the AY19/20 academic year. So if the modules you are adding is
 new in AY20/21 academic year, the following message will be shown:<br><br>
 </div>
 
@@ -225,7 +225,7 @@ To update a module (e.g. CS2030):
 
 
 ### 2.5 List all Modules: `list` <a name="List_all_Modules"></a>
-Displays the list of modules and their respective grades (if any). 
+Displays the list of modules and their respective grades (if any).
 Narrow to specific semester if stated. If no semester is stated, the current semester you
 are editing will be displayed.\
  \
@@ -235,7 +235,7 @@ Examples:
 *   `list`
 
 <div markdown="span" class="alert alert-info">
-:warning: <strong>If you are editing a semester</strong> (e.g. Y2S1), 
+:warning: <strong>If you are editing a semester</strong> (e.g. Y2S1),
 only modules from that semester(e.g. Y2S1) will be listed.
 </div><br>
 To view all the modules that you have taken:
@@ -251,7 +251,7 @@ To view all the modules that you have taken:
 
 
 ### 2.6 Set Goals: `goal` <a name="Set_Goals"></a>
-Reach for the stars! Set your goal level according to NUS’ Honours Classification System 
+Reach for the stars! Set your goal level according to NUS’ Honours Classification System
 or list to show the corresponding levels. \
  \
 Format: `goal set LEVEL` or `goal list` \
@@ -290,7 +290,7 @@ To set your goal to 2 (CAP4.00 ~ 4.49):
 
 
 ### 2.7 Recommend S/U: `recommendSU` <a name="Recommend_S/U"></a>
-Having a headache on what module you should S/U? This feature will ease your headache by recommending which module(s) 
+Having a headache on what module you should S/U? This feature will ease your headache by recommending which module(s)
 from your list to S/U based on your goal, grades and if the module can be S/U-ed. \
  \
 Format: `recommendSU` \
@@ -313,7 +313,7 @@ To get recommendations on which modules to S/U:
 </div>
 
 <div>
-:warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed 
+:warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed
 using the command `su`.
 </div>
 
@@ -343,7 +343,7 @@ To S/U a module (e.g. CS1231):
 </div>
 
 ### 2.9 Delete Module: `delete` <a name="Delete_Module"></a>
-If you want to remove a module from your list, use this feature to delete the module along with its grade 
+If you want to remove a module from your list, use this feature to delete the module along with its grade
 from your list of modules. \
  \
 Format: `delete MODULE_CODE` \
@@ -365,7 +365,7 @@ To delete a module (e.g. CS1231) from the list: \
 
 
 ### 2.10 Exit Semester: `done` <a name="Exit_Semester"></a>
-Finally done with editing the semester? You will not be able to change any module in a particular 
+Finally done with editing the semester? You will not be able to change any module in a particular
 semester until you start another semester. \
  \
 Format: `done` \
@@ -396,27 +396,27 @@ Examples:
 *  `find MA`
 
 <div markdown="span" class="alert alert-primary">
-:bulb: Searching for part of the module code will work too. For example, you can `find CS1231` to find the 
+:bulb: Searching for part of the module code will work too. For example, you can `find CS1231` to find the
 module CS1231S or `find CS` to find all modules that contain the word ‘CS’.
 </div>
 
 To search for a module (e.g. CS):
 
-1. Type `find CS` into the command box, and press Enter to execute it. 
+1. Type `find CS` into the command box, and press Enter to execute it.
 
-2. The modules that contain the keyword ‘CS’ will be listed below: 
+2. The modules that contain the keyword ‘CS’ will be listed below:
 
 <div markdown="span" class="alert alert-primary">
 :bulb: If there is no module that matches the keyword, the following message will be shown:
 </div>
 
 ### 2.12 Progress Report: `progress` <a name="Progress_Report"></a>
-Want to know how well you are doing relative to your goal? Use this feature for a progress report 
-that calculates the average CAP required for your remaining modules to achieve your target CAP. 
+Want to know how well you are doing relative to your goal? Use this feature for a progress report
+that calculates the average CAP required for your remaining modules to achieve your target CAP.
 It shows you your current goal that you have set as well.
 
-Format: `progress [ddp]` 
- 
+Format: `progress [ddp]`
+
 Examples:
 *   `progress`
 *   `progress ddp`
@@ -424,7 +424,7 @@ Examples:
 <div markdown="span" class="alert alert-primary">
 :bulb: ddp here refers to NUS’s Double Degree Programme. Include it if you are in a ddp.
 </div>
- 
+
 To calculate the CAP required to achieve your goal:
 
 1. Type `progress` into the command box, and press Enter to execute it. \
@@ -435,7 +435,7 @@ To calculate the CAP required to achieve your goal:
 
 
 ### 2.13 Get Help: `help` <a name="Get_Help"></a>
-If you are lost, this command will be helpful. 
+If you are lost, this command will be helpful.
 
 Format: `help` \
  \
@@ -452,7 +452,7 @@ To seek help:
 
 
 ### 2.14 Exit Application: `exit` <a name="Exit_Application"></a>
-Exits the application. 
+Exits the application.
 
 Format: `exit` \
  \
