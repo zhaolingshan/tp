@@ -118,13 +118,11 @@ Below is information about the features and commands of `MyMods`.
 ⚠️ <strong>Important information about the command format:</strong><br><br>
 
 <ul>
-<li> Words in **UPPER_CASE** are the parameters to be supplied by the user. 
-e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.</li>
-<br>
-<li>Items in **SQUARE BRACKETS** are optional input parameters. 
-e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.</li><br>
+<li>Words in **UPPER_CASE** are the parameters to be supplied by the user. e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.</li>
 
-<li>Parameters are **NOT case-sensitive**. e.g. `add m/CS2100` is the same as `add m/cs2100`.</li><br>
+<li>Items in **SQUARE BRACKETS** are optional input parameters. e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.</li>
+
+<li>Parameters are **NOT case-sensitive**. e.g. `add m/CS2100` is the same as `add m/cs2100`.</li>
 </ul>
 
 </div>
