@@ -13,9 +13,10 @@ public class SuCommand extends UpdateCommand {
     public static final String COMMAND_WORD = "su";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": SUs the module identified "
             + "by the module name displayed in the module list.\n"
-            + "Parameters:"
+            + "Parameters: "
             + PREFIX_MOD_NAME + "MODULE_NAME \n"
-            + "Example: " + COMMAND_WORD + " --mod CS2103T";
+            + "Example: " + COMMAND_WORD
+            + PREFIX_MOD_NAME + "CS2103T";
 
     /**
      * @param moduleName              of the module in the filtered module list to update
