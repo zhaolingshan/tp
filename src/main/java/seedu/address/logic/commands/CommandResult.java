@@ -24,7 +24,7 @@ public class CommandResult {
     /**
      * recommendSU command is called.
      */
-    private final boolean isRecommendSu;
+    private final boolean isRecommendSuOrFind;
 
     /**
      * List command is called.
@@ -35,11 +35,11 @@ public class CommandResult {
      * Constructs a {@code CommandResult} with the specified fields.
      */
     public CommandResult(String feedbackToUser, boolean showHelp, boolean exit,
-                         boolean isRecommendSu, boolean isList) {
+                         boolean isRecommendSuOrFind, boolean isList) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
-        this.isRecommendSu = isRecommendSu;
+        this.isRecommendSuOrFind = isRecommendSuOrFind;
         this.isList = isList;
     }
 
@@ -67,8 +67,8 @@ public class CommandResult {
         return exit;
     }
 
-    public boolean isRecommendSu() {
-        return isRecommendSu;
+    public boolean isRecommendSuOrFind() {
+        return isRecommendSuOrFind;
     }
 
     @Override
@@ -86,12 +86,12 @@ public class CommandResult {
         return feedbackToUser.equals(otherCommandResult.feedbackToUser)
                 && showHelp == otherCommandResult.showHelp
                 && exit == otherCommandResult.exit
-                && isRecommendSu == otherCommandResult.isRecommendSu;
+                && isRecommendSuOrFind == otherCommandResult.isRecommendSuOrFind;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(feedbackToUser, showHelp, exit, isRecommendSu);
+        return Objects.hash(feedbackToUser, showHelp, exit, isRecommendSuOrFind);
     }
 
 }
