@@ -4,6 +4,7 @@ title: MyMods
 ---
 
 [![CI Status](https://github.com/se-edu/addressbook-level3/workflows/Java%20CI/badge.svg)](https://github.com/AY2021S1-CS2103T-T17-1/tp/actions)
+[![codecov](https://codecov.io/gh/AY2021S1-CS2103T-T17-1/tp/branch/master/graph/badge.svg)](https://codecov.io/gh/AY2021S1-CS2103T-T17-1/tp)
 
 ![Ui](images/Ui.png)
 

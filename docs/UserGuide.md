@@ -117,11 +117,11 @@ Below is information about the features and commands of `MyMods`.
 <div markdown="span" class="alert alert-info">
 ⚠️ <strong>Important information about the command format:</strong><br><br>
 
-* Words in <strong>UPPER_CASE</strong> are the parameters to be supplied by the user. e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.
+* Words in <strong>UPPER_CASE</strong> are the parameters to be supplied by the user. e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.<br>
 
-* Items in <strong>SQUARE BRACKETS</strong> are optional input parameters. e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.
+* Items in <strong>SQUARE BRACKETS</strong> are optional input parameters. e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br>
 
-* Parameters are <strong>NOT case-sensitive</strong>. e.g. `add m/CS2100` is the same as `add m/cs2100`.
+* Parameters are <strong>NOT case-sensitive</strong>. e.g. `add m/CS2100` is the same as `add m/cs2100`.<br>
 
 </div>
 
@@ -260,12 +260,12 @@ Examples:
 <div markdown="span" class="alert alert-primary">
 :bulb: Below is the NUS Honours Classification System :<br><br>
 
-* Highest Distinction (CAP <strong>4.50 ~ 5.00</strong>)
-* Distinction (CAP <strong>4.00 ~ 4.49</strong>)
-* Merit (CAP <strong>3.50 ~ 3.99</strong>)
-* Honours (CAP <strong>3.00 ~ 3.49</strong>)
-* Pass (CAP <strong>2.00 ~ 2.99</strong>)
-* Fail (CAP <strong>< 2.00</strong>)
+* Highest Distinction (CAP <strong>4.50 ~ 5.00</strong>)<br>
+* Distinction (CAP <strong>4.00 ~ 4.49</strong>)<br>
+* Merit (CAP <strong>3.50 ~ 3.99</strong>)<br>
+* Honours (CAP <strong>3.00 ~ 3.49</strong>)<br>
+* Pass (CAP <strong>2.00 ~ 2.99</strong>)<br>
+* Fail (CAP <strong>< 2.00</strong>)<br>
 
 <br>
 
