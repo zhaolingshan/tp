@@ -384,7 +384,7 @@ _{More to be added}_
 
 (For all use cases below, the **System** is the `MyMods` and the **Actor** is the `user`, unless specified otherwise)
 
-####**Use case: Delete a module**
+#### **Use case: Delete a module**
 
 **MSS**
 
@@ -407,7 +407,7 @@ Use case ends.
     *   3a1. MyMods shows an error message.
     *   Use case resumes at step 3.
 
-####**Use case: Add a module**
+#### **Use case: Add a module**
 
 **MSS**
 
@@ -430,7 +430,7 @@ Use case ends.
     *   3a1. MyMods shows an error message.
     *   Use case resumes at step 3.
 
-####**Use case: View CAP**
+#### **Use case: View CAP**
 
 **MSS**
 
