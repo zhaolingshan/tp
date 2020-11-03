@@ -3,33 +3,33 @@ layout: page
 title: User Guide
 ---
 
-# 1. Product Overview <a name="Product Overview"></a>
+# 1. Product Overview <a name="Product_Overview"></a>
 Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in this section.
 
-### 1.1 Table of Contents <a name="Table of Contents"></a>
+### 1.1 Table of Contents <a name="Table_of_Contents"></a>
 
-* [1. Product Overview](#Product Overview)
-    * [1.1 Table of Contents](#Table of Contents)
+* [1. Product Overview](#Product_Overview)
+    * [1.1 Table of Contents](#Table_of_Contents)
     * [1.2 About](#About)
     * [1.3 Introduction](#Introduction)
     * [1.4 Glossaries](#Glossaries)
-    * [1.5 Getting Started](#Getting Started)
+    * [1.5 Getting Started](#Getting_Started)
     
 * [2. Key Features](#Key Feature)
-    * [2.1 Summary of Key Features](#Summary of Key Features)
-    * [2.2 Edit Semester](Edit Semester)
-    * [2.3 Add Module](#Add Module)
-    * [2.4 Update Module](#Update Module)
-    * [2.5 List all Modules](#List all Modules)
-    * [2.6 Set Goals](#Set Goals)
-    * [2.7 Recommend S/U](#Recommend S/U)
-    * [2.8 S/U Mobile](#S/U Module)
-    * [2.9 Delete Module](#Delete Module)
-    * [2.10 Exit Semester](#Exit Semester)
-    * [2.11 Find Module](#Find Module)
-    * [2.12 Progress Report](#Progress Report)
-    * [2.13 Get Help](#Get Help)
-    * [2.14 Exit Application](#Exit Application)
+    * [2.1 Summary of Key Features](#Summary_of_Key_Features)
+    * [2.2 Edit Semester](Edit_Semester)
+    * [2.3 Add Module](#Add_Module)
+    * [2.4 Update Module](#Update_Module)
+    * [2.5 List all Modules](#List_all_Modules)
+    * [2.6 Set Goals](#Set_Goals)
+    * [2.7 Recommend S/U](#Recommend_S/U)
+    * [2.8 S/U Mobile](#S/U_Module)
+    * [2.9 Delete Module](#Delete_Module)
+    * [2.10 Exit Semester](#Exit_Semester)
+    * [2.11 Find Module](#Find_Module)
+    * [2.12 Progress Report](#Progress_Report)
+    * [2.13 Get Help](#Get_Help)
+    * [2.14 Exit Application](#Exit_Application)
 
 ### 1.2 About <a name="About"></a>
 
@@ -78,7 +78,7 @@ ddp | Double Degree Programme
 mod | Module
 S/U | Satisfactory / Unsatisfactory option in NUS
 
-### 1.5 Getting Started <a name="Getting Started"></a>
+### 1.5 Getting Started <a name="Getting_Started"></a>
 
 #### Installation
 
@@ -115,18 +115,18 @@ You can change the colours using the tab “Theme”.
 Below is information about the features and commands of `MyMods`.
 
 <div markdown="span" class="alert alert-info">
-⚠️ <strong>Important information about the command format:</strong><br>
+⚠️ <strong>Important information about the command format:</strong><br><br>
 
-* Words in **UPPER_CASE** are the parameters to be supplied by the user. 
-e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.<br>
+<li> Words in **UPPER_CASE** are the parameters to be supplied by the user. 
+e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.<br><br>
 
-* Items in **SQUARE BRACKETS** are optional input parameters. 
-e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br>
+<li>Items in **SQUARE BRACKETS** are optional input parameters. 
+e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br><br>
 
-* Parameters are **NOT case-sensitive**. e.g. `add m/CS2100` is the same as `add m/cs2100`
+<li>Parameters are **NOT case-sensitive**. e.g. `add m/CS2100` is the same as `add m/cs2100`<br>
 </div>
 
-### 2.1 Summary of Key Features <a name="Summary of Key Features"></a>
+### 2.1 Summary of Key Features <a name="Summary_of_Key_Features"></a>
 
 Command | Format
 --------|-------
@@ -144,7 +144,7 @@ Command | Format
 `help` | `help`
 `exit` | `exit`
 
-### 2.2 Edit Semester: `start` <a name="Edit Semester"></a>
+### 2.2 Edit Semester: `start` <a name="Edit_Semester"></a>
 Can’t wait to add your modules into MyMods? You can start modifying the modules by starting a semester! \
 \
 Format: `start SEMESTER` \
@@ -169,7 +169,7 @@ To edit a Semester (e.g. Y2S1):
 :bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
 </div>
 
-### 2.3 Add module: `add` <a name="Add module"></a>
+### 2.3 Add module: `add` <a name="Add_module"></a>
 Yes! After starting a semester, we can now add a module to your list. \
 \
 Format: `add m/MODULE_CODE [g/GRADE]`\
@@ -193,13 +193,15 @@ To add a module (e.g. add CS1101S):
 <div markdown="span" class="alert alert-info">
 ⚠️ Our database is valid up to modules in the AY19/20 academic year. So if the modules you are adding is 
 new in AY20/21 academic year, the following message will be shown:<br><br>
-To add a module that is not in our database(e.g. CS1101A):<br>
+To add a module that is not in our database(e.g. CS1101A):<br><br>
 
-1. Type `add m/CS1101A mc/4` (with `mc/`) into the command box, and press Enter to execute it.
+1. Type `add m/CS1101A mc/4` (with `mc/`) into the command box, and press Enter to execute it.<br><br>
+
+⚠️ Manually added modules will not be recommended to S/U for the command `recommendSU`.
 
 </div>
 
-### 2.4 Update Module: `update` <a name="Update Module"></a>
+### 2.4 Update Module: `update` <a name="Update_Module"></a>
 Oops, typed something wrong or want to change something? Use this update feature to change the module’s grade.
 \
 Format: `update m/MODULE_CODE [g/GRADE]` \
@@ -220,7 +222,7 @@ To update a module (e.g. CS2030):
 <img src="images/UG SS/2.4 Update Module 3.png">
 
 
-### 2.5 List all Modules: `list` <a name="List all Modules"></a>
+### 2.5 List all Modules: `list` <a name="List_all_Modules"></a>
 Displays the list of modules and their respective grades (if any). 
 Narrow to specific semester if stated. If no semester is stated, the current semester you
 are editing will be displayed.\
@@ -246,7 +248,7 @@ To view all the modules that you have taken:
 <img src="images/UG SS/2.5 List all Modules 3.png">
 
 
-### 2.6 Set Goals: `goal` <a name="Set Goals"></a>
+### 2.6 Set Goals: `goal` <a name="Set_Goals"></a>
 Reach for the stars! Set your goal level according to NUS’ Honours Classification System 
 or list to show the corresponding levels. \
  \
@@ -257,14 +259,14 @@ Examples:
 *   `goal list`
 
 <div markdown="span" class="alert alert-primary">
-:bulb: Below is the NUS Honours Classification System :<br>
+:bulb: Below is the NUS Honours Classification System :<br><br>
 
-* Highest Distinction (CAP **4.50 ~ 5.00**)<br>
-* Distinction (CAP **4.00 ~ 4.49**)<br>
-* Merit (CAP **3.50 ~ 3.99**)<br>
-* Honours (CAP **3.00 ~ 3.49**)<br>
-* Pass (CAP **2.00 ~ 2.99**)<br>
-* Fail (CAP **< 2.00**)<br>
+<li>Highest Distinction (CAP **4.50 ~ 5.00**)<br>
+<li>Distinction (CAP **4.00 ~ 4.49**)<br>
+<li>Merit (CAP **3.50 ~ 3.99**)<br>
+<li>Honours (CAP **3.00 ~ 3.49**)<br>
+<li>Pass (CAP **2.00 ~ 2.99**)<br>
+<li>Fail (CAP **< 2.00**)<br><br>
 
 :bulb: You can also show the same list in MyMods using `goal list`:
 
@@ -284,7 +286,7 @@ To set your goal to 2 (CAP4.00 ~ 4.49):
 </div>
 
 
-### 2.7 Recommend S/U: `recommendSU` <a name="Recommend S/U"></a>
+### 2.7 Recommend S/U: `recommendSU` <a name="Recommend_S/U"></a>
 Having a headache on what module you should S/U? This feature will ease your headache by recommending which module(s) 
 from your list to S/U based on your goal, grades and if the module can be S/U-ed. \
  \
@@ -304,11 +306,12 @@ To get recommendations on which modules to S/U:
 <img src="images/UG SS/2.7 Recommend SU 3.png">
 
 <div markdown="span" class="alert alert-info">
-⚠️ If there are no modules for us to recommend you to S/U, the result box will show:
+⚠️ If there are no modules for us to recommend you to S/U, the result box will show:<br><br>
 
+⚠️ Manually added modules will not be recommended to S/U for the command `recommendSU`.
 </div>
 
-### 2.8 S/U module: `su` <a name="S/U module"></a>
+### 2.8 S/U module: `su` <a name="S/U_module"></a>
 Didn’t so very well for a module? S/U the module in your list using this feature! \
  \
 Format: `su MODULE_CODE` \
@@ -333,7 +336,7 @@ To S/U a module (e.g. CS1231):
 
 </div>
 
-### 2.9 Delete Module: `delete` <a name="Delete Module"></a>
+### 2.9 Delete Module: `delete` <a name="Delete_Module"></a>
 If you want to remove a module from your list, use this feature to delete the module along with its grade 
 from your list of modules. \
  \
@@ -355,7 +358,7 @@ To delete a module (e.g. CS1231) from the list: \
 <img src="images/UG SS/2.9 Delete Module 4.png">
 
 
-### 2.10 Exit Semester: `done` <a name="Exit Semester"></a>
+### 2.10 Exit Semester: `done` <a name="Exit_Semester"></a>
 Finally done with editing the semester? You will not be able to change any module in a particular 
 semester until you start another semester. \
  \
@@ -376,7 +379,7 @@ To stop editing a semester (e.g. Y1S1):
 :bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
 </div>
 
-### 2.11 Find Module: `find` <a name="Find Module"></a>
+### 2.11 Find Module: `find` <a name="Find_Module"></a>
 
 Unable to find a module that you took? Search it using the find command. \
 \
@@ -401,7 +404,7 @@ To search for a module (e.g. CS):
 :bulb: If there is no module that matches the keyword, the following message will be shown:
 </div>
 
-### 2.12 Progress Report: `progress` <a name="Progress Report"></a>
+### 2.12 Progress Report: `progress` <a name="Progress_Report"></a>
 Want to know how well you are doing relative to your goal? Use this feature for a progress report 
 that calculates the average CAP required for your remaining modules to achieve your target CAP. 
 It shows you your current goal that you have set as well.
@@ -425,7 +428,7 @@ To calculate the CAP required to achieve your goal:
 <img src="images/UG SS/2.11 Progress Report 2.png">
 
 
-### 2.13 Get Help: `help` <a name="Get Help"></a>
+### 2.13 Get Help: `help` <a name="Get_Help"></a>
 If you are lost, this command will be helpful. 
 
 Format: `help` \
@@ -442,7 +445,7 @@ To seek help:
 <img src="images/UG SS/2.12 Get Help 2.png">
 
 
-### 2.14 Exit Application: `exit` <a name="Exit Application"></a>
+### 2.14 Exit Application: `exit` <a name="Exit_Application"></a>
 Exits the application. 
 
 Format: `exit` \
