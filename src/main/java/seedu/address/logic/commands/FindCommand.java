@@ -30,8 +30,15 @@ public class FindCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.updateFilteredModuleList(predicate);
-        return new CommandResult(
-                String.format(Messages.MESSAGE_MODULES_LISTED_OVERVIEW, model.getFilteredModuleList().size()));
+        int searchResultsListSize = model.getFilteredModuleList().size();
+        if (searchResultsListSize == 0) {
+            return new CommandResult(
+                    String.format(Messages.MESSAGE_NO_MODULES_FOUND));
+        } else {
+            return new CommandResult(
+                    String.format(Messages.MESSAGE_MODULES_LISTED_OVERVIEW, searchResultsListSize),
+                    false, false, true, false);
+        }
     }
 
     @Override
