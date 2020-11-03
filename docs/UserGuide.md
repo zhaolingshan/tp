@@ -259,10 +259,10 @@ Format: `goal set LEVEL` or `goal list` \
 Examples:
 *   `goal set 2`
 *   `goal list`
-
+<br><br>
 <div markdown="span" class="alert alert-primary">
 :bulb: Below is the NUS Honours Classification System with respect to the `LEVEL`:
-</div><br>
+</div>
 
 * `6`: Highest Distinction (CAP **4.50 ~ 5.00**)
 * `5`: Distinction (CAP **4.00 ~ 4.49**)
@@ -281,7 +281,8 @@ To set your goal to 2 (CAP4.00 ~ 4.49):
 <img src="images/UG SS/2.6 Set Goals 1.png">
 
 2. The result box will display the message: \
-<img src="images/UG SS/2.6 Set Goals 2.png">
+<img src="images/UG SS/2.6 Set Goals 2.png"> 
+<br><br>
 
 <div markdown="span" class="alert alert-primary">
 :bulb: You can check your current goal using the command `progress`:
@@ -312,7 +313,7 @@ To get recommendations on which modules to S/U:
 :warning: If there are no modules for us to recommend you to S/U, the result box will show:<br><br>
 </div>
 
-<div>
+<div markdown="span" class="alert alert-info">
 :warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed
 using the command `su`.
 </div>
