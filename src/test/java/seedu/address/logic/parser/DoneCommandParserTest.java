@@ -19,7 +19,8 @@ public class DoneCommandParserTest {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y1S1);
         final String invalidValue = "hi";
-        assertParseFailure(parser, invalidValue, Messages.MESSAGE_INVALID_SEMESTER);
+        assertParseFailure(parser, invalidValue, 
+                String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, DoneCommand.MESSAGE_USAGE));
     }
 
     @Test

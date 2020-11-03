@@ -84,7 +84,7 @@ public class AddressBookParser {
             return new SetCommandParser().parse(arguments);
 
         case RecommendSuCommand.COMMAND_WORD:
-            return new RecommendSUParser().parse(arguments);
+            return new RecommendSuCommandParser().parse(arguments);
 
         case ProgressCommand.COMMAND_WORD:
             return new ProgressCommandParser().parse(arguments);

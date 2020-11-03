@@ -7,7 +7,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 /**
  * Parses input arguments and creates a new RecommendSUCommand object
  */
-public class RecommendSUParser implements Parser<RecommendSuCommand> {
+public class RecommendSuCommandParser implements Parser<RecommendSuCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the RecommendSUCommand

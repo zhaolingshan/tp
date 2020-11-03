@@ -109,4 +109,9 @@ public class RecommendSuCommand extends Command {
         return status.contains("true");
     }
 
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof RecommendSuCommand; // instanceof handles nulls
+    }
+
 }
