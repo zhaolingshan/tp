@@ -256,7 +256,7 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isList()) {
                 moduleListPanel = new ModuleListPanel(logic.filterModuleListByReadOnlySem());
-            } else if (commandResult.isRecommendSu()){
+            } else if (commandResult.isRecommendSu()) {
                 moduleListPanel = new ModuleListPanel(logic.getFilteredModuleList());
             } else {
                 moduleListPanel = new ModuleListPanel(logic.filterModuleListBySem());

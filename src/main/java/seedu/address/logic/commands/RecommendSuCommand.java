@@ -4,9 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.module.Cap;
 import seedu.address.model.module.GoalTarget;
-import seedu.address.model.module.Grade;
 import seedu.address.model.module.Module;
 import seedu.address.model.util.ModuleInfoRetriever;
 
