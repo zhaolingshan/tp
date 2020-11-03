@@ -15,7 +15,7 @@ public class SuCommand extends UpdateCommand {
             + "by the module name displayed in the module list.\n"
             + "Parameters: "
             + PREFIX_MOD_NAME + "MODULE_NAME \n"
-            + "Example: " + COMMAND_WORD 
+            + "Example: " + COMMAND_WORD
             + PREFIX_MOD_NAME + "CS2103T";
 
     /**

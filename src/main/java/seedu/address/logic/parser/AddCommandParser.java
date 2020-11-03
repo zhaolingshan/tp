@@ -6,7 +6,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_MODULAR_CREDIT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
-import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -34,31 +33,31 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_MOD_NAME, PREFIX_GRADE, PREFIX_TAG, PREFIX_MODULAR_CREDIT);
-        
+
         if (!arePrefixesPresent(argMultimap, PREFIX_MOD_NAME) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
-        
+
         ModuleName moduleName = ParserUtil.parseName(argMultimap.getValue(PREFIX_MOD_NAME).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         Module module;
         SemesterManager semesterManager = SemesterManager.getInstance();
         Semester semester = semesterManager.getCurrentSemester();
         ModularCredit modularCredit;
-        
+
         if (arePrefixesPresent(argMultimap, PREFIX_MODULAR_CREDIT)) {
             modularCredit = ParserUtil.parseModularCredit(argMultimap.getValue(PREFIX_MODULAR_CREDIT).get());
         } else {
             modularCredit = new ModularCredit(moduleName.fullModName);
         }
-        
+
         if (arePrefixesPresent(argMultimap, PREFIX_GRADE)) {
             Grade grade = ParserUtil.parseGrade(argMultimap.getValue(PREFIX_GRADE).get());
             module = new Module(moduleName, grade, tagList, modularCredit, semester);
         } else {
             module = new Module(moduleName, tagList, modularCredit, semester);
         }
-        
+
         return new AddCommand(module);
     }
 

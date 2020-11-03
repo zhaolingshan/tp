@@ -42,7 +42,7 @@ public class UpdateCommand extends Command {
             + "[" + PREFIX_GRADE + "GRADE] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "[" + PREFIX_SEMESTER + "SEM] "
-            + "Example: " + COMMAND_WORD 
+            + "Example: " + COMMAND_WORD
             + PREFIX_MOD_NAME + "CS2103T"
             + PREFIX_GRADE + "A";
 
@@ -54,7 +54,7 @@ public class UpdateCommand extends Command {
     private final UpdateModNameDescriptor updateModNameDescriptor;
 
     /**
-     * @param moduleName of the module in the filtered module list to update
+     * @param moduleName              of the module in the filtered module list to update
      * @param updateModNameDescriptor details to update the module with
      */
     public UpdateCommand(ModuleName moduleName, UpdateModNameDescriptor updateModNameDescriptor) {
@@ -144,7 +144,8 @@ public class UpdateCommand extends Command {
         private Set<Tag> tags;
         private Semester semester;
 
-        public UpdateModNameDescriptor() {}
+        public UpdateModNameDescriptor() {
+        }
 
         /**
          * Copy constructor.
