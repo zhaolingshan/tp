@@ -163,7 +163,7 @@ public class MainWindow extends UiPart<Stage> {
         //make result display draggable, applicable to height only
         DragResizer.makeResizable(resultDisplayPlaceholder);
 
-        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
+        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getGradeBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);

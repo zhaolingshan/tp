@@ -13,7 +13,7 @@ import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
 
 /**
- * Adds a module to the address book.
+ * Adds a module to the grade book.
  */
 public class AddCommand extends Command {
 

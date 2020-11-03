@@ -36,7 +36,7 @@ import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 
 public class GradeBookParserTest {
 
-    private final AddressBookParser parser = new AddressBookParser();
+    private final GradeBookParser parser = new GradeBookParser();
 
     @Test
     public void parseCommand_add() throws Exception {

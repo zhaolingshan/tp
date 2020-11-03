@@ -6,7 +6,7 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
 import static seedu.address.testutil.TypicalModules.GEH;
 import static seedu.address.testutil.TypicalModules.GER;
-import static seedu.address.testutil.TypicalModules.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -16,23 +16,23 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.AddressBook;
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.GradeBook;
+import seedu.address.model.ReadOnlyGradeBook;
 import seedu.address.model.module.GoalTarget;
 
 public class JsonGradeBookStorageTest {
-    private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonAddressBookStorageTest");
+    private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonGradeBookStorageTest");
 
     @TempDir
     public Path testFolder;
 
     @Test
-    public void readAddressBook_nullFilePath_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> readAddressBook(null));
+    public void readGradeBook_nullFilePath_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> readGradeBook(null));
     }
 
-    private java.util.Optional<ReadOnlyAddressBook> readAddressBook(String filePath) throws Exception {
-        return new JsonAddressBookStorage(Paths.get(filePath)).readAddressBook(addToTestDataPathIfNotNull(filePath));
+    private java.util.Optional<ReadOnlyGradeBook> readGradeBook(String filePath) throws Exception {
+        return new JsonGradeBookStorage(Paths.get(filePath)).readGradeBook(addToTestDataPathIfNotNull(filePath));
     }
 
     private Path addToTestDataPathIfNotNull(String prefsFileInTestDataFolder) {
@@ -43,70 +43,65 @@ public class JsonGradeBookStorageTest {
 
     @Test
     public void read_missingFile_emptyResult() throws Exception {
-        assertFalse(readAddressBook("NonExistentFile.json").isPresent());
+        assertFalse(readGradeBook("NonExistentFile.json").isPresent());
     }
 
     @Test
     public void read_notJsonFormat_exceptionThrown() {
-        assertThrows(DataConversionException.class, () -> readAddressBook("notJsonFormatAddressBook.json"));
+        assertThrows(DataConversionException.class, () -> readGradeBook("notJsonFormatGradeBook.json"));
     }
 
     @Test
-    public void readAddressBook_invalidModuleAddressBook_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readAddressBook("invalidModuleAddressBook.json"));
+    public void readGradeBook_invalidModuleGradeBook_throwDataConversionException() {
+        assertThrows(DataConversionException.class, () -> readGradeBook("invalidModuleGradeBook.json"));
     }
 
-    //Following test for invalid phone, hence removed.
-    //@Test
-    //public void readAddressBook_invalidAndValidPersonAddressBook_throwDataConversionException() {
-    //assertThrows(DataConversionException.class, () -> readAddressBook("invalidAndValidModuleAddressBook.json"));}
-
     @Test
-    public void readAndSaveAddressBook_allInOrder_success() throws Exception {
+    public void readAndSaveGradeBook_allInOrder_success() throws Exception {
         Path filePath = testFolder.resolve("TempAddressBook.json");
-        AddressBook original = getTypicalAddressBook();
-        JsonAddressBookStorage jsonAddressBookStorage = new JsonAddressBookStorage(filePath);
+        GradeBook original = getTypicalGradeBook();
+        JsonGradeBookStorage jsonGradeBookStorage = new JsonGradeBookStorage(filePath);
         GoalTarget goalTarget = new GoalTarget(2);
 
         // Save in new file and read back
-        jsonAddressBookStorage.saveAddressBook(original, filePath, goalTarget);
-        ReadOnlyAddressBook readBack = jsonAddressBookStorage.readAddressBook(filePath).get();
-        assertEquals(original, new AddressBook(readBack));
+        jsonGradeBookStorage.saveGradeBook(original, filePath, goalTarget);
+        ReadOnlyGradeBook readBack = jsonGradeBookStorage.readGradeBook(filePath).get();
+        assertEquals(original, new GradeBook(readBack));
 
         // Modify data, overwrite exiting file, and read back
         original.addModule(GEH);
         original.removeModule(COM_ORG);
-        jsonAddressBookStorage.saveAddressBook(original, filePath, goalTarget);
-        readBack = jsonAddressBookStorage.readAddressBook(filePath).get();
-        assertEquals(original, new AddressBook(readBack));
+        jsonGradeBookStorage.saveGradeBook(original, filePath, goalTarget);
+        readBack = jsonGradeBookStorage.readGradeBook(filePath).get();
+        assertEquals(original, new GradeBook(readBack));
 
         // Save and read without specifying file path
         original.addModule(GER);
-        jsonAddressBookStorage.saveAddressBook(original, goalTarget); // file path not specified
-        readBack = jsonAddressBookStorage.readAddressBook().get(); // file path not specified
-        assertEquals(original, new AddressBook(readBack));
+        jsonGradeBookStorage.saveGradeBook(original, goalTarget); // file path not specified
+        readBack = jsonGradeBookStorage.readGradeBook().get(); // file path not specified
+        assertEquals(original, new GradeBook(readBack));
 
     }
 
     @Test
-    public void saveAddressBook_nullAddressBook_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> saveAddressBook(null, "SomeFile.json"));
+    public void saveGradeBook_nullGradeBook_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> saveGradeBook(null, "SomeFile.json"));
     }
 
     /**
-     * Saves {@code addressBook} at the specified {@code filePath}.
+     * Saves {@code gradeBook} at the specified {@code filePath}.
      */
-    private void saveAddressBook(ReadOnlyAddressBook addressBook, String filePath) {
+    private void saveGradeBook(ReadOnlyGradeBook gradeBook, String filePath) {
         try {
-            new JsonAddressBookStorage(Paths.get(filePath))
-                    .saveAddressBook(addressBook, addToTestDataPathIfNotNull(filePath), new GoalTarget());
+            new JsonGradeBookStorage(Paths.get(filePath))
+                    .saveGradeBook(gradeBook, addToTestDataPathIfNotNull(filePath), new GoalTarget());
         } catch (IOException ioe) {
             throw new AssertionError("There should not be an error writing to the file.", ioe);
         }
     }
 
     @Test
-    public void saveAddressBook_nullFilePath_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> saveAddressBook(new AddressBook(), null));
+    public void saveGradeBook_nullFilePath_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> saveGradeBook(new GradeBook(), null));
     }
 }

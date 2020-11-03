@@ -8,7 +8,7 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.ProgressCommand.MESSAGE_REQUIRED_CAP;
 import static seedu.address.logic.commands.ProgressCommand.MESSAGE_TARGET_CAP;
 import static seedu.address.logic.commands.ProgressCommand.MESSAGE_UNACHIEVABLE_CAP;
-import static seedu.address.testutil.TypicalModules.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +19,7 @@ import seedu.address.model.module.GoalTarget;
 
 public class ProgressCommandTest {
 
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new GoalTarget());
+    private Model model = new ModelManager(getTypicalGradeBook(), new UserPrefs(), new GoalTarget());
 
     private final boolean isDdp = true;
 
@@ -31,7 +31,7 @@ public class ProgressCommandTest {
                         + String.format(MESSAGE_REQUIRED_CAP, VALID_CAP_A));
 
         ModelManager expectedModel = new ModelManager(
-                getTypicalAddressBook(), new UserPrefs(), new GoalTarget(VALID_GOAL_TARGET_B));
+                getTypicalGradeBook(), new UserPrefs(), new GoalTarget(VALID_GOAL_TARGET_B));
 
         ProgressCommand progressCommand = new ProgressCommand(!isDdp);
         assertCommandSuccess(progressCommand, model, expectedCommandResult, expectedModel);
@@ -45,7 +45,7 @@ public class ProgressCommandTest {
                         + String.format(MESSAGE_REQUIRED_CAP, VALID_CAP_A));
 
         ModelManager expectedModel = new ModelManager(
-                getTypicalAddressBook(), new UserPrefs(), new GoalTarget(VALID_GOAL_TARGET_B));
+                getTypicalGradeBook(), new UserPrefs(), new GoalTarget(VALID_GOAL_TARGET_B));
 
         ProgressCommand progressCommand = new ProgressCommand(isDdp);
         assertCommandSuccess(progressCommand, model, expectedCommandResult, expectedModel);
@@ -59,7 +59,7 @@ public class ProgressCommandTest {
                         + MESSAGE_UNACHIEVABLE_CAP);
 
         ModelManager expectedModel = new ModelManager(
-                getTypicalAddressBook(), new UserPrefs(), new GoalTarget(VALID_GOAL_TARGET_C));
+                getTypicalGradeBook(), new UserPrefs(), new GoalTarget(VALID_GOAL_TARGET_C));
 
         ProgressCommand progressCommand = new ProgressCommand(isDdp);
         assertCommandSuccess(progressCommand, model, expectedCommandResult, expectedModel);

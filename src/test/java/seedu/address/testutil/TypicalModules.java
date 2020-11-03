@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import seedu.address.model.AddressBook;
+import seedu.address.model.GradeBook;
 import seedu.address.model.module.Module;
 import seedu.address.model.semester.Semester;
 
@@ -58,10 +58,10 @@ public class TypicalModules {
     } // prevents instantiation
 
     /**
-     * Returns an {@code AddressBook} with all the typical modules.
+     * Returns an {@code GradeBook} with all the typical modules.
      */
-    public static AddressBook getTypicalAddressBook() {
-        AddressBook ab = new AddressBook();
+    public static GradeBook getTypicalGradeBook() {
+        GradeBook ab = new GradeBook();
         for (Module module : getTypicalModules()) {
             ab.addModule(module);
         }

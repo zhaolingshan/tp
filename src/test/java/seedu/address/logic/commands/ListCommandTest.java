@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.testutil.TypicalModules.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,12 +21,12 @@ public class ListCommandTest {
 
     @BeforeEach
     public void setUp() {
-        model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new GoalTarget());
-        expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget());
+        model = new ModelManager(getTypicalGradeBook(), new UserPrefs(), new GoalTarget());
+        expectedModel = new ModelManager(model.getGradeBook(), new UserPrefs(), new GoalTarget());
     }
 
     @Test
-    public void execute_help_success() {
+    public void execute_list_success() {
         CommandResult expectedCommandResult = new CommandResult(
                 ListCommand.MESSAGE_SUCCESS, false, false, false, true);
         assertCommandSuccess(new ListCommand(), model, expectedCommandResult, expectedModel);

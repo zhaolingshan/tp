@@ -7,7 +7,7 @@ import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.model.AddressBook;
+import seedu.address.model.GradeBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -19,7 +19,7 @@ import seedu.address.model.module.GoalTarget;
  */
 public class SetCommandTest {
 
-    private Model model = new ModelManager(new AddressBook(), new UserPrefs(), new GoalTarget());
+    private Model model = new ModelManager(new GradeBook(), new UserPrefs(), new GoalTarget());
 
     @Test
     public void constructor_nullModule_throwsNullPointerException() {
@@ -33,7 +33,7 @@ public class SetCommandTest {
 
         String expectedMessage = String.format(SetCommand.MESSAGE_SUCCESS, goalTarget);
 
-        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget(1));
+        ModelManager expectedModel = new ModelManager(model.getGradeBook(), new UserPrefs(), new GoalTarget(1));
 
         assertCommandSuccess(setCommand, model, expectedMessage, expectedModel);
     }
@@ -45,7 +45,7 @@ public class SetCommandTest {
 
         String expectedMessage = GoalTarget.GOAL_LIST;
 
-        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget());
+        ModelManager expectedModel = new ModelManager(model.getGradeBook(), new UserPrefs(), new GoalTarget());
 
         assertCommandSuccess(setCommand, model, expectedMessage, expectedModel);
     }
