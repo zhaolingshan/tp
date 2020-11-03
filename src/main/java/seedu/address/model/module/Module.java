@@ -125,8 +125,10 @@ public class Module {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getModuleName())
-                .append(" Grade: ")
-                .append(getGrade());
+                .append(" | Grade: ")
+                .append(getGrade())
+                .append(" | Semester: ")
+                .append(getSemester());
         return builder.toString();
     }
 
