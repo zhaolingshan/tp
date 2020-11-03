@@ -26,7 +26,7 @@ public class ListCommandTest {
     }
 
     @Test
-    public void execute_help_success() {
+    public void execute_list_success() {
         CommandResult expectedCommandResult = new CommandResult(
                 ListCommand.MESSAGE_SUCCESS, false, false, false, true);
         assertCommandSuccess(new ListCommand(), model, expectedCommandResult, expectedModel);
