@@ -251,7 +251,7 @@ To view all the modules that you have taken:
 Reach for the stars! Set your goal level according to NUS’ Honours Classification System 
 or list to show the corresponding levels. \
  \
-Format: ` goal set LEVEL` or `goal list` \
+Format: `goal set LEVEL` or `goal list` \
  \
 Examples:
 *   `goal set 2`
@@ -275,7 +275,7 @@ Examples:
 
 To set your goal to 2 (CAP4.00 ~ 4.49):
 
-1. Type `goal --set 2` into the command box,  and press Enter to execute it. \
+1. Type `goal set 2` into the command box,  and press Enter to execute it. \
 <img src="images/UG SS/2.6 Set Goals 1.png">
 
 2. The result box will display the message: \
@@ -309,7 +309,8 @@ To get recommendations on which modules to S/U:
 <div markdown="span" class="alert alert-info">
 ⚠️ If there are no modules for us to recommend you to S/U, the result box will show:<br><br>
 
-⚠️ Manually added modules will not be recommended to S/U for the command `recommendSU`.
+⚠️ Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed using the command su
+.
 </div>
 
 ### 2.8 S/U module: `su` <a name="S/U_module"></a>
@@ -331,8 +332,9 @@ To S/U a module (e.g. CS1231):
 3. Check if the module’s grade has been changed to “SU” in the list below: \
 <img src="images/UG SS/2.8 SU Module 3.png">
 
-<div markdown="block" class="alert alert-info">
-⚠️ If the module cannot be S/U-ed according to NUS’ guidelines or the module is manually added using parameter `mc`/, the command box will display:<br>
+<div markdown="span" class="alert alert-info">
+⚠️ If the module cannot be S/U-ed according to NUS’ guidelines or the module is manually added using parameter `mc/`, the command box will display:
+<br>
 <img src="images/UG SS/2.8 SU Module 4.png">
 </div>
 
