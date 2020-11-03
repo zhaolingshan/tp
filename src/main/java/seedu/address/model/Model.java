@@ -119,6 +119,11 @@ public interface Model {
     double generateCap();
 
     /**
+     * Returns the current sem as a String.
+     */
+    String generateSem();
+
+    /**
      * Returns the total number of MCs as an integer .
      */
     int getCurrentMc();

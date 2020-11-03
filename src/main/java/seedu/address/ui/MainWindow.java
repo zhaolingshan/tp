@@ -37,12 +37,16 @@ public class MainWindow extends UiPart<Stage> {
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
     private CapBox capBox;
+    private SemBox semBox;
 
     @FXML
     private StackPane commandBoxPlaceholder;
 
     @FXML
     private StackPane capBoxPlaceholder;
+
+    @FXML
+    private StackPane semBoxPlaceholder;
 
     @FXML
     private MenuItem helpMenuItem;
@@ -167,6 +171,9 @@ public class MainWindow extends UiPart<Stage> {
 
         capBox = new CapBox(logic.generateCap());
         capBoxPlaceholder.getChildren().add(capBox.getRoot());
+
+        semBox = new SemBox(logic.generateSem());
+        semBoxPlaceholder.getChildren().add(semBox.getRoot());
     }
 
     /**
@@ -237,8 +244,8 @@ public class MainWindow extends UiPart<Stage> {
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
             logic.resetFilteredList();
-
             CommandResult commandResult = logic.execute(commandText);
+            semBox.setSemDisplay(logic.generateSem());
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
 
@@ -250,12 +257,14 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
-            if (!commandResult.isRecommendSu()) {
+            if (!commandResult.isRecommendSuOrFind()) {
                 capBox.setCapDisplay(logic.generateCap());
             }
 
             if (commandResult.isList()) {
                 moduleListPanel = new ModuleListPanel(logic.filterModuleListByReadOnlySem());
+            } else if (commandResult.isRecommendSuOrFind()) {
+                moduleListPanel = new ModuleListPanel(logic.getFilteredModuleList());
             } else {
                 moduleListPanel = new ModuleListPanel(logic.filterModuleListBySem());
             }

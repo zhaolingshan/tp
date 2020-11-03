@@ -4,7 +4,6 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 
 import java.util.Arrays;
 
-import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
@@ -25,9 +24,6 @@ public class FindCommandParser implements Parser<FindCommand> {
         String trimmedArgs = args.trim();
         SemesterManager semesterManager = SemesterManager.getInstance();
         Semester semester = semesterManager.getCurrentSemester();
-        if (semester == Semester.NA) {
-            throw new ParseException(Messages.MESSAGE_INVALID_COMMAND_SEQUENCE);
-        }
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));

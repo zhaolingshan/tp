@@ -84,14 +84,13 @@ public class GradeBookParser {
             return new SetCommandParser().parse(arguments);
 
         case RecommendSuCommand.COMMAND_WORD:
-            return new RecommendSuCommand();
+            return new RecommendSuCommandParser().parse(arguments);
 
         case ProgressCommand.COMMAND_WORD:
             return new ProgressCommandParser().parse(arguments);
 
         case SuCommand.COMMAND_WORD:
             return new SuCommandParser().parse(arguments);
-
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

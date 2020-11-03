@@ -6,23 +6,23 @@ import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSucces
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.Messages;
-import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.RecommendSuCommand;
 
-public class ListCommandParserTest {
+public class RecommendSuCommandParserTest {
 
-    private ListCommandParser parser = new ListCommandParser();
+    private RecommendSuCommandParser parser = new RecommendSuCommandParser();
 
     @Test
     public void parse_invalidValue_failure() {
-        final String invalidValue = "hello";
+        final String invalidValue = "e";
         assertParseFailure(parser, invalidValue,
-                String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, ListCommand.MESSAGE_USAGE));
+                String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, RecommendSuCommand.MESSAGE_USAGE));
     }
 
     @Test
     public void parse_validValue_success() {
         final String validValue = "";
-        ListCommand listCommand = new ListCommand();
-        assertParseSuccess(parser, validValue, listCommand);
+        RecommendSuCommand recommendSuCommand = new RecommendSuCommand();
+        assertParseSuccess(parser, validValue, recommendSuCommand);
     }
 }

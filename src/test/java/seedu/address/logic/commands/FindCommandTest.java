@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_MODULES_LISTED_OVERVIEW;
+import static seedu.address.commons.core.Messages.MESSAGE_NO_MODULES_FOUND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalModules.SWE;
 import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
@@ -55,7 +56,7 @@ public class FindCommandTest {
 
     @Test
     public void execute_zeroKeywords_noModuleFound() {
-        String expectedMessage = String.format(MESSAGE_MODULES_LISTED_OVERVIEW, 0);
+        String expectedMessage = String.format(MESSAGE_NO_MODULES_FOUND, 0);
         ModuleNameContainsKeywordsPredicate predicate = preparePredicate(" ");
         FindCommand command = new FindCommand(predicate);
         expectedModel.updateFilteredModuleList(predicate);

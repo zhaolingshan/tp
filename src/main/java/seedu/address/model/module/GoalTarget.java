@@ -9,7 +9,7 @@ public class GoalTarget {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Goal should be an integer from 1 to 6, and it should not be blank."
-                    + "\nUse command 'goal --list' to see all goals!";
+                    + "\nUse command 'goal list' to see all goals!";
 
     /*
      * The first character of the address must not be a whitespace,
@@ -23,12 +23,12 @@ public class GoalTarget {
     public static final String HONOURS = "Honours (CAP 3.00 ~ 3.49)";
     public static final String PASS = "Pass (CAP 2.00 ~ 2.99)";
     public static final String FAIL = "Fail (CAP < 2.00)";
-    public static final String GOAL_LIST = "'goal --set 1': " + HIGHEST_DISTINCTION
-            + "\n'goal --set 2': " + DISTINCTION
-            + "\n'goal --set 3': " + MERIT
-            + "\n'goal --set 4': " + HONOURS
-            + "\n'goal --set 5': " + PASS
-            + "\n'goal --set 6': " + FAIL;
+    public static final String GOAL_LIST = "'goal set 1': " + HIGHEST_DISTINCTION
+            + "\n'goal set 2': " + DISTINCTION
+            + "\n'goal set 3': " + MERIT
+            + "\n'goal set 4': " + HONOURS
+            + "\n'goal set 5': " + PASS
+            + "\n'goal set 6': " + FAIL;
     public static final int DEFAULT_GOAL = 0;
     public static final double HIGHEST_DISTINCTION_CAP = 4.5;
     public static final double DISTINCTION_CAP = 4.0;

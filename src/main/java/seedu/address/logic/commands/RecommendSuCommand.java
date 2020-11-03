@@ -4,7 +4,6 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.module.Cap;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.util.ModuleInfoRetriever;
@@ -14,6 +13,9 @@ import seedu.address.model.util.ModuleInfoRetriever;
  */
 public class RecommendSuCommand extends Command {
     public static final String COMMAND_WORD = "recommendSU";
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + ": Recommends modules to S/U based on your goal and CAP.\n"
+            + "Example: " + COMMAND_WORD;
     public static final String MESSAGE_SUCCESS = "Here's the list of module(s) that we recommend to S/U!\n"
             + "Use command 'list' to view all modules again.";
     public static final String MESSAGE_SUCCESS_NO_RECOMMENDATION = "Looks like there is no module that we "
@@ -69,9 +71,7 @@ public class RecommendSuCommand extends Command {
      * @return boolean True if all three conditions are satisfied, else false.
      */
     private boolean isRecommendSu(GoalTarget goal, Module x) {
-        return isGradeAboveC(x)
-                && isModSuAble(x)
-                && isGradeBelowGoal(x, goal);
+        return isGraded(x) && isModSuAble(x) && isGradeBelowGoal(x, goal);
     }
 
     /**
@@ -86,15 +86,14 @@ public class RecommendSuCommand extends Command {
     }
 
     /**
-     * Returns true if the module's grade is C and above (condition to S/U a grade).
+     * Checks if module's grade is valid.
      *
-     * @param x Module.
-     * @return boolean True is the grade of module is C and above, else false.
+     * @param x    Module to be compared.
+     * @return boolean True if the module grade is a valid grade, ie not NA or SUed.
      */
-    private boolean isGradeAboveC(Module x) {
-        return x.getGrade().getGradePoint() > Cap.D_PLUS.getGradePoint();
+    private boolean isGraded(Module x) {
+        return (x.getGrade().toString() != "NA" && x.getGrade().toString() != "SU");
     }
-
     /**
      * Returns true if module can be S/U from data.
      *
@@ -104,6 +103,11 @@ public class RecommendSuCommand extends Command {
     private boolean isModSuAble(Module module) {
         String status = ModuleInfoRetriever.retrieve(module.getModuleName().fullModName).get("su");
         return status.contains("true");
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof RecommendSuCommand; // instanceof handles nulls
     }
 
 }

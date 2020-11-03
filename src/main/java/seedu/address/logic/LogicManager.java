@@ -120,4 +120,9 @@ public class LogicManager implements Logic {
     public void resetFilteredList() {
         model.resetFilteredList();
     }
+
+    @Override
+    public String generateSem() {
+        return model.generateSem();
+    };
 }
