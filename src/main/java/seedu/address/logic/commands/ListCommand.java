@@ -21,37 +21,37 @@ public class ListCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Listed all modules";
 
-    private final Semester readOnlySemester;
+//    private final Semester readOnlySemester;
 
     /**
      * Creates a ListCommand to add the specified {@code Semester}
      */
-    public ListCommand(Semester semester) throws ParseException {
-        requireNonNull(semester);
-        if (!SemesterManager.isValidSemester(semester.toString())) {
-            throw new ParseException(Messages.MESSAGE_INVALID_SEMESTER);
-        }
-        readOnlySemester = semester;
-    }
+//    public ListCommand(Semester semester) throws ParseException {
+//        requireNonNull(semester);
+//        if (!SemesterManager.isValidSemester(semester.toString())) {
+//            throw new ParseException(Messages.MESSAGE_INVALID_SEMESTER);
+//        }
+//        readOnlySemester = semester;
+//    }
 
-    public ListCommand() {
-        readOnlySemester = Semester.NA;
-    }
-
-
+//    public ListCommand() {
+//        readOnlySemester = Semester.NA;
+//    }
+    
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setReadOnlySem(readOnlySemester);
-        model.updateFilteredModuleList(PREDICATE_SHOW_ALL_MODULES);
-
-        if (readOnlySemester == Semester.NA) {
-            return new CommandResult(MESSAGE_SUCCESS);
-        } else {
-            return new CommandResult(MESSAGE_SUCCESS + " in " + readOnlySemester.toString(),
-                    false, false, false, true);
-        }
+//        SemesterManager semesterManager = SemesterManager.getInstance();
+//        semesterManager.setReadOnlySem(readOnlySemester);
+//        model.updateFilteredModuleList(PREDICATE_SHOW_ALL_MODULES);
+//
+//        if (readOnlySemester == Semester.NA) {
+//            return new CommandResult(MESSAGE_SUCCESS);
+//        } else {
+//            return new CommandResult(MESSAGE_SUCCESS + " in " + readOnlySemester.toString(),
+//                    false, false, false, true);
+//        }
+        return new CommandResult(MESSAGE_SUCCESS, false, false, false, true);
     }
 
     @Override
