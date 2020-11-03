@@ -17,7 +17,7 @@ public class ProgressCommand extends Command {
             + "calculates the average CAP required for your remaining modules to reach your target.\n"
             + "Parameters: "
             + "[" + PREFIX_DOUBLE_DEGREE + "]\n"
-            + "Example: " + COMMAND_WORD + " --ddp";
+            + "Example: " + COMMAND_WORD + " " + PREFIX_DOUBLE_DEGREE;
 
     public static final String MESSAGE_REQUIRED_CAP = "The average CAP required for your remaining modules "
             + "to meet your target is: %.2f";
