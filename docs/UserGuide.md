@@ -15,15 +15,15 @@ Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in th
     * [1.4 Glossaries](#Glossaries)
     * [1.5 Getting Started](#Getting_Started)
     
-* [2. Key Features](#Key_Feature)
+* [2. Key Features](#Key_Features)
     * [2.1 Summary of Key Features](#Summary_of_Key_Features)
-    * [2.2 Edit Semester](Edit_Semester)
+    * [2.2 Edit Semester](#Edit_Semester)
     * [2.3 Add Module](#Add_Module)
     * [2.4 Update Module](#Update_Module)
     * [2.5 List all Modules](#List_all_Modules)
     * [2.6 Set Goals](#Set_Goals)
     * [2.7 Recommend S/U](#Recommend_S/U)
-    * [2.8 S/U Mobile](#S/U_Module)
+    * [2.8 S/U Module](#S/U_Module)
     * [2.9 Delete Module](#Delete_Module)
     * [2.10 Exit Semester](#Exit_Semester)
     * [2.11 Find Module](#Find_Module)
@@ -117,11 +117,11 @@ Below is information about the features and commands of `MyMods`.
 <div markdown="span" class="alert alert-info">
 ⚠️ <strong>Important information about the command format:</strong><br><br>
 
-* Words in <strong>UPPER_CASE</strong> are the parameters to be supplied by the user. e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.<br>
+* Words in <strong>UPPER_CASE</strong> are the parameters to be supplied by the user. e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.<br><br>
 
-* Items in <strong>SQUARE BRACKETS</strong> are optional input parameters. e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br>
+* Items in <strong>SQUARE BRACKETS</strong> are optional input parameters. e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br><br>
 
-* Parameters are <strong>NOT case-sensitive</strong>. e.g. `add m/CS2100` is the same as `add m/cs2100`.<br>
+* Parameters are <strong>NOT case-sensitive</strong>. e.g. `add m/CS2100` is the same as `add m/cs2100`.<br><br>
 
 </div>
 
@@ -168,7 +168,7 @@ To edit a Semester (e.g. Y2S1):
 :bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
 </div>
 
-### 2.3 Add module: `add` <a name="Add_module"></a>
+### 2.3 Add module: `add` <a name="Add_Module"></a>
 Yes! After starting a semester, we can now add a module to your list. \
 \
 Format: `add m/MODULE_CODE [g/GRADE]`\
@@ -196,7 +196,7 @@ To add a module that is not in our database(e.g. CS1101A):<br><br>
 
 1. Type `add m/CS1101A mc/4` (with `mc/`) into the command box, and press Enter to execute it.<br><br>
 
-⚠️ Manually added modules will not be recommended to S/U for the command `recommendSU`.
+⚠️ Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed using the command `su`.
 
 </div>
 
@@ -260,12 +260,12 @@ Examples:
 <div markdown="span" class="alert alert-primary">
 :bulb: Below is the NUS Honours Classification System :<br><br>
 
-* Highest Distinction (CAP <strong>4.50 ~ 5.00</strong>)<br>
-* Distinction (CAP <strong>4.00 ~ 4.49</strong>)<br>
-* Merit (CAP <strong>3.50 ~ 3.99</strong>)<br>
-* Honours (CAP <strong>3.00 ~ 3.49</strong>)<br>
-* Pass (CAP <strong>2.00 ~ 2.99</strong>)<br>
-* Fail (CAP <strong>< 2.00</strong>)<br>
+* 6: Highest Distinction (CAP <strong>4.50 ~ 5.00</strong>)<br>
+* 5: Distinction (CAP <strong>4.00 ~ 4.49</strong>)<br>
+* 4: Merit (CAP <strong>3.50 ~ 3.99</strong>)<br>
+* 3: Honours (CAP <strong>3.00 ~ 3.49</strong>)<br>
+* 2: Pass (CAP <strong>2.00 ~ 2.99</strong>)<br>
+* 1: Fail (CAP <strong>< 2.00</strong>)<br>
 
 <br>
 
