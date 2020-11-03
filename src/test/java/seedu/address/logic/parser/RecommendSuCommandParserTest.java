@@ -22,7 +22,7 @@ public class RecommendSuCommandParserTest {
     @Test
     public void parse_validValue_success() {
         final String validValue = "";
-        RecommendSuCommand recommendSUCommand = new RecommendSuCommand();
-        assertParseSuccess(parser, validValue, recommendSUCommand);
+        RecommendSuCommand recommendSuCommand = new RecommendSuCommand();
+        assertParseSuccess(parser, validValue, recommendSuCommand);
     }
 }

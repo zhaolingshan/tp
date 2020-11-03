@@ -91,7 +91,7 @@ public class AddressBookParser {
 
         case SuCommand.COMMAND_WORD:
             return new SuCommandParser().parse(arguments);
-            
+
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
