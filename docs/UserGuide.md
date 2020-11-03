@@ -117,6 +117,7 @@ Below is information about the features and commands of `MyMods`.
 <div markdown="span" class="alert alert-info">
 ⚠️ <strong>Important information about the command format:</strong><br><br>
 
+<ul>
 <li> Words in **UPPER_CASE** are the parameters to be supplied by the user. 
 e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.</li><br><br>
 
@@ -124,6 +125,7 @@ e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `
 e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.</li><br><br>
 
 <li>Parameters are **NOT case-sensitive**. e.g. `add m/CS2100` is the same as `add m/cs2100`.</li><br>
+</ul>
 </div>
 
 ### 2.1 Summary of Key Features <a name="Summary_of_Key_Features"></a>
@@ -261,12 +263,14 @@ Examples:
 <div markdown="span" class="alert alert-primary">
 :bulb: Below is the NUS Honours Classification System :<br><br>
 
+<ul>
 <li>Highest Distinction (CAP **4.50 ~ 5.00**)</li><br>
 <li>Distinction (CAP **4.00 ~ 4.49**)</li><br>
 <li>Merit (CAP **3.50 ~ 3.99**)</li><br>
 <li>Honours (CAP **3.00 ~ 3.49**)</li><br>
 <li>Pass (CAP **2.00 ~ 2.99**)</li><br>
 <li>Fail (CAP **< 2.00**)</li><br><br>
+</ul>
 
 :bulb: You can also show the same list in MyMods using `goal list`:
 
