@@ -1,13 +1,11 @@
 package seedu.address.logic.parser;
 
-import static java.util.Objects.requireNonNull;
-
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.semester.Semester;
-
-
+/**
+ * Parses input arguments and creates a new ListCommand object
+ */
 public class ListCommandParser implements Parser<ListCommand> {
 
     /**
@@ -18,16 +16,11 @@ public class ListCommandParser implements Parser<ListCommand> {
      */
     @Override
     public ListCommand parse(String userInput) throws ParseException {
-        requireNonNull(userInput);
-        if (userInput.trim().equals("")) {
-            return new ListCommand();
-        }
-        try {
-            Semester semester = ParserUtil.parseSemester(userInput);
-            return new ListCommand(semester);
-        } catch (ParseException pe) {
+        String trimmedInput = userInput.trim();
+        if (!trimmedInput.equals("")) {
             throw new ParseException(
-                    String.format(Messages.MESSAGE_INVALID_SEMESTER), pe);
+                    String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, ListCommand.MESSAGE_USAGE));
         }
+        return new ListCommand();
     }
 }

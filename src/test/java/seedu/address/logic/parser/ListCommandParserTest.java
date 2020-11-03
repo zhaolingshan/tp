@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.ListCommand;
-import seedu.address.model.semester.Semester;
-import seedu.address.model.semester.SemesterManager;
 
 public class ListCommandParserTest {
 
@@ -16,17 +14,13 @@ public class ListCommandParserTest {
 
     @Test
     public void parse_invalidValue_failure() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y1S1);
         final String invalidValue = "hello";
         assertParseFailure(parser, invalidValue,
-                String.format(Messages.MESSAGE_INVALID_SEMESTER, ListCommand.MESSAGE_USAGE));
+                String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, ListCommand.MESSAGE_USAGE));
     }
 
     @Test
     public void parse_validValue_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y1S1);
         final String validValue = "";
         ListCommand listCommand = new ListCommand();
         assertParseSuccess(parser, validValue, listCommand);
