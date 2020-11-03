@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.JsonUtil;
-import seedu.address.model.AddressBook;
+import seedu.address.model.GradeBook;
 import seedu.address.testutil.TypicalModules;
 
 public class JsonSerializableAddressBookTest {
@@ -26,26 +26,26 @@ public class JsonSerializableAddressBookTest {
 
     @Test
     public void toModelType_typicalModulesFile_success() throws Exception {
-        JsonSerializableAddressBook dataFromFile = JsonUtil.readJsonFile(TYPICAL_MODULES_FILE,
-                JsonSerializableAddressBook.class).get();
-        AddressBook addressBookFromFile = dataFromFile.toModelType();
-        AddressBook typicalModuleAddressBook = TypicalModules.getTypicalAddressBook();
+        JsonSerializableGradeBook dataFromFile = JsonUtil.readJsonFile(TYPICAL_MODULES_FILE,
+                JsonSerializableGradeBook.class).get();
+        GradeBook addressBookFromFile = dataFromFile.toModelType();
+        GradeBook typicalModuleAddressBook = TypicalModules.getTypicalGradeBook();
         assertEquals(addressBookFromFile, typicalModuleAddressBook);
     }
     //commented as INVALID_PERSON_FILE is about testing invalid email(removed) format, so IllegalValueException
     //will not be thrown - kunnan 5/10/2020
     //@Test
     //public void toModelType_invalidPersonFile_throwsIllegalValueException() throws Exception {
-    //JsonSerializableAddressBook dataFromFile = JsonUtil.readJsonFile(INVALID_PERSON_FILE,
-    //JsonSerializableAddressBook.class).get();
+    //JsonSerializableGradeBook dataFromFile = JsonUtil.readJsonFile(INVALID_PERSON_FILE,
+    //JsonSerializableGradeBook.class).get();
     //assertThrows(IllegalValueException.class, dataFromFile::toModelType);
     //}
 
     @Test
     public void toModelType_duplicateModules_throwsIllegalValueException() throws Exception {
-        JsonSerializableAddressBook dataFromFile = JsonUtil.readJsonFile(DUPLICATE_MODULE_FILE,
-                JsonSerializableAddressBook.class).get();
-        assertThrows(IllegalValueException.class, JsonSerializableAddressBook.MESSAGE_DUPLICATE_MODULE,
+        JsonSerializableGradeBook dataFromFile = JsonUtil.readJsonFile(DUPLICATE_MODULE_FILE,
+                JsonSerializableGradeBook.class).get();
+        assertThrows(IllegalValueException.class, JsonSerializableGradeBook.MESSAGE_DUPLICATE_MODULE,
                 dataFromFile::toModelType);
     }
 }

@@ -38,39 +38,39 @@ public interface Model {
     void setGuiSettings(GuiSettings guiSettings);
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' grade book file path.
      */
-    Path getAddressBookFilePath();
+    Path getGradeBookFilePath();
 
     /**
-     * Sets the user prefs' address book file path.
+     * Sets the user prefs' grade book file path.
      */
-    void setAddressBookFilePath(Path addressBookFilePath);
+    void setGradeBookFilePath(Path gradeBookFilePath);
 
     /**
-     * Replaces address book data with the data in {@code addressBook}.
+     * Replaces grade book data with the data in {@code gradeBook}.
      */
-    void setAddressBook(ReadOnlyAddressBook addressBook);
+    void setGradeBook(ReadOnlyGradeBook gradeBook);
 
     /**
-     * Returns the AddressBook
+     * Returns the GradeBook
      */
-    ReadOnlyAddressBook getAddressBook();
+    ReadOnlyGradeBook getGradeBook();
 
     /**
-     * Returns true if a module with the same identity as {@code module} exists in the address book.
+     * Returns true if a module with the same identity as {@code module} exists in the grade book.
      */
     boolean hasModule(Module module);
 
     /**
      * Deletes the given module.
-     * The module must exist in the address book.
+     * The module must exist in the grade book.
      */
     void deleteModule(Module target);
 
     /**
      * Adds the given module.
-     * {@code module} must not already exist in the address book.
+     * {@code module} must not already exist in the grade book.
      */
     void addModule(Module module);
 

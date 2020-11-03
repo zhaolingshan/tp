@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_MODULES_LISTED_OVERVIEW;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalModules.SWE;
-import static seedu.address.testutil.TypicalModules.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -23,8 +23,8 @@ import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
  * Contains integration tests (interaction with the Model) for {@code FindCommand}.
  */
 public class FindCommandTest {
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new GoalTarget());
-    private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new GoalTarget());
+    private Model model = new ModelManager(getTypicalGradeBook(), new UserPrefs(), new GoalTarget());
+    private Model expectedModel = new ModelManager(getTypicalGradeBook(), new UserPrefs(), new GoalTarget());
 
     @Test
     public void equals() {

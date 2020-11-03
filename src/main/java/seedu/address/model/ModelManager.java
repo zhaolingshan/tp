@@ -19,33 +19,33 @@ import seedu.address.model.util.ModuleListFilter;
 import seedu.address.model.util.ModuleListSorter;
 
 /**
- * Represents the in-memory model of the address book data.
+ * Represents the in-memory model of the grade book data.
  */
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final AddressBook addressBook;
+    private final GradeBook gradeBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Module> filteredModules;
     private GoalTarget goalTarget;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given gradeBook and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs, GoalTarget goalTarget) {
+    public ModelManager(ReadOnlyGradeBook gradeBook, ReadOnlyUserPrefs userPrefs, GoalTarget goalTarget) {
         super();
-        requireAllNonNull(addressBook, userPrefs);
+        requireAllNonNull(gradeBook, userPrefs);
 
-        logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
+        logger.fine("Initializing with grade book: " + gradeBook + " and user prefs " + userPrefs);
 
-        this.addressBook = new AddressBook(addressBook);
+        this.gradeBook = new GradeBook(gradeBook);
         this.userPrefs = new UserPrefs(userPrefs);
         this.goalTarget = goalTarget;
-        filteredModules = new FilteredList<>(this.addressBook.getModuleList());
+        filteredModules = new FilteredList<>(this.gradeBook.getModuleList());
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs(), new GoalTarget());
+        this(new GradeBook(), new UserPrefs(), new GoalTarget());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -73,42 +73,42 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public Path getAddressBookFilePath() {
-        return userPrefs.getAddressBookFilePath();
+    public Path getGradeBookFilePath() {
+        return userPrefs.getGradeBookFilePath();
     }
 
     @Override
-    public void setAddressBookFilePath(Path addressBookFilePath) {
-        requireNonNull(addressBookFilePath);
-        userPrefs.setAddressBookFilePath(addressBookFilePath);
+    public void setGradeBookFilePath(Path gradeBookFilePath) {
+        requireNonNull(gradeBookFilePath);
+        userPrefs.setGradeBookFilePath(gradeBookFilePath);
     }
 
-    //=========== AddressBook ================================================================================
+    //=========== GradeBook ================================================================================
 
     @Override
-    public void setAddressBook(ReadOnlyAddressBook addressBook) {
-        this.addressBook.resetData(addressBook);
+    public void setGradeBook(ReadOnlyGradeBook gradeBook) {
+        this.gradeBook.resetData(gradeBook);
     }
 
     @Override
-    public ReadOnlyAddressBook getAddressBook() {
-        return addressBook;
+    public ReadOnlyGradeBook getGradeBook() {
+        return gradeBook;
     }
 
     @Override
     public boolean hasModule(Module module) {
         requireNonNull(module);
-        return addressBook.hasModule(module);
+        return gradeBook.hasModule(module);
     }
 
     @Override
     public void deleteModule(Module target) {
-        addressBook.removeModule(target);
+        gradeBook.removeModule(target);
     }
 
     @Override
     public void addModule(Module module) {
-        addressBook.addModule(module);
+        gradeBook.addModule(module);
         updateFilteredModuleList(PREDICATE_SHOW_ALL_MODULES);
     }
 
@@ -116,14 +116,14 @@ public class ModelManager implements Model {
     public void setModule(Module target, Module updatedModule) {
         requireAllNonNull(target, updatedModule);
 
-        addressBook.setModule(target, updatedModule);
+        gradeBook.setModule(target, updatedModule);
     }
 
     //=========== Filtered Module List Accessors =============================================================
 
     /**
      * Returns an unmodifiable view of the list of {@code Module} backed by the internal list of
-     * {@code versionedAddressBook}
+     * {@code versionedGradeBook}
      */
     @Override
     public ObservableList<Module> getFilteredModuleList() {
@@ -183,7 +183,7 @@ public class ModelManager implements Model {
 
         // state check
         ModelManager other = (ModelManager) obj;
-        return addressBook.equals(other.addressBook)
+        return gradeBook.equals(other.gradeBook)
                 && userPrefs.equals(other.userPrefs)
                 && filteredModules.equals(other.filteredModules);
     }

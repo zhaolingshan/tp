@@ -14,7 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.AddressBook;
+import seedu.address.model.GradeBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -37,8 +37,8 @@ public class RecommendSuCommandTest {
 
     @BeforeEach
     public void setUp() {
-        model = new ModelManager(new AddressBook(), new UserPrefs(), new GoalTarget(4));
-        modelNoGoal = new ModelManager(new AddressBook(), new UserPrefs(), new GoalTarget());
+        model = new ModelManager(new GradeBook(), new UserPrefs(), new GoalTarget(4));
+        modelNoGoal = new ModelManager(new GradeBook(), new UserPrefs(), new GoalTarget());
 
         Module module1 = new ModuleBuilder().withName("CS1231").withGrade("C").build();
         Module module2 = new ModuleBuilder().withName("MA1521").withGrade("C").build();
@@ -49,20 +49,20 @@ public class RecommendSuCommandTest {
         List<Module> moduleListTest3 = Arrays.asList(module1, module2);
         List<Module> expectedModuleListTest2 = Collections.singletonList(module1);
 
-        AddressBook addressBookWithModulesA = new AddressBook();
-        AddressBook addressBookWithModulesB = new AddressBook();
-        AddressBook expectedAddressBookWithModulesA = new AddressBook();
+        GradeBook gradeBookWithModulesA = new GradeBook();
+        GradeBook gradeBookWithModulesB = new GradeBook();
+        GradeBook expectedGradeBookWithModulesA = new GradeBook();
 
-        addressBookWithModulesA.setModules(moduleListTest2);
-        addressBookWithModulesB.setModules(moduleListTest3);
-        expectedAddressBookWithModulesA.setModules(expectedModuleListTest2);
+        gradeBookWithModulesA.setModules(moduleListTest2);
+        gradeBookWithModulesB.setModules(moduleListTest3);
+        expectedGradeBookWithModulesA.setModules(expectedModuleListTest2);
 
-        modelWithModuleA = new ModelManager(addressBookWithModulesA, new UserPrefs(), new GoalTarget(2));
-        modelWithModuleB = new ModelManager(addressBookWithModulesB, new UserPrefs(), new GoalTarget(2));
+        modelWithModuleA = new ModelManager(gradeBookWithModulesA, new UserPrefs(), new GoalTarget(2));
+        modelWithModuleB = new ModelManager(gradeBookWithModulesB, new UserPrefs(), new GoalTarget(2));
 
         expectedModelWithModuleA =
-            new ModelManager(expectedAddressBookWithModulesA, new UserPrefs(), new GoalTarget(2));
-        expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget(4));
+            new ModelManager(expectedGradeBookWithModulesA, new UserPrefs(), new GoalTarget(2));
+        expectedModel = new ModelManager(model.getGradeBook(), new UserPrefs(), new GoalTarget(4));
     }
 
     @Test
