@@ -59,6 +59,13 @@ public interface Logic {
     String generateCap();
 
     /**
+     * Returns the sem the user is currently editting.
+     *
+     * @return a string representation of the sem.
+     */
+    String generateSem();
+
+    /**
      * Returns the filtered list of modules by semester.
      *
      * @return the filtered module list according to semester.
@@ -74,4 +81,5 @@ public interface Logic {
     ObservableList<Module> sortModuleListBySem();
 
     void resetFilteredList();
+
 }
