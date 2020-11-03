@@ -53,7 +53,7 @@ English though!
 
 * Important information will be shown in a box:
 <div markdown="span" class="alert alert-info">
-⚠️ This symbol indicates important information.
+:warning: This symbol indicates important information.
 </div>
 
 * `start`: A grey highlight (called a mark-up) indicates that this is a command that can be typed into the command line 
@@ -115,7 +115,7 @@ You can change the colours using the tab “Theme”.
 Below is information about the features and commands of `MyMods`.
 
 <div markdown="span" class="alert alert-info">
-⚠️ <strong>Important information about the command format:</strong><br><br>
+:warning: <strong>Important information about the command format:</strong><br><br>
 
 * Words in <strong>UPPER_CASE</strong> are the parameters to be supplied by the user. e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.<br><br>
 
@@ -153,7 +153,7 @@ Examples:
 
 * Important information will be shown in a box:
 <div markdown="span" class="alert alert-info">
-⚠️ You can only add, edit or delete modules after starting a particular semester.
+:warning: You can only add, edit or delete modules after starting a particular semester.
 </div>
 
 To edit a Semester (e.g. Y2S1):
@@ -190,13 +190,16 @@ To add a module (e.g. add CS1101S):
 <img src="images/UG SS/2.3 Add Module 3.png">
 
 <div markdown="span" class="alert alert-info">
-⚠️ Our database is valid up to modules in the AY19/20 academic year. So if the modules you are adding is 
+:warning: Our database is valid up to modules in the AY19/20 academic year. So if the modules you are adding is 
 new in AY20/21 academic year, the following message will be shown:<br><br>
-To add a module that is not in our database(e.g. CS1101A):<br><br>
+</div>
 
-1. Type `add m/CS1101A mc/4` (with `mc/`) into the command box, and press Enter to execute it.<br><br>
+To add a module that is not in our database(e.g. CS1101A): \
+\
+Type `add m/CS1101A mc/4` (with `mc/`) into the command box, and press Enter to execute it.<br>
 
-⚠️ Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed using the command `su`.
+<div markdown="span" class="alert alert-info">
+:warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed using the command `su`.
 
 </div>
 
@@ -232,7 +235,7 @@ Examples:
 *   `list`
 
 <div markdown="span" class="alert alert-info">
-⚠️ If <strong>you are editing a semester</strong> (e.g. Y2S1), 
+:warning: <strong>If you are editing a semester</strong> (e.g. Y2S1), 
 only modules from that semester(e.g. Y2S1) will be listed.
 </div><br>
 To view all the modules that you have taken:
@@ -258,19 +261,18 @@ Examples:
 *   `goal list`
 
 <div markdown="span" class="alert alert-primary">
-:bulb: Below is the NUS Honours Classification System with respect to the `LEVEL`:<br><br>
+:bulb: Below is the NUS Honours Classification System with respect to the `LEVEL`:
+</div><br>
 
-* `6`: Highest Distinction (CAP <strong>4.50 ~ 5.00</strong>)<br>
-* `5`: Distinction (CAP <strong>4.00 ~ 4.49</strong>)<br>
-* `4`: Merit (CAP <strong>3.50 ~ 3.99</strong>)<br>
-* `3`: Honours (CAP <strong>3.00 ~ 3.49</strong>)<br>
-* `2`: Pass (CAP <strong>2.00 ~ 2.99</strong>)<br>
-* `1`: Fail (CAP <strong>< 2.00</strong>)<br>
+* `6`: Highest Distinction (CAP **4.50 ~ 5.00**)
+* `5`: Distinction (CAP **4.00 ~ 4.49**)
+* `4`: Merit (CAP **3.50 ~ 3.99**)
+* `3`: Honours (CAP **3.00 ~ 3.49**)
+* `2`: Pass (CAP **2.00 ~ 2.99**)
+* `1`: Fail (CAP **< 2.00**)<br><br>
 
-<br>
-
+<div markdown="span" class="alert alert-primary">
 :bulb: You can also show the same list in MyMods using `goal list`:
-
 </div>
 
 To set your goal to 2 (CAP4.00 ~ 4.49):
@@ -307,10 +309,12 @@ To get recommendations on which modules to S/U:
 <img src="images/UG SS/2.7 Recommend SU 3.png">
 
 <div markdown="span" class="alert alert-info">
-⚠️ If there are no modules for us to recommend you to S/U, the result box will show:<br><br>
+:warning: If there are no modules for us to recommend you to S/U, the result box will show:<br><br>
+</div>
 
-⚠️ Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed using the command su
-.
+<div>
+:warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed 
+using the command `su`.
 </div>
 
 ### 2.8 S/U module: `su` <a name="S/U_Module"></a>
@@ -333,7 +337,7 @@ To S/U a module (e.g. CS1231):
 <img src="images/UG SS/2.8 SU Module 3.png">
 
 <div markdown="span" class="alert alert-info">
-⚠️ If the module cannot be S/U-ed according to NUS’ guidelines or the module is manually added using parameter `mc/`, the command box will display:
+:warning: If the module cannot be S/U-ed according to NUS’ guidelines or the module is manually added using parameter `mc/`, the command box will display:
 <br>
 <img src="images/UG SS/2.8 SU Module 4.png">
 </div>
@@ -418,7 +422,7 @@ Examples:
 *   `progress ddp`
 
 <div markdown="span" class="alert alert-primary">
-:bulb: ddp here refers to NUS’s Double Degree Programme.
+:bulb: ddp here refers to NUS’s Double Degree Programme. Include it if you are in a ddp.
 </div>
  
 To calculate the CAP required to achieve your goal:
