@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-# 1. Product Overview <a name="Product Overview"></a>
+## 1. Product Overview <a name="Product Overview"></a>
 Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in this section.
 
 ### 1.1 Table of Contents <a name="Table of Contents"></a>
@@ -51,7 +51,7 @@ English though!
 
 * Important information will be shown in a box:
 <div markdown="span" class="alert alert-info">
-**:information_source: This symbol indicates important information.
+:information_source: This symbol indicates important information.
 </div>
 
 * `start`: A grey highlight (called a mark-up) indicates that this is a command that can be typed into the command line 
@@ -88,7 +88,7 @@ S/U | Satisfactory / Unsatisfactory option in NUS
 MyMods.jar`. The window (without any modules) similar to the interface shown below will appear.
 
 <div markdown="block" class="alert alert-info">
-:bulb:: Check your Java version by typing java -version in the Command Prompt
+:bulb: Tip: Check your Java version by typing java -version in the Command Prompt
 
 <img src="images/UG SS/1.5 Getting Started 1.png">
 </div>
@@ -98,11 +98,11 @@ home folder.
 
 #### The Interface
 
-This is what MyMods looks like:
+This is what MyMods looks like: \
 <img src="images/UG SS/1.5 Getting Started 2.png">
 
 <div markdown="span" class="alert alert-primary">
-:bulb:: Default colours looking different? Fret not! The theme of MyMods is determined by the time of the day. 
+:bulb: Tip: Default colours looking different? Fret not! The theme of MyMods is determined by the time of the day. 
 You can change the colours using the tab “Theme”.
 </div>
 
