@@ -14,6 +14,9 @@ import seedu.address.model.util.ModuleInfoRetriever;
  */
 public class RecommendSuCommand extends Command {
     public static final String COMMAND_WORD = "recommendSU";
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + ": Recommends modules to S/U based on your goal and CAP.\n"
+            + "Example: " + COMMAND_WORD;
     public static final String MESSAGE_SUCCESS = "Here's the list of module(s) that we recommend to S/U!\n"
             + "Use command 'list' to view all modules again.";
     public static final String MESSAGE_SUCCESS_NO_RECOMMENDATION = "Looks like there is no module that we "
