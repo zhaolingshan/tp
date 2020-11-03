@@ -258,14 +258,14 @@ Examples:
 *   `goal list`
 
 <div markdown="span" class="alert alert-primary">
-:bulb: Below is the NUS Honours Classification System :<br><br>
+:bulb: Below is the NUS Honours Classification System with respect to the `LEVEL`:<br><br>
 
-* 6: Highest Distinction (CAP <strong>4.50 ~ 5.00</strong>)<br>
-* 5: Distinction (CAP <strong>4.00 ~ 4.49</strong>)<br>
-* 4: Merit (CAP <strong>3.50 ~ 3.99</strong>)<br>
-* 3: Honours (CAP <strong>3.00 ~ 3.49</strong>)<br>
-* 2: Pass (CAP <strong>2.00 ~ 2.99</strong>)<br>
-* 1: Fail (CAP <strong>< 2.00</strong>)<br>
+* `6`: Highest Distinction (CAP <strong>4.50 ~ 5.00</strong>)<br>
+* `5`: Distinction (CAP <strong>4.00 ~ 4.49</strong>)<br>
+* `4`: Merit (CAP <strong>3.50 ~ 3.99</strong>)<br>
+* `3`: Honours (CAP <strong>3.00 ~ 3.49</strong>)<br>
+* `2`: Pass (CAP <strong>2.00 ~ 2.99</strong>)<br>
+* `1`: Fail (CAP <strong>< 2.00</strong>)<br>
 
 <br>
 
@@ -331,10 +331,9 @@ To S/U a module (e.g. CS1231):
 3. Check if the module’s grade has been changed to “SU” in the list below: \
 <img src="images/UG SS/2.8 SU Module 3.png">
 
-<div markdown="span" class="alert alert-primary">
-:bulb: If the module cannot be S/U-ed according to NUS’ guidelines, the command box will display:<br><br>
+<div markdown="block" class="alert alert-info">
+⚠️ If the module cannot be S/U-ed according to NUS’ guidelines or the module is manually added using parameter `mc`/, the command box will display:<br>
 <img src="images/UG SS/2.8 SU Module 4.png">
-
 </div>
 
 ### 2.9 Delete Module: `delete` <a name="Delete_Module"></a>
