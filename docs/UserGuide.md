@@ -313,7 +313,7 @@ To get recommendations on which modules to S/U:
 .
 </div>
 
-### 2.8 S/U module: `su` <a name="S/U_module"></a>
+### 2.8 S/U module: `su` <a name="S/U_Module"></a>
 Didn’t so very well for a module? S/U the module in your list using this feature! \
  \
 Format: `su MODULE_CODE` \
