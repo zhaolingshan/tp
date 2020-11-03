@@ -97,7 +97,9 @@ public class UpdateCommand extends Command {
         if (!moduleToUpdate.isSameModule(updatedModule) && model.hasModule(updatedModule)) {
             throw new CommandException(MESSAGE_DUPLICATE_MODULE);
         }
-        if (updateModNameDescriptor.grade.toString() == "SU") {
+
+        if ((updateModNameDescriptor.grade != null)
+                && updateModNameDescriptor.grade.toString() == "SU") {
             // checks if module can be SU from database
             if (!UpdateCommand.isModSuAble(moduleName)) {
                 throw new CommandException(String.format(MESSAGE_MODULE_CANNOT_BE_SU, moduleName.fullModName));
