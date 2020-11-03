@@ -42,7 +42,9 @@ public class UpdateCommand extends Command {
             + "[" + PREFIX_GRADE + "GRADE] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "[" + PREFIX_SEMESTER + "SEM] "
-            + "Example: " + COMMAND_WORD + " --mod CS2103T --grade A";
+            + "Example: " + COMMAND_WORD 
+            + PREFIX_MOD_NAME + "CS2103T"
+            + PREFIX_GRADE + "A";
 
     public static final String MESSAGE_UPDATE_MODULE_SUCCESS = "Updated Module: %1$s";
     public static final String MESSAGE_NOT_UPDATED = "At least one field to update must be provided.";
