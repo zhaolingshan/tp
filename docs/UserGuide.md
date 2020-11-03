@@ -3,10 +3,10 @@ layout: page
 title: User Guide
 ---
 
-## 1. Product Overview <a name="Product Overview"></a>
+# 1. Product Overview <a name="Product Overview"></a>
 Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in this section.
 
-#### 1.1 Table of Contents <a name="Table of Contents"></a>
+### 1.1 Table of Contents <a name="Table of Contents"></a>
 
 * [1. Product Overview](#Product Overview)
     * [1.1 Table of Contents](#Table of Contents)
@@ -29,7 +29,7 @@ Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in th
     * [2.11 Progress Report](#Progress Report)
     * [2.12 Exit Application](#Exit Application)
 
-#### 1.2 About <a name="About"></a>
+### 1.2 About <a name="About"></a>
 
 Are you a NUS student who wants a clean Command Line Interface (CLI) to keep track of your modules and grades? 
 If yes, then this user guide is for you!
@@ -44,35 +44,67 @@ You do not need any prior technical knowledge to understand this document, howev
 English though!
 
 **Navigating this user guide:**
-* Tips will be shown in a yellow-coloured box:
+* Tips will be shown in a box:
 <div markdown="block" class="alert alert-info">
-💡: This symbol indicates good-to-know tips.
+:bulb: This symbol indicates good-to-know tips.
 </div>
 
-* Important information will be shown in a red-coloured box:
-<div markdown="block" class="alert alert-info">
-⚠: This symbol indicates important information.
+* Important information will be shown in a box:
+<div markdown="span" class="alert alert-info">
+**:information_source: This symbol indicates important information.
 </div>
 
----
+* `start`: A grey highlight (called a mark-up) indicates that this is a command that can be typed into the command line 
+and executed by the application.
 
-## Getting Started
+
+### 1.3 Introduction <a name="Introduction"></a>
+
+So what exactly is **MyMods**? It is a desktop app for tracking modules and grades, optimized for use for students who 
+prefer typing via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). 
+With **MyMods**, you are able to keep track of your module results efficiently, easily make S/U decisions, and view your 
+academic progress. **MyMods** is available for the Linux, Unix, Windows XP and Mac OS X operating systems.
+
+### 1.4 Glossaries <a name="Glossaries"></a>
+
+If you do not understand any of the terms or short forms that we used, you can refer to this table:
+
+Term | Description
+-----|------------
+CAP | Cumulative Average Point
+ddp | Double Degree Programme
+mod | Module
+S/U | Satisfactory / Unsatisfactory option in NUS
+
+### 1.5 Getting Started <a name="Getting Started"></a>
 
 #### Installation
 
-1. Ensure you have Java 11 or above installed in your computer.
-2. Download the last MyMods.jar file from [here](https://github.com/AY2021S1-CS2103T-T17-1/tp/releases/tag/v1.3.1)
-3. Place the file in any folder that you want to be the home folder for **MyMods**.
-4. Start the web application by double-clicking the file or run it with `java -jar MyMods.jar` on your command line. 
-The window (without any modules) similar to the interface shown below will appear.
+1. Grab a cup of coffee ☕.
+2. Ensure you have Java 11 or above installed in your computer.
+3. Download the last MyMods.jar file from [here](https://github.com/AY2021S1-CS2103T-T17-1/tp/releases/tag/v1.3.1).
+4. Place the file in any folder that you want to be the home folder for **MyMods**.
+5. Start the web application by double-clicking the file or run it with `java -jar
+MyMods.jar`. The window (without any modules) similar to the interface shown below will appear.
+
+<div markdown="block" class="alert alert-info">
+:bulb:: Check your Java version by typing java -version in the Command Prompt
+
+<img src="images/UG SS/1.5 Getting Started 1.png">
+</div>
+
+The data of all of your modules can be found on your local disk. It is located in the “data” folder found at the 
+home folder.
 
 #### The Interface
 
-This is how **MyMods** looks like: \
-<img src="images/UG SS/1.5 The Interface.png" width="512px" height="288px">
+This is what MyMods looks like:
+<img src="images/UG SS/1.5 Getting Started 2.png">
 
-💡 Tip: Default colours looking different? Fret not! The theme of MyMods is determined by the time of the day. 
+<div markdown="span" class="alert alert-primary">
+:bulb:: Default colours looking different? Fret not! The theme of MyMods is determined by the time of the day. 
 You can change the colours using the tab “Theme”.
+</div>
 
 ---
 
