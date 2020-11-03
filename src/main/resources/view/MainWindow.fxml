@@ -44,6 +44,13 @@
               <Insets top="15" right="30" bottom="15" left="40"/>
             </padding>
           </StackPane>
+
+
+          <StackPane HBox.hgrow="ALWAYS" fx:id="semBoxPlaceholder" styleClass="pane-with-border">
+            <padding>
+              <Insets top="15" right="30" bottom="15" left="40"/>
+            </padding>
+          </StackPane>
         </HBox>
 
         <StackPane VBox.vgrow="NEVER" fx:id="resultDisplayPlaceholder" styleClass="pane-with-border"

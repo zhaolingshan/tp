@@ -13,6 +13,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.util.CapCalculator;
 import seedu.address.model.util.McCalculator;
 import seedu.address.model.util.ModuleListFilter;
@@ -228,5 +229,11 @@ public class ModelManager implements Model {
     @Override
     public GoalTarget getGoalTarget() {
         return goalTarget;
+    }
+
+    @Override
+    public String generateSem() {
+        SemesterManager semester = SemesterManager.getInstance();
+        return semester.getCurrentSemester().toString();
     }
 }
