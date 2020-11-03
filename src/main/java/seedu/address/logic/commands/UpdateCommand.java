@@ -83,12 +83,12 @@ public class UpdateCommand extends Command {
 
         Module moduleToUpdate = lastShownList.get(index.getZeroBased());
         Module updatedModule = createUpdatedModule(moduleToUpdate, updateModNameDescriptor);
-        Semester semesterOfUpdatedModule = updatedModule.getSemester();
-        if (semesterOfUpdatedModule != currentSemester) {
+        Semester semesterOfModuleToUpdate = moduleToUpdate.getSemester();
+        if (semesterOfModuleToUpdate != currentSemester) {
             throw new CommandException(
-                    Messages.MESSAGE_UPDATE_MODULE_IN_WRONG_SEMESTER + semesterOfUpdatedModule + ".\n"
+                    Messages.MESSAGE_UPDATE_MODULE_IN_WRONG_SEMESTER + semesterOfModuleToUpdate + ".\n"
                             + Messages.MESSAGE_CURRENT_SEMESTER + currentSemester + ".\n"
-                            + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfUpdatedModule
+                            + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER + semesterOfModuleToUpdate
                             + Messages.MESSAGE_DIRECT_TO_CORRECT_SEMESTER_TO_UPDATE);
         }
         if (!moduleToUpdate.isSameModule(updatedModule) && model.hasModule(updatedModule)) {
@@ -112,7 +112,7 @@ public class UpdateCommand extends Command {
         Set<Tag> updatedTags = updateModNameDescriptor.getTags().orElse(moduleToUpdate.getTags());
         // modularCredit is not edited
         ModularCredit modularCredit = moduleToUpdate.getModularCredit();
-        Semester semester = moduleToUpdate.getSemester();
+        Semester semester = updateModNameDescriptor.getSemester().orElse(moduleToUpdate.getSemester());
         return new Module(updatedModuleName, updatedGrade, updatedTags, modularCredit, semester);
     }
 
