@@ -110,7 +110,7 @@ public class UpdateCommand extends Command {
         Set<Tag> updatedTags = updateModNameDescriptor.getTags().orElse(moduleToUpdate.getTags());
         // modularCredit is not edited
         ModularCredit modularCredit = moduleToUpdate.getModularCredit();
-        Semester semester = moduleToUpdate.getSemester();
+        Semester semester = updateModNameDescriptor.getSemester().orElse(moduleToUpdate.getSemester());
         return new Module(updatedModuleName, updatedGrade, updatedTags, modularCredit, semester);
     }
 
