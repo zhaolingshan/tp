@@ -1,20 +1,58 @@
-# User Guide
+---
+layout: page
+title: User Guide
+---
 
-MyMods is a **desktop app for tracking modules and grades, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, MyMods can get your module management tasks done faster than traditional GUI apps.
+## 1. Product Overview <a name="Product Overview"></a>
+Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in this section.
 
+#### 1.1 Table of Contents <a name="Table of Contents"></a>
 
+* [1. Product Overview](#Product Overview)
+    * [1.1 Table of Contents](#Table of Contents)
+    * [1.2 About](#About)
+    * [1.3 Introduction](#Introduction)
+    * [1.4 Glossaries](#Glossaries)
+    * [1.5 Getting Started](#Getting Started)
+    
+* [2. Key Features](#Key Feature)
+    * [2.1 Summary of Key Features](#Summary of Key Feature)
+    * [2.2 Edit Semester](Edit Semester)
+    * [2.3 Add Module](#Add Module)
+    * [2.4 Update Module](#Update Module)
+    * [2.5 List all Modules](#List all Modules)
+    * [2.6 Set Goals](#Set Goals)
+    * [2.7 Recommend S/U](#Recommend S/U)
+    * [2.8 S/U Mobile](#S/U Module)
+    * [2.9 Delete Module](#Delete Module)
+    * [2.10 Exit Semester](#Exit Semester)
+    * [2.11 Progress Report](#Progress Report)
+    * [2.12 Exit Application](#Exit Application)
 
-*   Features
-    *   Start editing modules: `start`
-    *   Adding a module: `add`
-    *   Modify module grade: `update`
-    *   View modules added up to date, and current CAP: `list`
-    *   Set your goal level according to the Honour's Grading System: `goal` 
-    *   Recommend modules to SU: `recommendSU`
-    *   S/U a module: `su`
-    *   Deleting a module: `delete`
-    *   Get progress report: `progress`
-    *   Done editing semester: `done`
+#### 1.2 About <a name="About"></a>
+
+Are you a NUS student who wants a clean Command Line Interface (CLI) to keep track of your modules and grades? 
+If yes, then this user guide is for you!
+
+Want to know the common use cases, how to get started or in-depth documentation of all of our 13 key features in MyMods? 
+We got that all covered for you in this user guide. 
+
+And yes, that is right! We have 13 key features in MyMods: `start`, `add`, `update`, `list`, `goal`, `recommendSU`, 
+`su`, `delete`, `done`, `find`, `progress`, `help` and `exit` commands. 
+
+You do not need any prior technical knowledge to understand this document, however, you will need to know how to read 
+English though!
+
+**Navigating this user guide:**
+* Tips will be shown in a yellow-coloured box:
+<div markdown="block" class="alert alert-info">
+💡: This symbol indicates good-to-know tips.
+</div>
+
+* Important information will be shown in a red-coloured box:
+<div markdown="block" class="alert alert-info">
+⚠: This symbol indicates important information.
+</div>
 
 ---
 
