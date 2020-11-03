@@ -2,8 +2,6 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.commons.core.Messages.MESSAGE_MODULE_CANNOT_BE_SU;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
 
 import seedu.address.logic.commands.SuCommand;
 import seedu.address.logic.commands.UpdateCommand;
@@ -20,20 +18,12 @@ public class SuCommandParser {
      * and returns an SuCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-    public SuCommand parse(String args) throws ParseException {
-        requireNonNull(args);
-        ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_MOD_NAME);
-
-        if (argMultimap.getValue(PREFIX_MOD_NAME).isEmpty()) {
+    public SuCommand parse(String userInput) throws ParseException {
+        requireNonNull(userInput);
+        if (userInput.trim().equals("")) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SuCommand.MESSAGE_USAGE));
         }
-        ModuleName moduleName = ParserUtil.parseName(argMultimap.getValue(PREFIX_MOD_NAME).get());
-
-        // checks if module can be SU from database
-        if (!SuCommand.isModSuAble(moduleName)) {
-            throw new ParseException(String.format(MESSAGE_MODULE_CANNOT_BE_SU, moduleName.fullModName));
-        }
+        ModuleName moduleName = new ModuleName(userInput.trim());
 
         UpdateCommand.UpdateModNameDescriptor updateModNameDescriptor = new UpdateCommand.UpdateModNameDescriptor();
         updateModNameDescriptor.setName(moduleName);

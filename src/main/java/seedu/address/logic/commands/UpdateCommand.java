@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_MODULE_CANNOT_BE_SU;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SEMESTER;
@@ -26,6 +27,7 @@ import seedu.address.model.module.ModuleName;
 import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.util.ModuleInfoRetriever;
 
 /**
  * Updates the details of an existing module in the address book.
@@ -67,6 +69,7 @@ public class UpdateCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
+
         requireNonNull(model);
         List<Module> lastShownList = model.getFilteredModuleList();
         SemesterManager semesterManager = SemesterManager.getInstance();
@@ -93,6 +96,12 @@ public class UpdateCommand extends Command {
         }
         if (!moduleToUpdate.isSameModule(updatedModule) && model.hasModule(updatedModule)) {
             throw new CommandException(MESSAGE_DUPLICATE_MODULE);
+        }
+        if (updateModNameDescriptor.grade.toString() == "SU") {
+            // checks if module can be SU from database
+            if (!UpdateCommand.isModSuAble(moduleName)) {
+                throw new CommandException(String.format(MESSAGE_MODULE_CANNOT_BE_SU, moduleName.fullModName));
+            }
         }
 
         model.setModule(moduleToUpdate, updatedModule);
@@ -253,5 +262,16 @@ public class UpdateCommand extends Command {
                     && getTags().equals(e.getTags())
                     && getSemester().equals((e.getSemester()));
         }
+    }
+
+    /**
+     * Returns true if module can be S/U from data.
+     *
+     * @param moduleName Module to be checked.
+     * @return True if module can be S/U, false otherwise.
+     */
+    public static boolean isModSuAble(ModuleName moduleName) {
+        String status = ModuleInfoRetriever.retrieve(moduleName.fullModName).get("su");
+        return status.contains("true");
     }
 }
