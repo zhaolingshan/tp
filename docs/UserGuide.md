@@ -15,7 +15,7 @@ Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in th
     * [1.4 Glossaries](#Glossaries)
     * [1.5 Getting Started](#Getting_Started)
     
-* [2. Key Features](#Key Feature)
+* [2. Key Features](#Key_Feature)
     * [2.1 Summary of Key Features](#Summary_of_Key_Features)
     * [2.2 Edit Semester](Edit_Semester)
     * [2.3 Add Module](#Add_Module)
@@ -110,7 +110,7 @@ You can change the colours using the tab “Theme”.
 
 ---
 
-# 2. Features <a name="Features"></a>
+# 2. Key Features <a name="Key_Features"></a>
 
 Below is information about the features and commands of `MyMods`.
 
@@ -118,12 +118,12 @@ Below is information about the features and commands of `MyMods`.
 ⚠️ <strong>Important information about the command format:</strong><br><br>
 
 <li> Words in **UPPER_CASE** are the parameters to be supplied by the user. 
-e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.<br><br>
+e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.</li><br><br>
 
 <li>Items in **SQUARE BRACKETS** are optional input parameters. 
-e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br><br>
+e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.</li><br><br>
 
-<li>Parameters are **NOT case-sensitive**. e.g. `add m/CS2100` is the same as `add m/cs2100`<br>
+<li>Parameters are **NOT case-sensitive**. e.g. `add m/CS2100` is the same as `add m/cs2100`.</li><br>
 </div>
 
 ### 2.1 Summary of Key Features <a name="Summary_of_Key_Features"></a>
@@ -261,12 +261,12 @@ Examples:
 <div markdown="span" class="alert alert-primary">
 :bulb: Below is the NUS Honours Classification System :<br><br>
 
-<li>Highest Distinction (CAP **4.50 ~ 5.00**)<br>
-<li>Distinction (CAP **4.00 ~ 4.49**)<br>
-<li>Merit (CAP **3.50 ~ 3.99**)<br>
-<li>Honours (CAP **3.00 ~ 3.49**)<br>
-<li>Pass (CAP **2.00 ~ 2.99**)<br>
-<li>Fail (CAP **< 2.00**)<br><br>
+<li>Highest Distinction (CAP **4.50 ~ 5.00**)</li><br>
+<li>Distinction (CAP **4.00 ~ 4.49**)</li><br>
+<li>Merit (CAP **3.50 ~ 3.99**)</li><br>
+<li>Honours (CAP **3.00 ~ 3.49**)</li><br>
+<li>Pass (CAP **2.00 ~ 2.99**)</li><br>
+<li>Fail (CAP **< 2.00**)</li><br><br>
 
 :bulb: You can also show the same list in MyMods using `goal list`:
 
@@ -316,7 +316,7 @@ Didn’t so very well for a module? S/U the module in your list using this featu
  \
 Format: `su MODULE_CODE` \
  \
-Examples:` `
+Examples:
 *   `su CS1101S`
 *   `su CS1231S`
 
