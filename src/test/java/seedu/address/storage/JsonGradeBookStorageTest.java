@@ -21,7 +21,7 @@ import seedu.address.model.ReadOnlyGradeBook;
 import seedu.address.model.module.GoalTarget;
 
 public class JsonGradeBookStorageTest {
-    private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonAddressBookStorageTest");
+    private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonGradeBookStorageTest");
 
     @TempDir
     public Path testFolder;
@@ -48,14 +48,14 @@ public class JsonGradeBookStorageTest {
 
     @Test
     public void read_notJsonFormat_exceptionThrown() {
-        assertThrows(DataConversionException.class, () -> readGradeBook("notJsonFormatAddressBook.json"));
+        assertThrows(DataConversionException.class, () -> readGradeBook("notJsonFormatGradeBook.json"));
     }
 
     @Test
     public void readGradeBook_invalidModuleGradeBook_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readGradeBook("invalidModuleAddressBook.json"));
+        assertThrows(DataConversionException.class, () -> readGradeBook("invalidModuleGradeBook.json"));
     }
-    
+
     @Test
     public void readAndSaveGradeBook_allInOrder_success() throws Exception {
         Path filePath = testFolder.resolve("TempAddressBook.json");
