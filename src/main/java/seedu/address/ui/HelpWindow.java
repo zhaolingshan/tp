@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
@@ -18,22 +19,25 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String USERGUIDE_URL = "https://ay2021s1-cs2103t-t17-1.github.io/tp/UserGuide.html";
     public static final String HELP_MESSAGE = "OR, refer to the user guide: " + USERGUIDE_URL;
 
-    private static final String startCommandFormat = "start --sem SEMESTER\n\n";
-    private static final String addCommandFormat = "add --mod MODULE_CODE [--grade GRADE]\n\n";
-    private static final String updateCommandFormat = "update --mod MODULE_CODE [--grade GRADE]\n\n";
-    private static final String listCommandFormat = "list [--sem SEMESTER]\n\n";
-    private static final String goalCommandFormat = "goal --set LEVEL OR goal --list\n\n";
+    private static final String startCommandFormat = "start SEMESTER\n\n";
+    private static final String addCommandFormat = "add m/MODULE_CODE [g/GRADE]\n\n";
+    private static final String updateCommandFormat = "update m/MODULE_CODE [g/GRADE]\n\n";
+    private static final String listCommandFormat = "list\n\n";
+    private static final String goalCommandFormat = "goal set LEVEL OR goal list\n\n";
     private static final String recommendSuCommandFormat = "recommendSU\n\n";
-    private static final String suCommandFormat = "su --mod MODULE_CODE\n\n";
-    private static final String deleteCommandFormat = "delete MODULE_CODE [--grade GRADE]\n\n";
+    private static final String suCommandFormat = "su MODULE_CODE\n\n";
+    private static final String deleteCommandFormat = "delete MODULE_CODE\n\n";
     private static final String doneCommandFormat = "done SEMESTER\n\n";
-    private static final String findCommandFormat = "find --mod MODULE_CODE\n\n";
+    private static final String findCommandFormat = "find KEYWORD\n\n";
     private static final String progressCommandFormat = "progress [--ddp]\n\n";
     private static final String helpCommandFormat = "help\n\n";
     private static final String exitCommandFormat = "exit\n\n";
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
+
+    @FXML
+    private ScrollPane scrollPane;
 
     @FXML
     private Label helpCommands;
@@ -52,7 +56,10 @@ public class HelpWindow extends UiPart<Stage> {
     public HelpWindow(Stage root) {
         super(FXML, root);
         helpMessage.setText(HELP_MESSAGE);
+        //setHelpCommands();
+
         setHelpCommands();
+        scrollPane.setVvalue(0);
     }
 
     /**

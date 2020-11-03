@@ -12,7 +12,7 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showModuleAtIndex;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
 import static seedu.address.testutil.TypicalModules.EFF_COM;
-import static seedu.address.testutil.TypicalModules.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +20,7 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.GetModuleIndex;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.UpdateCommand.UpdateModNameDescriptor;
-import seedu.address.model.AddressBook;
+import seedu.address.model.GradeBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -38,7 +38,7 @@ import seedu.address.testutil.UpdateModNameDescriptorBuilder;
  */
 public class UpdateCommandTest {
 
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new GoalTarget());
+    private Model model = new ModelManager(getTypicalGradeBook(), new UserPrefs(), new GoalTarget());
 
     private final ModuleName nameFirstModule = COM_ORG.getModuleName();
     private final ModuleName nameSecondModule = EFF_COM.getModuleName();
@@ -61,7 +61,7 @@ public class UpdateCommandTest {
 
         String expectedMessage = String.format(UpdateCommand.MESSAGE_UPDATE_MODULE_SUCCESS, updatedModule);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
+        Model expectedModel = new ModelManager(new GradeBook(model.getGradeBook()), new UserPrefs(),
                 new GoalTarget());
         expectedModel.setModule(model.getFilteredModuleList().get(0), updatedModule);
 
@@ -88,7 +88,7 @@ public class UpdateCommandTest {
 
         String expectedMessage = String.format(UpdateCommand.MESSAGE_UPDATE_MODULE_SUCCESS, updatedModule);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
+        Model expectedModel = new ModelManager(new GradeBook(model.getGradeBook()), new UserPrefs(),
                 new GoalTarget());
         expectedModel.setModule(firstModule, updatedModule);
 
@@ -105,7 +105,7 @@ public class UpdateCommandTest {
 
         String expectedMessage = String.format(UpdateCommand.MESSAGE_UPDATE_MODULE_SUCCESS, updatedModule);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
+        Model expectedModel = new ModelManager(new GradeBook(model.getGradeBook()), new UserPrefs(),
                 new GoalTarget());
 
         assertCommandSuccess(updateCommand, model, expectedMessage, expectedModel);
@@ -125,7 +125,7 @@ public class UpdateCommandTest {
 
         String expectedMessage = String.format(UpdateCommand.MESSAGE_UPDATE_MODULE_SUCCESS, updatedModule);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
+        Model expectedModel = new ModelManager(new GradeBook(model.getGradeBook()), new UserPrefs(),
                 new GoalTarget());
         expectedModel.setModule(model.getFilteredModuleList().get(0), updatedModule);
 
@@ -154,7 +154,7 @@ public class UpdateCommandTest {
         showModuleAtIndex(model, indexFirstModule);
         Index outOfBoundIndex = indexSecondModule;
         // ensures that outOfBoundIndex is still in bounds of address book list
-        assertTrue(model.getAddressBook().getModuleList().get(indexSecondModule.getZeroBased()).getModuleName()
+        assertTrue(model.getGradeBook().getModuleList().get(indexSecondModule.getZeroBased()).getModuleName()
                 .equals(nameSecondModule));
 
         UpdateCommand updateCommand = new UpdateCommand(nameSecondModule,

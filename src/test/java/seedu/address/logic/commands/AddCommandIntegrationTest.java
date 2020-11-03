@@ -2,7 +2,7 @@ package seedu.address.logic.commands;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.testutil.TypicalModules.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ public class AddCommandIntegrationTest {
 
     @BeforeEach
     public void setUp() {
-        model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new GoalTarget());
+        model = new ModelManager(getTypicalGradeBook(), new UserPrefs(), new GoalTarget());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class AddCommandIntegrationTest {
 
         Module validModule = new ModuleBuilder().withName("IS1103").build();
 
-        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget());
+        Model expectedModel = new ModelManager(model.getGradeBook(), new UserPrefs(), new GoalTarget());
         expectedModel.addModule(validModule);
 
         assertCommandSuccess(new AddCommand(validModule), model,
@@ -47,7 +47,7 @@ public class AddCommandIntegrationTest {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y4S1);
 
-        Module moduleInList = model.getAddressBook().getModuleList().get(0);
+        Module moduleInList = model.getGradeBook().getModuleList().get(0);
         assertCommandFailure(new AddCommand(moduleInList), model, AddCommand.MESSAGE_DUPLICATE_MODULE);
     }
 

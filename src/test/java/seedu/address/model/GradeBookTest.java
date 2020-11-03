@@ -7,7 +7,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
-import static seedu.address.testutil.TypicalModules.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -24,23 +24,23 @@ import seedu.address.testutil.ModuleBuilder;
 
 public class GradeBookTest {
 
-    private final AddressBook addressBook = new AddressBook();
+    private final GradeBook gradeBook = new GradeBook();
 
     @Test
     public void constructor() {
-        assertEquals(Collections.emptyList(), addressBook.getModuleList());
+        assertEquals(Collections.emptyList(), gradeBook.getModuleList());
     }
 
     @Test
     public void resetData_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> addressBook.resetData(null));
+        assertThrows(NullPointerException.class, () -> gradeBook.resetData(null));
     }
 
     @Test
-    public void resetData_withValidReadOnlyAddressBook_replacesData() {
-        AddressBook newData = getTypicalAddressBook();
-        addressBook.resetData(newData);
-        assertEquals(newData, addressBook);
+    public void resetData_withValidReadOnlyGradeBook_replacesData() {
+        GradeBook newData = getTypicalGradeBook();
+        gradeBook.resetData(newData);
+        assertEquals(newData, gradeBook);
     }
 
     @Test
@@ -49,47 +49,47 @@ public class GradeBookTest {
         Module updatedModule = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
                 .build();
         List<Module> newModules = Arrays.asList(COM_ORG, updatedModule);
-        AddressBookStub newData = new AddressBookStub(newModules);
+        GradeBookStub newData = new GradeBookStub(newModules);
 
-        assertThrows(DuplicateModuleException.class, () -> addressBook.resetData(newData));
+        assertThrows(DuplicateModuleException.class, () -> gradeBook.resetData(newData));
     }
 
     @Test
     public void hasModule_nullModule_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> addressBook.hasModule(null));
+        assertThrows(NullPointerException.class, () -> gradeBook.hasModule(null));
     }
 
     @Test
-    public void hasModule_moduleNotInAddressBook_returnsFalse() {
-        assertFalse(addressBook.hasModule(COM_ORG));
+    public void hasModule_moduleNotInGradeBook_returnsFalse() {
+        assertFalse(gradeBook.hasModule(COM_ORG));
     }
 
     @Test
-    public void hasModule_moduleInAddressBook_returnsTrue() {
-        addressBook.addModule(COM_ORG);
-        assertTrue(addressBook.hasModule(COM_ORG));
+    public void hasModule_moduleInGradeBook_returnsTrue() {
+        gradeBook.addModule(COM_ORG);
+        assertTrue(gradeBook.hasModule(COM_ORG));
     }
 
     @Test
-    public void hasModule_moduleWithSameIdentityFieldsInAddressBook_returnsTrue() {
-        addressBook.addModule(COM_ORG);
+    public void hasModule_moduleWithSameIdentityFieldsInGradeBook_returnsTrue() {
+        gradeBook.addModule(COM_ORG);
         Module updatedModule = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertTrue(addressBook.hasModule(updatedModule));
+        assertTrue(gradeBook.hasModule(updatedModule));
     }
 
     @Test
     public void getModuleList_modifyList_throwsUnsupportedOperationException() {
-        assertThrows(UnsupportedOperationException.class, () -> addressBook.getModuleList().remove(0));
+        assertThrows(UnsupportedOperationException.class, () -> gradeBook.getModuleList().remove(0));
     }
 
     /**
-     * A stub ReadOnlyAddressBook whose persons list can violate interface constraints.
+     * A stub ReadOnlyGradeBook whose persons list can violate interface constraints.
      */
-    private static class AddressBookStub implements ReadOnlyAddressBook {
+    private static class GradeBookStub implements ReadOnlyGradeBook {
         private final ObservableList<Module> modules = FXCollections.observableArrayList();
 
-        AddressBookStub(Collection<Module> modules) {
+        GradeBookStub(Collection<Module> modules) {
             this.modules.setAll(modules);
         }
 

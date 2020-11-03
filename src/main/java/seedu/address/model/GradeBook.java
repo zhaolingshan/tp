@@ -12,10 +12,9 @@ import seedu.address.model.module.UniqueModuleList;
  * Wraps all data at the address-book level
  * Duplicates are not allowed (by .isSameModule comparison)
  */
-public class AddressBook implements ReadOnlyAddressBook {
+public class GradeBook implements ReadOnlyGradeBook {
 
     private final UniqueModuleList modules;
-    private final String test = "hello boo";
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
      * between constructors. See https://docs.oracle.com/javase/tutorial/java/javaOO/initial.html
@@ -27,12 +26,12 @@ public class AddressBook implements ReadOnlyAddressBook {
         modules = new UniqueModuleList();
     }
 
-    public AddressBook() {}
+    public GradeBook() {}
 
     /**
-     * Creates an AddressBook using the Modules in the {@code toBeCopied}
+     * Creates an GradeBook using the Modules in the {@code toBeCopied}
      */
-    public AddressBook(ReadOnlyAddressBook toBeCopied) {
+    public GradeBook(ReadOnlyGradeBook toBeCopied) {
         this();
         resetData(toBeCopied);
     }
@@ -48,9 +47,9 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Resets the existing data of this {@code AddressBook} with {@code newData}.
+     * Resets the existing data of this {@code GradeBook} with {@code newData}.
      */
-    public void resetData(ReadOnlyAddressBook newData) {
+    public void resetData(ReadOnlyGradeBook newData) {
         requireNonNull(newData);
 
         setModules(newData.getModuleList());
@@ -86,7 +85,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Removes {@code key} from this {@code AddressBook}.
+     * Removes {@code key} from this {@code GradeBook}.
      * {@code key} must exist in the address book.
      */
     public void removeModule(Module key) {
@@ -109,8 +108,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof AddressBook // instanceof handles nulls
-                && modules.equals(((AddressBook) other).modules));
+                || (other instanceof GradeBook // instanceof handles nulls
+                && modules.equals(((GradeBook) other).modules));
     }
 
     @Override

@@ -8,7 +8,7 @@ import static seedu.address.logic.commands.CommandTestUtil.showModuleAtIndex;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
 import static seedu.address.testutil.TypicalModules.EFF_COM;
-import static seedu.address.testutil.TypicalModules.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
 
 import org.junit.jupiter.api.Test;
 
@@ -30,7 +30,7 @@ import seedu.address.model.semester.SemesterManager;
  */
 public class DeleteCommandTest {
 
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new GoalTarget());
+    private Model model = new ModelManager(getTypicalGradeBook(), new UserPrefs(), new GoalTarget());
 
     private final ModuleName nameFirstModule = COM_ORG.getModuleName();
     private final ModuleName nameSecondModule = EFF_COM.getModuleName();
@@ -55,7 +55,7 @@ public class DeleteCommandTest {
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_MODULE_SUCCESS, moduleToDelete);
 
-        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget());
+        ModelManager expectedModel = new ModelManager(model.getGradeBook(), new UserPrefs(), new GoalTarget());
 
         expectedModel.deleteModule(moduleToDelete);
 
@@ -82,7 +82,7 @@ public class DeleteCommandTest {
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_MODULE_SUCCESS, moduleToDelete);
 
-        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new GoalTarget());
+        Model expectedModel = new ModelManager(model.getGradeBook(), new UserPrefs(), new GoalTarget());
         expectedModel.deleteModule(moduleToDelete);
         showNoModule(expectedModel);
 
@@ -95,7 +95,7 @@ public class DeleteCommandTest {
 
         Index outOfBoundIndex = indexSecondModule;
         // ensures that outOfBoundIndex is still in bounds of address book list
-        assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getModuleList().size());
+        assertTrue(outOfBoundIndex.getZeroBased() < model.getGradeBook().getModuleList().size());
 
         DeleteCommand deleteCommand = new DeleteCommand(nameSecondModule);
 
