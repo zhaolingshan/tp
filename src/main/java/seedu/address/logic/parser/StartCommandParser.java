@@ -19,7 +19,8 @@ public class StartCommandParser implements Parser<StartCommand> {
     public StartCommand parse(String userInput) throws ParseException {
         requireNonNull(userInput);
         try {
-            Semester semester = ParserUtil.parseSemester(userInput);
+            String capitalisedUserInput = userInput.toUpperCase();
+            Semester semester = ParserUtil.parseSemester(capitalisedUserInput);
             return new StartCommand(semester);
         } catch (ParseException pe) {
             throw new ParseException(
