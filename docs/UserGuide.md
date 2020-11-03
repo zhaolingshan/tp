@@ -45,7 +45,7 @@ English though!
 
 **Navigating this user guide:**
 * Tips will be shown in a box:
-<div markdown="block" class="alert alert-info">
+<div markdown="span" class="alert alert-primary">
 :bulb: This symbol indicates good-to-know tips.
 </div>
 
@@ -87,7 +87,7 @@ S/U | Satisfactory / Unsatisfactory option in NUS
 5. Start the web application by double-clicking the file or run it with `java -jar
 MyMods.jar`. The window (without any modules) similar to the interface shown below will appear.
 
-<div markdown="block" class="alert alert-info">
+<div markdown="block" class="alert alert-primary">
 :bulb: Tip: Check your Java version by typing java -version in the Command Prompt
 
 <img src="images/UG SS/1.5 Getting Started 1.png">
@@ -130,10 +130,10 @@ Examples:
 To edit a Semester (e.g. Y2S1):
 
 1. Type `start Y2S1` into the command box, and press Enter to execute it. \
-<img src="images/UG SS/2.2 Edit Semester 1.png" width="990px" height="150px">
+<img src="images/UG SS/2.2 Edit Semester 1.png">
 
 2. The result box will display the message: \
-<img src="images/UG SS/2.2 Edit Semester 2.png" width="990px" height="282px">
+<img src="images/UG SS/2.2 Edit Semester 2.png">
 
 ### Add a module: `add`
 Adds a module to your modules list. \
