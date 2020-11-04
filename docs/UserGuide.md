@@ -2,6 +2,7 @@
 layout: page
 title: User Guide
 ---
+<img src="images/MyMods-logo.png">
 
 # 1. Product Overview <a name="Product_Overview"></a>
 Welcome to **MyMods**:100:! Let us guide you through the overview of **MyMods**:100: in this section.
@@ -83,7 +84,7 @@ S/U | Satisfactory / Unsatisfactory option in NUS
 #### Installation
 
 1. Grab a cup of coffee :coffee:.
-2. Ensure you have Java 11 or above installed in your computer :computer.
+2. Ensure you have Java 11 or above installed in your computer :computer:.
 3. Download the last MyMods.jar file from [here](https://github.com/AY2021S1-CS2103T-T17-1/tp/releases/tag/v1.3.1).
 4. Place the file in any folder that you want to be the home folder for **MyMods**:100:.
 5. Start the web application by double-clicking the file or run it with `java -jar
@@ -198,7 +199,7 @@ To add a module (e.g. add CS1101S):
 <img src="images/UG SS/2.3 Add Module 3.png">
 
 <div markdown="span" class="alert alert-info">
-:warning: Our database is valid up to modules in the AY19/20 academic year. So if the modules you are adding is
+:warning: Our database is **valid up to modules in the AY19/20 academic year**. So if the modules you are adding is
 new in AY20/21 academic year, the following message will be shown:<br><br>
 </div>
 
@@ -279,7 +280,7 @@ Examples:
 *   `goal list`
 <br><br>
 <div markdown="span" class="alert alert-primary">
-:bulb: Below is the NUS Honours Classification System with respect to the `LEVEL`:
+:bulb: Below is the NUS Honours Classification System with respect to the `LEVEL` available:
 </div>
 
 * `6`: Highest Distinction (CAP **4.50 ~ 5.00**)
@@ -479,7 +480,7 @@ To calculate the CAP required to achieve your goal:
 [Back to top](#Product_Overview)
 
 ### 2.13 Get Help: `help` <a name="Get_Help"></a>
-If you are lost, this command will be helpful.
+If you are lost, this command will give you a summary of the command formats.
 
 Format: `help` \
  \
