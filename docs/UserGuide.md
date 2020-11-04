@@ -4,7 +4,7 @@ title: User Guide
 ---
 
 # 1. Product Overview <a name="Product_Overview"></a>
-Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in this section.
+Welcome to **MyMods**:100:! Let us guide you through the overview of **MyMods**:100: in this section.
 
 ### 1.1 Table of Contents <a name="Table_of_Contents"></a>
 
@@ -36,10 +36,10 @@ Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in th
 Are you a NUS student who wants a clean Command Line Interface (CLI) to keep track of your modules and grades?
 If yes, then this user guide is for you!
 
-Want to know the common use cases, how to get started or in-depth documentation of all of our 13 key features in **MyMods**?
+Want to know the common use cases, how to get started or in-depth documentation of all of our 13 key features in **MyMods**:100:?
 We got that all covered for you in this user guide.
 
-And yes, that is right! We have 13 key features in **MyMods**: `start`, `add`, `update`, `list`, `goal`, `recommendSU`,
+And yes, that is right! We have 13 key features in **MyMods**:100:: `start`, `add`, `update`, `list`, `goal`, `recommendSU`,
 `su`, `delete`, `done`, `find`, `progress`, `help` and `exit` commands.
 
 You do not need any prior technical knowledge to understand this document, however, you will need to know how to read
@@ -62,10 +62,10 @@ and executed by the application.
 
 ### 1.3 Introduction <a name="Introduction"></a>
 
-So what exactly is **MyMods**? It is a desktop app for tracking modules and grades, optimized for use for students who
+So what exactly is **MyMods**:100:? It is a desktop app for tracking modules and grades, optimized for use for students who
 prefer typing via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
-With **MyMods**, you are able to keep track of your module results efficiently, easily make S/U decisions, and view your
-academic progress. **MyMods** is available for the Linux, Unix, Windows XP and Mac OS X operating systems.
+With **MyMods**:100:, you are able to keep track of your module results efficiently, easily make S/U decisions, and view your
+academic progress. **MyMods**:100: is available for the Linux, Unix, Windows XP and Mac OS X operating systems.
 
 ### 1.4 Glossaries <a name="Glossaries"></a>
 
@@ -82,10 +82,10 @@ S/U | Satisfactory / Unsatisfactory option in NUS
 
 #### Installation
 
-1. Grab a cup of coffee ☕.
-2. Ensure you have Java 11 or above installed in your computer.
+1. Grab a cup of coffee :coffee:.
+2. Ensure you have Java 11 or above installed in your computer :computer.
 3. Download the last MyMods.jar file from [here](https://github.com/AY2021S1-CS2103T-T17-1/tp/releases/tag/v1.3.1).
-4. Place the file in any folder that you want to be the home folder for **MyMods**.
+4. Place the file in any folder that you want to be the home folder for **MyMods**:100:.
 5. Start the web application by double-clicking the file or run it with `java -jar
 MyMods.jar`. The window (without any modules) similar to the interface shown below will appear.
 
@@ -100,11 +100,11 @@ home folder.
 
 #### The Interface
 
-This is what **MyMods** looks like: \
+This is what **MyMods**:100: looks like: \
 <img src="images/UG SS/1.5 Getting Started 2.png">
 
 <div markdown="span" class="alert alert-primary">
-:bulb: Default colours looking different? Fret not! The theme of **MyMods** is determined by the time of the day.
+:bulb: Default colours looking different? Fret not! The theme of **MyMods**:100: is determined by the time of the day.
 You can change the colours using the tab “Theme”.
 </div>
 
@@ -116,7 +116,7 @@ You can change the colours using the tab “Theme”.
 
 # 2. Key Features <a name="Key_Features"></a>
 
-Below is information about the features and commands of **MyMods**.
+Below is information about the features and commands of **MyMods**:100:.
 
 <div markdown="span" class="alert alert-info">
 :warning: <strong>Important information about the command format:</strong><br><br>
@@ -148,7 +148,7 @@ Command | Format
 `exit` | `exit`
 
 ### 2.2 Edit Semester: `start` <a name="Edit_Semester"></a>
-Can’t wait to add your modules into **MyMods**? You can start modifying the modules by starting a semester! \
+Can’t wait to add your modules into **MyMods**:100:? You can start modifying the modules by starting a semester! \
 \
 Format: `start SEMESTER` \
 \
@@ -290,7 +290,7 @@ Examples:
 * `1`: Fail (CAP **< 2.00**)<br><br>
 
 <div markdown="span" class="alert alert-primary">
-:bulb: You can also show the same list in **MyMods** using `goal list`:
+:bulb: You can also show the same list in **MyMods**:100: using `goal list`:
 </div>
 
 To set your goal to 2 (CAP4.00 ~ 4.49):
