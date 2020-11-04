@@ -18,7 +18,7 @@ Given below are my contributions to the project.
 * **New Feature**: Added the functionality to change semesters to Update command.
   * What it does: Allows the user to shift a module to a different semester.
   * Justification: This feature allows the user to change the semester of a module directly without having to delete it and add it in again.
-  * Highlights: This enhancement affects existing features and commands that are related to semester and features to be added in the future for the update command, hence it required an in-depth analysis of design alternatives. 
+  * Highlights: This enhancement affects existing features and commands that are related to semester and features to be added in the future for the update command, hence it required an in-depth analysis of design alternatives.
 
 * **Enhancements to existing features**:
   * Renamed Edit to Update and allows user to delete the grade of a module by leaving the grade parameter out when updating a module. (Pull requests [\#54](https://github.com/AY2021S1-CS2103T-T17-1/tp/pull/54), [\#119](https://github.com/AY2021S1-CS2103T-T17-1/tp/pull/119))
