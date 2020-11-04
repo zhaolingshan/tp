@@ -65,6 +65,7 @@ public class CommandTestUtil {
     public static final String INVALID_GRADE_DESC = " " + PREFIX_GRADE; // empty string not allowed for GRADES
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final int INVALID_GOAL_TARGET = -1;
+    public static final Semester INVALID_SEMESTER = Semester.NA;
     public static final String INVALID_INPUT_FOR_ONE_WORD_COMMAND = "hi";
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
@@ -142,5 +143,10 @@ public class CommandTestUtil {
     public static void setValidSemester() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(VALID_SEMESTER);
+    }
+
+    public static void setInvalidSemester() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(INVALID_SEMESTER);
     }
 }
