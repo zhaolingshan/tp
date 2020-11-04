@@ -25,8 +25,6 @@ import seedu.address.model.ReadOnlyGradeBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
-import seedu.address.model.semester.Semester;
-import seedu.address.model.semester.SemesterManager;
 import seedu.address.testutil.ModuleBuilder;
 
 public class AddCommandTest {

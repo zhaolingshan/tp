@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.setValidSemester;
 import static seedu.address.logic.commands.CommandTestUtil.showModuleAtIndex;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
@@ -47,8 +48,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validModuleNameUnfilteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidSemester();
 
         Module moduleToDelete = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
