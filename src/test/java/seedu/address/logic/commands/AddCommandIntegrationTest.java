@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.setValidCorrectSemester;
 import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -12,8 +13,6 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
-import seedu.address.model.semester.Semester;
-import seedu.address.model.semester.SemesterManager;
 import seedu.address.testutil.ModuleBuilder;
 
 /**
@@ -30,8 +29,7 @@ public class AddCommandIntegrationTest {
 
     @Test
     public void execute_newModule_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y4S2);
+        setValidCorrectSemester();
 
         Module validModule = new ModuleBuilder().withName("IS1103").build();
 
@@ -44,8 +42,7 @@ public class AddCommandIntegrationTest {
 
     @Test
     public void execute_duplicateModule_throwsCommandException() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y4S1);
+        setValidCorrectSemester();
 
         Module moduleInList = model.getGradeBook().getModuleList().get(0);
         assertCommandFailure(new AddCommand(moduleInList), model, AddCommand.MESSAGE_DUPLICATE_MODULE);

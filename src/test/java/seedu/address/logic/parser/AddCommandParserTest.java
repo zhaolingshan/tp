@@ -13,9 +13,9 @@ import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_NON_EMPTY;
 import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_CORRECT_SEMESTER_OF_MOD_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MODULAR_CREDIT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_B;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_CORRECT_SEMESTER_OF_MOD_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
@@ -37,8 +37,10 @@ public class AddCommandParserTest {
 
     @Test
     public void parse_allFieldsPresent_success() {
-        Module expectedModule = new ModuleBuilder(MOD_B).withTags(VALID_TAG_FRIEND)
-                .withModularCredit(VALID_MODULAR_CREDIT).withSemester(VALID_CORRECT_SEMESTER_OF_MOD_NAME_B.toString()).build();
+        Module expectedModule = new ModuleBuilder(MOD_B)
+                .withTags(VALID_TAG_FRIEND)
+                .withModularCredit(VALID_MODULAR_CREDIT)
+                .withSemester(VALID_CORRECT_SEMESTER_OF_MOD_NAME_B.toString()).build();
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + MOD_NAME_DESC_B
@@ -62,8 +64,10 @@ public class AddCommandParserTest {
     @Test
     public void parse_optionalFieldsMissing_success() {
         // zero tags
-        Module expectedModule = new ModuleBuilder(MOD_A).withTags()
-                .withModularCredit(VALID_MODULAR_CREDIT).withSemester(VALID_CORRECT_SEMESTER_OF_MOD_NAME_B.toString()).build();
+        Module expectedModule = new ModuleBuilder(MOD_A)
+                .withTags()
+                .withModularCredit(VALID_MODULAR_CREDIT)
+                .withSemester(VALID_CORRECT_SEMESTER_OF_MOD_NAME_B.toString()).build();
         assertParseSuccess(parser, MOD_NAME_DESC_A + GRADE_DESC_A + MODULAR_CREDIT_DESC,
                 new AddCommand(expectedModule));
     }
@@ -97,7 +101,7 @@ public class AddCommandParserTest {
 
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + MOD_NAME_DESC_B
-                + GRADE_DESC_B + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+                        + GRADE_DESC_B + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
 }

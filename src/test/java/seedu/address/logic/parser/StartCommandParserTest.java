@@ -6,7 +6,6 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_CORRECT_SEMESTE
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
-
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.Messages;

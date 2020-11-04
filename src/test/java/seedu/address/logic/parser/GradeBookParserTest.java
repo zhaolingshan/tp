@@ -65,9 +65,13 @@ public class GradeBookParserTest {
         setValidCorrectSemester();
         Module module = new ModuleBuilder().build();
         UpdateCommand.UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder(module)
-                .withName(COM_ORG.getModuleName().fullModName).withGrade(NO_GRADE).withSemester(VALID_CORRECT_SEMESTER_OF_MOD_NAME_B).build();
+                .withName(COM_ORG.getModuleName().fullModName)
+                .withGrade(NO_GRADE)
+                .withSemester(VALID_CORRECT_SEMESTER_OF_MOD_NAME_B).build();
         UpdateCommand command = (UpdateCommand) parser.parseCommand(UpdateCommand.COMMAND_WORD + " "
-                + COM_ORG.getModuleName().fullModName + " " + PREFIX_SEMESTER + VALID_CORRECT_SEMESTER_OF_MOD_NAME_B + " "
+                + COM_ORG.getModuleName().fullModName
+                + " " + PREFIX_SEMESTER
+                + VALID_CORRECT_SEMESTER_OF_MOD_NAME_B + " "
                 + ModuleUtil.getUpdateModuleDescriptorDetails(descriptor));
         assertEquals(new UpdateCommand(COM_ORG.getModuleName(), descriptor), command);
     }

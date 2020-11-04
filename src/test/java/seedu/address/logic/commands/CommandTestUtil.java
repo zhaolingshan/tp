@@ -48,7 +48,7 @@ public class CommandTestUtil {
     public static final double VALID_CAP_A = 3.50;
     public static final double VALID_CAP_B = 0;
     public static final String VALID_INPUT_FOR_ONE_WORD_COMMAND = "";
-    
+
     public static final String MOD_NAME_DESC_A = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_A;
     public static final String MOD_NAME_DESC_B = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_B;
     public static final String NO_GRADE = "NA";
@@ -127,6 +127,7 @@ public class CommandTestUtil {
         assertEquals(expectedGradeBook, actualModel.getGradeBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredModuleList());
     }
+
     /**
      * Updates {@code model}'s filtered list to show only the module at the given {@code targetIndex} in the
      * {@code model}'s address book.
@@ -152,7 +153,6 @@ public class CommandTestUtil {
 
     /**
      * Sets NA as the current semester as it is an invalid semester.
-     * 
      */
     public static void setInvalidSemester() {
         SemesterManager semesterManager = SemesterManager.getInstance();

@@ -55,7 +55,7 @@ public class UpdateCommandTest {
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
         setValidCorrectSemester();
-        
+
         Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();
         UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder(updatedModule).build();
