@@ -61,7 +61,7 @@ public class CommandTestUtil {
     public static final String LIST_GOAL_DESC = " " + PREFIX_LIST_GOAL;
     public static final String SEMESTER_DESC = " " + PREFIX_SEMESTER + VALID_SEMESTER.toString();
 
-    public static final String INVALID_MOD_NAME_DESC = " " + PREFIX_MOD_NAME + "James&"; // '&' not allowed in mod names
+    public static final String INVALID_MOD_NAME_DESC = " " + PREFIX_MOD_NAME + "C&2100"; // '&' not allowed in mod names
     public static final String INVALID_GRADE_DESC = " " + PREFIX_GRADE; // empty string not allowed for GRADES
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final int INVALID_GOAL_TARGET = -1;

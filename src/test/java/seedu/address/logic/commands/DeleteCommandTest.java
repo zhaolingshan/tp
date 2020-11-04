@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_MOD_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
@@ -49,8 +50,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validModuleNameUnfilteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidSemester();
 
         Module moduleToDelete = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
@@ -66,7 +66,9 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_invalidModuleNameUnfilteredList_throwsCommandException() {
-        ModuleName invalidModuleName = new ModuleName("INVALID");
+        setValidSemester();
+        
+        ModuleName invalidModuleName = new ModuleName(INVALID_MOD_NAME_DESC);
         DeleteCommand deleteCommand = new DeleteCommand(invalidModuleName);
 
         assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
@@ -74,8 +76,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validIndexFilteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidSemester();
 
         showModuleAtIndex(model, indexFirstModule);
 
@@ -148,7 +149,6 @@ public class DeleteCommandTest {
     public void execute_wrongSemester_throwsCommandException() { 
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y4S2);
-//        setValidSemester();
 
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
         Semester semesterOfFirstModule = COM_ORG.getSemester();
