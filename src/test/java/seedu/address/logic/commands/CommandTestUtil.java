@@ -140,17 +140,30 @@ public class CommandTestUtil {
 
         assertEquals(1, model.getFilteredModuleList().size());
     }
-    
+
+    /**
+     * Sets Y2S1 as the current semester as it is the semester which
+     * CS2100 belongs to.
+     */
     public static void setValidCorrectSemester() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(VALID_CORRECT_SEMESTER_OF_MOD_NAME_B);
     }
 
+    /**
+     * Sets NA as the current semester as it is an invalid semester.
+     * 
+     */
     public static void setInvalidSemester() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(INVALID_SEMESTER);
     }
-    
+
+    /**
+     * Sets Y4S1 as the current semester for test cases which check if the module
+     * which is currently being edited is in the same semester as the semester which
+     * is currently being edited. Since CS2100 is in Y2S1, Y4S1 is the wrong semester.
+     */
     public static void setValidWrongSemester() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(VALID_WRONG_SEMESTER_OF_MOD_NAME_B);

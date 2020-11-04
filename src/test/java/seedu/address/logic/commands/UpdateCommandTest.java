@@ -54,8 +54,7 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidCorrectSemester();
         
         Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();
@@ -73,8 +72,7 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_someFieldsSpecifiedUnfilteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidCorrectSemester();
 
         ModuleName firstModuleName = COM_ORG.getModuleName();
         Index indexLastModule = GetModuleIndex.getIndex(model.getFilteredModuleList(), firstModuleName);
@@ -100,8 +98,7 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_noFieldSpecifiedUnfilteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidCorrectSemester();
 
         UpdateCommand updateCommand = new UpdateCommand(nameFirstModule, new UpdateModNameDescriptor());
         Module updatedModule = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
@@ -116,8 +113,7 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_filteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidCorrectSemester();
 
         showModuleAtIndex(model, indexFirstModule);
 
@@ -137,6 +133,7 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_invalidModuleNameUnfilteredList_failure() {
+        setValidCorrectSemester();
         ModuleName invalidModuleName = new ModuleName("No such module");
         UpdateCommand.UpdateModNameDescriptor descriptor =
                 new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).build();
