@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Zhao Ling Shan's Project Portfolio Page
+title: Zhao Lingshan's Project Portfolio Page
 ---
 
 ## Project: MyMod
