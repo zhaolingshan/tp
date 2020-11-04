@@ -6,6 +6,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.CommandTestUtil.NO_GRADE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_SEMESTER;
+import static seedu.address.logic.commands.CommandTestUtil.setValidSemester;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SEMESTER;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
@@ -29,7 +30,6 @@ import seedu.address.logic.commands.UpdateCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
-import seedu.address.model.semester.SemesterManager;
 import seedu.address.testutil.ModuleBuilder;
 import seedu.address.testutil.ModuleUtil;
 import seedu.address.testutil.UpdateModNameDescriptorBuilder;
@@ -47,16 +47,14 @@ public class GradeBookParserTest {
 
     @Test
     public void parseCommand_clear() throws Exception {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        setValidSemester();
         assertTrue(parser.parseCommand(ClearCommand.COMMAND_WORD) instanceof ClearCommand);
         assertTrue(parser.parseCommand(ClearCommand.COMMAND_WORD + " 3") instanceof ClearCommand);
     }
 
     @Test
     public void parseCommand_delete() throws Exception {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        setValidSemester();
         DeleteCommand command = (DeleteCommand) parser.parseCommand(
                 DeleteCommand.COMMAND_WORD + " " + COM_ORG.getModuleName());
         assertEquals(new DeleteCommand(COM_ORG.getModuleName()), command);
@@ -64,8 +62,7 @@ public class GradeBookParserTest {
 
     @Test
     public void parseCommand_update() throws Exception {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        setValidSemester();
         Module module = new ModuleBuilder().build();
         UpdateCommand.UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder(module)
                 .withName(COM_ORG.getModuleName().fullModName).withGrade(NO_GRADE).build();
@@ -77,8 +74,7 @@ public class GradeBookParserTest {
 
     @Test
     public void parseCommand_start() throws Exception {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        setValidSemester();
         StartCommand command = (StartCommand) parser.parseCommand(
                 StartCommand.COMMAND_WORD + " " + VALID_SEMESTER);
         assertEquals(new StartCommand(VALID_SEMESTER), command);
@@ -86,24 +82,21 @@ public class GradeBookParserTest {
 
     @Test
     public void parseCommand_done() throws Exception {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        setValidSemester();
         assertTrue(parser.parseCommand(DoneCommand.COMMAND_WORD) instanceof DoneCommand);
         assertTrue(parser.parseCommand(DoneCommand.COMMAND_WORD + "") instanceof DoneCommand);
     }
 
     @Test
     public void parseCommand_exit() throws Exception {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        setValidSemester();
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD) instanceof ExitCommand);
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD + "") instanceof ExitCommand);
     }
 
     @Test
     public void parseCommand_find() throws Exception {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        setValidSemester();
         List<String> keywords = Arrays.asList("foo", "bar", "baz");
         FindCommand command = (FindCommand) parser.parseCommand(
                 FindCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
@@ -112,32 +105,28 @@ public class GradeBookParserTest {
 
     @Test
     public void parseCommand_help() throws Exception {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        setValidSemester();
         assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD) instanceof HelpCommand);
         assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD + "") instanceof HelpCommand);
     }
 
     @Test
     public void parseCommand_list() throws Exception {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        setValidSemester();
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD) instanceof ListCommand);
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD + "") instanceof ListCommand);
     }
 
     @Test
     public void parseCommand_unrecognisedInput_throwsParseException() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        setValidSemester();
         assertThrows(ParseException.class, String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE), (
         ) -> parser.parseCommand(""));
     }
 
     @Test
     public void parseCommand_unknownCommand_throwsParseException() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        setValidSemester();
         assertThrows(ParseException.class, MESSAGE_UNKNOWN_COMMAND, () -> parser.parseCommand("unknownCommand"));
     }
 }
