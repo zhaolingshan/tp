@@ -2,7 +2,7 @@ package seedu.address.logic.parser;
 
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_FOR_ONE_WORD_COMMAND;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_SEMESTER;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_SEMESTER;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_CORRECT_SEMESTER_OF_MOD_NAME_B;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -31,7 +31,7 @@ public class StartCommandParserTest {
 
     @Test
     public void parse_validSemester_success() throws ParseException {
-        Semester validSemester = VALID_SEMESTER;
+        Semester validSemester = VALID_CORRECT_SEMESTER_OF_MOD_NAME_B;
         StartCommand startCommand = new StartCommand(validSemester);
         assertParseSuccess(parser, validSemester.toString(), startCommand);
     }

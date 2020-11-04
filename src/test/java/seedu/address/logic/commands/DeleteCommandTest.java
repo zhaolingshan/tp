@@ -6,7 +6,8 @@ import static seedu.address.logic.commands.CommandTestUtil.INVALID_MOD_NAME_DESC
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
-import static seedu.address.logic.commands.CommandTestUtil.setValidSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidCorrectSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidWrongSemester;
 import static seedu.address.logic.commands.CommandTestUtil.showModuleAtIndex;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
@@ -50,7 +51,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validModuleNameUnfilteredList_success() {
-        setValidSemester();
+        setValidCorrectSemester();
 
         Module moduleToDelete = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
@@ -66,7 +67,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_invalidModuleNameUnfilteredList_throwsCommandException() {
-        setValidSemester();
+        setValidCorrectSemester();
         
         ModuleName invalidModuleName = new ModuleName(INVALID_MOD_NAME_DESC);
         DeleteCommand deleteCommand = new DeleteCommand(invalidModuleName);
@@ -76,7 +77,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validIndexFilteredList_success() {
-        setValidSemester();
+        setValidCorrectSemester();
 
         showModuleAtIndex(model, indexFirstModule);
 
@@ -148,7 +149,7 @@ public class DeleteCommandTest {
     @Test
     public void execute_wrongSemester_throwsCommandException() { 
         SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y4S2);
+        setValidWrongSemester();
 
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
         Semester semesterOfFirstModule = COM_ORG.getSemester();

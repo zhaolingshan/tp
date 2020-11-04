@@ -43,7 +43,8 @@ public class CommandTestUtil {
     public static final int VALID_GOAL_TARGET_B = 3;
     public static final int VALID_GOAL_TARGET_C = 6;
     public static final String VALID_GOAL_TARGET_INPUT = "4";
-    public static final Semester VALID_SEMESTER = Semester.Y2S1;
+    public static final Semester VALID_CORRECT_SEMESTER_OF_MOD_NAME_B = Semester.Y2S1;
+    public static final Semester VALID_WRONG_SEMESTER_OF_MOD_NAME_B = Semester.Y4S1;
     public static final double VALID_CAP_A = 3.50;
     public static final double VALID_CAP_B = 0;
     public static final String VALID_INPUT_FOR_ONE_WORD_COMMAND = "";
@@ -59,7 +60,7 @@ public class CommandTestUtil {
     public static final String SET_GOAL_DESC_A = " " + PREFIX_SET_GOAL + VALID_GOAL_TARGET_A;
     public static final String SET_GOAL_DESC_B = " " + PREFIX_SET_GOAL + VALID_GOAL_TARGET_B;
     public static final String LIST_GOAL_DESC = " " + PREFIX_LIST_GOAL;
-    public static final String SEMESTER_DESC = " " + PREFIX_SEMESTER + VALID_SEMESTER.toString();
+    public static final String SEMESTER_DESC = " " + PREFIX_SEMESTER + VALID_CORRECT_SEMESTER_OF_MOD_NAME_B.toString();
 
     public static final String INVALID_MOD_NAME_DESC = " " + PREFIX_MOD_NAME + "C&2100"; // '&' not allowed in mod names
     public static final String INVALID_GRADE_DESC = " " + PREFIX_GRADE; // empty string not allowed for GRADES
@@ -140,13 +141,18 @@ public class CommandTestUtil {
         assertEquals(1, model.getFilteredModuleList().size());
     }
     
-    public static void setValidSemester() {
+    public static void setValidCorrectSemester() {
         SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        semesterManager.setCurrentSemester(VALID_CORRECT_SEMESTER_OF_MOD_NAME_B);
     }
 
     public static void setInvalidSemester() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(INVALID_SEMESTER);
+    }
+    
+    public static void setValidWrongSemester() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(VALID_WRONG_SEMESTER_OF_MOD_NAME_B);
     }
 }

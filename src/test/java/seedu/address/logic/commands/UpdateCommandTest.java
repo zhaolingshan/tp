@@ -10,7 +10,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
-import static seedu.address.logic.commands.CommandTestUtil.setValidSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidCorrectSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidWrongSemester;
 import static seedu.address.logic.commands.CommandTestUtil.showModuleAtIndex;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
 import static seedu.address.testutil.TypicalModules.EFF_COM;
@@ -150,7 +151,7 @@ public class UpdateCommandTest {
      */
     @Test
     public void execute_invalidModuleNameFilteredList_failure() {
-        setValidSemester();
+        setValidCorrectSemester();
 
         showModuleAtIndex(model, indexFirstModule);
         Index outOfBoundIndex = indexSecondModule;
@@ -204,7 +205,7 @@ public class UpdateCommandTest {
     @Test
     public void execute_wrongSemester_throwsCommandException() {
         SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y4S1);
+        setValidWrongSemester();
 
         Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();

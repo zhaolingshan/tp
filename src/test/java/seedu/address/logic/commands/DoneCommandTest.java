@@ -2,7 +2,7 @@ package seedu.address.logic.commands;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
-import static seedu.address.logic.commands.CommandTestUtil.setValidSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidCorrectSemester;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ public class DoneCommandTest {
     @Test
     public void execute_validSemester_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
-        setValidSemester();
+        setValidCorrectSemester();
         CommandResult expectedCommandResult = new CommandResult(
                 String.format(DoneCommand.MESSAGE_DONE_SEMESTER_SUCCESS, semesterManager.getCurrentSemester()),
                 false, false, false, false);

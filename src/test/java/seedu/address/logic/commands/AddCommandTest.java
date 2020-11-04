@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
-import static seedu.address.logic.commands.CommandTestUtil.setValidSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidCorrectSemester;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.nio.file.Path;
@@ -36,7 +36,7 @@ public class AddCommandTest {
 
     @Test
     public void execute_moduleAcceptedByModel_addSuccessful() throws Exception {
-        setValidSemester();
+        setValidCorrectSemester();
 
         ModelStubAcceptingModuleAdded modelStub = new ModelStubAcceptingModuleAdded();
         Module validModule = new ModuleBuilder().build();
