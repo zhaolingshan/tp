@@ -30,5 +30,4 @@ public class FindCommandParserTest {
         // multiple whitespaces between keywords
         assertParseSuccess(parser, " \n CS2103T \n \t CS2100  \t", expectedFindCommand);
     }
-
 }
