@@ -36,10 +36,10 @@ Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in th
 Are you a NUS student who wants a clean Command Line Interface (CLI) to keep track of your modules and grades?
 If yes, then this user guide is for you!
 
-Want to know the common use cases, how to get started or in-depth documentation of all of our 13 key features in MyMods?
+Want to know the common use cases, how to get started or in-depth documentation of all of our 13 key features in **MyMods**?
 We got that all covered for you in this user guide.
 
-And yes, that is right! We have 13 key features in MyMods: `start`, `add`, `update`, `list`, `goal`, `recommendSU`,
+And yes, that is right! We have 13 key features in **MyMods**: `start`, `add`, `update`, `list`, `goal`, `recommendSU`,
 `su`, `delete`, `done`, `find`, `progress`, `help` and `exit` commands.
 
 You do not need any prior technical knowledge to understand this document, however, you will need to know how to read
@@ -100,19 +100,23 @@ home folder.
 
 #### The Interface
 
-This is what MyMods looks like: \
+This is what **MyMods** looks like: \
 <img src="images/UG SS/1.5 Getting Started 2.png">
 
 <div markdown="span" class="alert alert-primary">
-:bulb: Default colours looking different? Fret not! The theme of MyMods is determined by the time of the day.
+:bulb: Default colours looking different? Fret not! The theme of **MyMods** is determined by the time of the day.
 You can change the colours using the tab “Theme”.
 </div>
 
+<br>
+
+[Back to top](#Product_Overview)
+ 
 ---
 
 # 2. Key Features <a name="Key_Features"></a>
 
-Below is information about the features and commands of `MyMods`.
+Below is information about the features and commands of **MyMods**.
 
 <div markdown="span" class="alert alert-info">
 :warning: <strong>Important information about the command format:</strong><br><br>
@@ -144,7 +148,7 @@ Command | Format
 `exit` | `exit`
 
 ### 2.2 Edit Semester: `start` <a name="Edit_Semester"></a>
-Can’t wait to add your modules into MyMods? You can start modifying the modules by starting a semester! \
+Can’t wait to add your modules into **MyMods**? You can start modifying the modules by starting a semester! \
 \
 Format: `start SEMESTER` \
 \
@@ -167,6 +171,10 @@ To edit a Semester (e.g. Y2S1):
 <div markdown="span" class="alert alert-primary">
 :bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
 </div>
+
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.3 Add module: `add` <a name="Add_Module"></a>
 Yes! After starting a semester, we can now add a module to your list. \
@@ -203,6 +211,10 @@ Type `add m/CS1101A mc/4` (with `mc/`) into the command box, and press Enter to 
 
 </div>
 
+<br>
+
+[Back to top](#Product_Overview)
+
 ### 2.4 Update Module: `update` <a name="Update_Module"></a>
 Oops, typed something wrong or want to change something? Use this update feature to change the module’s grade.
 \
@@ -223,6 +235,9 @@ To update a module (e.g. CS2030):
 3. You can check that the module is updated from the list below:
 <img src="images/UG SS/2.4 Update Module 3.png">
 
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.5 List all Modules: `list` <a name="List_all_Modules"></a>
 Displays the list of modules and their respective grades (if any).
@@ -249,6 +264,9 @@ To view all the modules that you have taken:
 3. You can check that all the modules are shown in the list below:
 <img src="images/UG SS/2.5 List all Modules 3.png">
 
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.6 Set Goals: `goal` <a name="Set_Goals"></a>
 Reach for the stars! Set your goal level according to NUS’ Honours Classification System
@@ -272,7 +290,7 @@ Examples:
 * `1`: Fail (CAP **< 2.00**)<br><br>
 
 <div markdown="span" class="alert alert-primary">
-:bulb: You can also show the same list in MyMods using `goal list`:
+:bulb: You can also show the same list in **MyMods** using `goal list`:
 </div>
 
 To set your goal to 2 (CAP4.00 ~ 4.49):
@@ -289,6 +307,9 @@ To set your goal to 2 (CAP4.00 ~ 4.49):
 
 </div>
 
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.7 Recommend S/U: `recommendSU` <a name="Recommend_S/U"></a>
 Having a headache on what module you should S/U? This feature will ease your headache by recommending which module(s)
@@ -316,7 +337,11 @@ To get recommendations on which modules to S/U:
 <div markdown="span" class="alert alert-info">
 :warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed
 using the command `su`.
-</div>
+</div> 
+
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.8 S/U module: `su` <a name="S/U_Module"></a>
 Didn’t so very well for a module? S/U the module in your list using this feature! \
@@ -343,6 +368,10 @@ To S/U a module (e.g. CS1231):
 <img src="images/UG SS/2.8 SU Module 4.png">
 </div>
 
+<br>
+
+[Back to top](#Product_Overview)
+
 ### 2.9 Delete Module: `delete` <a name="Delete_Module"></a>
 If you want to remove a module from your list, use this feature to delete the module along with its grade
 from your list of modules. \
@@ -364,6 +393,9 @@ To delete a module (e.g. CS1231) from the list: \
 3. The module CS1231 will be deleted from the list below: \
 <img src="images/UG SS/2.9 Delete Module 4.png">
 
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.10 Exit Semester: `done` <a name="Exit_Semester"></a>
 Finally done with editing the semester? You will not be able to change any module in a particular
@@ -385,6 +417,10 @@ To stop editing a semester (e.g. Y1S1):
 <div markdown="span" class="alert alert-primary">
 :bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
 </div>
+
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.11 Find Module: `find` <a name="Find_Module"></a>
 
@@ -411,6 +447,10 @@ To search for a module (e.g. CS):
 :bulb: If there is no module that matches the keyword, the following message will be shown:
 </div>
 
+<br>
+
+[Back to top](#Product_Overview)
+
 ### 2.12 Progress Report: `progress` <a name="Progress_Report"></a>
 Want to know how well you are doing relative to your goal? Use this feature for a progress report
 that calculates the average CAP required for your remaining modules to achieve your target CAP.
@@ -434,6 +474,9 @@ To calculate the CAP required to achieve your goal:
 2. The result box will display the message: \
 <img src="images/UG SS/2.11 Progress Report 2.png">
 
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.13 Get Help: `help` <a name="Get_Help"></a>
 If you are lost, this command will be helpful.
@@ -451,6 +494,9 @@ To seek help:
 2. The result box will display the message with an additional pop-up window: \
 <img src="images/UG SS/2.12 Get Help 2.png">
 
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.14 Exit Application: `exit` <a name="Exit_Application"></a>
 Exits the application.
@@ -464,5 +510,8 @@ To exit the application:
 1. Type `exit` into the command box, and press Enter to execute it. \
 <img src="images/UG SS/2.13 Exit Application 1.png">
 
+<br>
+
+[Back to top](#Product_Overview)
 
 

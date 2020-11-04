@@ -3,7 +3,7 @@ layout: page
 title: Developer Guide
 ---
 
-# Developer Guide
+### <a name="top"></a>
 
 * **[Setting up, getting started](#Setting_up,_getting_started)**
 * **[Design](#Design)**
@@ -153,6 +153,10 @@ The `Storage` component,
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
+<br>
+
+[Back to top](#top)
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Implementation** <a name="Implementation"></a>
@@ -296,6 +300,10 @@ CAP calculation. The calculation process is done as shown below:
  or not (e.g. user input is `progress --ddp` or `just progress`)
  4. Target CAP is retrieved from the `ModelManager` class
  5. Required CAP from remaining modules is calculated.
+
+<br>
+
+[Back to top](#top)
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Product scope** <a name="Product_scope"></a>
@@ -463,3 +471,7 @@ _{More to be added}_
 
 
 *   **Mainstream OS**: Windows, Linux, Unix, OS-X
+
+<br>
+
+[Back to top](#top)
