@@ -2,9 +2,10 @@
 layout: page
 title: User Guide
 ---
+<img src="images/MyMods-logo.png">
 
 # 1. Product Overview <a name="Product_Overview"></a>
-Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in this section.
+Welcome to **MyMods**:100:! Let us guide you through the overview of **MyMods**:100: in this section.
 
 ### 1.1 Table of Contents <a name="Table_of_Contents"></a>
 
@@ -36,10 +37,10 @@ Welcome to **MyMods**! Let us guide you through the overview of **MyMods** in th
 Are you a NUS student who wants a clean Command Line Interface (CLI) to keep track of your modules and grades?
 If yes, then this user guide is for you!
 
-Want to know the common use cases, how to get started or in-depth documentation of all of our 13 key features in MyMods?
+Want to know the common use cases, how to get started or in-depth documentation of all of our 13 key features in **MyMods**:100:?
 We got that all covered for you in this user guide.
 
-And yes, that is right! We have 13 key features in MyMods: `start`, `add`, `update`, `list`, `goal`, `recommendSU`,
+And yes, that is right! We have 13 key features in **MyMods**:100:: `start`, `add`, `update`, `list`, `goal`, `recommendSU`,
 `su`, `delete`, `done`, `find`, `progress`, `help` and `exit` commands.
 
 You do not need any prior technical knowledge to understand this document, however, you will need to know how to read
@@ -62,10 +63,10 @@ and executed by the application.
 
 ### 1.3 Introduction <a name="Introduction"></a>
 
-So what exactly is **MyMods**? It is a desktop app for tracking modules and grades, optimized for use for students who
+So what exactly is **MyMods**:100:? It is a desktop app for tracking modules and grades, optimized for use for students who
 prefer typing via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
-With **MyMods**, you are able to keep track of your module results efficiently, easily make S/U decisions, and view your
-academic progress. **MyMods** is available for the Linux, Unix, Windows XP and Mac OS X operating systems.
+With **MyMods**:100:, you are able to keep track of your module results efficiently, easily make S/U decisions, and view your
+academic progress. **MyMods**:100: is available for the Linux, Unix, Windows XP and Mac OS X operating systems.
 
 ### 1.4 Glossaries <a name="Glossaries"></a>
 
@@ -82,10 +83,10 @@ S/U | Satisfactory / Unsatisfactory option in NUS
 
 #### Installation
 
-1. Grab a cup of coffee ☕.
-2. Ensure you have Java 11 or above installed in your computer.
+1. Grab a cup of coffee :coffee:.
+2. Ensure you have Java 11 or above installed in your computer :computer:.
 3. Download the last MyMods.jar file from [here](https://github.com/AY2021S1-CS2103T-T17-1/tp/releases/tag/v1.3.1).
-4. Place the file in any folder that you want to be the home folder for **MyMods**.
+4. Place the file in any folder that you want to be the home folder for **MyMods**:100:.
 5. Start the web application by double-clicking the file or run it with `java -jar
 MyMods.jar`. The window (without any modules) similar to the interface shown below will appear.
 
@@ -100,19 +101,23 @@ home folder.
 
 #### The Interface
 
-This is what MyMods looks like: \
+This is what **MyMods**:100: looks like: \
 <img src="images/UG SS/1.5 Getting Started 2.png">
 
 <div markdown="span" class="alert alert-primary">
-:bulb: Default colours looking different? Fret not! The theme of MyMods is determined by the time of the day.
+:bulb: Default colours looking different? Fret not! The theme of **MyMods**:100: is determined by the time of the day.
 You can change the colours using the tab “Theme”.
 </div>
 
+<br>
+
+[Back to top](#Product_Overview)
+ 
 ---
 
 # 2. Key Features <a name="Key_Features"></a>
 
-Below is information about the features and commands of `MyMods`.
+Below is information about the features and commands of **MyMods**:100:.
 
 <div markdown="span" class="alert alert-info">
 :warning: <strong>Important information about the command format:</strong><br><br>
@@ -121,7 +126,8 @@ Below is information about the features and commands of `MyMods`.
 
 * Items in <strong>SQUARE BRACKETS</strong> are optional input parameters. e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br><br>
 
-* Parameters are <strong>NOT case-sensitive</strong>. e.g. `add m/CS2100` is the same as `add m/cs2100`.<br><br>
+* Parameters are <strong>NOT case-sensitive</strong>. e.g. `add m/CS2100` is the same as `add m/cs2100`
+ or `start Y1S1` is the same as `start y1s1`.<br><br>
 
 </div>
 
@@ -144,7 +150,7 @@ Command | Format
 `exit` | `exit`
 
 ### 2.2 Edit Semester: `start` <a name="Edit_Semester"></a>
-Can’t wait to add your modules into MyMods? You can start modifying the modules by starting a semester! \
+Can’t wait to add your modules into **MyMods**:100:? You can start modifying the modules by starting a semester! \
 \
 Format: `start SEMESTER` \
 \
@@ -168,6 +174,10 @@ To edit a Semester (e.g. Y2S1):
 :bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
 </div>
 
+<br>
+
+[Back to top](#Product_Overview)
+
 ### 2.3 Add module: `add` <a name="Add_Module"></a>
 Yes! After starting a semester, we can now add a module to your list. \
 \
@@ -190,7 +200,7 @@ To add a module (e.g. add CS1101S):
 <img src="images/UG SS/2.3 Add Module 3.png">
 
 <div markdown="span" class="alert alert-info">
-:warning: Our database is valid up to modules in the AY19/20 academic year. So if the modules you are adding is
+:warning: Our database is **valid up to modules in the AY19/20 academic year**. So if the modules you are adding is
 new in AY20/21 academic year, the following message will be shown:<br><br>
 </div>
 
@@ -202,6 +212,10 @@ Type `add m/CS1101A mc/4` (with `mc/`) into the command box, and press Enter to 
 :warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed using the command `su`.
 
 </div>
+
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.4 Update Module: `update` <a name="Update_Module"></a>
 Oops, typed something wrong or want to change something? Use this update feature to change the module’s grade.
@@ -223,6 +237,9 @@ To update a module (e.g. CS2030):
 3. You can check that the module is updated from the list below:
 <img src="images/UG SS/2.4 Update Module 3.png">
 
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.5 List all Modules: `list` <a name="List_all_Modules"></a>
 Displays the list of modules and their respective grades (if any).
@@ -249,6 +266,9 @@ To view all the modules that you have taken:
 3. You can check that all the modules are shown in the list below:
 <img src="images/UG SS/2.5 List all Modules 3.png">
 
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.6 Set Goals: `goal` <a name="Set_Goals"></a>
 Reach for the stars! Set your goal level according to NUS’ Honours Classification System
@@ -261,7 +281,7 @@ Examples:
 *   `goal list`
 <br><br>
 <div markdown="span" class="alert alert-primary">
-:bulb: Below is the NUS Honours Classification System with respect to the `LEVEL`:
+:bulb: Below is the NUS Honours Classification System with respect to the `LEVEL` available:
 </div>
 
 * `6`: Highest Distinction (CAP **4.50 ~ 5.00**)
@@ -272,7 +292,7 @@ Examples:
 * `1`: Fail (CAP **< 2.00**)<br><br>
 
 <div markdown="span" class="alert alert-primary">
-:bulb: You can also show the same list in MyMods using `goal list`:
+:bulb: You can also show the same list in **MyMods**:100: using `goal list`:
 </div>
 
 To set your goal to 2 (CAP4.00 ~ 4.49):
@@ -289,6 +309,9 @@ To set your goal to 2 (CAP4.00 ~ 4.49):
 
 </div>
 
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.7 Recommend S/U: `recommendSU` <a name="Recommend_S/U"></a>
 Having a headache on what module you should S/U? This feature will ease your headache by recommending which module(s)
@@ -316,7 +339,11 @@ To get recommendations on which modules to S/U:
 <div markdown="span" class="alert alert-info">
 :warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed
 using the command `su`.
-</div>
+</div> 
+
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.8 S/U module: `su` <a name="S/U_Module"></a>
 Didn’t so very well for a module? S/U the module in your list using this feature! \
@@ -343,6 +370,10 @@ To S/U a module (e.g. CS1231):
 <img src="images/UG SS/2.8 SU Module 4.png">
 </div>
 
+<br>
+
+[Back to top](#Product_Overview)
+
 ### 2.9 Delete Module: `delete` <a name="Delete_Module"></a>
 If you want to remove a module from your list, use this feature to delete the module along with its grade
 from your list of modules. \
@@ -364,6 +395,9 @@ To delete a module (e.g. CS1231) from the list: \
 3. The module CS1231 will be deleted from the list below: \
 <img src="images/UG SS/2.9 Delete Module 4.png">
 
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.10 Exit Semester: `done` <a name="Exit_Semester"></a>
 Finally done with editing the semester? You will not be able to change any module in a particular
@@ -385,6 +419,10 @@ To stop editing a semester (e.g. Y1S1):
 <div markdown="span" class="alert alert-primary">
 :bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
 </div>
+
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.11 Find Module: `find` <a name="Find_Module"></a>
 
@@ -411,6 +449,10 @@ To search for a module (e.g. CS):
 :bulb: If there is no module that matches the keyword, the following message will be shown:
 </div>
 
+<br>
+
+[Back to top](#Product_Overview)
+
 ### 2.12 Progress Report: `progress` <a name="Progress_Report"></a>
 Want to know how well you are doing relative to your goal? Use this feature for a progress report
 that calculates the average CAP required for your remaining modules to achieve your target CAP.
@@ -434,9 +476,12 @@ To calculate the CAP required to achieve your goal:
 2. The result box will display the message: \
 <img src="images/UG SS/2.11 Progress Report 2.png">
 
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.13 Get Help: `help` <a name="Get_Help"></a>
-If you are lost, this command will be helpful.
+If you are lost, this command will give you a summary of the command formats.
 
 Format: `help` \
  \
@@ -451,6 +496,9 @@ To seek help:
 2. The result box will display the message with an additional pop-up window: \
 <img src="images/UG SS/2.12 Get Help 2.png">
 
+<br>
+
+[Back to top](#Product_Overview)
 
 ### 2.14 Exit Application: `exit` <a name="Exit_Application"></a>
 Exits the application.
@@ -464,5 +512,8 @@ To exit the application:
 1. Type `exit` into the command box, and press Enter to execute it. \
 <img src="images/UG SS/2.13 Exit Application 1.png">
 
+<br>
+
+[Back to top](#Product_Overview)
 
 
