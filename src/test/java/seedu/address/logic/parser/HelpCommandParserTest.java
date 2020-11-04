@@ -1,5 +1,8 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_FOR_ONE_WORD_COMMAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_INPUT_FOR_ONE_WORD_COMMAND;
+import static seedu.address.logic.commands.CommandTestUtil.setValidCorrectSemester;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -7,8 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.HelpCommand;
-import seedu.address.model.semester.Semester;
-import seedu.address.model.semester.SemesterManager;
 
 public class HelpCommandParserTest {
 
@@ -16,19 +17,15 @@ public class HelpCommandParserTest {
 
     @Test
     public void parse_invalidValue_failure() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y1S1);
-        final String invalidValue = "hi";
-        assertParseFailure(parser, invalidValue,
+        setValidCorrectSemester();
+        assertParseFailure(parser, INVALID_INPUT_FOR_ONE_WORD_COMMAND,
                 String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
     }
 
     @Test
     public void parse_validValue_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y1S1);
-        final String validValue = "";
+        setValidCorrectSemester();
         HelpCommand helpCommand = new HelpCommand();
-        assertParseSuccess(parser, validValue, helpCommand);
+        assertParseSuccess(parser, VALID_INPUT_FOR_ONE_WORD_COMMAND, helpCommand);
     }
 }

@@ -22,6 +22,7 @@ import seedu.address.model.Model;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
 import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 
 /**
@@ -42,11 +43,12 @@ public class CommandTestUtil {
     public static final int VALID_GOAL_TARGET_B = 3;
     public static final int VALID_GOAL_TARGET_C = 6;
     public static final String VALID_GOAL_TARGET_INPUT = "4";
-    public static final int INVALID_GOAL_TARGET = -1;
+    public static final Semester VALID_CORRECT_SEMESTER_OF_MOD_NAME_B = Semester.Y2S1;
+    public static final Semester VALID_WRONG_SEMESTER_OF_MOD_NAME_B = Semester.Y4S1;
     public static final double VALID_CAP_A = 3.50;
     public static final double VALID_CAP_B = 0;
+    public static final String VALID_INPUT_FOR_ONE_WORD_COMMAND = "";
 
-    public static final Semester VALID_SEMESTER = Semester.Y1S1;
     public static final String MOD_NAME_DESC_A = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_A;
     public static final String MOD_NAME_DESC_B = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_B;
     public static final String NO_GRADE = "NA";
@@ -58,11 +60,14 @@ public class CommandTestUtil {
     public static final String SET_GOAL_DESC_A = " " + PREFIX_SET_GOAL + VALID_GOAL_TARGET_A;
     public static final String SET_GOAL_DESC_B = " " + PREFIX_SET_GOAL + VALID_GOAL_TARGET_B;
     public static final String LIST_GOAL_DESC = " " + PREFIX_LIST_GOAL;
-    public static final String SEMESTER_DESC = " " + PREFIX_SEMESTER + VALID_SEMESTER.toString();
+    public static final String SEMESTER_DESC = " " + PREFIX_SEMESTER + VALID_CORRECT_SEMESTER_OF_MOD_NAME_B.toString();
 
-    public static final String INVALID_MOD_NAME_DESC = " " + PREFIX_MOD_NAME + "James&"; // '&' not allowed in mod names
+    public static final String INVALID_MOD_NAME_DESC = " " + PREFIX_MOD_NAME + "C&2100"; // '&' not allowed in mod names
     public static final String INVALID_GRADE_DESC = " " + PREFIX_GRADE; // empty string not allowed for GRADES
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
+    public static final int INVALID_GOAL_TARGET = -1;
+    public static final Semester INVALID_SEMESTER = Semester.NA;
+    public static final String INVALID_INPUT_FOR_ONE_WORD_COMMAND = "hi";
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
@@ -122,6 +127,7 @@ public class CommandTestUtil {
         assertEquals(expectedGradeBook, actualModel.getGradeBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredModuleList());
     }
+
     /**
      * Updates {@code model}'s filtered list to show only the module at the given {@code targetIndex} in the
      * {@code model}'s address book.
@@ -136,4 +142,30 @@ public class CommandTestUtil {
         assertEquals(1, model.getFilteredModuleList().size());
     }
 
+    /**
+     * Sets Y2S1 as the current semester as it is the semester which
+     * CS2100 belongs to.
+     */
+    public static void setValidCorrectSemester() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(VALID_CORRECT_SEMESTER_OF_MOD_NAME_B);
+    }
+
+    /**
+     * Sets NA as the current semester as it is an invalid semester.
+     */
+    public static void setInvalidSemester() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(INVALID_SEMESTER);
+    }
+
+    /**
+     * Sets Y4S1 as the current semester for test cases which check if the module
+     * which is currently being edited is in the same semester as the semester which
+     * is currently being edited. Since CS2100 is in Y2S1, Y4S1 is the wrong semester.
+     */
+    public static void setValidWrongSemester() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(VALID_WRONG_SEMESTER_OF_MOD_NAME_B);
+    }
 }

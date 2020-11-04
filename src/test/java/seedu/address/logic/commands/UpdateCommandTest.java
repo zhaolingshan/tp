@@ -9,6 +9,9 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidCorrectSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidWrongSemester;
 import static seedu.address.logic.commands.CommandTestUtil.showModuleAtIndex;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
 import static seedu.address.testutil.TypicalModules.EFF_COM;
@@ -51,8 +54,7 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidCorrectSemester();
 
         Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();
@@ -70,8 +72,7 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_someFieldsSpecifiedUnfilteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidCorrectSemester();
 
         ModuleName firstModuleName = COM_ORG.getModuleName();
         Index indexLastModule = GetModuleIndex.getIndex(model.getFilteredModuleList(), firstModuleName);
@@ -97,8 +98,7 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_noFieldSpecifiedUnfilteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidCorrectSemester();
 
         UpdateCommand updateCommand = new UpdateCommand(nameFirstModule, new UpdateModNameDescriptor());
         Module updatedModule = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
@@ -113,8 +113,7 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_filteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidCorrectSemester();
 
         showModuleAtIndex(model, indexFirstModule);
 
@@ -134,6 +133,7 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_invalidModuleNameUnfilteredList_failure() {
+        setValidCorrectSemester();
         ModuleName invalidModuleName = new ModuleName("No such module");
         UpdateCommand.UpdateModNameDescriptor descriptor =
                 new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).build();
@@ -148,8 +148,7 @@ public class UpdateCommandTest {
      */
     @Test
     public void execute_invalidModuleNameFilteredList_failure() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y5S1);
+        setValidCorrectSemester();
 
         showModuleAtIndex(model, indexFirstModule);
         Index outOfBoundIndex = indexSecondModule;
@@ -190,8 +189,7 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_invalidSemester_throwsCommandException() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.NA);
+        setInvalidSemester();
 
         Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();
@@ -204,7 +202,7 @@ public class UpdateCommandTest {
     @Test
     public void execute_wrongSemester_throwsCommandException() {
         SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y4S1);
+        setValidWrongSemester();
 
         Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();

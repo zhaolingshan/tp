@@ -1,6 +1,8 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_A;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_B;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -17,18 +19,20 @@ public class FindCommandParserTest {
 
     @Test
     public void parse_emptyArg_throwsParseException() {
-        assertParseFailure(parser, "     ", String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, "     ",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
     }
 
     @Test
     public void parse_validArgs_returnsFindCommand() {
         // no leading and trailing whitespaces
         FindCommand expectedFindCommand =
-                new FindCommand(new ModuleNameContainsKeywordsPredicate(Arrays.asList("CS2103T", "CS2100")));
+                new FindCommand(
+                        new ModuleNameContainsKeywordsPredicate(
+                                Arrays.asList(VALID_MOD_NAME_A, VALID_MOD_NAME_B)));
         assertParseSuccess(parser, "CS2103T CS2100", expectedFindCommand);
 
         // multiple whitespaces between keywords
         assertParseSuccess(parser, " \n CS2103T \n \t CS2100  \t", expectedFindCommand);
     }
-
 }

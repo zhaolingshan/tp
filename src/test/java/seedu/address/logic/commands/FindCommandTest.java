@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_MODULES_LISTED_OVERVIEW;
 import static seedu.address.commons.core.Messages.MESSAGE_NO_MODULES_FOUND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_A;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalModules.SWE;
 import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
@@ -67,7 +68,7 @@ public class FindCommandTest {
     @Test
     public void execute_singleKeyword_singleModuleFound() {
         String expectedMessage = String.format(MESSAGE_MODULES_LISTED_OVERVIEW, 1);
-        ModuleNameContainsKeywordsPredicate predicate = preparePredicate("CS2103T");
+        ModuleNameContainsKeywordsPredicate predicate = preparePredicate(VALID_MOD_NAME_A);
         FindCommand command = new FindCommand(predicate);
         expectedModel.updateFilteredModuleList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);

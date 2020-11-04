@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidCorrectSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidWrongSemester;
 import static seedu.address.logic.commands.CommandTestUtil.showModuleAtIndex;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
@@ -47,8 +50,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validModuleNameUnfilteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidCorrectSemester();
 
         Module moduleToDelete = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
@@ -64,7 +66,9 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_invalidModuleNameUnfilteredList_throwsCommandException() {
-        ModuleName invalidModuleName = new ModuleName("INVALID");
+        setValidCorrectSemester();
+
+        ModuleName invalidModuleName = new ModuleName("invalid mod");
         DeleteCommand deleteCommand = new DeleteCommand(invalidModuleName);
 
         assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
@@ -72,8 +76,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validIndexFilteredList_success() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y2S1);
+        setValidCorrectSemester();
 
         showModuleAtIndex(model, indexFirstModule);
 
@@ -135,8 +138,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_invalidSemester_throwsCommandException() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.NA);
+        setInvalidSemester();
 
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
 
@@ -146,7 +148,7 @@ public class DeleteCommandTest {
     @Test
     public void execute_wrongSemester_throwsCommandException() {
         SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y4S2);
+        setValidWrongSemester();
 
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
         Semester semesterOfFirstModule = COM_ORG.getSemester();

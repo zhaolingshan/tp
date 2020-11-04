@@ -5,6 +5,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_MODULE_DISPLAY
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.CommandTestUtil.GRADE_DESC_A;
 import static seedu.address.logic.commands.CommandTestUtil.MOD_NAME_DESC_A;
+import static seedu.address.logic.commands.CommandTestUtil.setValidCorrectSemester;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.MOD_A;
 
@@ -27,7 +28,6 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Module;
 import seedu.address.model.semester.Semester;
-import seedu.address.model.semester.SemesterManager;
 import seedu.address.storage.JsonGradeBookStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.StorageManager;
@@ -59,8 +59,8 @@ public class LogicManagerTest {
 
     @Test
     public void execute_commandExecutionError_throwsCommandException() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y1S1);
+        setValidCorrectSemester();
+
         String deleteCommand = "delete some mod";
         assertCommandException(deleteCommand, MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
     }
@@ -82,8 +82,8 @@ public class LogicManagerTest {
         logic = new LogicManager(model, storage);
 
         // Execute add command
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y1S1);
+        setValidCorrectSemester();
+
         String addCommand = AddCommand.COMMAND_WORD + MOD_NAME_DESC_A
                 + GRADE_DESC_A;
         Module expectedModule = new ModuleBuilder(MOD_A)
@@ -138,7 +138,7 @@ public class LogicManagerTest {
      * @see #assertCommandFailure(String, Class, String, Model)
      */
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
-            String expectedMessage) {
+                                      String expectedMessage) {
         Model expectedModel = new ModelManager(model.getGradeBook(), new UserPrefs(), new GoalTarget());
 
         assertCommandFailure(inputCommand, expectedException, expectedMessage, expectedModel);

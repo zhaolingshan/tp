@@ -29,7 +29,7 @@ public class ParserUtilTest {
     private static final String VALID_GRADE = "A+";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
-    private static final String VALID_SEMESTER = Semester.Y1S2.toString();
+    private static final String VALID_SEMESTER = Semester.Y2S1.toString();
 
     private static final String WHITESPACE = " \t\r\n";
 
