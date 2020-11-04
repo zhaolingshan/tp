@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
 import static seedu.address.logic.commands.CommandTestUtil.setValidSemester;
 import static seedu.address.logic.commands.CommandTestUtil.showModuleAtIndex;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -48,7 +49,8 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validModuleNameUnfilteredList_success() {
-        setValidSemester();
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(Semester.Y2S1);
 
         Module moduleToDelete = model.getFilteredModuleList().get(indexFirstModule.getZeroBased());
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
@@ -135,8 +137,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_invalidSemester_throwsCommandException() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.NA);
+        setInvalidSemester();
 
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
 
@@ -144,9 +145,10 @@ public class DeleteCommandTest {
     }
 
     @Test
-    public void execute_wrongSemester_throwsCommandException() {
+    public void execute_wrongSemester_throwsCommandException() { 
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y4S2);
+//        setValidSemester();
 
         DeleteCommand deleteCommand = new DeleteCommand(nameFirstModule);
         Semester semesterOfFirstModule = COM_ORG.getSemester();

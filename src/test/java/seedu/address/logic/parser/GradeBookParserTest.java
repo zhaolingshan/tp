@@ -6,6 +6,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.CommandTestUtil.NO_GRADE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_SEMESTER;
+import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
 import static seedu.address.logic.commands.CommandTestUtil.setValidSemester;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SEMESTER;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -30,6 +31,8 @@ import seedu.address.logic.commands.UpdateCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.testutil.ModuleBuilder;
 import seedu.address.testutil.ModuleUtil;
 import seedu.address.testutil.UpdateModNameDescriptorBuilder;
@@ -62,7 +65,9 @@ public class GradeBookParserTest {
 
     @Test
     public void parseCommand_update() throws Exception {
-        setValidSemester();
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(VALID_SEMESTER);
+        
         Module module = new ModuleBuilder().build();
         UpdateCommand.UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder(module)
                 .withName(COM_ORG.getModuleName().fullModName).withGrade(NO_GRADE).build();

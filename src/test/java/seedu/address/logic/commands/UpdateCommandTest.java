@@ -9,6 +9,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidSemester;
 import static seedu.address.logic.commands.CommandTestUtil.showModuleAtIndex;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
 import static seedu.address.testutil.TypicalModules.EFF_COM;
@@ -53,7 +55,7 @@ public class UpdateCommandTest {
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
         SemesterManager semesterManager = SemesterManager.getInstance();
         semesterManager.setCurrentSemester(Semester.Y2S1);
-
+        
         Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();
         UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder(updatedModule).build();
@@ -148,8 +150,7 @@ public class UpdateCommandTest {
      */
     @Test
     public void execute_invalidModuleNameFilteredList_failure() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.Y5S1);
+        setValidSemester();
 
         showModuleAtIndex(model, indexFirstModule);
         Index outOfBoundIndex = indexSecondModule;
@@ -190,8 +191,7 @@ public class UpdateCommandTest {
 
     @Test
     public void execute_invalidSemester_throwsCommandException() {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        semesterManager.setCurrentSemester(Semester.NA);
+        setInvalidSemester();
 
         Module updatedModule = new ModuleBuilder().withName(nameFirstModule.fullModName)
                 .withGrade(VALID_GRADE_A).build();

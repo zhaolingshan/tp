@@ -1,5 +1,7 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_FOR_ONE_WORD_COMMAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_INPUT_FOR_ONE_WORD_COMMAND;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -14,15 +16,13 @@ public class RecommendSuCommandParserTest {
 
     @Test
     public void parse_invalidValue_failure() {
-        final String invalidValue = "e";
-        assertParseFailure(parser, invalidValue,
+        assertParseFailure(parser, INVALID_INPUT_FOR_ONE_WORD_COMMAND,
                 String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, RecommendSuCommand.MESSAGE_USAGE));
     }
 
     @Test
     public void parse_validValue_success() {
-        final String validValue = "";
         RecommendSuCommand recommendSuCommand = new RecommendSuCommand();
-        assertParseSuccess(parser, validValue, recommendSuCommand);
+        assertParseSuccess(parser, VALID_INPUT_FOR_ONE_WORD_COMMAND, recommendSuCommand);
     }
 }

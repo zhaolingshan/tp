@@ -43,7 +43,7 @@ public class CommandTestUtil {
     public static final int VALID_GOAL_TARGET_B = 3;
     public static final int VALID_GOAL_TARGET_C = 6;
     public static final String VALID_GOAL_TARGET_INPUT = "4";
-    public static final Semester VALID_SEMESTER = Semester.Y1S1;
+    public static final Semester VALID_SEMESTER = Semester.Y2S1;
     public static final double VALID_CAP_A = 3.50;
     public static final double VALID_CAP_B = 0;
     public static final String VALID_INPUT_FOR_ONE_WORD_COMMAND = "";
