@@ -126,7 +126,8 @@ Below is information about the features and commands of **MyMods**:100:.
 
 * Items in <strong>SQUARE BRACKETS</strong> are optional input parameters. e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br><br>
 
-* Parameters are <strong>NOT case-sensitive</strong>. e.g. `add m/CS2100` is the same as `add m/cs2100`.<br><br>
+* Parameters are <strong>NOT case-sensitive</strong>. e.g. `add m/CS2100` is the same as `add m/cs2100`
+ or `start Y1S1` is the same as `start y1s1`.<br><br>
 
 </div>
 
