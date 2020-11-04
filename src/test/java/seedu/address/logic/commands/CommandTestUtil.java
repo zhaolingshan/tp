@@ -22,6 +22,7 @@ import seedu.address.model.Model;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
 import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.testutil.UpdateModNameDescriptorBuilder;
 
 /**
@@ -42,11 +43,11 @@ public class CommandTestUtil {
     public static final int VALID_GOAL_TARGET_B = 3;
     public static final int VALID_GOAL_TARGET_C = 6;
     public static final String VALID_GOAL_TARGET_INPUT = "4";
-    public static final int INVALID_GOAL_TARGET = -1;
+    public static final Semester VALID_SEMESTER = Semester.Y1S1;
     public static final double VALID_CAP_A = 3.50;
     public static final double VALID_CAP_B = 0;
-
-    public static final Semester VALID_SEMESTER = Semester.Y1S1;
+    public static final String VALID_INPUT_FOR_ONE_WORD_COMMAND = "";
+    
     public static final String MOD_NAME_DESC_A = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_A;
     public static final String MOD_NAME_DESC_B = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_B;
     public static final String NO_GRADE = "NA";
@@ -63,6 +64,8 @@ public class CommandTestUtil {
     public static final String INVALID_MOD_NAME_DESC = " " + PREFIX_MOD_NAME + "James&"; // '&' not allowed in mod names
     public static final String INVALID_GRADE_DESC = " " + PREFIX_GRADE; // empty string not allowed for GRADES
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
+    public static final int INVALID_GOAL_TARGET = -1;
+    public static final String INVALID_INPUT_FOR_ONE_WORD_COMMAND = "hi";
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
@@ -135,5 +138,9 @@ public class CommandTestUtil {
 
         assertEquals(1, model.getFilteredModuleList().size());
     }
-
+    
+    public static void setValidSemester() {
+        SemesterManager semesterManager = SemesterManager.getInstance();
+        semesterManager.setCurrentSemester(VALID_SEMESTER);
+    }
 }
