@@ -57,4 +57,15 @@ public class ArgumentMultimap {
     public String getPreamble() {
         return getValue(new Prefix("")).orElse("");
     }
+
+    public boolean argsContainPrefix() {
+        for (List<String> list : argMultimap.values()) {
+            String value = list.get(list.size() - 1);
+            if (value.contains("/")) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

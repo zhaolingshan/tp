@@ -1,6 +1,6 @@
 ---
 layout: page
-
+title: User Guide
 ---
 <img src="images/UG SS/1. Logo.png">
 
