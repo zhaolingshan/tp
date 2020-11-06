@@ -1,9 +1,14 @@
 package seedu.address.ui;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.Clipboard;
@@ -17,7 +22,7 @@ import seedu.address.commons.core.LogsCenter;
 public class HelpWindow extends UiPart<Stage> {
 
     public static final String USERGUIDE_URL = "https://ay2021s1-cs2103t-t17-1.github.io/tp/UserGuide.html";
-    public static final String HELP_MESSAGE = "OR, refer to the user guide: " + USERGUIDE_URL;
+    public static final String HELP_MESSAGE = "OR, ";
 
     private static final String startCommandFormat = "start SEMESTER\n\n";
     private static final String addCommandFormat = "add m/MODULE_CODE [g/GRADE] [mc/MODULAR CREDITS]\n\n";
@@ -49,6 +54,9 @@ public class HelpWindow extends UiPart<Stage> {
     @FXML
     private Label helpMessage;
 
+    @FXML
+    private Hyperlink hyperLink;
+
     /**
      * Creates a new HelpWindow.
      *
@@ -57,10 +65,28 @@ public class HelpWindow extends UiPart<Stage> {
     public HelpWindow(Stage root) {
         super(FXML, root);
         helpMessage.setText(HELP_MESSAGE);
-        //setHelpCommands();
 
+        //setHelpCommands();
         setHelpCommands();
         scrollPane.setVvalue(0);
+
+        //set hyperlink
+        hyperLink.setText("Click for the User Guide");
+        handleLinkClicked();
+    }
+
+    /**
+     * Handle the event that the hyperlink to the User Guide is clicked.
+     *
+     */
+    private void handleLinkClicked() {
+        hyperLink.setOnAction(args -> {
+            try {
+                Desktop.getDesktop().browse(new URI(USERGUIDE_URL));
+            } catch (IOException | URISyntaxException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     /**
