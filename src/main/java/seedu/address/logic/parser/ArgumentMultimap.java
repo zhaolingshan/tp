@@ -58,6 +58,11 @@ public class ArgumentMultimap {
         return getValue(new Prefix("")).orElse("");
     }
 
+    /**
+     * Check if the arguments contain any "/". Returns true if any does.
+     *
+     * @return
+     */
     public boolean argsContainPrefix() {
         for (List<String> list : argMultimap.values()) {
             String value = list.get(list.size() - 1);
