@@ -20,7 +20,7 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String HELP_MESSAGE = "OR, refer to the user guide: " + USERGUIDE_URL;
 
     private static final String startCommandFormat = "start SEMESTER\n\n";
-    private static final String addCommandFormat = "add m/MODULE_CODE [g/GRADE mc/MODULAR CREDITS]\n\n";
+    private static final String addCommandFormat = "add m/MODULE_CODE [g/GRADE] [mc/MODULAR CREDITS]\n\n";
     private static final String updateCommandFormat = "update m/MODULE_CODE [g/GRADE]\n\n";
     private static final String listCommandFormat = "list\n\n";
     private static final String goalCommandFormat = "goal set LEVEL OR goal list\n\n";
@@ -30,6 +30,7 @@ public class HelpWindow extends UiPart<Stage> {
     private static final String doneCommandFormat = "done\n\n";
     private static final String findCommandFormat = "find KEYWORD\n\n";
     private static final String progressCommandFormat = "progress [ddp]\n\n";
+    private static final String clearCommandFormat = "clear\n\n";
     private static final String helpCommandFormat = "help\n\n";
     private static final String exitCommandFormat = "exit\n\n";
 
@@ -83,6 +84,7 @@ public class HelpWindow extends UiPart<Stage> {
                 + doneCommandFormat
                 + findCommandFormat
                 + progressCommandFormat
+                + clearCommandFormat
                 + helpCommandFormat
                 + exitCommandFormat;
 

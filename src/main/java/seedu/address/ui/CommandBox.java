@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Region;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -33,6 +35,7 @@ public class CommandBox extends UiPart<Region> {
             "clear             "};
 
     private final CommandExecutor commandExecutor;
+    private final Alert alert;
 
     @FXML
     private AutoCompleteTextField commandTextField;
@@ -47,6 +50,8 @@ public class CommandBox extends UiPart<Region> {
         commandTextField.textProperty().addListener((unused1, unused2, unused3) -> setStyleToDefault());
         //add all suggestions to the autocomplete
         commandTextField.getEntries().addAll(Arrays.asList(autocompleteSuggestions));
+        alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to clear all modules?",
+            ButtonType.YES, ButtonType.NO);
     }
 
     /**
@@ -54,9 +59,29 @@ public class CommandBox extends UiPart<Region> {
      */
     @FXML
     private void handleCommandEntered() {
+        String userInput = commandTextField.getText();
         try {
-            commandExecutor.execute(commandTextField.getText());
-            commandTextField.setText("");
+            if (userInput.equals("clear") || userInput.equals("clear ")) {
+                handleClearCommand();
+            } else {
+                commandExecutor.execute(commandTextField.getText());
+                commandTextField.setText("");
+            }
+        } catch (CommandException | ParseException e) {
+            setStyleToIndicateCommandFailure();
+        }
+    }
+
+    /**
+     * Handles the event that clear is called, an alert dialog is poped up to make confirmation.
+     */
+    private void handleClearCommand() {
+        alert.showAndWait();
+        try {
+            if (alert.getResult() == ButtonType.YES) {
+                commandExecutor.execute(commandTextField.getText());
+                commandTextField.setText("");
+            }
         } catch (CommandException | ParseException e) {
             setStyleToIndicateCommandFailure();
         }
