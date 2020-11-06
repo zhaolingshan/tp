@@ -7,9 +7,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_MODULES_LISTED_OVERVIE
 import static seedu.address.commons.core.Messages.MESSAGE_NO_MODULES_FOUND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_A;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
 import static seedu.address.logic.commands.ExitCommand.MESSAGE_EXIT_ACKNOWLEDGEMENT;
-import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.SWE;
 import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
 
@@ -18,8 +16,6 @@ import java.util.Collections;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.commons.core.Messages;
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -86,7 +82,7 @@ public class FindCommandTest {
                 false, false, false, false, true);
         assertCommandSuccess(new ExitCommand(), model, expectedCommandResult, expectedModel);
     }
-    
+
     /**
      * Parses {@code userInput} into a {@code NameContainsKeywordsPredicate}.
      */

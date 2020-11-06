@@ -76,8 +76,10 @@ public class CommandResult {
     public boolean isRecommendSu() {
         return isRecommendSu;
     }
-    
-    public boolean isFind() { return isFind; }
+
+    public boolean isFind() {
+        return isFind;
+    }
 
     @Override
     public boolean equals(Object other) {
