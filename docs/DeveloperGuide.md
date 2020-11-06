@@ -245,7 +245,7 @@ provided.
 
 ### Dark/Light Mode: <a name="Dark/Light_Mode"></a>
 
-####Implementation
+#### Implementation
 
 The dark and light mode switch is part of the UI implementation that allows the user to instantly switch between two
 different styles of the application. It is facilitated by the ```MainWindow component``` in the
@@ -266,7 +266,7 @@ of stylesheets
 
 **Default theme** is Dark theme supplied by DarkTheme.css
 
-####User Interaction
+#### User Interaction
 
 Users have the ability to easily choose which mode under the “Theme” menu bar. Either “Dark” or “Light”.
 
@@ -282,7 +282,7 @@ and set the current semester to a specified semester.
 
 ### Show progress towards target CAP: <a name="Show_progress_towards_target_CAP"></a>
 
-####Implementation
+#### Implementation
 
 The progress feature works in conjunction with the goal-setting feature.
 The user will first need to indicate their desired CAP using the `goal` command.
