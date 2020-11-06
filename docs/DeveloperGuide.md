@@ -2,6 +2,9 @@
 layout: page
 title: Developer Guide
 ---
+MyMods is an open source, brownfield project based on the existing [Address book Level-3](https://github.com/se-edu/addressbook-level3).
+Contribute to this [project](https://github.com/AY2021S1-CS2103T-T17-1/tp)
+ if you wish to help us in improving every university student's life!
 
 ### <a name="top"></a>
 
@@ -101,14 +104,14 @@ The `UI` component,
 
 ### Logic component <a name="Logic_component"></a>
 
-![Structure of the Logic Component]()
+![Structure of the Logic Component](images/LogicClassDiagram.png)
 
 **API** :
 [`Logic.java`](https://github.com/AY2021S1-CS2103T-T17-1/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
 
-1. `Logic` uses the `AddressBookParser` class to parse the user command.
+1. `Logic` uses the `GradeBookParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
-1. The command execution can affect the `Model` (e.g. adding a person).
+1. The command execution can affect the `Model` (e.g. adding a module).
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
@@ -242,7 +245,7 @@ provided.
 
 ### Dark/Light Mode: <a name="Dark/Light_Mode"></a>
 
-####Implementation
+#### Implementation
 
 The dark and light mode switch is part of the UI implementation that allows the user to instantly switch between two
 different styles of the application. It is facilitated by the ```MainWindow component``` in the
@@ -263,7 +266,7 @@ of stylesheets
 
 **Default theme** is Dark theme supplied by DarkTheme.css
 
-####User Interaction
+#### User Interaction
 
 Users have the ability to easily choose which mode under the “Theme” menu bar. Either “Dark” or “Light”.
 
@@ -279,7 +282,7 @@ and set the current semester to a specified semester.
 
 ### Show progress towards target CAP: <a name="Show_progress_towards_target_CAP"></a>
 
-####Implementation
+#### Implementation
 
 The progress feature works in conjunction with the goal-setting feature.
 The user will first need to indicate their desired CAP using the `goal` command.
