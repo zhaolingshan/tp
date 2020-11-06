@@ -203,8 +203,8 @@ To add a module (e.g. add CS1101S):
 <img src="images/UG SS/2.3 Add Module 3.png">
 
 <div markdown="span" class="alert alert-info">
-:warning: Our database is **valid up to modules in the AY19/20 academic year**. So if the modules you are adding is
-new in AY20/21 academic year, the following message will be shown:<br><br>
+:warning: Our database is **valid up to modules in AY19/20**. So if the modules you are adding is
+new in AY20/21 and beyond, the following message will be shown:<br><br>
 </div>
 
 To add a module that is not in our database(e.g. CS1101A): \
