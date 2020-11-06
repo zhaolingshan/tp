@@ -29,7 +29,8 @@ public class CommandBox extends UiPart<Region> {
             "goal             ",
             "recommendSU   ",
             "done             ",
-            "progress             "};
+            "progress             ",
+            "clear             "};
 
     private final CommandExecutor commandExecutor;
 

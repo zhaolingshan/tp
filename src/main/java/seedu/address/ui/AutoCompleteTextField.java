@@ -125,7 +125,7 @@ public class AutoCompleteTextField extends TextField {
         //from previous pop up scrolling.
         entriesPopup.getItems().clear();
         entriesPopup.getItems().addAll(menuItems);
-        entriesPopup.setMaxHeight(450);
+        entriesPopup.setMaxHeight(490);
     }
 }
 //@author Caleb Brinkman
