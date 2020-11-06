@@ -24,7 +24,7 @@ public class CommandResult {
     /**
      * recommendSU command is called.
      */
-    private final boolean isRecommendSuOrFind;
+    private final boolean isRecommendSu;
 
     /**
      * List command is called.
@@ -32,15 +32,21 @@ public class CommandResult {
     private final boolean isList;
 
     /**
+     * Find command is called.
+     */
+    private final boolean isFind;
+
+    /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
     public CommandResult(String feedbackToUser, boolean showHelp, boolean exit,
-                         boolean isRecommendSuOrFind, boolean isList) {
+                         boolean isRecommendSu, boolean isList, boolean isFind) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
-        this.isRecommendSuOrFind = isRecommendSuOrFind;
+        this.isRecommendSu = isRecommendSu;
         this.isList = isList;
+        this.isFind = isFind;
     }
 
     /**
@@ -48,7 +54,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false, false, false);
+        this(feedbackToUser, false, false, false, false, false);
     }
 
     public String getFeedbackToUser() {
@@ -67,9 +73,11 @@ public class CommandResult {
         return exit;
     }
 
-    public boolean isRecommendSuOrFind() {
-        return isRecommendSuOrFind;
+    public boolean isRecommendSu() {
+        return isRecommendSu;
     }
+    
+    public boolean isFind() { return isFind; }
 
     @Override
     public boolean equals(Object other) {
@@ -86,12 +94,13 @@ public class CommandResult {
         return feedbackToUser.equals(otherCommandResult.feedbackToUser)
                 && showHelp == otherCommandResult.showHelp
                 && exit == otherCommandResult.exit
-                && isRecommendSuOrFind == otherCommandResult.isRecommendSuOrFind;
+                && isRecommendSu == otherCommandResult.isRecommendSu
+                && isFind == otherCommandResult.isFind;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(feedbackToUser, showHelp, exit, isRecommendSuOrFind);
+        return Objects.hash(feedbackToUser, showHelp, exit, isRecommendSu, isFind);
     }
 
 }
