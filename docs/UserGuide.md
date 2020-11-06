@@ -1,8 +1,8 @@
 ---
 layout: page
-title: User Guide
+
 ---
-<img src="images/MyMods-logo.png">
+<img src="images/UG SS/1. Logo.png">
 
 # 1. Product Overview <a name="Product_Overview"></a>
 Welcome to **MyMods**:100:! Let us guide you through the overview of **MyMods**:100: in this section.
@@ -168,6 +168,7 @@ Examples:
 <br>
 <div markdown="span" class="alert alert-primary">
 :bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
+<br>
 <img src="images/UG SS/2.2 Edit Semester 1.png">
 </div>
 To edit a Semester (e.g. Y2S1):
@@ -309,7 +310,6 @@ Examples:
 <div markdown="span" class="alert alert-info">
 :warning: `LEVEL` has to be an integer between 1-6.
 </div><br>
-
 <div markdown="span" class="alert alert-primary">
 :bulb: Below is the NUS Honours Classification System with respect to the `LEVEL` available:
 </div>
@@ -452,12 +452,6 @@ To stop editing a semester (e.g. Y1S1):
 
 2. The result box will display the message: \
 <img src="images/UG SS/2.10 Exit Semester 2.png">
-
-<div markdown="span" class="alert alert-primary">
-:bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
-<br>
-<img src="images/UG SS/2.10 Exit Semester 2.png">
-</div>
 
 <br>
 
