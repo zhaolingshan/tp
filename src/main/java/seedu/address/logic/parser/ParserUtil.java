@@ -113,5 +113,4 @@ public class ParserUtil {
         }
         return new GoalTarget(intGoal);
     }
-
 }
