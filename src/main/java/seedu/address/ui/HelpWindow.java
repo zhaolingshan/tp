@@ -21,7 +21,7 @@ public class HelpWindow extends UiPart<Stage> {
 
     private static final String startCommandFormat = "start SEMESTER\n\n";
     private static final String addCommandFormat = "add m/MODULE_CODE [g/GRADE] [mc/MODULAR CREDITS]\n\n";
-    private static final String updateCommandFormat = "update m/MODULE_CODE [g/GRADE]\n\n";
+    private static final String updateCommandFormat = "update m/MODULE_CODE [g/GRADE] [s/SEMESTER]\n\n";
     private static final String listCommandFormat = "list\n\n";
     private static final String goalCommandFormat = "goal set LEVEL OR goal list\n\n";
     private static final String recommendSuCommandFormat = "recommendSU\n\n";
