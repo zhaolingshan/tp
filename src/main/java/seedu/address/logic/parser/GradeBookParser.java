@@ -48,49 +48,51 @@ public class GradeBookParser {
 
         final String commandWord = matcher.group("commandWord");
         final String arguments = matcher.group("arguments");
+        final String argumentsInLowerCase = arguments.toLowerCase();
+
         switch (commandWord) {
 
         case AddCommand.COMMAND_WORD:
-            return new AddCommandParser().parse(arguments);
+            return new AddCommandParser().parse(argumentsInLowerCase);
 
         case UpdateCommand.COMMAND_WORD:
-            return new UpdateCommandParser().parse(arguments);
+            return new UpdateCommandParser().parse(argumentsInLowerCase);
 
         case DeleteCommand.COMMAND_WORD:
-            return new DeleteCommandParser().parse(arguments);
+            return new DeleteCommandParser().parse(argumentsInLowerCase);
 
         case ClearCommand.COMMAND_WORD:
             return new ClearCommand();
 
         case FindCommand.COMMAND_WORD:
-            return new FindCommandParser().parse(arguments);
+            return new FindCommandParser().parse(argumentsInLowerCase);
 
         case ListCommand.COMMAND_WORD:
-            return new ListCommandParser().parse(arguments);
+            return new ListCommandParser().parse(argumentsInLowerCase);
 
         case StartCommand.COMMAND_WORD:
-            return new StartCommandParser().parse(arguments);
+            return new StartCommandParser().parse(argumentsInLowerCase);
 
         case DoneCommand.COMMAND_WORD:
-            return new DoneCommandParser().parse(arguments);
+            return new DoneCommandParser().parse(argumentsInLowerCase);
 
         case ExitCommand.COMMAND_WORD:
-            return new ExitCommandParser().parse(arguments);
+            return new ExitCommandParser().parse(argumentsInLowerCase);
 
         case HelpCommand.COMMAND_WORD:
-            return new HelpCommandParser().parse(arguments);
+            return new HelpCommandParser().parse(argumentsInLowerCase);
 
         case SetCommand.COMMAND_WORD:
-            return new SetCommandParser().parse(arguments);
+            return new SetCommandParser().parse(argumentsInLowerCase);
 
         case RecommendSuCommand.COMMAND_WORD:
-            return new RecommendSuCommandParser().parse(arguments);
+            return new RecommendSuCommandParser().parse(argumentsInLowerCase);
 
         case ProgressCommand.COMMAND_WORD:
-            return new ProgressCommandParser().parse(arguments);
+            return new ProgressCommandParser().parse(argumentsInLowerCase);
 
         case SuCommand.COMMAND_WORD:
-            return new SuCommandParser().parse(arguments);
+            return new SuCommandParser().parse(argumentsInLowerCase);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

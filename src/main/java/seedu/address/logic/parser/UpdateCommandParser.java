@@ -44,7 +44,8 @@ public class UpdateCommandParser implements Parser<UpdateCommand> {
             throw new ParseException(UpdateCommand.MESSAGE_NOT_UPDATED);
         }
         if (argMultimap.getValue(PREFIX_SEMESTER).isPresent()) {
-            updateModNameDescriptor.setSemester(ParserUtil.parseSemester(argMultimap.getValue(PREFIX_SEMESTER).get()));
+            updateModNameDescriptor.setSemester(ParserUtil.parseSemester(
+                    argMultimap.getValue(PREFIX_SEMESTER).get().toUpperCase()));
         }
 
         return new UpdateCommand(moduleName, updateModNameDescriptor);

@@ -252,23 +252,19 @@ public class MainWindow extends UiPart<Stage> {
             if (commandResult.isShowHelp()) {
                 handleHelp();
             }
-
             if (commandResult.isExit()) {
                 handleExit();
             }
-
-            if (!commandResult.isRecommendSuOrFind()) {
+            if (!commandResult.isRecommendSu() && !commandResult.isFind()) {
                 capBox.setCapDisplay(logic.generateCap());
             }
-
             if (commandResult.isList()) {
                 moduleListPanel = new ModuleListPanel(logic.filterModuleListByReadOnlySem());
-            } else if (commandResult.isRecommendSuOrFind()) {
+            } else if (commandResult.isRecommendSu()) {
                 moduleListPanel = new ModuleListPanel(logic.getFilteredModuleList());
             } else {
                 moduleListPanel = new ModuleListPanel(logic.filterModuleListBySem());
             }
-
             moduleListPanelPlaceholder.getChildren().add(moduleListPanel.getRoot());
 
             return commandResult;
