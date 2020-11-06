@@ -7,6 +7,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_MODULES_LISTED_OVERVIE
 import static seedu.address.commons.core.Messages.MESSAGE_NO_MODULES_FOUND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_A;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.ExitCommand.MESSAGE_EXIT_ACKNOWLEDGEMENT;
 import static seedu.address.testutil.TypicalModules.SWE;
 import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
 
@@ -73,6 +74,13 @@ public class FindCommandTest {
         expectedModel.updateFilteredModuleList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Collections.singletonList(SWE), model.getFilteredModuleList());
+    }
+
+    @Test
+    public void execute_find_success() {
+        CommandResult expectedCommandResult = new CommandResult(MESSAGE_EXIT_ACKNOWLEDGEMENT,
+                false, false, false, false, true);
+        assertCommandSuccess(new ExitCommand(), model, expectedCommandResult, expectedModel);
     }
 
     /**

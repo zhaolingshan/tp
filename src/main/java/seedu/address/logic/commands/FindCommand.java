@@ -33,11 +33,12 @@ public class FindCommand extends Command {
         int searchResultsListSize = model.getFilteredModuleList().size();
         if (searchResultsListSize == 0) {
             return new CommandResult(
-                    String.format(Messages.MESSAGE_NO_MODULES_FOUND));
+                    String.format(Messages.MESSAGE_NO_MODULES_FOUND),
+                    false, false, false, false, true);
         } else {
             return new CommandResult(
                     String.format(Messages.MESSAGE_MODULES_LISTED_OVERVIEW, searchResultsListSize),
-                    false, false, true, false);
+                    false, false, false, false, true);
         }
     }
 
