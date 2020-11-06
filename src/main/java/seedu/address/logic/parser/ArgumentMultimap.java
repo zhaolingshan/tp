@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import static seedu.address.logic.parser.CliSyntax.*;
+
 /**
  * Stores mapping of prefixes to their respective arguments.
  * Each key may be associated with multiple argument values.
@@ -61,16 +63,23 @@ public class ArgumentMultimap {
     /**
      * Check if the arguments contain any "/". Returns true if any does.
      *
+     * Also,
+     * returns true if the arguments contain "m/", "g/", "mc/" or "s/", this is true if user input
+     * has multiple same prefixes.
+     *
      * @return
      */
-    public boolean argsContainPrefix() {
+    public boolean argsContainWrongPrefix() {
         for (List<String> list : argMultimap.values()) {
             String value = list.get(list.size() - 1);
-            if (value.contains("/")) {
+            if (value.contains("/")
+                && !value.contains(PREFIX_MOD_NAME.getPrefix())
+                && !value.contains(PREFIX_GRADE.getPrefix())
+                && !value.contains(PREFIX_MODULAR_CREDIT.getPrefix())
+                && !value.contains(PREFIX_SEMESTER.getPrefix())) {
                 return true;
             }
         }
-
         return false;
     }
 }
