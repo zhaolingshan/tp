@@ -1,12 +1,15 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MODULAR_CREDIT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SEMESTER;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
-import static seedu.address.logic.parser.CliSyntax.*;
 
 /**
  * Stores mapping of prefixes to their respective arguments.
