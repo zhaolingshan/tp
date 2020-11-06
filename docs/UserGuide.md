@@ -29,7 +29,7 @@ Welcome to **MyMods**:100:! Let us guide you through the overview of **MyMods**:
     * [2.10 Exit Semester](#Exit_Semester)
     * [2.11 Find Module](#Find_Module)
     * [2.12 Progress Report](#Progress_Report)
-    * [2.13 Clear ALl](#Clear_All)
+    * [2.13 Clear ALL](#Clear_All)
     * [2.14 Get Help](#Get_Help)
     * [2.15 Exit Application](#Exit_Application)
 
@@ -490,6 +490,10 @@ Format: `clear` \
  \
 Examples:
 *   `clear`
+
+<div markdown="span" class="alert alert-info">
+:warning: This command will clear everything **regardless if you are editing a semester or not**. Use with Caution!
+</div>
 
 To clear everything:
 

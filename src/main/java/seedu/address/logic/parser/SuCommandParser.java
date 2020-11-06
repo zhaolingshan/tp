@@ -20,10 +20,12 @@ public class SuCommandParser {
      */
     public SuCommand parse(String userInput) throws ParseException {
         requireNonNull(userInput);
-        if (userInput.trim().equals("")) {
+        ModuleName moduleName;
+        try {
+            moduleName = ParserUtil.parseName(userInput);
+        } catch (ParseException pe) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SuCommand.MESSAGE_USAGE));
         }
-        ModuleName moduleName = new ModuleName(userInput.trim());
 
         UpdateCommand.UpdateModNameDescriptor updateModNameDescriptor = new UpdateCommand.UpdateModNameDescriptor();
         updateModNameDescriptor.setName(moduleName);
