@@ -8,7 +8,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_MODULAR_CREDIT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SEMESTER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SET_GOAL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -35,9 +34,6 @@ public class CommandTestUtil {
     public static final String VALID_GRADE_A = "A";
     public static final String VALID_GRADE_B = "B-";
     public static final String VALID_GRADE_C = "A-";
-    public static final String VALID_TAG_HUSBAND = "husband";
-    public static final String VALID_TAG_FRIEND = "friend";
-    public static final String VALID_TAG_CODE = "CS2100";
     public static final int VALID_MODULAR_CREDIT = 4;
     public static final int VALID_GOAL_TARGET_A = 4;
     public static final int VALID_GOAL_TARGET_B = 3;
@@ -54,8 +50,6 @@ public class CommandTestUtil {
     public static final String NO_GRADE = "NA";
     public static final String GRADE_DESC_A = " " + PREFIX_GRADE + VALID_GRADE_A;
     public static final String GRADE_DESC_B = " " + PREFIX_GRADE + VALID_GRADE_B;
-    public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
-    public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
     public static final String MODULAR_CREDIT_DESC = " " + PREFIX_MODULAR_CREDIT + VALID_MODULAR_CREDIT;
     public static final String SET_GOAL_DESC_A = " " + PREFIX_SET_GOAL + VALID_GOAL_TARGET_A;
     public static final String SET_GOAL_DESC_B = " " + PREFIX_SET_GOAL + VALID_GOAL_TARGET_B;
@@ -64,7 +58,6 @@ public class CommandTestUtil {
 
     public static final String INVALID_MOD_NAME_DESC = " " + PREFIX_MOD_NAME + "C&2100"; // '&' not allowed in mod names
     public static final String INVALID_GRADE_DESC = " " + PREFIX_GRADE; // empty string not allowed for GRADES
-    public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final int INVALID_GOAL_TARGET = -1;
     public static final Semester INVALID_SEMESTER = Semester.NA;
     public static final String INVALID_INPUT_FOR_ONE_WORD_COMMAND = "hi";
@@ -79,10 +72,10 @@ public class CommandTestUtil {
     static {
         DESC_A = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
                 .withGrade(VALID_GRADE_A)
-                .withTags(VALID_TAG_FRIEND).build();
+                .build();
         DESC_B = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_B)
                 .withGrade(VALID_GRADE_B)
-                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+                .build();
     }
 
     /**

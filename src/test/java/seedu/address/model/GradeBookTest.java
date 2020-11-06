@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_B;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
 import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
@@ -46,7 +45,7 @@ public class GradeBookTest {
     @Test
     public void resetData_withDuplicateModules_throwsDuplicateModuleException() {
         // Two persons with the same identity fields
-        Module updatedModule = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
+        Module updatedModule = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B)
                 .build();
         List<Module> newModules = Arrays.asList(COM_ORG, updatedModule);
         GradeBookStub newData = new GradeBookStub(newModules);
@@ -73,7 +72,7 @@ public class GradeBookTest {
     @Test
     public void hasModule_moduleWithSameIdentityFieldsInGradeBook_returnsTrue() {
         gradeBook.addModule(COM_ORG);
-        Module updatedModule = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B).withTags(VALID_TAG_HUSBAND)
+        Module updatedModule = new ModuleBuilder(COM_ORG).withGrade(VALID_GRADE_B)
                 .build();
         assertTrue(gradeBook.hasModule(updatedModule));
     }

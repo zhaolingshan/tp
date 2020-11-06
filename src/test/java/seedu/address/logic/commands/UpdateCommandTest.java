@@ -6,7 +6,6 @@ import static seedu.address.logic.commands.CommandTestUtil.DESC_A;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_A;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_B;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
@@ -80,11 +79,11 @@ public class UpdateCommandTest {
 
         ModuleBuilder moduleInList = new ModuleBuilder(firstModule);
         Module updatedModule = moduleInList.withName(VALID_MOD_NAME_B).withGrade(VALID_GRADE_A)
-                .withTags(VALID_TAG_HUSBAND).build();
+                .build();
 
         UpdateModNameDescriptor descriptor =
                 new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_B).withGrade(VALID_GRADE_A)
-                        .withTags(VALID_TAG_HUSBAND).build();
+                        .build();
         UpdateCommand updateCommand = new UpdateCommand(firstModuleName, descriptor);
 
         String expectedMessage = String.format(UpdateCommand.MESSAGE_UPDATE_MODULE_SUCCESS, updatedModule);

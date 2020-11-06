@@ -87,7 +87,7 @@ public class LogicManagerTest {
         String addCommand = AddCommand.COMMAND_WORD + MOD_NAME_DESC_A
                 + GRADE_DESC_A;
         Module expectedModule = new ModuleBuilder(MOD_A)
-                .withTags().withGrade("A").withSemester(Semester.Y1S1.toString()).build();
+                .withGrade("A").withSemester(Semester.Y1S1.toString()).build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addModule(expectedModule);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;

@@ -1,15 +1,10 @@
 package seedu.address.testutil;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModularCredit;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.semester.Semester;
-import seedu.address.model.tag.Tag;
-import seedu.address.model.util.SampleDataUtil;
 
 /**
  * A utility class to help with building Module objects.
@@ -23,7 +18,6 @@ public class ModuleBuilder {
 
     private ModuleName moduleName;
     private Grade grade;
-    private Set<Tag> tags;
     private ModularCredit modularCredit;
     private Semester semester;
 
@@ -33,7 +27,6 @@ public class ModuleBuilder {
     public ModuleBuilder() {
         moduleName = new ModuleName(DEFAULT_NAME);
         grade = new Grade(DEFAULT_GRADE);
-        tags = new HashSet<>();
         modularCredit = new ModularCredit(DEFAULT_MODULAR_CREDIT);
         semester = DEFAULT_SEMESTER;
     }
@@ -44,7 +37,6 @@ public class ModuleBuilder {
     public ModuleBuilder(Module moduleToCopy) {
         moduleName = moduleToCopy.getModuleName();
         grade = moduleToCopy.getGrade();
-        tags = new HashSet<>(moduleToCopy.getTags());
         modularCredit = moduleToCopy.getModularCredit();
         semester = moduleToCopy.getSemester();
     }
@@ -54,14 +46,6 @@ public class ModuleBuilder {
      */
     public ModuleBuilder withName(String name) {
         this.moduleName = new ModuleName(name);
-        return this;
-    }
-
-    /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Module} that we are building.
-     */
-    public ModuleBuilder withTags(String ... tags) {
-        this.tags = SampleDataUtil.getTagSet(tags);
         return this;
     }
 
@@ -91,7 +75,7 @@ public class ModuleBuilder {
     }
 
     public Module build() {
-        return new Module(moduleName, grade, tags, modularCredit, semester);
+        return new Module(moduleName, grade, modularCredit, semester);
     }
 
 }

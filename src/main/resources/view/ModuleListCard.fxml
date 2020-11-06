@@ -27,7 +27,6 @@
         </Label>
         <Label fx:id="moduleName" text="\$first" styleClass="cell_big_label" />
       </HBox>
-      <FlowPane fx:id="tags" />
       <FlowPane>
         <Label text="Grade: " styleClass="cell_small_label"/>
         <Label fx:id="grade" styleClass="cell_small_label" text="Grade: \$grade" />

@@ -6,7 +6,6 @@ import static seedu.address.logic.commands.CommandTestUtil.DESC_A;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MOD_NAME_B;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 
 import org.junit.jupiter.api.Test;
 
@@ -41,10 +40,6 @@ public class UpdateModNameDescriptorTest {
 
         // different address -> returns false
         updatedMod = new UpdateModNameDescriptorBuilder(DESC_A).withGrade(VALID_GRADE_B).build();
-        assertFalse(DESC_A.equals(updatedMod));
-
-        // different tags -> returns false
-        updatedMod = new UpdateModNameDescriptorBuilder(DESC_A).withTags(VALID_TAG_HUSBAND).build();
         assertFalse(DESC_A.equals(updatedMod));
     }
 }

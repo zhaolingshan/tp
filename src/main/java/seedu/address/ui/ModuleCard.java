@@ -1,10 +1,7 @@
 package seedu.address.ui;
 
-import java.util.Comparator;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.address.model.module.Module;
@@ -34,8 +31,6 @@ public class ModuleCard extends UiPart<Region> {
     private Label id;
     @FXML
     private Label grade;
-    @FXML
-    private FlowPane tags;
 
     /**
      * Creates a {@code ModuleCode} with the given {@code Module} and index to display.
@@ -49,9 +44,6 @@ public class ModuleCard extends UiPart<Region> {
                 + module.getModuleName().fullModName
                 + " (" + module.getModularCredit().modularCredit + "MCs)");
         grade.setText(module.getGrade().toString());
-        module.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
     }
 
     @Override

@@ -5,14 +5,10 @@ import static seedu.address.commons.core.Messages.MESSAGE_MODULE_CANNOT_BE_SU;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SEMESTER;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_MODULES;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.GetModuleIndex;
@@ -26,7 +22,6 @@ import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
-import seedu.address.model.tag.Tag;
 import seedu.address.model.util.ModuleInfoRetriever;
 
 /**
@@ -42,7 +37,6 @@ public class UpdateCommand extends Command {
             + "Parameters:"
             + PREFIX_MOD_NAME + "MODULE_NAME "
             + "[" + PREFIX_GRADE + "GRADE] "
-            + "[" + PREFIX_TAG + "TAG]...\n"
             + "[" + PREFIX_SEMESTER + "SEM] "
             + "Example: " + COMMAND_WORD
             + PREFIX_MOD_NAME + "CS2103T"
@@ -120,11 +114,10 @@ public class UpdateCommand extends Command {
 
         ModuleName updatedModuleName = updateModNameDescriptor.getName().orElse(moduleToUpdate.getModuleName());
         Grade updatedGrade = updateModNameDescriptor.getGrade().orElse(moduleToUpdate.getGrade());
-        Set<Tag> updatedTags = updateModNameDescriptor.getTags().orElse(moduleToUpdate.getTags());
         // modularCredit is not edited
         ModularCredit modularCredit = moduleToUpdate.getModularCredit();
         Semester semester = updateModNameDescriptor.getSemester().orElse(moduleToUpdate.getSemester());
-        return new Module(updatedModuleName, updatedGrade, updatedTags, modularCredit, semester);
+        return new Module(updatedModuleName, updatedGrade, modularCredit, semester);
     }
 
     @Override
@@ -152,7 +145,6 @@ public class UpdateCommand extends Command {
     public static class UpdateModNameDescriptor {
         private ModuleName moduleName;
         private Grade grade;
-        private Set<Tag> tags;
         private Semester semester;
 
         public UpdateModNameDescriptor() {
@@ -160,12 +152,11 @@ public class UpdateCommand extends Command {
 
         /**
          * Copy constructor.
-         * A defensive copy of {@code tags} is used internally.
+         * A defensive copy of {@code toCopy} is used internally.
          */
         public UpdateModNameDescriptor(UpdateModNameDescriptor toCopy) {
             setName(toCopy.moduleName);
             setGrade(toCopy.grade);
-            setTags(toCopy.tags);
             setSemester(toCopy.semester);
         }
 
@@ -173,7 +164,7 @@ public class UpdateCommand extends Command {
          * Returns true if at least one field is updated.
          */
         public boolean isAnyFieldUpdated() {
-            return CollectionUtil.isAnyNonNull(moduleName, grade, tags, semester);
+            return CollectionUtil.isAnyNonNull(moduleName, grade, semester);
         }
 
         /**
@@ -211,23 +202,6 @@ public class UpdateCommand extends Command {
         }
 
         /**
-         * Sets {@code tags} to this object's {@code tags}.
-         * A defensive copy of {@code tags} is used internally.
-         */
-        public void setTags(Set<Tag> tags) {
-            this.tags = (tags != null) ? new HashSet<>(tags) : null;
-        }
-
-        /**
-         * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
-         * if modification is attempted.
-         * Returns {@code Optional#empty()} if {@code tags} is null.
-         */
-        public Optional<Set<Tag>> getTags() {
-            return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
-        }
-
-        /**
          * Sets {@code semester} to this object's {@code semester}.
          * A defensive copy of {@code semester} is used internally.
          */
@@ -261,7 +235,6 @@ public class UpdateCommand extends Command {
 
             return getName().equals(e.getName())
                     && getGrade().equals(e.getGrade())
-                    && getTags().equals(e.getTags())
                     && getSemester().equals((e.getSemester()));
         }
     }
