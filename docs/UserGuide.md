@@ -314,12 +314,12 @@ Examples:
 :bulb: Below is the NUS Honours Classification System with respect to the `LEVEL` available:
 </div>
 
-* `6`: Highest Distinction (CAP **4.50 ~ 5.00**)
-* `5`: Distinction (CAP **4.00 ~ 4.49**)
-* `4`: Merit (CAP **3.50 ~ 3.99**)
-* `3`: Honours (CAP **3.00 ~ 3.49**)
-* `2`: Pass (CAP **2.00 ~ 2.99**)
-* `1`: Fail (CAP **< 2.00**)<br><br>
+* `1`: Highest Distinction (CAP **4.50 ~ 5.00**)
+* `2`: Distinction (CAP **4.00 ~ 4.49**)
+* `3`: Merit (CAP **3.50 ~ 3.99**)
+* `4`: Honours (CAP **3.00 ~ 3.49**)
+* `5`: Pass (CAP **2.00 ~ 2.99**)
+* `6`: Fail (CAP **< 2.00**)<br><br>
 
 <div markdown="span" class="alert alert-primary">
 :bulb: You can also show the same list in **MyMods**:100: using `goal list`:
