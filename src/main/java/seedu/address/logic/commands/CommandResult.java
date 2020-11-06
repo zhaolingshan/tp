@@ -95,12 +95,13 @@ public class CommandResult {
                 && showHelp == otherCommandResult.showHelp
                 && exit == otherCommandResult.exit
                 && isRecommendSu == otherCommandResult.isRecommendSu
+                && isList == otherCommandResult.isList()
                 && isFind == otherCommandResult.isFind;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(feedbackToUser, showHelp, exit, isRecommendSu, isFind);
+        return Objects.hash(feedbackToUser, showHelp, exit, isRecommendSu, isList, isFind);
     }
 
 }
