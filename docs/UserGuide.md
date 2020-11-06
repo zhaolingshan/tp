@@ -159,23 +159,26 @@ Format: `start SEMESTER` \
 \
 Examples:
 *   `start Y2S1`
+*   `start y2S1`
 
 * Important information will be shown in a box:
 <div markdown="span" class="alert alert-info">
 :warning: You can only add, edit or delete modules after starting a particular semester.
 </div>
-
+<br>
+<div markdown="span" class="alert alert-primary">
+:bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
+<img src="images/UG SS/2.2 Edit Semester 1.png">
+</div>
 To edit a Semester (e.g. Y2S1):
 
 1. Type `start Y2S1` into the command box, and press Enter to execute it. \
-<img src="images/UG SS/2.2 Edit Semester 1.png">
-
-2. The result box will display the message: \
 <img src="images/UG SS/2.2 Edit Semester 2.png">
 
-<div markdown="span" class="alert alert-primary">
-:bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
-</div>
+2. The result box will display the message: \
+<img src="images/UG SS/2.2 Edit Semester 3.png">
+
+
 
 <br>
 
@@ -204,12 +207,21 @@ To add a module (e.g. add CS1101S):
 
 <div markdown="span" class="alert alert-info">
 :warning: Our database is **valid up to modules in AY19/20**. So if the modules you are adding is
-new in AY20/21 and beyond, the following message will be shown:<br><br>
+new in AY20/21 and beyond, the following message will be shown:<br>
+<img src="images/UG SS/2.3 Add Module 4.png">
+<br>
 </div>
 
-To add a module that is not in our database(e.g. CS1101A): \
+To add a module that is not in our database(e.g. CS0000):
+
+1. Type `add m/CS0000 mc/4` (with `mc/MODULAR_CREDITS`) into the command box, and press Enter to execute it.
 \
-Type `add m/CS1101A mc/4` (with `mc/`) into the command box, and press Enter to execute it.<br>
+(note: `MODULAR_CREDITS` is the number of modular credits of the module) <br>
+<img src="images/UG SS/2.3 Add Module 5.png">
+2. The result box will display the message:
+\
+<img src="images/UG SS/2.3 Add Module 6.png">
+
 
 <div markdown="span" class="alert alert-info">
 :warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed using the command `su`.
@@ -221,23 +233,30 @@ Type `add m/CS1101A mc/4` (with `mc/`) into the command box, and press Enter to 
 [Back to top](#Product_Overview)
 
 ### 2.4 Update Module: `update` <a name="Update_Module"></a>
-Oops, typed something wrong or want to change something? Use this update feature to change the module’s grade.
+Oops, typed something wrong or want to change something?
+Use this update feature to change the module’s grade and semester.
 \
-Format: `update m/MODULE_CODE [g/GRADE]` \
+Format: `update m/MODULE_CODE [g/GRADE] [s/SEMESTER]` \
 \
 Examples:
 *   `update m/CS1101S`
 *   `update m/CS1101S g/A+`
+*   `update M/cs1101s G/c s/y2s1`
+*   `update m/CS1101s S/y2S1`
+
 
 To update a module (e.g. CS2030):
 
-1. Type `update m/CS2030 g/A` into the command box, and press Enter to execute it.
+1. Type `update m/CS2030 g/A s/Y1S2` into the command box, and press Enter to execute it.
+\
 <img src="images/UG SS/2.4 Update Module 1.png">
 
 2. The result box will display the message:
+\
 <img src="images/UG SS/2.4 Update Module 2.png">
 
-3. You can check that the module is updated from the list below:
+3. Use the command `list` and you can check that the module's semester and grade are both updated from the list below:
+\
 <img src="images/UG SS/2.4 Update Module 3.png">
 
 <br>
@@ -245,8 +264,9 @@ To update a module (e.g. CS2030):
 [Back to top](#Product_Overview)
 
 ### 2.5 List all Modules: `list` <a name="List_all_Modules"></a>
+
 If you want to see all the modules that you have keyed in, use this feature to display the list of your modules and
- their respective grades (if any).\
+ their respective grades (if any) for all semesters.\
  \
 Format: `list` \
  \
@@ -255,18 +275,21 @@ Examples:
 
 <div markdown="span" class="alert alert-info">
 :warning: <strong>If you are editing a semester</strong> (e.g. Y2S1),
-only modules from that semester(e.g. Y2S1) will also be listed as the `list` command displays the modules in all semesters
- regardless of which semester you are currently editing.
+modules from other semestesr (e.g. Y4S1) will also be listed as the `list` command displays the modules in all semesters
+regardless of which semester you are currently editing.
 </div><br>
 To view all the modules that you have taken:
 
 1. Type `list` into the command box, and press Enter to execute it.
+\
 <img src="images/UG SS/2.5 List all Modules 1.png">
 
 2. The result box will display the message:
+\
 <img src="images/UG SS/2.5 List all Modules 2.png">
 
-3. You can check that all the modules are shown in the list below:
+3. You can check that all the modules from all semesters are shown in the list below:
+\
 <img src="images/UG SS/2.5 List all Modules 3.png">
 
 <br>
@@ -283,6 +306,10 @@ Examples:
 *   `goal set 2`
 *   `goal list`
 <br><br>
+<div markdown="span" class="alert alert-info">
+:warning: `LEVEL` has to be an integer between 1-6.
+</div><br>
+
 <div markdown="span" class="alert alert-primary">
 :bulb: Below is the NUS Honours Classification System with respect to the `LEVEL` available:
 </div>
@@ -296,20 +323,23 @@ Examples:
 
 <div markdown="span" class="alert alert-primary">
 :bulb: You can also show the same list in **MyMods**:100: using `goal list`:
+<br>
+<img src="images/UG SS/2.6 Set Goals 1.png">
 </div>
 
 To set your goal to 2 (CAP4.00 ~ 4.49):
 
 1. Type `goal set 2` into the command box,  and press Enter to execute it. \
-<img src="images/UG SS/2.6 Set Goals 1.png">
+<img src="images/UG SS/2.6 Set Goals 2.png">
 
 2. The result box will display the message: \
-<img src="images/UG SS/2.6 Set Goals 2.png"> 
+<img src="images/UG SS/2.6 Set Goals 3.png"> 
 <br><br>
 
 <div markdown="span" class="alert alert-primary">
 :bulb: You can check your current goal using the command `progress`:
-
+<br>
+<img src="images/UG SS/2.6 Set Goals 4.png"> 
 </div>
 
 <br>
@@ -336,7 +366,9 @@ To get recommendations on which modules to S/U:
 <img src="images/UG SS/2.7 Recommend SU 3.png">
 
 <div markdown="span" class="alert alert-info">
-:warning: If there are no modules for us to recommend you to S/U, the result box will show:<br><br>
+:warning: If there are no modules for us to recommend you to S/U, the result box will show:<br>
+<img src="images/UG SS/2.7 Recommend SU 4.png">
+<br>
 </div>
 
 <div markdown="span" class="alert alert-info">
@@ -358,13 +390,13 @@ Examples:
 *   `su CS1231S`
 
 To S/U a module (e.g. CS1231):
-1. Type `su CS1231S` into the command box, and press Enter to execute it. \
+1. Type `su CS1231` into the command box, and press Enter to execute it. \
 <img src="images/UG SS/2.8 SU Module 1.png">
 
 2. The result box will display the message (if the module can be S/U-ed): \
 <img src="images/UG SS/2.8 SU Module 2.png">
 
-3. Check if the module’s grade has been changed to “SU” in the list below: \
+3. The module’s grade has been changed to “SU” as shown in the list below: \
 <img src="images/UG SS/2.8 SU Module 3.png">
 
 <div markdown="span" class="alert alert-info">
@@ -395,7 +427,7 @@ To delete a module (e.g. CS1231) from the list: \
 2. The result box will display the message: \
 <img src="images/UG SS/2.9 Delete Module 3.png">
 
-3. The module CS1231 will be deleted from the list below: \
+3. The module CS1231 will be deleted from the list as shown below: \
 <img src="images/UG SS/2.9 Delete Module 4.png">
 
 <br>
@@ -403,12 +435,14 @@ To delete a module (e.g. CS1231) from the list: \
 [Back to top](#Product_Overview)
 
 ### 2.10 Exit Semester: `done` <a name="Exit_Semester"></a>
-Finally done with editing the semester? You will not be able to change any module in a particular
-semester until you start another semester. \
- \
+Finally done with editing the semester?
+Don’t forget that you won’t be able to change any modules until you start another semester
+(the semester in which you want to edit the modules of)!
+\
+\
 Format: `done` \
  \
-Examples:
+Example:
 *   `done`
 
 To stop editing a semester (e.g. Y1S1):
@@ -421,6 +455,8 @@ To stop editing a semester (e.g. Y1S1):
 
 <div markdown="span" class="alert alert-primary">
 :bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
+<br>
+<img src="images/UG SS/2.10 Exit Semester 2.png">
 </div>
 
 <br>
@@ -429,7 +465,9 @@ To stop editing a semester (e.g. Y1S1):
 
 ### 2.11 Find Module: `find` <a name="Find_Module"></a>
 
-Unable to find a module that you took? Search it using the find command. \
+Too many modules in the list? Unable to find a module that you took?
+Fret not! Locate it immediately using the find command.
+\
 \
 Format: find KEYWORD \
 \
@@ -441,15 +479,21 @@ Examples:
 :bulb: Searching for part of the module code will work too. For example, you can `find CS1231` to find the
 module CS1231S or `find CS` to find all modules that contain the word ‘CS’.
 </div>
-
+<br>
 To search for a module (e.g. CS):
 
 1. Type `find CS` into the command box, and press Enter to execute it.
+\
+<img src="images/UG SS/2.11 Find Module 1.png">
 
 2. The modules that contain the keyword ‘CS’ will be listed below:
+\
+<img src="images/UG SS/2.11 Find Module 2.png">
 
 <div markdown="span" class="alert alert-primary">
 :bulb: If there is no module that matches the keyword, the following message will be shown:
+<br>
+<img src="images/UG SS/2.11 Find Module 3.png">
 </div>
 
 <br>
@@ -459,7 +503,8 @@ To search for a module (e.g. CS):
 ### 2.12 Progress Report: `progress` <a name="Progress_Report"></a>
 Want to know how well you are doing relative to your goal? Use this feature for a progress report
 that calculates the average CAP required for your remaining modules to achieve your target CAP.
-It shows you your current goal that you have set as well.
+\
+In case you have forgotten the current goal that you have set, it will be shown too!
 
 Format: `progress [ddp]`
 
@@ -470,36 +515,41 @@ Examples:
 <div markdown="span" class="alert alert-primary">
 :bulb: ddp here refers to NUS’s Double Degree Programme. Include it if you are in a ddp.
 </div>
-
+<br>
 To calculate the CAP required to achieve your goal:
 
 1. Type `progress` into the command box, and press Enter to execute it. \
-<img src="images/UG SS/2.11 Progress Report 1.png">
+<img src="images/UG SS/2.12 Progress Report 1.png">
 
 2. The result box will display the message: \
-<img src="images/UG SS/2.11 Progress Report 2.png">
+<img src="images/UG SS/2.12 Progress Report 2.png">
 
 <br>
 
 [Back to top](#Product_Overview)
 
 ### 2.13 Clear All: `clear` <a name="Clear_All"></a>
-Here is a command to reset everything(deletes all modules)!
+Want to delete everything but too lazy to delete them one by one?
+Here is a command to reset everything (deletes all modules)!
 
 Format: `clear` \
  \
-Examples:
+Example:
 *   `clear`
 
 <div markdown="span" class="alert alert-info">
 :warning: This command will clear everything **regardless if you are editing a semester or not**. Use with Caution!
 </div>
-
+<br>
 To clear everything:
 
-1.
+1. Type clear into the command box and press Enter to execute it. \
+<img src="images/UG SS/2.13 Clear All 1.png">
+2. A confirmation window will pop up as shown: \
+<img src="images/UG SS/2.13 Clear All 2.png">
+3. After clicking ‘Yes’, the command result will show: \
+<img src="images/UG SS/2.13 Clear All 3.png">
 
-2.
 
 <br>
 
@@ -510,16 +560,16 @@ If you are lost, this command will give you a summary of the command formats.
 
 Format: `help` \
  \
-Examples:
+Example:
 *   `help`
 
 To seek help:
 
 1. Type `help` in the command box, and press Enter to execute it. \
-<img src="images/UG SS/2.12 Get Help 1.png">
+<img src="images/UG SS/2.14 Get Help 1.png">
 
 2. The result box will display the message with an additional pop-up window: \
-<img src="images/UG SS/2.12 Get Help 2.png">
+<img src="images/UG SS/2.14 Get Help 2.png">
 
 <br>
 
@@ -530,13 +580,14 @@ Exits the application.
 
 Format: `exit` \
  \
-Examples:
+Example:
 *   `exit`
 
 To exit the application:
 1. Type `exit` into the command box, and press Enter to execute it. \
-<img src="images/UG SS/2.13 Exit Application 1.png">
+<img src="images/UG SS/2.15 Exit Application 1.png">
 
+2. **MyMods**:100: will close and exit.
 <br>
 
 [Back to top](#Product_Overview)

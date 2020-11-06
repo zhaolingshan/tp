@@ -12,9 +12,9 @@ public class ModularCredit {
     public static final String MESSAGE_INVALID_MODULE = "The module you have entered is not within our database."
             + "\nOur database is only valid up to AY19/20."
             + "\nTo add this module, use the optional parameter mc/MODULAR_CREDITS to manually add this module!"
-            + "\nMODULAR_CREDITS are to be integer between 2 and 16.";
+            + "\nMODULAR_CREDITS should be an integer between 1 and 16.";
     public static final String MESSAGE_INVALID_MODULAR_CREDIT = "Modular Credits (MCs) should only "
-            + "contain integers between 2 and 16.";
+            + "contain integers between 1 and 16.";
     private static final int MINIMUM_MODULE_MC = 1;
     private static final int MAXIMUM_MODULE_MC = 16;
 
