@@ -2,13 +2,9 @@ package seedu.address.model.module;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 import seedu.address.model.semester.Semester;
-import seedu.address.model.tag.Tag;
 
 /**
  * Represents a Module in the address book.
@@ -22,19 +18,17 @@ public class Module {
     // Data fields
     private Grade grade;
     private ModularCredit modularCredit;
-    private final Set<Tag> tags = new HashSet<>();
     private boolean hasGrade;
     private Semester semester;
 
     /**
      * Every field must be present and not null.
      */
-    public Module(ModuleName moduleName, Grade grade, Set<Tag> tags, ModularCredit modularCredit, Semester semester) {
-        requireAllNonNull(moduleName, grade, tags);
+    public Module(ModuleName moduleName, Grade grade, ModularCredit modularCredit, Semester semester) {
+        requireAllNonNull(moduleName, grade);
         this.moduleName = moduleName;
         this.modularCredit = modularCredit;
         this.grade = grade;
-        this.tags.addAll(tags);
         this.semester = semester;
         hasGrade = true;
     }
@@ -42,9 +36,8 @@ public class Module {
     /**
      * Only grade field can be empty.
      */
-    public Module(ModuleName moduleName, Set<Tag> tags, ModularCredit modularCredit, Semester semester) {
+    public Module(ModuleName moduleName, ModularCredit modularCredit, Semester semester) {
         this.moduleName = moduleName;
-        this.tags.addAll(tags);
         this.modularCredit = modularCredit;
         this.semester = semester;
         hasGrade = false;
@@ -72,14 +65,6 @@ public class Module {
 
     public boolean hasGrade() {
         return hasGrade && !grade.toString().equals(Cap.getEmptyGrade());
-    }
-
-    /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
-     */
-    public Set<Tag> getTags() {
-        return Collections.unmodifiableSet(tags);
     }
 
     /**
@@ -111,14 +96,13 @@ public class Module {
 
         Module otherModule = (Module) other;
         return otherModule.getModuleName().equals(getModuleName())
-                && otherModule.getGrade().equals(getGrade())
-                && otherModule.getTags().equals(getTags());
+                && otherModule.getGrade().equals(getGrade());
     }
 
     @Override
     public int hashCode() {
         // Use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(moduleName, grade, tags);
+        return Objects.hash(moduleName, grade);
     }
 
     @Override

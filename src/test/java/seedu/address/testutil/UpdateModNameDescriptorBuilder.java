@@ -1,16 +1,11 @@
 package seedu.address.testutil;
 
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import seedu.address.logic.commands.UpdateCommand;
 import seedu.address.logic.commands.UpdateCommand.UpdateModNameDescriptor;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.semester.Semester;
-import seedu.address.model.tag.Tag;
 
 /**
  * A utility class to help with building UpdatePersonDescriptor objects.
@@ -34,7 +29,6 @@ public class UpdateModNameDescriptorBuilder {
         descriptor = new UpdateModNameDescriptor();
         descriptor.setName(module.getModuleName());
         descriptor.setGrade(module.getGrade());
-        descriptor.setTags(module.getTags());
         descriptor.setSemester(module.getSemester());
     }
 
@@ -51,16 +45,6 @@ public class UpdateModNameDescriptorBuilder {
      */
     public UpdateModNameDescriptorBuilder withGrade(String grade) {
         descriptor.setGrade(new Grade(grade));
-        return this;
-    }
-
-    /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code UpdateModNameDescriptor}
-     * that we are building.
-     */
-    public UpdateModNameDescriptorBuilder withTags(String... tags) {
-        Set<Tag> tagSet = Stream.of(tags).map(Tag::new).collect(Collectors.toSet());
-        descriptor.setTags(tagSet);
         return this;
     }
 

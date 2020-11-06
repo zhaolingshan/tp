@@ -29,7 +29,7 @@ Welcome to **MyMods**:100:! Let us guide you through the overview of **MyMods**:
     * [2.10 Exit Semester](#Exit_Semester)
     * [2.11 Find Module](#Find_Module)
     * [2.12 Progress Report](#Progress_Report)
-    * [2.13 Clear ALL](#Clear_All)
+    * [2.13 Clear All](#Clear_All)
     * [2.14 Get Help](#Get_Help)
     * [2.15 Exit Application](#Exit_Application)
 
@@ -245,9 +245,8 @@ To update a module (e.g. CS2030):
 [Back to top](#Product_Overview)
 
 ### 2.5 List all Modules: `list` <a name="List_all_Modules"></a>
-Displays the list of modules and their respective grades (if any).
-Narrow to specific semester if stated. If no semester is stated, the current semester you
-are editing will be displayed.\
+If you want to see all the modules that you have keyed in, use this feature to display the list of your modules and
+ their respective grades (if any).\
  \
 Format: `list` \
  \
@@ -256,7 +255,8 @@ Examples:
 
 <div markdown="span" class="alert alert-info">
 :warning: <strong>If you are editing a semester</strong> (e.g. Y2S1),
-only modules from that semester(e.g. Y2S1) will be listed.
+only modules from that semester(e.g. Y2S1) will also be listed as the `list` command displays the modules in all semesters
+ regardless of which semester you are currently editing.
 </div><br>
 To view all the modules that you have taken:
 
