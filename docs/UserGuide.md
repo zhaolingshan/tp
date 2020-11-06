@@ -207,9 +207,13 @@ To add a module (e.g. add CS1101S):
 new in AY20/21 and beyond, the following message will be shown:<br><br>
 </div>
 
-To add a module that is not in our database(e.g. CS1101A): \
+To add a module that is not in our database(e.g. CS0000): \
+
+1. Type `add m/CS0000 mc/4` (with `mc/`) into the command box, and press Enter to execute it.
 \
-Type `add m/CS1101A mc/4` (with `mc/`) into the command box, and press Enter to execute it.<br>
+(note: `MODULAR_CREDITS` is the number of modular credits of the module) <br>
+2. The result box will display the message:
+
 
 <div markdown="span" class="alert alert-info">
 :warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed using the command `su`.
@@ -245,7 +249,7 @@ To update a module (e.g. CS2030):
 [Back to top](#Product_Overview)
 
 ### 2.5 List all Modules: `list` <a name="List_all_Modules"></a>
-Displays the list of modules and their respective grades (if any).
+Displays the list of modules and their respective grades (if any) from all semesters.
 Narrow to specific semester if stated. If no semester is stated, the current semester you
 are editing will be displayed.\
  \
@@ -266,7 +270,7 @@ To view all the modules that you have taken:
 2. The result box will display the message:
 <img src="images/UG SS/2.5 List all Modules 2.png">
 
-3. You can check that all the modules are shown in the list below:
+3. You can check that all the modules from all semesters are shown in the list below:
 <img src="images/UG SS/2.5 List all Modules 3.png">
 
 <br>
