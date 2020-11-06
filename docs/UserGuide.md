@@ -29,8 +29,9 @@ Welcome to **MyMods**:100:! Let us guide you through the overview of **MyMods**:
     * [2.10 Exit Semester](#Exit_Semester)
     * [2.11 Find Module](#Find_Module)
     * [2.12 Progress Report](#Progress_Report)
-    * [2.13 Get Help](#Get_Help)
-    * [2.14 Exit Application](#Exit_Application)
+    * [2.13 Clear ALL](#Clear_All)
+    * [2.14 Get Help](#Get_Help)
+    * [2.15 Exit Application](#Exit_Application)
 
 ### 1.2 About <a name="About"></a>
 
@@ -40,19 +41,19 @@ If yes, then this user guide is for you!
 Want to know the common use cases, how to get started or in-depth documentation of all of our 13 key features in **MyMods**:100:?
 We got that all covered for you in this user guide.
 
-And yes, that is right! We have 13 key features in **MyMods**:100:: `start`, `add`, `update`, `list`, `goal`, `recommendSU`,
-`su`, `delete`, `done`, `find`, `progress`, `help` and `exit` commands.
+And yes, that is right! We have 14 key features in **MyMods**:100:: `start`, `add`, `update`, `list`, `goal`, `recommendSU`,
+`su`, `delete`, `done`, `find`, `progress`, `clear`, `help` and `exit` commands.
 
 You do not need any prior technical knowledge to understand this document, however, you will need to know how to read
 English though!
 
 **Navigating this user guide:**
-* Tips will be shown in a box:
+* Tips will be shown in this box:
 <div markdown="span" class="alert alert-primary">
 :bulb: This symbol indicates good-to-know tips.
 </div>
 
-* Important information will be shown in a box:
+* Important information will be shown in this box:
 <div markdown="span" class="alert alert-info">
 :warning: This symbol indicates important information.
 </div>
@@ -126,9 +127,10 @@ Below is information about the features and commands of **MyMods**:100:.
 
 * Items in <strong>SQUARE BRACKETS</strong> are optional input parameters. e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br><br>
 
-* Parameters are <strong>NOT case-sensitive</strong>. e.g. `add m/CS2100` is the same as `add m/cs2100`
- or `start Y1S1` is the same as `start y1s1`.<br><br>
-
+* Parameters are <strong>NOT case-sensitive</strong>. 
+    * `add m/CS2100` is the same as `add m/cs2100`
+    * `start Y1S1` is the same as `start y1s1`.
+    * `find cs` is the same as `find CS`
 </div>
 
 ### 2.1 Summary of Key Features <a name="Summary_of_Key_Features"></a>
@@ -146,6 +148,7 @@ Command | Format
 `done` | `done`
 `find` | `find KEYWORD`
 `progress` | `progress [ddp]`
+`clear` | `clear`
 `help` | `help`
 `exit` | `exit`
 
@@ -200,8 +203,8 @@ To add a module (e.g. add CS1101S):
 <img src="images/UG SS/2.3 Add Module 3.png">
 
 <div markdown="span" class="alert alert-info">
-:warning: Our database is **valid up to modules in the AY19/20 academic year**. So if the modules you are adding is
-new in AY20/21 academic year, the following message will be shown:<br><br>
+:warning: Our database is **valid up to modules in AY19/20**. So if the modules you are adding is
+new in AY20/21 and beyond, the following message will be shown:<br><br>
 </div>
 
 To add a module that is not in our database(e.g. CS1101A): \
@@ -480,7 +483,29 @@ To calculate the CAP required to achieve your goal:
 
 [Back to top](#Product_Overview)
 
-### 2.13 Get Help: `help` <a name="Get_Help"></a>
+### 2.13 Clear All: `clear` <a name="Clear_All"></a>
+Here is a command to reset everything(deletes all modules)!
+
+Format: `clear` \
+ \
+Examples:
+*   `clear`
+
+<div markdown="span" class="alert alert-info">
+:warning: This command will clear everything **regardless if you are editing a semester or not**. Use with Caution!
+</div>
+
+To clear everything:
+
+1.
+
+2.
+
+<br>
+
+[Back to top](#Product_Overview)
+
+### 2.14 Get Help: `help` <a name="Get_Help"></a>
 If you are lost, this command will give you a summary of the command formats.
 
 Format: `help` \
@@ -500,7 +525,7 @@ To seek help:
 
 [Back to top](#Product_Overview)
 
-### 2.14 Exit Application: `exit` <a name="Exit_Application"></a>
+### 2.15 Exit Application: `exit` <a name="Exit_Application"></a>
 Exits the application.
 
 Format: `exit` \
