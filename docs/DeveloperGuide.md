@@ -150,11 +150,11 @@ The `Model`,
 
 The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
-* can save the address book data in json format and read it back.
+* can save the grade book data in json format and read it back.
 
 ### Common classes <a name="Common_classes"></a>
 
-Classes used by multiple components are in the `seedu.addressbook.commons` package.
+Classes used by multiple components are in the `seedu.address.commons` package.
 
 <br>
 
@@ -208,10 +208,10 @@ The implementation of goal-setting is first done by introducing a new model clas
 The ```GoalTarget``` class models the 6 different levels following the Honours Classification in NUS.
 For the user to set their goal, there is a ```SetCommand``` class under the logic commands.
 There will be two different variants of the goal command, there is a ```SetCommandParser``` class under parser to
-handle the different user’s input: ```goal --set``` and ```goal --list```.
+handle the different user’s input: ```goal set``` and ```goal list```.
 The goal of the user will update a field under ```ModelManager```. \
 \
-User’s goal will be written to and can be read from the ```addressbook.json``` file under the attribute
+User’s goal will be written to and can be read from the ```gradebook.json``` file under the attribute
 “```goalTarget```” which will store a default value of ```0```. \
 \
 To implement the command ```RecommendSU```, a class ```RecommendSuCommand``` is introduced in logic commands.
@@ -232,7 +232,7 @@ Aspect: How to represent the different levels of goals (Highest Distinction, Dis
 set the goal.
     * Pros:
         1. Using number to label the goals is easier for the user to type
-        (eg: ```goal --set 2``` instead of ```goal --set distinction```)
+        (eg: ```goal set 2``` instead of ```goal set distinction```)
         2. Using an integer value is more efficient for comparison as compared to a String.
     * Cons:
         1. Difficult for the user to know which level represents which goal.
@@ -242,7 +242,7 @@ set the goal.
     * Cons:
         1. It is longer for the user to type.
 * Justification of choosing Alternative 1: Having a shorter command will be easier for the user.
-To solve the con of the user not sure on which level represents which goal, the command “```goal --list```” is
+To solve the con of the user not sure on which level represents which goal, the command “```goal list```” is
 provided.
 
 
