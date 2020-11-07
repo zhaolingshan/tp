@@ -4,6 +4,9 @@ import java.util.Comparator;
 
 import seedu.address.model.module.Module;
 
+/**
+ * A comparator class used to sort modules by semester.
+ */
 public class ModuleComparator implements Comparator<Module> {
 
     @Override
