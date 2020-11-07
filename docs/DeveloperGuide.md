@@ -76,15 +76,15 @@ interface and exposes its functionality using the `LogicManager.java` class whic
 **How the architecture components interact with each other**
 
 The *Sequence Diagram* below shows how the components interact with each other for the scenario where the
-user issues the command `delete 1`.
+user issues the command `delete CS1101S`.
 
-<img src="" width="574" />
+<img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
 The sections below give more details of each component.
 
 ### UI component <a name="UI_component"></a>
 
-![Structure of the UI Component]()
+![Structure of the UI Component](images/UiClassDiagram.png)
 
 **API** :
 [`Ui.java`](https://github.com/AY2021S1-CS2103T-T17-1/tp/blob/master/src/main/java/seedu/address/ui/Ui.java)
@@ -117,14 +117,14 @@ The `UI` component,
 
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
 
-![Interactions Inside the Logic Component for the `delete 1` Command]()
+![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 ### Model component <a name="Model_component"></a>
 
-![Structure of the Model Component]()
+![Structure of the Model Component](images/ModelClassDiagram.png)
 
 **API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-T17-1/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
@@ -144,7 +144,7 @@ The `Model`,
 
 ### Storage component <a name="Storage_component"></a>
 
-![Structure of the Storage Component]()
+![Structure of the Storage Component](images/StorageClassDiagram.png)
 
 **API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-T17-1/tp/blob/master/src/main/java/seedu/address/storage/Storage.java)
 
@@ -216,28 +216,31 @@ User’s goal will be written to and can be read from the ```addressbook.json```
 \
 To implement the command ```RecommendSU```, a class ```RecommendSuCommand``` is introduced in logic commands.
 To determine which module to recommend the user to S/U the method ```RecommendSuCommand#filterModule()``` will
-retrieve the user’s goal and modules and filter using the following three conditions:
-1. ```RecommendSuCommand#isModSuAble()``` -- Checks if module can be S/U by NUS based on data
-file ```moduleInfo.json```. \
-2. ```RecommendSuCommand#isGradeBelowGoal()``` -- Checks if the grade of the module is below the lower bound of the
-goal. \
-3. ```RecommendSuCommand#isGradeAboveC()``` -- Checks if the grade of the module is C and above. \
-\
+retrieve the user’s goal and modules and filter using the following conditions:
+1. ```RecommendSuCommand#isModSuAble(Module mod)``` -- Checks if module can be S/U by NUS based on data
+file ```moduleInfo.json```.
+2. ```RecommendSuCommand#isGradeBelowGoal(Module mod, GoalTarget goal)``` -- Checks if the grade of the module is
+below the lower bound of the goal.
+3. ```RecommendSuCommand#isGraded(Module mod)``` -- Checks if the grade of the module is valid.
+
+The following activity diagram summarizes what happens when a user executes a new command: \
+<img src="images/RecommendSuActivityDiagram.png" />
+
 #### Design Considerations:
-Aspect: How to represent the different levels of goals (Highest Distinction, Distinction, Merit, Honours, Pass, Fail) \
+Aspect: How to represent the different levels of goals (Highest Distinction, Distinction, Merit, Honours, Pass, Fail)
 * Alternative 1 (current choice): Labels each level with a number 1 to 6 and the user inputs the level number to
-set the goal. \
-    * Pros: \
+set the goal.
+    * Pros:
         1. Using number to label the goals is easier for the user to type
-        (eg: ```goal --set 2``` instead of ```goal --set distinction```) \
-        2. Using an integer value is more efficient for comparison as compared to a String. \
-    * Cons: \
-        1. Difficult for the user to know which level represents which goal. \
-* Alternative 2: User key in the full name of the goal level. \
-    * Pros: \
-        1. User knows what to key in without referring. \
-    * Cons: \
-        1. It is longer for the user to type. \
+        (eg: ```goal --set 2``` instead of ```goal --set distinction```)
+        2. Using an integer value is more efficient for comparison as compared to a String.
+    * Cons:
+        1. Difficult for the user to know which level represents which goal.
+* Alternative 2: User key in the full name of the goal level.
+    * Pros:
+        1. User knows what to key in without referring.
+    * Cons:
+        1. It is longer for the user to type.
 * Justification of choosing Alternative 1: Having a shorter command will be easier for the user.
 To solve the con of the user not sure on which level represents which goal, the command “```goal --list```” is
 provided.
