@@ -144,7 +144,7 @@ public class ModelManager implements Model {
      */
     @Override
     public FilteredList<Module> filterModuleListBySem() {
-        return ModuleListFilter.filterModulesBySemester(filteredModules);
+        return ModuleListSorter.sortModuleList(ModuleListFilter.filterModulesBySemester(filteredModules));
     }
 
     /**
@@ -154,9 +154,14 @@ public class ModelManager implements Model {
      */
     @Override
     public FilteredList<Module> filterModuleListByReadOnlySem() {
-        return ModuleListFilter.filterModulesByReadOnlySemester(filteredModules);
+        return ModuleListSorter.sortModuleList(ModuleListFilter.filterModulesByReadOnlySemester(filteredModules));
     }
 
+    /**
+     * Sorts the module list according to semester.
+     *
+     * @return the filtered list of modules sorted by semester.
+     */
     @Override
     public FilteredList<Module> sortModuleListBySem() {
         return ModuleListSorter.sortModuleList(filteredModules);
