@@ -484,25 +484,25 @@ Aspect: how does the user input their desired CAP.
 1. Updating a module while editing a semester
     a. Prerequisites: Start editing a semester using the `start` command, and add the module “CS1101S”, with Grade “A”.
      Currently editing a valid semester with the module “CS1101S (4MCs) Grade: A” added inside.<br><br>
-    2. Test case: `update m/CS1101S g/B+`<br>
+    b. Test case: `update m/CS1101S g/B+`<br>
        Expected: Updates the module “CS1101S”, replacing the grade from “A” to “B+”.<br><br>
-    3. Test case: `su CS1101S`<br>
+    c. Test case: `su CS1101S`<br>
       Expected: Successfully updates the grade of “CS1101S” to “SU”.<br><br>
-    4. Test case: `update m/ST2334 g/B+`<br>
+    d. Test case: `update m/ST2334 g/B+`<br>
        Expected: Unable to update any module as the module name provided is invalid.<br><br>
-    5. Other incorrect update commands to try: `update`, `update ST2334`, `...`
+    e. Other incorrect update commands to try: `update`, `update ST2334`, `...`
        Expected: Invalid command format.<br><br>
 2. Updating a module from another semester
-    1. Prerequisites: Currently editing the semester “Y2S1”. A module was previously added in another semester.
+    a. Prerequisites: Currently editing the semester “Y2S1”. A module was previously added in another semester.
      e.g. the module “CS1101S” was previously added in semester “Y1S1”.<br><br>
-    2. Test case: `update m/CS1101S g/B+`<br>
+    b. Test case: `update m/CS1101S g/B+`<br>
        Expected: Unable to update module as the module you are trying to update is in another semester.<br><br>
 3. Updating a module while not editing any semesters
-    1. Prerequisites: Not editing any semesters. (The status bar shows “Currently editing: NA”)<br><br>
-    2. Test case: `update m/CS1101S g/B+`<br>
+    a. Prerequisites: Not editing any semesters. (The status bar shows “Currently editing: NA”)<br><br>
+    b. Test case: `update m/CS1101S g/B+`<br>
        Expected: Unable to update any module as no semester is being edited,
         command result prompts to start a semester before modifying the module list.<br><br>
-    3. Test case: `su CS1101S`<br>
+    c. Test case: `su CS1101S`<br>
        Expected: Similar to above.<br><br>
 
 [Back to top](#top)
@@ -510,19 +510,19 @@ Aspect: how does the user input their desired CAP.
 ### Recommending modules to SU <a name="Recommending_modules_to_SU"></a>
 
 1. Recommending modules to SU with valid modules to SU.
-    1. Prerequisites: A goal has been previously set using `goal set`. For the purpose of the test cases below,
+    a. Prerequisites: A goal has been previously set using `goal set`. For the purpose of the test cases below,
      we would be assuming the current goal set is 1. (i.e. the command `goal set 1` was entered).
       There are currently 2 modules added and listed, “CS1101S (4MCs), Grade: C+”, and “CS1231S (4MCs), Grade: A”.<br><br>
-    2. Test case: `recommendSU`<br>
+    b. Test case: `recommendSU`<br>
        Expected: The module CS1231S is recommended.<br><br>
-    3. Test case: `recommendSU y2s1`<br>
+    c. Test case: `recommendSU y2s1`<br>
        Expected: Invalid command format, as there should be no input after recommendSU.<br><br>
-    4. Other incorrect recommendSU commands to try: `recommendSU all`, `recommendSU CAP5`, `…`<br>
+    d. Other incorrect recommendSU commands to try: `recommendSU all`, `recommendSU CAP5`, `…`<br>
        Expected: Similar to previous.<br><br>
 2. Recommending modules to SU with no valid modules to SU
-    1. Prerequisites: A goal has been previously set using `goal set`. For the purpose of the test cases below, we would
+    a. Prerequisites: A goal has been previously set using `goal set`. For the purpose of the test cases below, we would
      be assuming the current goal set is 1. (i.e. the command `goal set 1` was entered). There are currently no modules added.<br><br>
-    2. Test case: `recommendSU`<br>
+    b. Test case: `recommendSU`<br>
        Expected: No modules would be recommended to S/U based on your goal.<br><br>
 
 [Back to top](#top)

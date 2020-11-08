@@ -1,4 +1,7 @@
 package seedu.address.ui;
+
+import static java.util.Objects.requireNonNull;
+
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.input.MouseEvent;
@@ -30,7 +33,13 @@ public class DragResizer {
 
     private boolean dragging;
 
+    /**
+     * Creates a DragResizer object "wrapping" a javafx region around. Making that object resizable.
+     *
+     * @param aRegion
+     */
     private DragResizer(Region aRegion) {
+        requireNonNull(aRegion);
         region = aRegion;
     }
 
