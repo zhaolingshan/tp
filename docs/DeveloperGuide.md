@@ -39,7 +39,7 @@ Contribute to this [project](https://github.com/AY2021S1-CS2103T-T17-1/tp)
     * [Use cases](#Use_cases)
     * [Non-Functional Requirements](#Non-Functional_Requirements)
     * [Glossary](#Glossary)
-    
+  
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started** <a name="Setting_up,_getting_started"></a>
@@ -210,7 +210,7 @@ Aspect: Whether to allow users to manually overwrite the number of modular credi
 * Alternative 1 (current choice): Allow users the choice to manually key in how many modular credits a module has.
     * Pros:
         1. Allows users more flexibility, and enables them to dictate how many modular credits each module has.
-        2. In the event that a module in our database is outdated, users are able to overwrite the outdated 
+        2. In the event that a module in our database is outdated, users are able to overwrite the outdated
         modular credits. 
     * Cons:
         1. Users may not be fully aware of module details, and may key in incorrect modular credits.
