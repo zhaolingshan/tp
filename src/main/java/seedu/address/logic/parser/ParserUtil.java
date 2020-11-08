@@ -2,10 +2,12 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SET_GOAL;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.commands.SetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Grade;
@@ -118,6 +120,16 @@ public class ParserUtil {
         } catch (final NumberFormatException e) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, GoalTarget.MESSAGE_CONSTRAINTS));
+        }
+    }
+
+    public static void parseGoalLevel(String userInput) throws ParseException {
+        requireNonNull(userInput);
+        String trimmedGoal = userInput.trim();
+
+        if (!trimmedGoal.equals("")) {
+            throw new ParseException(String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT,
+                    SetCommand.MESSAGE_USAGE));
         }
     }
 }

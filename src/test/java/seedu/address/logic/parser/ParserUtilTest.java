@@ -137,4 +137,14 @@ public class ParserUtilTest {
         GoalTarget expectedGoalTarget = new GoalTarget(Integer.parseInt(VALID_GOAL));
         assertEquals(expectedGoalTarget, ParserUtil.parseGoal(VALID_GOAL));
     }
+
+    @Test
+    public void parseGoalLevel_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseGoalLevel(null));
+    }
+
+    @Test
+    public void parseGoalLevel_invalidUserInput_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseGoalLevel(INVALID_GOAL));
+    }
 }

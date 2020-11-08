@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_SET_GOAL;
 
 import java.util.stream.Stream;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.SetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.GoalTarget;
@@ -26,13 +27,14 @@ public class SetCommandParser implements Parser<SetCommand> {
                 ArgumentTokenizer.tokenize(userInput, PREFIX_SET_GOAL, PREFIX_LIST_GOAL);
 
         if (arePrefixesPresent(argMultimap, PREFIX_SET_GOAL)) {
-            // --set is inputted; any --list will be ignored
+            // set is inputted; any list will be ignored
             GoalTarget goalTarget = ParserUtil.parseGoal(argMultimap.getValue(PREFIX_SET_GOAL).get());
             return new SetCommand(goalTarget);
         } else if (arePrefixesPresent(argMultimap, PREFIX_LIST_GOAL)) {
+            ParserUtil.parseGoalLevel(argMultimap.getValue(PREFIX_LIST_GOAL).get());
             return new SetCommand(new GoalTarget());
         } else {
-            // both --set and --list is NOT inputted
+            // both set and list is NOT inputted
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, SetCommand.MESSAGE_USAGE));
         }
