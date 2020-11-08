@@ -148,16 +148,6 @@ public class ModelManager implements Model {
     }
 
     /**
-     * Filters the module list according to read only semester.
-     *
-     * @return the filtered list of modules by read only semester.
-     */
-    @Override
-    public FilteredList<Module> filterModuleListByReadOnlySem() {
-        return ModuleListSorter.sortModuleList(ModuleListFilter.filterModulesByReadOnlySemester(filteredModules));
-    }
-
-    /**
      * Sorts the module list according to semester.
      *
      * @return the filtered list of modules sorted by semester.
