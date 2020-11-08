@@ -115,7 +115,7 @@ The `UI` component,
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete CS2103T")` API call.
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
@@ -137,6 +137,7 @@ The `Model`,
 
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
+
 ![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
 
 </div>
@@ -150,11 +151,11 @@ The `Model`,
 
 The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
-* can save the address book data in json format and read it back.
+* can save the grade book data in json format and read it back.
 
 ### Common classes <a name="Common_classes"></a>
 
-Classes used by multiple components are in the `seedu.addressbook.commons` package.
+Classes used by multiple components are in the `seedu.address.commons` package.
 
 <br>
 
@@ -208,10 +209,10 @@ The implementation of goal-setting is first done by introducing a new model clas
 The ```GoalTarget``` class models the 6 different levels following the Honours Classification in NUS.
 For the user to set their goal, there is a ```SetCommand``` class under the logic commands.
 There will be two different variants of the goal command, there is a ```SetCommandParser``` class under parser to
-handle the different user’s input: ```goal --set``` and ```goal --list```.
+handle the different user’s input: ```goal set``` and ```goal list```.
 The goal of the user will update a field under ```ModelManager```. \
 \
-User’s goal will be written to and can be read from the ```addressbook.json``` file under the attribute
+User’s goal will be written to and can be read from the ```gradebook.json``` file under the attribute
 “```goalTarget```” which will store a default value of ```0```. \
 \
 To implement the command ```RecommendSU```, a class ```RecommendSuCommand``` is introduced in logic commands.
@@ -232,7 +233,7 @@ Aspect: How to represent the different levels of goals (Highest Distinction, Dis
 set the goal.
     * Pros:
         1. Using number to label the goals is easier for the user to type
-        (eg: ```goal --set 2``` instead of ```goal --set distinction```)
+        (eg: ```goal set 2``` instead of ```goal set distinction```)
         2. Using an integer value is more efficient for comparison as compared to a String.
     * Cons:
         1. Difficult for the user to know which level represents which goal.
@@ -242,7 +243,7 @@ set the goal.
     * Cons:
         1. It is longer for the user to type.
 * Justification of choosing Alternative 1: Having a shorter command will be easier for the user.
-To solve the con of the user not sure on which level represents which goal, the command “```goal --list```” is
+To solve the con of the user not sure on which level represents which goal, the command “```goal list```” is
 provided.
 
 
@@ -293,8 +294,8 @@ The user will first need to indicate their desired CAP using the `goal` command.
 \
 Users can then use the command `progress` to calculate the required average CAP
 they have to obtain in their remaining modules in order to achieve their
-target CAP. The user can include the string `--ddp` to indicate if they are taking
-a double degree programme (e.g. `progress --ddp`).
+target CAP. The user can include the string `ddp` to indicate if they are taking
+a double degree programme (e.g. `progress ddp`).
 \
 \
 A `ProgressCommand class` is added to commands under logic to execute the required
@@ -303,9 +304,33 @@ CAP calculation. The calculation process is done as shown below:
  1. User enters their target CAP using `goal` command
  2. Info about current CAP and MCs taken are retrieved from the `ModelManager` class
  3. Total MCs required is determined by whether user is in double degree programme
- or not (e.g. user input is `progress --ddp` or `just progress`)
+ or not (e.g. user input is `progress ddp` or `just progress`)
  4. Target CAP is retrieved from the `ModelManager` class
  5. Required CAP from remaining modules is calculated.
+
+The following activity diagram shows what happens when a user calls the `progress` command:
+
+![Activity diagram for progress command](images/ProgressActivityDiagram.png)
+
+#### Design Considerations
+
+Aspect: how does the user input their desired CAP.
+
+* Alternative 1: using a prefix such as `c/` followed by their desired CAP (e.g. `progress c/ 4.32`).
+    * Pros:
+        1. Users can input the exact CAP number they want to achieve to get a more specific CAP requirement for their remaining modules.
+    * Cons:
+        1. Users have to input their desired CAP everytime they use the `progress` command.
+        2. User does repeated work, since they need to set their CAP target again to use other commands like `RecommendSU`.
+* Alternative 2 (current choice): using the `goal` command (e.g. `goal set 2`).
+    * Pros:
+        1. Length of progress command is reduced, users type lesser words.
+        2. Users only need to input their target CAP once, unless they want to change it.
+    * Cons:
+        1. CAP target is not as flexible as it is limited to the levels of goals (Highest Distinction, Distinction, Merit, Honours, Pass, Fail).
+* Justification for choosing alternative 2:
+    1. Firstly, a shorter command is more convenient for the user to quickly find out the required CAP for their remaining modules.
+    2. Secondly, most users do not have an extremely specific CAP target they want to achieve (e.g. 4.32) but rather one of the goal levels (e.g. Distinction), hence using the `goal` command to set their target CAP is sufficient.
 
 <br>
 
