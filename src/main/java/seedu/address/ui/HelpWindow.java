@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.layout.Border;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 
@@ -79,6 +81,7 @@ public class HelpWindow extends UiPart<Stage> {
 
         //set hyperlink
         hyperLink.setText("Click for the User Guide");
+        hyperLink.setBorder(Border.EMPTY);
         handleLinkClicked();
     }
 
@@ -90,6 +93,7 @@ public class HelpWindow extends UiPart<Stage> {
         hyperLink.setOnAction(args -> {
             try {
                 Desktop.getDesktop().browse(new URI(USERGUIDE_URL));
+                hyperLink.setTextFill(Color.PURPLE);
             } catch (IOException | URISyntaxException e) {
                 e.printStackTrace();
             }

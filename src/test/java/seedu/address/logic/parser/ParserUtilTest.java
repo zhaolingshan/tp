@@ -8,6 +8,7 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_MODULE;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Grade;
 import seedu.address.model.module.ModuleName;
 import seedu.address.model.semester.Semester;
@@ -20,6 +21,10 @@ public class ParserUtilTest {
     private static final String VALID_MOD_NAME = "CS2100";
     private static final String VALID_GRADE = "A+";
     private static final String VALID_SEMESTER = Semester.Y2S1.toString();
+
+    private static final String VALID_GOAL = "1";
+    private static final String INVALID_GOAL = "ABC";
+    private static final String INVALID_GOAL_RANGE = "0";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -110,5 +115,36 @@ public class ParserUtilTest {
         String semesterWithWhitespace = WHITESPACE + VALID_SEMESTER + WHITESPACE;
         Semester expectedSemester = Semester.valueOf(VALID_SEMESTER);
         assertEquals(expectedSemester, ParserUtil.parseSemester(semesterWithWhitespace));
+    }
+
+    @Test
+    public void parseGoal_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseGoal(null));
+    }
+
+    @Test
+    public void parseGoal_invalidGoal_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseGoal(INVALID_GOAL));
+    }
+
+    @Test
+    public void parseGoal_invalidGoalRange_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseGoal(INVALID_GOAL_RANGE));
+    }
+
+    @Test
+    public void parseGoal_validGoal_returnsGoalTarget() throws ParseException {
+        GoalTarget expectedGoalTarget = new GoalTarget(Integer.parseInt(VALID_GOAL));
+        assertEquals(expectedGoalTarget, ParserUtil.parseGoal(VALID_GOAL));
+    }
+
+    @Test
+    public void parseGoalLevel_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseGoalLevel(null));
+    }
+
+    @Test
+    public void parseGoalLevel_invalidUserInput_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseGoalLevel(INVALID_GOAL));
     }
 }

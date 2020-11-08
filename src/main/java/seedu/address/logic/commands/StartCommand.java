@@ -38,10 +38,6 @@ public class StartCommand extends Command {
         toStart = semester;
     }
 
-    public Semester getStartSemester() {
-        return toStart;
-    }
-
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
