@@ -316,18 +316,19 @@ The following activity diagram summarises what happens when a user chooses "Ligh
 
 #### Implementation
 
-`start` is a command which allows the user to start modifying the list of modules in the semester which the user specifies
-by adding, updating, deleting or S/U-ing the modules in the specified semester. 
-Modifying the list of modules is only allowed after the user types in `start` 
-followed by the semester which the user wishes to edit the module list of.
+`start` is a command which allows the user to start modifying the list of modules in the semester which 
+the user specifies by adding, updating, deleting or S/U-ing the modules in the specified semester. 
+Modifying the list of modules is only allowed after the user types in `start` followed by the semester 
+which the user wishes to edit the module list of.
 
 A class `StartCommand` is added in the commands folder under logic to execute the command `start`. 
 A singleton class `SemesterManager` to control the semester is added in the semester folder under model
 to retrieve the current semester the user is in and set the current semester to a specified semester. 
 The `SemesterManager` class is created as a singleton class as there should only be one instance of a controller class.
 
-`StartCommand#execute()` gets an instance of the `SemesterManager` class via the static `SemesterManager#getInstance()` method
-to set the current semester to the semester input by the user via `SemesterManager#setCurrentSemester()`. 
+`StartCommand#execute()` gets an instance of the `SemesterManager` class via the static `SemesterManager#getInstance()` 
+method to set the current semester to the semester input by the user via `SemesterManager#setCurrentSemester()`.
+
 `SemesterManager#isValidSemester()` ensures that the user keys in a valid semester from Y1S1 to Y5S2 
 (Y5S1 and Y5S2 in the case of ddp students) and prevents starting an invalid semester.
 
