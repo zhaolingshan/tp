@@ -7,6 +7,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.CommandTestUtil.NO_GRADE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_CORRECT_SEMESTER_OF_MOD_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.setValidCorrectSemester;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MOD_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SEMESTER;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
@@ -69,6 +70,7 @@ public class GradeBookParserTest {
                 .withGrade(NO_GRADE)
                 .withSemester(VALID_CORRECT_SEMESTER_OF_MOD_NAME_B).build();
         UpdateCommand command = (UpdateCommand) parser.parseCommand(UpdateCommand.COMMAND_WORD + " "
+                + PREFIX_MOD_NAME
                 + COM_ORG.getModuleName().fullModName
                 + " " + PREFIX_SEMESTER
                 + VALID_CORRECT_SEMESTER_OF_MOD_NAME_B + " "
