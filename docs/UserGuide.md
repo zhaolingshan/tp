@@ -69,6 +69,8 @@ prefer typing via a Command Line Interface (CLI) while still having the benefits
 With **MyMods**:100:, you are able to keep track of your module results efficiently, easily make S/U decisions, and view your
 academic progress. **MyMods**:100: is available for the Linux, Unix, Windows XP and Mac OS X operating systems.
 
+<div style="page-break-after: always;"></div>
+
 ### 1.4 Glossaries <a name="Glossaries"></a>
 
 If you do not understand any of the terms or short forms that we used, you can refer to this table:
@@ -100,6 +102,8 @@ MyMods.jar`. The window (without any modules) similar to the interface shown bel
 The data of all of your modules can be found on your local disk. It is located in the “data” folder found at the
 home folder.
 
+<div style="page-break-after: always;"></div>
+
 #### The Interface
 
 This is what **MyMods**:100: looks like: \
@@ -115,6 +119,7 @@ You can change the colours using the tab “Theme”.
 [Back to top](#Product_Overview)
  
 ---
+<div style="page-break-after: always;"></div>
 
 # 2. Key Features <a name="Key_Features"></a>
 
@@ -178,6 +183,8 @@ Command | Format
 `help` | `help`
 `exit` | `exit`
 
+<div style="page-break-after: always;"></div>
+
 ### 2.2 Edit Semester: `start` <a name="Edit_Semester"></a>
 Can’t wait to add your modules into **MyMods**:100:? You can start modifying the modules by starting a semester! \
 \
@@ -207,11 +214,10 @@ To edit a Semester (e.g. Y2S1):
 2. The result box will display the message: \
 <img src="images/UG SS/2.2 Edit Semester 3.png">
 
-
-
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.3 Add module: `add` <a name="Add_Module"></a>
 Yes! After starting a semester, we can now add a module to your list. \
@@ -266,6 +272,7 @@ To add a module that is not in our database(e.g. CS0000):
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.4 Update Module: `update` <a name="Update_Module"></a>
 Oops, typed something wrong or want to change something?
@@ -300,6 +307,7 @@ To update a module (e.g. CS2030):
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.5 List all Modules: `list` <a name="List_all_Modules"></a>
 
@@ -337,6 +345,7 @@ To view all the modules that you have taken:
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.6 Set Goals: `goal` <a name="Set_Goals"></a>
 Reach for the stars! Set your goal level according to NUS’ Honours Classification System
@@ -387,6 +396,7 @@ To set your goal to 2 (CAP4.00 ~ 4.49):
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.7 Recommend S/U: `recommendSU` <a name="Recommend_S/U"></a>
 Having a headache on what module you should S/U? This feature will ease your headache by recommending which module(s)
@@ -421,6 +431,7 @@ using the command `su`.
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.8 S/U module: `su` <a name="S/U_Module"></a>
 Didn’t do very well for a module? S/U the module in your list using this feature! \
@@ -450,6 +461,7 @@ To S/U a module (e.g. CS1231):
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.9 Delete Module: `delete` <a name="Delete_Module"></a>
 If you want to remove a module from your list, use this feature to delete the module along with its grade
@@ -475,6 +487,7 @@ To delete a module (e.g. CS1231) from the list:<br>
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.10 Exit Semester: `done` <a name="Exit_Semester"></a>
 Finally done with editing the semester?
@@ -498,6 +511,7 @@ To stop editing a semester (e.g. Y1S1):
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.11 Find Module: `find` <a name="Find_Module"></a>
 
@@ -541,6 +555,7 @@ To search for a module (e.g. CS):
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.12 Progress Report: `progress` <a name="Progress_Report"></a>
 Want to know how well you are doing relative to your goal? Use this feature for a progress report
@@ -569,6 +584,7 @@ To calculate the CAP required to achieve your goal:
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.13 Clear All: `clear` <a name="Clear_All"></a>
 Want to delete everything but too lazy to delete them one by one?
@@ -596,6 +612,7 @@ To clear everything:
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.14 Get Help: `help` <a name="Get_Help"></a>
 If you are lost, this command will give you a summary of the command formats.
@@ -616,6 +633,7 @@ To seek help:
 <br>
 
 [Back to top](#Product_Overview)
+<div style="page-break-after: always;"></div>
 
 ### 2.15 Exit Application: `exit` <a name="Exit_Application"></a>
 Exits the application.

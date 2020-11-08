@@ -40,6 +40,8 @@ Contribute to this [project](https://github.com/AY2021S1-CS2103T-T17-1/tp)
     * [Non-Functional Requirements](#Non-Functional_Requirements)
     * [Glossary](#Glossary)
   
+<div style="page-break-after: always;"></div>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started** <a name="Setting_up,_getting_started"></a>
@@ -93,6 +95,8 @@ user issues the command `delete CS1101S`.
 
 The sections below give more details of each component.
 
+<div style="page-break-after: always;"></div>
+
 ### UI component <a name="UI_component"></a>
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
@@ -112,6 +116,8 @@ The `UI` component,
 
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
+
+<div style="page-break-after: always;"></div>
 
 ### Logic component <a name="Logic_component"></a>
 
@@ -133,6 +139,8 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
+<div style="page-break-after: always;"></div>
+
 ### Model component <a name="Model_component"></a>
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
@@ -149,6 +157,8 @@ The `Model`,
 
 ### Storage component <a name="Storage_component"></a>
 
+<div style="page-break-after: always;"></div>
+
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
 **API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-T17-1/tp/blob/master/src/main/java/seedu/address/storage/Storage.java)
@@ -164,6 +174,7 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 <br>
 
 [Back to top](#top)
+<div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -225,6 +236,8 @@ Aspect: Whether to allow users to manually overwrite the number of modular credi
 
 [Back to top](#top)
       
+<div style="page-break-after: always;"></div>
+    
 ### Recommend S/U: <a name="Recommend_S/U"></a>
 #### Implementation
 The Recommend S/U feature works in conjunction with the goal-setting feature.
@@ -274,6 +287,7 @@ To solve the con of the user not sure on which level represents which goal, the 
 provided.
 
 [Back to top](#top)
+<div style="page-break-after: always;"></div>
 
 ### Dark/Light Mode: <a name="Dark/Light_Mode"></a>
 
@@ -311,6 +325,7 @@ The following activity diagram summarises what happens when a user chooses "Ligh
 * 7pm - 7am: Dark Mode
 
 [Back to top](#top)
+<div style="page-break-after: always;"></div>
 
 ### Start Semester: <a name="Start_Semester"></a>
 
@@ -368,6 +383,7 @@ by stating the following input (eg. `add m/CS1101S g/A s/Y1S1`).
     the other commands is not a major problem and users will be able to pick it up quickly.
 
 [Back to top](#top)
+<div style="page-break-after: always;"></div>
 
 ### Show progress towards target CAP: <a name="Show_progress_towards_target_CAP"></a>
 
@@ -420,6 +436,7 @@ Aspect: how does the user input their desired CAP.
 <br>
 
 [Back to top](#top)
+<div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -509,6 +526,7 @@ Aspect: how does the user input their desired CAP.
        Expected: No modules would be recommended to S/U based on your goal.<br><br>
 
 [Back to top](#top)
+<div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -566,6 +584,7 @@ Our application is capable of the following features:
 10. Provide assistance to users who are lost amidst navigating MyMods with a summary of the commands available.
 
 [Back to top](#top)
+<div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
 
