@@ -33,16 +33,18 @@ public class CommandTestUtil {
     public static final String VALID_MOD_NAME_B = "CS2100";
     public static final String VALID_GRADE_A = "A";
     public static final String VALID_GRADE_B = "B-";
-    public static final String VALID_GRADE_C = "A-";
+    public static final String VALID_GRADE_C = "F";
     public static final int VALID_MODULAR_CREDIT = 4;
     public static final int VALID_GOAL_TARGET_A = 4;
     public static final int VALID_GOAL_TARGET_B = 3;
     public static final int VALID_GOAL_TARGET_C = 6;
+    public static final int VALID_GOAL_TARGET_D = 1;
     public static final String VALID_GOAL_TARGET_INPUT = "4";
     public static final Semester VALID_CORRECT_SEMESTER_OF_MOD_NAME_B = Semester.Y2S1;
     public static final Semester VALID_WRONG_SEMESTER_OF_MOD_NAME_B = Semester.Y4S1;
     public static final double VALID_CAP_A = 3.50;
     public static final double VALID_CAP_B = 0;
+    public static final double VALID_CAP_C = 4.50;
     public static final String VALID_INPUT_FOR_ONE_WORD_COMMAND = "";
 
     public static final String MOD_NAME_DESC_A = " " + PREFIX_MOD_NAME + VALID_MOD_NAME_A;

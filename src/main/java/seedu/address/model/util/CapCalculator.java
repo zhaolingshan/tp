@@ -23,18 +23,19 @@ public class CapCalculator {
      */
     public static double calculateCap(List<Module> moduleList) {
         double totalPoints = 0.0;
-        int numOfModsWithGrades = 0;
+        int totalModularCredits = 0;
         for (Module m : moduleList) {
             if (m.hasGrade() && m.getGrade().toString() != "SU") {
+                int modularCredit = m.getModularCredit().modularCredit;
                 Grade currentGrade = m.getGrade();
                 double currentGradePoint = currentGrade.getGradePoint();
-                totalPoints += currentGradePoint;
-                numOfModsWithGrades++;
+                totalPoints += modularCredit * currentGradePoint;
+                totalModularCredits += modularCredit;
             }
         }
-        double cap = totalPoints / numOfModsWithGrades;
+        double cap = totalPoints / totalModularCredits;
 
-        if (numOfModsWithGrades == 0) {
+        if (totalModularCredits == 0) {
             return 0;
         }
 

@@ -82,8 +82,8 @@ public class CommandBox extends UiPart<Region> {
         try {
             if (alert.getResult() == ButtonType.YES) {
                 commandExecutor.execute(commandTextField.getText());
-                commandTextField.setText("");
             }
+            commandTextField.setText("");
         } catch (CommandException | ParseException e) {
             setStyleToIndicateCommandFailure();
         }

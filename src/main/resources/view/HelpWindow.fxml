@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Hyperlink?>
 <fx:root title="Help" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
     <Image url="@/images/help_icon.png" />
@@ -32,6 +33,7 @@
                             <Insets right="5.0" />
                         </HBox.margin>
                     </Label>
+                    <Hyperlink fx:id="hyperLink"/>
                     <Button fx:id="copyButton" mnemonicParsing="false" onAction="#copyUrl" text="Copy URL">
                         <HBox.margin>
                             <Insets left="5.0" />
