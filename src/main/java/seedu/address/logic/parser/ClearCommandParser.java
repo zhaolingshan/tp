@@ -19,7 +19,10 @@ public class ClearCommandParser implements Parser<ClearCommand> {
     public ClearCommand parse(String userInput) throws ParseException {
         String trimmedInput = userInput.trim();
         if (!trimmedInput.equals("")) {
-            throw new ParseException(String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, ClearCommand.MESSAGE_USAGE));
+            throw new ParseException(
+                    String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT,
+                            ClearCommand.MESSAGE_USAGE)
+            );
         }
         return new ClearCommand();
     }

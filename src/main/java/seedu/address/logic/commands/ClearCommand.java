@@ -15,7 +15,7 @@ public class ClearCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Clears all modules in all semesters.\n"
             + "Example: " + COMMAND_WORD;
-    
+
     public static final String MESSAGE_SUCCESS = "Grade book has been cleared!";
 
 
