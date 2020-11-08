@@ -307,6 +307,11 @@ CAP calculation. The calculation process is done as shown below:
  4. Target CAP is retrieved from the `ModelManager` class
  5. Required CAP from remaining modules is calculated.
 
+The following activity diagram shows what happens when a user calls the `progress` command:
+
+<img src="images/ProgressActivityDiagram.png" />
+
+
 #### Design Considerations
 
 Aspect: how does the user input their desired CAP.
