@@ -313,11 +313,16 @@ of stylesheets
 
 The following sequence diagram illustrates how the program changes the theme of the desktop application.
 
-![Sequence of Dark/Light Mode Switch]()
+![Sequence of Dark/Light Mode Switch](images/ModeSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">
+:information_source: **Note:** The lifeline for `Scene` and `listOfStylesheet` should end at the destroy marker (X)
+but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</div>
 
 The following activity diagram summarises what happens when a user chooses "Light" under the Theme menu bar.
 
-![Activity Diagram for Dark/Light Mode Switch]() 
+![Activity Diagram for Dark/Light Mode Switch](images/ModeActivityDiagram.png) 
 
 **Default theme** is decided by the time of the day.
 
