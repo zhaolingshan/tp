@@ -22,6 +22,16 @@ Contribute to this [project](https://github.com/AY2021S1-CS2103T-T17-1/tp)
     * [Dark/Light Mode](#Dark/Light_Mode)
     * [Start Semester](#Start_Semester)
     * [Show progress towards target CAP](#Show_progress_towards_target_CAP)
+* **[Instructions for Manual Testing](#Instructions_for_Manual_Testing)**
+    * [Launch and shutdown](#Launch_and_shutdown)
+    * [Adding a module](#Adding_a_module)
+    * [Updating/SU-ing a module](#Updating/SU-ing_a_module)
+    * [Recommending modules to SU](#Recommending_modules_to_SU)
+* **[Effort](#Effort)**
+    * [Difficulty level](#Difficulty_level)
+    * [Challenges faced](#Challenges_faced)
+    * [Effort required](#Effort_required)
+    * [Achievements of this projects](#Achievements_of_this_projects)
 * **[Documentation, logging, testing, configuration, dev-ops](#Documentation,_logging,_testing,_configuration,_dev-ops)**
 * **[Product scope](#Product_scope)**
     * [Target user profile](#Target_user_profile)
@@ -356,6 +366,123 @@ Aspect: how does the user input their desired CAP.
 <br>
 
 [Back to top](#top)
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Instructions for Manual Testing <a name="Instructions_for_Manual_Testing"></a>
+
+### Launch and shutdown <a name="Launch_and_shutdown"></a>
+
+1. Initial launch
+    1. Download the jar file and copy into an empty folder.<br><br>
+    2. Double-click the jar file Expected: Shows the GUI. The window size may not be optimum.<br><br>
+2. Saving window preferences
+    1. Resize the window to an optimum size. Move the window to a different location. Close the window.<br><br>
+    2. Re-launch the app by double-clicking the jar file.<br>
+       Expected: The most recent window size and location is retained.<br><br>
+
+### Adding a module <a name="Adding_a_module"></a>
+
+1. Adding a module while editing a semester
+    1. Prerequisites: Start editing a semester using the `start` command.<br>
+     Currently editing a valid semester with no modules in the entire app added yet.<br><br>
+    2. Test case: `add m/CS1231S g/A`<br>
+       Expected: Module “CS1231S (4MCs)” is added to the current semester, with “Grade: A”. CAP in the status bar is updated.<br><br>
+    3. Test case: `add m/CS1101S`<br>
+      Expected: Module “CS1101S (4MCs)” is added to the current semester, with “Grade: NA”. CAP in the status bar is not updated.<br><br>
+    4. Test case: `add m/GER1000 mc/8`<br>
+      Expected : Module “GER1000 (8MCs)” is added to the current semester, with “Grade: NA”. CAP in the status bar is not updated.<br><br>
+    5. Test case: `add m/GER1000 g/A`<br>
+      Expected: Unable to add the module as it already exists in your module list.<br><br>
+    6. Test case: `add GEQ1000 A+`<br>
+      Expected: Invalid command format.<br><br>
+    7. Other incorrect add commands to try: `add`, `add mod/GEQ1000`, `…`<br>
+      Expected: Similar to previous.<br><br>
+2. Adding a module while not editing any semesters
+    1. Prerequisites: Not editing any semesters. (The status bar shows “Currently editing: NA”)<br><br>
+    2. Test case: `add m/GEQ1000`<br>
+       Expected: Unable to add module as no semester is being edited,
+        command result prompts to start a semester before modifying the module list.<br><br>
+
+### Updating/SU-ing a module <a name="Updating/SU-ing_a_module"></a>
+
+1. Updating a module while editing a semester
+    1. Prerequisites: Start editing a semester using the `start` command, and add the module “CS1101S”, with Grade “A”.
+     Currently editing a valid semester with the module “CS1101S (4MCs) Grade: A” added inside.<br><br>
+    2. Test case: `update m/CS1101S g/B+`<br>
+       Expected: Updates the module “CS1101S”, replacing the grade from “A” to “B+”.<br><br>
+    3. Test case: `su CS1101S`<br>
+      Expected: Successfully updates the grade of “CS1101S” to “SU”.<br><br>
+    4. Test case: `update m/ST2334 g/B+`<br>
+       Expected: Unable to update any module as the module name provided is invalid.<br><br>
+    5. Other incorrect update commands to try: `update`, `update ST2334`, `...`
+       Expected: Invalid command format.<br><br>
+2. Updating a module from another semester
+    1. Prerequisites: Currently editing the semester “Y2S1”. A module was previously added in another semester.
+     e.g. the module “CS1101S” was previously added in semester “Y1S1”.<br><br>
+    2. Test case: `update m/CS1101S g/B+`<br>
+       Expected: Unable to update module as the module you are trying to update is in another semester.<br><br>
+3. Updating a module while not editing any semesters
+    1. Prerequisites: Not editing any semesters. (The status bar shows “Currently editing: NA”)<br><br>
+    2. Test case: `update m/CS1101S g/B+`<br>
+       Expected: Unable to update any module as no semester is being edited,
+        command result prompts to start a semester before modifying the module list.<br><br>
+    3. Test case: `su CS1101S`<br>
+       Expected: Similar to above.<br><br>
+
+### Recommending modules to SU <a name="Recommending_modules_to_SU"></a>
+
+1. Recommending modules to SU with valid modules to SU.
+    1. Prerequisites: A goal has been previously set using `goal set`. For the purpose of the test cases below,
+     we would be assuming the current goal set is 1. (i.e. the command `goal set 1` was entered).
+      There are currently 2 modules added and listed, “CS1101S (4MCs), Grade: C+”, and “CS1231S (4MCs), Grade: A”.<br><br>
+    2. Test case: `recommendSU`<br>
+       Expected: The module CS1231S is recommended.<br><br>
+    3. Test case: `recommendSU y2s1`<br>
+       Expected: Invalid command format, as there should be no input after recommendSU.<br><br>
+    4. Other incorrect recommendSU commands to try: `recommendSU all`, `recommendSU CAP5`, `…`<br>
+       Expected: Similar to previous.<br><br>
+2. Recommending modules to SU with no valid modules to SU
+    1. Prerequisites: A goal has been previously set using `goal set`. For the purpose of the test cases below, we would
+     be assuming the current goal set is 1. (i.e. the command `goal set 1` was entered). There are currently no modules added.<br><br>
+    2. Test case: `recommendSU`<br>
+       Expected: No modules would be recommended to S/U based on your goal.<br><br>
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Effort <a name="Effort"></a>
+
+### Difficulty level <a name="Difficulty_level"></a>
+
+The overall difficulty level of our project is high as we were met with numerous challenges which required substantial effort to overcome.
+
+### Challenges faced <a name="Challenges_faced"></a>
+
+### Effort required <a name="Effort_required"></a>
+
+### Achievements of the project <a name="Achievements_of_the_project"></a>
+
+Our project is an innovative solution to the problem which many NUS students face: spending large pockets of time at
+ the start of every semester to do module planning and goal setting, and at the end of every semester to calculate
+  their CAP and decide on which modules to S/U so as to achieve their goal and track their progress towards it.
+   With MyMods, NUS students will spend significantly less time on such manual, mundane and repetitive tasks
+    and can channel their precious time and energy on more important tasks. Together with the aesthetically-pleasing
+     and intuitive user interface of MyMods ensures a fuss-free, seamless and enjoyable user experience.
+     
+* Our application is capable of the following features:
+    1. Start a specific semester to modify the list of modules in that particular semester by adding, deleting or updating module(s).
+    2. Add module(s) which exist in our database with a specified grade. A ‘NA’ grade will be automatically assigned
+     to a new module added in the event the grade parameter is empty.
+    3. Add module(s) which are yet to be recorded in our database (our database is only valid up to AY19/20)
+     and specify the number of modular credits (MCs).
+    4. Update the grade and semester of module(s). In the event the user wishes to remove the grade assigned to a module,
+     updating the module without a grade parameter will remove the grade and assign the module with a ‘NA’ grade.
+    5. Set a goal out of the 6 different goals MyMods offer with each covering a specific cap range.
+    6. Allows users to track their progress towards their goal as they will be informed with the average CAP
+     needed for their remaining modules to achieve the goal they have set.
+    7. Provides recommendations on which modules to S/U based on the individual’s specific goal, current grades and CAP.
+    8. Automatically and instantly calculates and updates the CAP after every modification the user makes - including adding, deleting, updating, and S/U-ing modules.
+    9.
 
 --------------------------------------------------------------------------------------------------------------------
 

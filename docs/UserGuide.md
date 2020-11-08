@@ -136,10 +136,12 @@ Below is information about the features and commands of **MyMods**:100:.
     * In add command format: `add m/MODULE_CODE [g/GRADE] [mc/MODULAR_CREDIT]`, `add`, `m/`, `g/` and `mc/`
     are to be specified exactly.<br><br>
     
-* Multiple instances of the same prefix will not throw an error. However, the app will only read the last instance in the input.<br>
+* Multiple instances of the same prefix/input field will not throw an error. However,
+ the app will only read the <strong>last valid instance</strong> in the input.<br>
     * e.g `add m/CS2100 m/CS2103` will add the module CS2103.<br><br>
+    * e.g `goal set 1 set 2` will set the goal to 2
 
-* Parameters can be in any order.<br>
+* Parameters can be <strong>in any order</strong>.<br>
     * e.g `add m/CS2100 g/A` is the same as `add g/A m/CS2100`.<br><br>
 
 * Command words are <strong>case-sensitive</strong> and must be in <strong>lower_case</strong>.<br>
@@ -149,8 +151,8 @@ Below is information about the features and commands of **MyMods**:100:.
     * `m/` is the same as `M/`.<br><br>
 
 * Parameters(words in UPPER_CASE) are <strong>case-insensitive</strong>.<br>
-    * `add m/CS2100` is the same as `add m/cs2100`<br>
-    * `start Y1S1` is the same as `start y1s1`.<br>
+    * `add m/CS2100` is the same as `add m/cs2100` and `add m/Cs2100`.<br>
+    * `start Y1S1` is the same as `start y1s1` and `start y1S1`.<br>
     * `find cs` is the same as `find CS`<br><br>
 
 * Adding additional inputs (excluding whitespaces) after <strong>commands that do not require parameters</strong> will result in an invalid command.<br>
@@ -221,8 +223,9 @@ Examples:
 *   `add m/CS1231 g/A`
 
 <div markdown="span" class="alert alert-info">
-:warning: Use of parameter `[mc/MODULAR_CREDIT]` to manually add modules that are not in our database is not recommended.
- However, to add a module that is not recognised by <strong>MyMods</strong>:100:, refer to the warning after the example usage below.
+:warning: Use of parameter `[mc/MODULAR_CREDIT]` is to manually add modules that are not in our database.
+ <strong>This is not recommended</strong>. However, to add a module that is not recognised by
+  <strong>MyMods</strong>:100:, refer to the warning after the example usage below.
 <br>
 </div>
 
@@ -276,6 +279,9 @@ Examples:
 *   `update M/cs1101s G/c s/y2s1`
 *   `update m/CS1101s S/y2S1`
 
+<div markdown="span" class="alert alert-primary">
+:bulb: Not including a grade parameter will remove the grade and assign the grade as ‘NA’.
+</div><br>
 
 To update a module (e.g. CS2030):
 
