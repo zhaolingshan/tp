@@ -1,10 +1,12 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.commands.SetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.module.GoalTarget;
 import seedu.address.model.module.Grade;
@@ -107,10 +109,31 @@ public class ParserUtil {
     public static GoalTarget parseGoal(String goal) throws ParseException {
         requireNonNull(goal);
         String trimmedGoal = goal.trim();
-        int intGoal = Integer.parseInt(trimmedGoal);
-        if (!GoalTarget.isValidGoal(intGoal)) {
-            throw new ParseException(GoalTarget.MESSAGE_CONSTRAINTS);
+
+        try {
+            int intGoal = Integer.parseInt(trimmedGoal);
+            if (!GoalTarget.isValidGoal(intGoal)) {
+                throw new ParseException(GoalTarget.MESSAGE_CONSTRAINTS);
+            }
+            return new GoalTarget(intGoal);
+        } catch (final NumberFormatException e) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, GoalTarget.MESSAGE_CONSTRAINTS));
         }
-        return new GoalTarget(intGoal);
+    }
+
+    /**
+     * Parses a {@code String userInput} to ensure no trailing words after level.
+     * @param userInput user input of any.
+     * @throws ParseException if user input is present after level.
+     */
+    public static void parseGoalLevel(String userInput) throws ParseException {
+        requireNonNull(userInput);
+        String trimmedGoal = userInput.trim();
+
+        if (!trimmedGoal.equals("")) {
+            throw new ParseException(String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT,
+                    SetCommand.MESSAGE_USAGE));
+        }
     }
 }
