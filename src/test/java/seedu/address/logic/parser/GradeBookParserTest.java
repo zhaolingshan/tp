@@ -49,7 +49,7 @@ public class GradeBookParserTest {
     public void parseCommand_clear() throws Exception {
         setValidCorrectSemester();
         assertTrue(parser.parseCommand(ClearCommand.COMMAND_WORD) instanceof ClearCommand);
-        assertTrue(parser.parseCommand(ClearCommand.COMMAND_WORD + " 3") instanceof ClearCommand);
+        assertTrue(parser.parseCommand(ClearCommand.COMMAND_WORD + "") instanceof ClearCommand);
     }
 
     @Test
