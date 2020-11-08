@@ -27,8 +27,8 @@ public class UpdateCommandParser implements Parser<UpdateCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_MOD_NAME, PREFIX_GRADE, PREFIX_SEMESTER);
-
-        if (argMultimap.getValue(PREFIX_MOD_NAME).isEmpty() || argMultimap.argsContainWrongPrefix()) {
+        if (!argMultimap.getPreamble().isEmpty() || argMultimap.getValue(PREFIX_MOD_NAME).isEmpty()
+                || argMultimap.argsContainWrongPrefix()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, UpdateCommand.MESSAGE_USAGE));
         }
 

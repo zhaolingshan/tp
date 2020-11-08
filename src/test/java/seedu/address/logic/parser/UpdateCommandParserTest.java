@@ -54,7 +54,7 @@ public class UpdateCommandParserTest {
         ModuleName nameThirdModule = SWE.getModuleName();
         String userInput = PREFIX_MOD_NAME + nameThirdModule.fullModName
                 + GRADE_DESC_A + MOD_NAME_DESC_A;
-
+        userInput = " " + userInput.toLowerCase();
         UpdateCommand.UpdateModNameDescriptor descriptor = new UpdateModNameDescriptorBuilder()
                 .withName(VALID_MOD_NAME_A)
                 .withGrade(VALID_GRADE_A).build();
@@ -62,19 +62,6 @@ public class UpdateCommandParserTest {
 
         assertParseSuccess(parser, userInput, expectedCommand);
     }
-
-    //commented away since this is testing on email entry
-    //@Test
-    //public void parse_someFieldsSpecified_success() {
-    //Index targetIndex = INDEX_FIRST_PERSON;
-    //String userInput = targetIndex.getOneBased() + EMAIL_DESC_AMY;
-    //
-    //EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder()
-    //.build();
-    //UpdateCommand expectedCommand = new UpdateCommand(targetIndex, descriptor);
-    //
-    //assertParseSuccess(parser, userInput, expectedCommand);
-    //}
 
     @Test
     public void parse_oneFieldSpecified_success() {
