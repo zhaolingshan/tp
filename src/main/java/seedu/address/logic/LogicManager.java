@@ -99,18 +99,6 @@ public class LogicManager implements Logic {
         return model.filterModuleListBySem();
     }
 
-    /**
-     * Filters the module list according to read only semester.
-     *
-     * @return the filtered list of modules by semester.
-     */
-    @Override
-    public ObservableList<Module> filterModuleListByReadOnlySem() {
-        return model.filterModuleListByReadOnlySem();
-    }
-
-
-
     @Override
     public ObservableList<Module> sortModuleListBySem() {
         return model.sortModuleListBySem();

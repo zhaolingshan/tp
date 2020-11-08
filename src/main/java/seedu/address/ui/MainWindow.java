@@ -258,9 +258,7 @@ public class MainWindow extends UiPart<Stage> {
             if (!commandResult.isRecommendSu() && !commandResult.isFind()) {
                 capBox.setCapDisplay(logic.generateCap());
             }
-            if (commandResult.isList()) {
-                moduleListPanel = new ModuleListPanel(logic.filterModuleListByReadOnlySem());
-            } else if (commandResult.isRecommendSu() || commandResult.isFind()) {
+            if (commandResult.isList() || commandResult.isRecommendSu() || commandResult.isFind()) {
                 moduleListPanel = new ModuleListPanel(logic.getFilteredModuleList());
             } else {
                 moduleListPanel = new ModuleListPanel(logic.filterModuleListBySem());
