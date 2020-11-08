@@ -497,7 +497,7 @@ Our project is an innovative solution to the problem which many NUS students fac
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Documentation, logging, testing, configuration, dev-ops** ) <a name="Documentation,_logging,_testing,_configuration,_dev-ops"></a>
+## **Documentation, logging, testing, configuration, dev-ops** <a name="Documentation,_logging,_testing,_configuration,_dev-ops"></a>
 
 * [Documentation guide](Documentation.md)
 * [Logging guide](Logging.md)
