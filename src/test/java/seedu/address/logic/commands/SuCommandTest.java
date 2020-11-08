@@ -1,9 +1,23 @@
 package seedu.address.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.DESC_B;
+import static seedu.address.logic.commands.CommandTestUtil.DESC_SU;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_A;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADE_SU;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidCorrectSemester;
+import static seedu.address.logic.commands.CommandTestUtil.setValidWrongSemester;
+import static seedu.address.testutil.TypicalModules.COM_ORG;
+import static seedu.address.testutil.TypicalModules.EFF_COM;
+import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
+
 import org.junit.jupiter.api.Test;
+
 import seedu.address.commons.core.Messages;
-import seedu.address.commons.core.index.GetModuleIndex;
-import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.UpdateCommand.UpdateModNameDescriptor;
 import seedu.address.model.GradeBook;
 import seedu.address.model.Model;
@@ -16,11 +30,6 @@ import seedu.address.model.semester.Semester;
 import seedu.address.model.semester.SemesterManager;
 import seedu.address.testutil.ModuleBuilder;
 import seedu.address.testutil.UpdateModNameDescriptorBuilder;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.*;
-import static seedu.address.testutil.TypicalModules.*;
 
 /**
  * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for

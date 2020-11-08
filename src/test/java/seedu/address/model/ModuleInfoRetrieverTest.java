@@ -1,11 +1,12 @@
 package seedu.address.model;
 
-import org.junit.jupiter.api.Test;
-import seedu.address.model.util.ModuleInfoRetriever;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.EFF_COM;
+
+import org.junit.jupiter.api.Test;
+
+import seedu.address.model.util.ModuleInfoRetriever;
 
 public class ModuleInfoRetrieverTest {
 
@@ -13,8 +14,8 @@ public class ModuleInfoRetrieverTest {
 
     @Test
     public void retrieveValidModule_correctResult() {
-        assertEquals(retriever.retrieve(EFF_COM.getModuleName().fullModName).get("title")
-                , "Effective Communication for Computing Professionals");
+        assertEquals(retriever.retrieve(EFF_COM.getModuleName().fullModName).get("title"),
+                 "Effective Communication for Computing Professionals");
         assertEquals(retriever.retrieve(EFF_COM.getModuleName().fullModName).get("moduleCredit"), "4");
     }
 

@@ -1,15 +1,13 @@
 package seedu.address.model;
 
-import org.junit.jupiter.api.Test;
-import seedu.address.model.module.GoalTarget;
-import seedu.address.model.util.ModuleInfoRetriever;
-import seedu.address.model.util.ModuleListFilter;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.logic.commands.CommandTestUtil.setInvalidSemester;
 import static seedu.address.logic.commands.CommandTestUtil.setValidCorrectSemester;
-import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalModules.getTypicalGradeBook;
+
+import org.junit.jupiter.api.Test;
+
+import seedu.address.model.module.GoalTarget;
 
 public class ModuleListFilterTest {
 
