@@ -74,6 +74,7 @@ dependencies {
     testCompile "org.testfx:testfx-junit5:4.0.16-alpha"
     testCompile 'org.junit.jupiter:junit-jupiter-api:5.5.1'
     testCompile group: 'org.hamcrest', name: 'hamcrest', version: '2.1'
+    testCompile "org.testfx:openjfx-monocle:8u76-b04"
 }
 
 shadowJar {
