@@ -11,6 +11,11 @@ import seedu.address.model.Model;
 public class ClearCommand extends Command {
 
     public static final String COMMAND_WORD = "clear";
+
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + ": Clears all modules in all semesters.\n"
+            + "Example: " + COMMAND_WORD;
+    
     public static final String MESSAGE_SUCCESS = "Grade book has been cleared!";
 
 
@@ -19,5 +24,10 @@ public class ClearCommand extends Command {
         requireNonNull(model);
         model.setGradeBook(new GradeBook());
         return new CommandResult(MESSAGE_SUCCESS);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof ClearCommand; // instanceof handles nulls
     }
 }
