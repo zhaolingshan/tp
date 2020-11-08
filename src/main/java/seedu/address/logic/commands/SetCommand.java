@@ -22,7 +22,7 @@ public class SetCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Sets your goal.\n"
             + "Parameters: '"
-            + PREFIX_SET_GOAL + "NUMBER' " + "or '"
+            + PREFIX_SET_GOAL + "LEVEL' " + "or '"
             + PREFIX_LIST_GOAL + "'\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_SET_GOAL + "2";
 
