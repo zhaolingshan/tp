@@ -22,6 +22,7 @@ Contribute to this [project](https://github.com/AY2021S1-CS2103T-T17-1/tp)
     * [Dark/Light Mode](#Dark/Light_Mode)
     * [Start Semester](#Start_Semester)
     * [Show progress towards target CAP](#Show_progress_towards_target_CAP)
+* **[Documentation, logging, testing, configuration, dev-ops](#Documentation,_logging,_testing,_configuration,_dev-ops)**
 * **[Product scope](#Product_scope)**
     * [Target user profile](#Target_user_profile)
     * [User stories](#User_stories)
@@ -272,19 +273,27 @@ two CSS files that contain CSS styling for both dark and light mode separately.
 The following method in ```MainWindow``` facilitates the switching process:
 - ```MainWindow#setStyleSheet(String cssFileName)``` - sets a specific CSS file to be the current stylesheet for UI.
 
-Flow of method:
-1. “Light” is selected
-2. ```MainWindow``` calls ```setStyleSheet(“Light”)```
-3. ```Scene``` object is obtain from ```Stage``` object
-4. An ```ObservableList<String>``` of stylesheets is obtained from ```Scene``` object
-5. File path to the “Light” CSS file is added as a string that overrides the current ```ObservableList<String>```
+Below is the flow of the mechanism behind switching of themes.
+1. User selects "Light" under "Theme" menu bar.
+2. The action calls ```handleLightThemeSelection()``` from ```MainWindow```.
+3. ```MainWindow``` then call a function ```setStyleSheet("LightTheme)```of itself.
+4. ```Scene``` object is obtain from ```Stage``` object
+5. An ```ObservableList<String>``` of stylesheets is obtained from ```Scene``` object
+6. File path to the “Light” CSS file is added as a string that overrides the current ```ObservableList<String>```
 of stylesheets
 
-**Default theme** is Dark theme supplied by DarkTheme.css
+The following sequence diagram illustrates how the program changes the theme of the desktop application.
 
-#### User Interaction
+![Sequence of Dark/Light Mode Switch]()
 
-Users have the ability to easily choose which mode under the “Theme” menu bar. Either “Dark” or “Light”.
+The following activity diagram summarises what happens when a user chooses "Light" under the Theme menu bar.
+
+![Activity Diagram for Dark/Light Mode Switch]() 
+
+**Default theme** is decided by the time of the day.
+
+* 7am - 7pm: Light Mode
+* 7pm - 7am: Dark Mode
 
 ### Start Semester: <a name="Start_Semester"></a>
 Implementation
@@ -347,6 +356,16 @@ Aspect: how does the user input their desired CAP.
 <br>
 
 [Back to top](#top)
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Documentation, logging, testing, configuration, dev-ops** ) <a name="Documentation,_logging,_testing,_configuration,_dev-ops"></a>
+
+* [Documentation guide](Documentation.md)
+* [Logging guide](Logging.md)
+* [Testing guide](Testing.md)
+* [Configuration guide](Configuration.md)
+* [DevOps guide](DevOps.md)
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Product scope** <a name="Product_scope"></a>

@@ -120,16 +120,16 @@ You can change the colours using the tab “Theme”.
 
 Below is information about the features and commands of **MyMods**:100:.
 
-<div markdown="span" class="alert alert-info">
+<div markdown="block" class="alert alert-info">
 :warning: <strong>Important information about the command format:</strong><br><br>
 
 * Words in <strong>UPPER_CASE</strong> are the parameters to be supplied by the user. e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.<br><br>
 
 * Items in <strong>SQUARE BRACKETS</strong> are optional input parameters. e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br><br>
 
-* Parameters are <strong>NOT case-sensitive</strong>. 
-    * `add m/CS2100` is the same as `add m/cs2100`
-    * `start Y1S1` is the same as `start y1s1`.
+* Parameters are <strong>NOT case-sensitive</strong>.<br>
+    * `add m/CS2100` is the same as `add m/cs2100`<br>
+    * `start Y1S1` is the same as `start y1s1`.<br>
     * `find cs` is the same as `find CS`
 </div>
 
