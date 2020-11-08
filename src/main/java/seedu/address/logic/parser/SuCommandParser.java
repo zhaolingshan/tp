@@ -12,7 +12,7 @@ import seedu.address.model.module.ModuleName;
 /**
  * Parses input arguments and creates a new SuCommand object
  */
-public class SuCommandParser {
+public class SuCommandParser implements Parser<SuCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the SuCommand
      * and returns an SuCommand object for execution.
@@ -20,15 +20,13 @@ public class SuCommandParser {
      */
     public SuCommand parse(String userInput) throws ParseException {
         requireNonNull(userInput);
-        ModuleName moduleName;
-        try {
-            moduleName = ParserUtil.parseName(userInput);
-        } catch (ParseException pe) {
+
+        if (userInput.trim().equals("")) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SuCommand.MESSAGE_USAGE));
         }
 
+        ModuleName moduleName = ParserUtil.parseName(userInput);
         UpdateCommand.UpdateModNameDescriptor updateModNameDescriptor = new UpdateCommand.UpdateModNameDescriptor();
-        updateModNameDescriptor.setName(moduleName);
         updateModNameDescriptor.setGrade(new Grade("SU"));
 
         return new SuCommand(moduleName, updateModNameDescriptor);
