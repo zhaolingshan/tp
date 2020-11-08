@@ -63,6 +63,11 @@ dependencies {
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: jUnitVersion
 
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: jUnitVersion
+
+    testCompile "org.testfx:testfx-core:4.0.16-alpha"
+    testCompile "org.testfx:testfx-junit5:4.0.16-alpha"
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.5.1'
+    testCompile group: 'org.hamcrest', name: 'hamcrest', version: '2.1'
 }
 
 shadowJar {
@@ -74,3 +79,6 @@ defaultTasks 'clean', 'test'
 run {
     enableAssertions = true
 }
+
+
+

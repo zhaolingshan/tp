@@ -4,6 +4,8 @@ import javafx.scene.Cursor;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * {@link DragResizer} can be used to add mouse listeners to a {@link Region}
  * and make it resizable by the user by clicking and dragging the border in the
@@ -30,7 +32,13 @@ public class DragResizer {
 
     private boolean dragging;
 
+    /**
+     * Creates a DragResizer object "wrapping" a javafx region around. Making that object resizable.
+     *
+     * @param aRegion
+     */
     private DragResizer(Region aRegion) {
+        requireNonNull(aRegion);
         region = aRegion;
     }
 
