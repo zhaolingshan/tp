@@ -59,11 +59,10 @@ public class MainApp extends Application {
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
         GradeBookStorage gradeBookStorage = new JsonGradeBookStorage(userPrefs.getGradeBookFilePath());
         storage = new StorageManager(gradeBookStorage, userPrefsStorage);
-        GoalTarget goalTarget = gradeBookStorage.getGoalTarget();
 
         initLogging(config);
 
-        model = initModelManager(storage, userPrefs, goalTarget);
+        model = initModelManager(storage, userPrefs);
 
         logic = new LogicManager(model, storage);
 
@@ -75,11 +74,13 @@ public class MainApp extends Application {
      * The data from the sample grade book will be used instead if {@code storage}'s grade book is not found,
      * or an empty grade book will be used instead if errors occur when reading {@code storage}'s grade book.
      */
-    private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs, GoalTarget goalTarget) {
+    private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
         Optional<ReadOnlyGradeBook> gradeBookOptional;
         ReadOnlyGradeBook initialData;
+        GoalTarget goalTarget;
         try {
             gradeBookOptional = storage.readGradeBook();
+            goalTarget = storage.getGoalTarget();
             if (!gradeBookOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample GradeBook");
             }
@@ -87,11 +88,12 @@ public class MainApp extends Application {
         } catch (DataConversionException e) {
             logger.warning("Data file not in the correct format. Will be starting with an empty GradeBook");
             initialData = new GradeBook();
+            goalTarget = new GoalTarget();
         } catch (IOException e) {
             logger.warning("Problem while reading from the file. Will be starting with an empty GradeBook");
             initialData = new GradeBook();
+            goalTarget = new GoalTarget();
         }
-
         return new ModelManager(initialData, userPrefs, goalTarget);
     }
 
