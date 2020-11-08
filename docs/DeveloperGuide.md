@@ -39,7 +39,7 @@ Contribute to this [project](https://github.com/AY2021S1-CS2103T-T17-1/tp)
     * [Use cases](#Use_cases)
     * [Non-Functional Requirements](#Non-Functional_Requirements)
     * [Glossary](#Glossary)
-  
+
 <div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
@@ -231,13 +231,13 @@ Aspect: Whether to allow users to manually overwrite the number of modular credi
         2. Modules will always have accurate modular credits, given that our database is accurate.
     * Cons:
         1. In the event that our database is outdated, users have no way of overwriting the modular credits.
-        This renders many functionalities of our application to be hindered, such as the calculation of CAP, 
+        This renders many functionalities of our application to be hindered, such as the calculation of CAP,
         which requires accurate modular credits.
 
 [Back to top](#top)
-      
+
 <div style="page-break-after: always;"></div>
-    
+
 ### Recommend S/U: <a name="Recommend_S/U"></a>
 #### Implementation
 The Recommend S/U feature works in conjunction with the goal-setting feature.
@@ -322,7 +322,7 @@ but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
 The following activity diagram summarises what happens when a user chooses "Light" under the Theme menu bar.
 
-![Activity Diagram for Dark/Light Mode Switch](images/ModeActivityDiagram.png) 
+![Activity Diagram for Dark/Light Mode Switch](images/ModeActivityDiagram.png)
 
 **Default theme** is decided by the time of the day.
 
@@ -336,20 +336,20 @@ The following activity diagram summarises what happens when a user chooses "Ligh
 
 #### Implementation
 
-`start` is a command which allows the user to start modifying the list of modules in the semester which 
-the user specifies by adding, updating, deleting or S/U-ing the modules in the specified semester. 
-Modifying the list of modules is only allowed after the user types in `start` followed by the semester 
+`start` is a command which allows the user to start modifying the list of modules in the semester which
+the user specifies by adding, updating, deleting or S/U-ing the modules in the specified semester.
+Modifying the list of modules is only allowed after the user types in `start` followed by the semester
 which the user wishes to edit the module list of.
 
-A class `StartCommand` is added in the commands folder under logic to execute the command `start`. 
+A class `StartCommand` is added in the commands folder under logic to execute the command `start`.
 A singleton class `SemesterManager` to control the semester is added in the semester folder under model
-to retrieve the current semester the user is in and set the current semester to a specified semester. 
+to retrieve the current semester the user is in and set the current semester to a specified semester.
 The `SemesterManager` class is created as a singleton class as there should only be one instance of a controller class.
 
-`StartCommand#execute()` gets an instance of the `SemesterManager` class via the static `SemesterManager#getInstance()` 
+`StartCommand#execute()` gets an instance of the `SemesterManager` class via the static `SemesterManager#getInstance()`
 method to set the current semester to the semester input by the user via `SemesterManager#setCurrentSemester()`.
 
-`SemesterManager#isValidSemester()` ensures that the user keys in a valid semester from Y1S1 to Y5S2 
+`SemesterManager#isValidSemester()` ensures that the user keys in a valid semester from Y1S1 to Y5S2
 (Y5S1 and Y5S2 in the case of ddp students) and prevents starting an invalid semester.
 
 The following sequence diagram shows how the `start` command works:
@@ -365,7 +365,7 @@ The following activity diagram summaries what happens when a user executes the `
 
 Aspect: How does the user edit the list of modules in a specified semester
 
-* Alternative 1 (current choice): the user can input the `start` keyword followed by the specific semester 
+* Alternative 1 (current choice): the user can input the `start` keyword followed by the specific semester
 which the user wishes to add, update, delete or S/U modules in (eg. `start Y1S1`).
     * Pros:
         1. Users can key in fewer words which is more convenient, fuss-free and time-efficient and prioritises fast-typists.
@@ -373,18 +373,18 @@ which the user wishes to add, update, delete or S/U modules in (eg. `start Y1S1`
     * Cons:
         1. The format is different from the other commands (eg. `add`, `update`)
         and thus the user has to familiarise himself or herself with a more foreign command.
-* Alternative 2: the user can add, update, delete or S/U modules in a specific semester 
-by stating the following input (eg. `add m/CS1101S g/A s/Y1S1`).    
+* Alternative 2: the user can add, update, delete or S/U modules in a specific semester
+by stating the following input (eg. `add m/CS1101S g/A s/Y1S1`).
     * Pros:
         1. The format is more similar to the other commands and thus the user will be more familiar with it.
     * Cons:
-        1. The user has to type in a much longer command which can be quite a hassle and inconvenient, 
+        1. The user has to type in a much longer command which can be quite a hassle and inconvenient,
         and it takes up more time which does not prioritise fast-typists.
 * Justification for choosing alternative 1:
     1. It is more convenient, fuss-free and time-efficient for the user to key in a much shorter command and hence prioritises fast-typists.
-    It enables users to switch from one semester to another semester very quickly to edit the list of modules in 
+    It enables users to switch from one semester to another semester very quickly to edit the list of modules in
     different semesters, as compared to having to key in a long command just to modify one module in a semester.
-    2. Since the command is pretty intuitive, the fact that the format of the command is rather different from 
+    2. Since the command is pretty intuitive, the fact that the format of the command is rather different from
     the other commands is not a major problem and users will be able to pick it up quickly.
 
 [Back to top](#top)
@@ -544,7 +544,7 @@ Even though the features to be implemented are divided among our team, the featu
 and we have to work closely with one another and make edits after implementing and testing. We have to continuously
 update and improve on the features we have implemented even after we have successfully implemented the entire feature
 and integrated it into the rest of the code base. Debugging is another area which introduced significantly challenging
-obstacles - both locating bugs and solving them completely. 
+obstacles - both locating bugs and solving them completely.
 
 ### Challenges faced <a name="Challenges_faced"></a>
 As our project has a specific target audience, i.e. NUS students, we have to consider specific scenarios that will cater
@@ -575,7 +575,7 @@ and decide on which modules to S/U so as to achieve their goal and track their p
 students will spend significantly less time on such manual, mundane and repetitive tasks and can channel their precious
 time and energy on more important tasks. Together with the aesthetically-pleasing and intuitive user interface of MyMods
 ensures a fuss-free, seamless and enjoyable user experience.
-<br>     
+<br>
 Our application is capable of the following features:
 1. Allows users to set a goal out of the 6 different goals MyMods offer with each covering a specific cap range.
 2. Allows users to track their progress towards their goal as they will be informed with the average CAP needed for their remaining modules to achieve the goal they have set.

@@ -33,7 +33,7 @@ Given below are my contributions to the project.
   * Justification: This feature improves the product significantly because a user can add modules he has taken or is taking in different semesters which allows him to keep track of the modules he has taken, and the modules
   he will be taking in the future. This feature provides a primary function and is one of the core features which build the foundation of our app.
   * Highlights: This enhancement affects existing commands and commands to be added in the future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-  
+
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=true&tabType=authorship&zFR=false&tabAuthor=zhaolingshan&tabRepo=AY2021S1-CS2103T-T17-1%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code)
 
 * **Enhancements to existing features**:
@@ -43,10 +43,10 @@ Given below are my contributions to the project.
 
 * **Documentation**:
   * User Guide:
-    * Added documentation for the features `delete`, `done` and `find` 
+    * Added documentation for the features `delete`, `done` and `find`
   * Developer Guide:
     * Added implementation details of the `start semester` feature
-    
+
 * **Community**:
   * Number of PRs reviewed: 28
   * Reported 9 bugs and suggestions with in-depth explanations and detailed annotated screenshots for other teams in PE-D

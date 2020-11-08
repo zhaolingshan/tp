@@ -117,7 +117,7 @@ You can change the colours using the tab “Theme”.
 <br>
 
 [Back to top](#Product_Overview)
- 
+
 ---
 <div style="page-break-after: always;"></div>
 
@@ -140,7 +140,7 @@ Below is information about the features and commands of **MyMods**:100:.
 * Words in <strong>lower_case</strong> are to be specified exactly.<br>
     * In add command format: `add m/MODULE_CODE [g/GRADE] [mc/MODULAR_CREDIT]`, `add`, `m/`, `g/` and `mc/`
     are to be specified exactly.<br><br>
-    
+
 * Multiple instances of the same prefix/input field will not throw an error. However,
  the app will only read the <strong>last valid instance</strong> in the input.<br>
     * e.g `add m/CS2100 m/CS2103` will add the module CS2103.<br>
@@ -358,7 +358,7 @@ Examples:
 *   `goal list`
 <br><br>
 <div markdown="span" class="alert alert-info">
-:warning: `LEVEL` has to be an integer between 1-6. 
+:warning: `LEVEL` has to be an integer between 1-6.
 The command `list` will be ignored if `set LEVEL` is present.
 </div><br>
 <div markdown="span" class="alert alert-primary">
@@ -384,13 +384,13 @@ To set your goal to 2 (CAP4.00 ~ 4.49):
 <img src="images/UG SS/2.6 Set Goals 2.png">
 
 2. The result box will display the message:<br>
-<img src="images/UG SS/2.6 Set Goals 3.png"> 
+<img src="images/UG SS/2.6 Set Goals 3.png">
 <br><br>
 
 <div markdown="span" class="alert alert-primary">
 :bulb: You can check your current goal using the command `progress`:
 <br>
-<img src="images/UG SS/2.6 Set Goals 4.png"> 
+<img src="images/UG SS/2.6 Set Goals 4.png">
 </div>
 
 <br>
@@ -426,7 +426,7 @@ To get recommendations on which modules to S/U:
 <div markdown="span" class="alert alert-info">
 :warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed
 using the command `su`.
-</div> 
+</div>
 
 <br>
 
