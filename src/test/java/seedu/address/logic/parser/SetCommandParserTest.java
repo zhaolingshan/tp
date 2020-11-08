@@ -44,6 +44,7 @@ public class SetCommandParserTest {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, SetCommand.MESSAGE_USAGE);
 
         assertParseFailure(parser, VALID_GOAL_TARGET_INPUT, expectedMessage);
+        assertParseFailure(parser, WHITESPACE, expectedMessage);
     }
 
     @Test

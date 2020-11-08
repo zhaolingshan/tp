@@ -1,5 +1,6 @@
 package seedu.address.model.module;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -34,5 +35,32 @@ public class GoalTargetTest {
 
         // different GoalTarget -> returns false
         assertFalse(goalTarget.equals(new GoalTarget(2)));
+    }
+
+    @Test
+    public void getUserGoalGrade() {
+        GoalTarget goalTargetFour = new GoalTarget(4);
+        GoalTarget goalTargetFive = new GoalTarget(5);
+
+        assertEquals(GoalTarget.HONOURS_CAP, GoalTarget.getUserGoalGrade(goalTargetFour));
+        assertEquals(GoalTarget.PASS_CAP, GoalTarget.getUserGoalGrade(goalTargetFive));
+    }
+
+    @Test
+    public void toStringTest() {
+        GoalTarget goalTargetTwo = new GoalTarget(2);
+        GoalTarget goalTargetThree = new GoalTarget(3);
+        GoalTarget goalTargetFour = new GoalTarget(4);
+        GoalTarget goalTargetFive = new GoalTarget(5);
+        GoalTarget goalTargetSix = new GoalTarget(6);
+        GoalTarget goalTargetDefault = new GoalTarget();
+
+        assertEquals(GoalTarget.DISTINCTION, goalTargetTwo.toString());
+        assertEquals(GoalTarget.MERIT, goalTargetThree.toString());
+        assertEquals(GoalTarget.HONOURS, goalTargetFour.toString());
+        assertEquals(GoalTarget.PASS, goalTargetFive.toString());
+        assertEquals(GoalTarget.FAIL, goalTargetSix.toString());
+        assertEquals(GoalTarget.MESSAGE_CONSTRAINTS, goalTargetDefault.toString());
+
     }
 }
