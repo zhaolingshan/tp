@@ -472,26 +472,53 @@ Aspect: how does the user input their desired CAP.
 ### Difficulty level <a name="Difficulty_level"></a>
 
 The overall difficulty level of our project is high as we were met with numerous challenges which required substantial effort to overcome.
+Even though the features to be implemented are divided among our team, the features are often intertwined with each other
+and we have to work closely with one another and make edits after implementing and testing. We have to continuously
+update and improve on the features we have implemented even after we have successfully implemented the entire feature
+and integrated it into the rest of the code base. Debugging is another area which introduced significantly challenging
+obstacles - both locating bugs and solving them completely. 
 
 ### Challenges faced <a name="Challenges_faced"></a>
+As our project has a specific target audience, i.e. NUS students, we have to consider specific scenarios that will cater
+to the various types of students and modules. For example, special terms semesters, double degree programme students,
+modules that do not exist in our database are considerations that we will have to factor in despite the majority of NUS
+students not needing to use it. There is a lot of research to be conducted to ensure that our project is up to date and
+accurate. This includes calculation of CAP, rules and criteria that NUS allows a module to be S/U, maximum and minimum
+modular credits (MCs) of a module in NUS.
+<br>
+<br>
+Technical challenges aside, another challenge that we faced is inability to meet up physically due to the COVID-19 pandemic.
+The process of all of our project development is discussed and implemented online. To overcome this challenge, our team
+sets up weekly online meetings and we ensure that the tasks allocated to each individual are distributed evenly and are
+done before the appointed deadline. Communications are made clear and transparent to avoid miscommunication.
 
 ### Effort required <a name="Effort_required"></a>
+From conceptualizing our project to implementing and testing our product,  there are a lot of considerations and work to
+be done by each member of our team. We set our weekly online meeting every Sunday to discuss what needs to be done by
+the end of the week and also on issues to set the direction of our project. Work is then divided into equal proportions
+and allocated randomly. We then spend the next few days to complete our tasks and we will meet again before the deadline
+for that week to consolidate everything.
 
 ### Achievements of the project <a name="Achievements_of_the_project"></a>
 
-Our project is an innovative solution to the problem which many NUS students face: spending large pockets of time at the start of every semester to do module planning and goal setting, and at the end of every semester to calculate their CAP and decide on which modules to S/U so as to achieve their goal and track their progress towards it. With MyMods, NUS students will spend significantly less time on such manual, mundane and repetitive tasks and can channel their precious time and energy on more important tasks. Together with the aesthetically-pleasing and intuitive user interface of MyMods ensures a fuss-free, seamless and enjoyable user experience.
-     
-* Our application is capable of the following features:
-    1. Allows users to set a goal out of the 6 different goals MyMods offer with each covering a specific cap range.
-    2. Allows users to track their progress towards their goal as they will be informed with the average CAP needed for their remaining modules to achieve the goal they have set.
-    3. Provides users with personalised and accurate recommendations on which modules to S/U based on the individual’s specific goal, current grades and CAP.
-    4. Automatically and instantly calculates and updates the CAP after every modification the user makes - including adding, deleting, updating, and S/U-ing modules.
-    5. Allows users to start modifying the list of modules in a specific semester by adding, deleting, updating or S/U-ing module(s) and also stop making modifications.
-    6. Provides users with two different themes - light and dark mode which will be set automatically according to the time of the day. Light mode will be automatically set as default from 7am to 7pm, and it will be switched to dark mode automatically from 7pm to 7am. Users can manually select either light or dark mode at any particular time.
-    7. Allows users to find specific modules by their module codes.
-    8. Allows users to view the entire list of modules in all semesters at any point in time.
-    9. Allows users to navigate into a specific semester and view the list of modules in that particular semester.
-    10. Provide assistance to users who are lost amidst navigating MyMods with a summary of the commands available.
+Our project is an innovative solution to the problem which many NUS students face: spending large pockets of time at the
+start of every semester to do module planning and goal setting, and at the end of every semester to calculate their CAP
+and decide on which modules to S/U so as to achieve their goal and track their progress towards it. With MyMods, NUS
+students will spend significantly less time on such manual, mundane and repetitive tasks and can channel their precious
+time and energy on more important tasks. Together with the aesthetically-pleasing and intuitive user interface of MyMods
+ensures a fuss-free, seamless and enjoyable user experience.
+<br>     
+Our application is capable of the following features:
+1. Allows users to set a goal out of the 6 different goals MyMods offer with each covering a specific cap range.
+2. Allows users to track their progress towards their goal as they will be informed with the average CAP needed for their remaining modules to achieve the goal they have set.
+3. Provides users with personalised and accurate recommendations on which modules to S/U based on the individual’s specific goal, current grades and CAP.
+4. Automatically and instantly calculates and updates the CAP after every modification the user makes - including adding, deleting, updating, and S/U-ing modules.
+5. Allows users to start modifying the list of modules in a specific semester by adding, deleting, updating or S/U-ing module(s) and also stop making modifications.
+6. Provides users with two different themes - light and dark mode which will be set automatically according to the time of the day. Light mode will be automatically set as default from 7am to 7pm, and it will be switched to dark mode automatically from 7pm to 7am. Users can manually select either light or dark mode at any particular time.
+7. Allows users to find specific modules by their module codes.
+8. Allows users to view the entire list of modules in all semesters at any point in time.
+9. Allows users to navigate into a specific semester and view the list of modules in that particular semester.
+10. Provide assistance to users who are lost amidst navigating MyMods with a summary of the commands available.
 
 [Back to top](#top)
 
@@ -661,7 +688,7 @@ Use case ends.
 
 
 
-1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
+1. Should work on any _mainstream OS_ as long as it has Java `11` installed.
 2. Should be able to hold up to 1000 modules without a noticeable sluggishness in performance for typical usage.
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
