@@ -1,0 +1,21 @@
+@startuml
+start
+:User executes command;
+:Retrieve user's Goal;
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+if () then ([Goal is set])
+    : Get user's current CAP;
+    : Calculates user's required CAP;
+    if () then ([required CAP is achievable])
+        : Displays required CAP to user;
+    else ([else])
+        : Inform users that their target CAP is not achievable;
+    endif
+
+else ([else])
+: Warn user that goal is not set;
+endif
+stop
+@enduml
