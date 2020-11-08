@@ -49,7 +49,7 @@ public class SetCommandParserTest {
     @Test
     public void parse_invalidGoalTarget_failure() {
         // out of range
-        assertParseFailure(parser, " " + PREFIX_SET_GOAL
+        assertParseFailure(parser, WHITESPACE + PREFIX_SET_GOAL
                 + INVALID_GOAL_TARGET, GoalTarget.MESSAGE_CONSTRAINTS);
     }
 }
