@@ -49,14 +49,18 @@ public class AutoCompleteTextField extends TextField {
                 final List<String> filteredEntries =
                         entries.stream().filter(e -> e.toLowerCase()
                                         .contains(getText().toLowerCase())).collect(Collectors.toList());
-                searchResult.addAll(filteredEntries);
-                if (entries.size() > 0) {
-                    populatePopup(searchResult);
-                    if (!entriesPopup.isShowing()) {
-                        entriesPopup.show(AutoCompleteTextField.this, Side.BOTTOM, 0, 0);
-                    }
-                } else {
+                if (filteredEntries.size() == 0) {
                     entriesPopup.hide();
+                } else {
+                    searchResult.addAll(filteredEntries);
+                    if (entries.size() > 0) {
+                        populatePopup(searchResult);
+                        if (!entriesPopup.isShowing()) {
+                            entriesPopup.show(AutoCompleteTextField.this, Side.BOTTOM, 0, 0);
+                        }
+                    } else {
+                        entriesPopup.hide();
+                    }
                 }
             }
         });

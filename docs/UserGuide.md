@@ -138,7 +138,7 @@ Below is information about the features and commands of **MyMods**:100:.
     
 * Multiple instances of the same prefix/input field will not throw an error. However,
  the app will only read the <strong>last valid instance</strong> in the input.<br>
-    * e.g `add m/CS2100 m/CS2103` will add the module CS2103.<br><br>
+    * e.g `add m/CS2100 m/CS2103` will add the module CS2103.<br>
     * e.g `goal set 1 set 2` will set the goal to 2
 
 * Parameters can be <strong>in any order</strong>.<br>

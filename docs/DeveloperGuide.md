@@ -383,11 +383,11 @@ Aspect: how does the user input their desired CAP.
 ### Launch and shutdown <a name="Launch_and_shutdown"></a>
 
 1. Initial launch
-    1. Download the jar file and copy into an empty folder.<br><br>
-    2. Double-click the jar file Expected: Shows the GUI. The window size may not be optimum.<br><br>
+    a. Download the jar file and copy into an empty folder.<br><br>
+    b. Double-click the jar file Expected: Shows the GUI. The window size may not be optimum.<br><br>
 2. Saving window preferences
-    1. Resize the window to an optimum size. Move the window to a different location. Close the window.<br><br>
-    2. Re-launch the app by double-clicking the jar file.<br>
+    a. Resize the window to an optimum size. Move the window to a different location. Close the window.<br><br>
+    b. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.<br><br>
 
 [Back to top](#top)
@@ -395,23 +395,23 @@ Aspect: how does the user input their desired CAP.
 ### Adding a module <a name="Adding_a_module"></a>
 
 1. Adding a module while editing a semester
-    1. Prerequisites: Start editing a semester using the `start` command.<br>
+    a. Prerequisites: Start editing a semester using the `start` command.<br>
      Currently editing a valid semester with no modules in the entire app added yet.<br><br>
-    2. Test case: `add m/CS1231S g/A`<br>
+    b. Test case: `add m/CS1231S g/A`<br>
        Expected: Module “CS1231S (4MCs)” is added to the current semester, with “Grade: A”. CAP in the status bar is updated.<br><br>
-    3. Test case: `add m/CS1101S`<br>
+    c. Test case: `add m/CS1101S`<br>
       Expected: Module “CS1101S (4MCs)” is added to the current semester, with “Grade: NA”. CAP in the status bar is not updated.<br><br>
-    4. Test case: `add m/GER1000 mc/8`<br>
+    d. Test case: `add m/GER1000 mc/8`<br>
       Expected : Module “GER1000 (8MCs)” is added to the current semester, with “Grade: NA”. CAP in the status bar is not updated.<br><br>
-    5. Test case: `add m/GER1000 g/A`<br>
+    e. Test case: `add m/GER1000 g/A`<br>
       Expected: Unable to add the module as it already exists in your module list.<br><br>
-    6. Test case: `add GEQ1000 A+`<br>
+    f. Test case: `add GEQ1000 A+`<br>
       Expected: Invalid command format.<br><br>
-    7. Other incorrect add commands to try: `add`, `add mod/GEQ1000`, `…`<br>
+    g. Other incorrect add commands to try: `add`, `add mod/GEQ1000`, `…`<br>
       Expected: Similar to previous.<br><br>
 2. Adding a module while not editing any semesters
-    1. Prerequisites: Not editing any semesters. (The status bar shows “Currently editing: NA”)<br><br>
-    2. Test case: `add m/GEQ1000`<br>
+    a. Prerequisites: Not editing any semesters. (The status bar shows “Currently editing: NA”)<br><br>
+    b. Test case: `add m/GEQ1000`<br>
        Expected: Unable to add module as no semester is being edited,
         command result prompts to start a semester before modifying the module list.<br><br>
 
@@ -420,7 +420,7 @@ Aspect: how does the user input their desired CAP.
 ### Updating/SU-ing a module <a name="Updating/SU-ing_a_module"></a>
 
 1. Updating a module while editing a semester
-    1. Prerequisites: Start editing a semester using the `start` command, and add the module “CS1101S”, with Grade “A”.
+    a. Prerequisites: Start editing a semester using the `start` command, and add the module “CS1101S”, with Grade “A”.
      Currently editing a valid semester with the module “CS1101S (4MCs) Grade: A” added inside.<br><br>
     2. Test case: `update m/CS1101S g/B+`<br>
        Expected: Updates the module “CS1101S”, replacing the grade from “A” to “B+”.<br><br>
@@ -497,7 +497,7 @@ Our project is an innovative solution to the problem which many NUS students fac
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Documentation, logging, testing, configuration, dev-ops** ) <a name="Documentation,_logging,_testing,_configuration,_dev-ops"></a>
+## **Documentation, logging, testing, configuration, dev-ops** <a name="Documentation,_logging,_testing,_configuration,_dev-ops"></a>
 
 * [Documentation guide](Documentation.md)
 * [Logging guide](Logging.md)

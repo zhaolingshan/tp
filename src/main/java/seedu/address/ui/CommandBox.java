@@ -62,6 +62,7 @@ public class CommandBox extends UiPart<Region> {
     private void handleCommandEntered() {
         String userInput = commandTextField.getText();
         String trimmedUserInput = userInput.trim();
+
         try {
             if (trimmedUserInput.equals(ClearCommand.COMMAND_WORD)) {
                 handleClearCommand();
