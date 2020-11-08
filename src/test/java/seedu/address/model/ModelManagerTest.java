@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_MODULES;
 import static seedu.address.testutil.Assert.assertThrows;
+import static seedu.address.testutil.TypicalModules.COM_INFO;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
 import static seedu.address.testutil.TypicalModules.EFF_COM;
+import static seedu.address.testutil.TypicalModules.SWE;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -14,9 +16,14 @@ import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.module.GoalTarget;
+import seedu.address.model.module.Module;
 import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
 import seedu.address.testutil.GradeBookBuilder;
 
 public class ModelManagerTest {
@@ -92,6 +99,69 @@ public class ModelManagerTest {
     @Test
     public void getFilteredModuleList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> modelManager.getFilteredModuleList().remove(0));
+    }
+
+    @Test
+    public void filterModuleListBySem_success() {
+        modelManager.addModule(COM_ORG); // Y2S1
+        modelManager.addModule(SWE); // Y2S2
+        SemesterManager.getInstance().setCurrentSemester(Semester.Y2S1);
+        FilteredList<Module> y2s1Modules = modelManager.filterModuleListBySem();
+        assertEquals(y2s1Modules.size(), 1);
+        assertEquals(y2s1Modules.get(0), COM_ORG);
+    }
+
+    @Test
+    public void filterModuleListByReadOnlySem_success() {
+        modelManager.addModule(COM_ORG); // Y2S1
+        modelManager.addModule(SWE); // Y2S2
+        SemesterManager.getInstance().setCurrentSemester(Semester.Y1S1);
+        FilteredList<Module> y1s1Modules = modelManager.filterModuleListBySem();
+        assertEquals(y1s1Modules.size(), 0);
+    }
+
+    @Test
+    public void sortModuleListBySem_success() {
+        modelManager.addModule(COM_INFO); // Y3S1
+        modelManager.addModule(COM_ORG); // Y2S1
+        modelManager.addModule(SWE); // Y2S2
+        FilteredList<Module> sortedModuleList = modelManager.sortModuleListBySem();
+        assertEquals(sortedModuleList.get(0), COM_ORG); // Y2S1
+        assertEquals(sortedModuleList.get(1), SWE); // Y2S2
+        assertEquals(sortedModuleList.get(2), COM_INFO); // Y3S1
+    }
+
+    @Test
+    public void resetFilteredList_success() {
+        modelManager.addModule(COM_INFO); // Y3S1
+        modelManager.addModule(COM_ORG); // Y2S1
+        modelManager.addModule(SWE); // Y2S2
+
+        modelManager.updateFilteredModuleList(module -> module.getSemester().equals(Semester.Y2S1));
+        ObservableList<Module> filteredList = modelManager.getFilteredModuleList();
+        assertEquals(filteredList.size(), 1);
+        assertEquals(filteredList.get(0), COM_ORG);
+
+        modelManager.resetFilteredList();
+        ObservableList<Module> resetList = modelManager.getFilteredModuleList();
+        assertEquals(resetList.get(0), COM_INFO);
+        assertEquals(resetList.get(1), COM_ORG);
+        assertEquals(resetList.get(2), SWE);
+    }
+
+    @Test
+    public void noModule_generatesZeroCap() {
+        String generatedCap = modelManager.generateCapAsString();
+        String expectedCap = String.format("%.2f", (double) 0);
+        assertEquals(generatedCap, expectedCap);
+    }
+
+    @Test
+    public void generateSemester_success() {
+        Semester currentSem = Semester.Y2S1;
+        SemesterManager.getInstance().setCurrentSemester(currentSem);
+        String generatedSem = modelManager.generateSem();
+        assertEquals(currentSem.name(), generatedSem);
     }
 
     @Test
