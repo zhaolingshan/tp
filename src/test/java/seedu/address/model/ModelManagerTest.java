@@ -116,7 +116,7 @@ public class ModelManagerTest {
         modelManager.addModule(COM_ORG); // Y2S1
         modelManager.addModule(SWE); // Y2S2
         SemesterManager.getInstance().setCurrentSemester(Semester.Y1S1);
-        FilteredList<Module> y1s1Modules = modelManager.filterModuleListBySem();
+        FilteredList<Module> y1s1Modules = modelManager.filterModuleListByReadOnlySem();
         assertEquals(y1s1Modules.size(), 0);
     }
 
