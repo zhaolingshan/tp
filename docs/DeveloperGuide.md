@@ -115,7 +115,7 @@ The `UI` component,
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete CS2103T")` API call.
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
@@ -134,7 +134,6 @@ The `Model`,
 * stores the grade book data, semester data, and goal target data.
 * exposes an unmodifiable `ObservableList<Module>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
-
 
 
 ### Storage component <a name="Storage_component"></a>
@@ -307,8 +306,8 @@ The user will first need to indicate their desired CAP using the `goal` command.
 \
 Users can then use the command `progress` to calculate the required average CAP
 they have to obtain in their remaining modules in order to achieve their
-target CAP. The user can include the string `--ddp` to indicate if they are taking
-a double degree programme (e.g. `progress --ddp`).
+target CAP. The user can include the string `ddp` to indicate if they are taking
+a double degree programme (e.g. `progress ddp`).
 \
 \
 A `ProgressCommand class` is added to commands under logic to execute the required
@@ -317,9 +316,33 @@ CAP calculation. The calculation process is done as shown below:
  1. User enters their target CAP using `goal` command
  2. Info about current CAP and MCs taken are retrieved from the `ModelManager` class
  3. Total MCs required is determined by whether user is in double degree programme
- or not (e.g. user input is `progress --ddp` or `just progress`)
+ or not (e.g. user input is `progress ddp` or `just progress`)
  4. Target CAP is retrieved from the `ModelManager` class
  5. Required CAP from remaining modules is calculated.
+
+The following activity diagram shows what happens when a user calls the `progress` command:
+
+![Activity diagram for progress command](images/ProgressActivityDiagram.png)
+
+#### Design Considerations
+
+Aspect: how does the user input their desired CAP.
+
+* Alternative 1: using a prefix such as `c/` followed by their desired CAP (e.g. `progress c/ 4.32`).
+    * Pros:
+        1. Users can input the exact CAP number they want to achieve to get a more specific CAP requirement for their remaining modules.
+    * Cons:
+        1. Users have to input their desired CAP everytime they use the `progress` command.
+        2. User does repeated work, since they need to set their CAP target again to use other commands like `RecommendSU`.
+* Alternative 2 (current choice): using the `goal` command (e.g. `goal set 2`).
+    * Pros:
+        1. Length of progress command is reduced, users type lesser words.
+        2. Users only need to input their target CAP once, unless they want to change it.
+    * Cons:
+        1. CAP target is not as flexible as it is limited to the levels of goals (Highest Distinction, Distinction, Merit, Honours, Pass, Fail).
+* Justification for choosing alternative 2:
+    1. Firstly, a shorter command is more convenient for the user to quickly find out the required CAP for their remaining modules.
+    2. Secondly, most users do not have an extremely specific CAP target they want to achieve (e.g. 4.32) but rather one of the goal levels (e.g. Distinction), hence using the `goal` command to set their target CAP is sufficient.
 
 <br>
 
