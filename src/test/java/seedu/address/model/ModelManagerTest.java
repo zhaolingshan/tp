@@ -115,7 +115,7 @@ public class ModelManagerTest {
     public void filterModuleListByReadOnlySem_success() {
         modelManager.addModule(COM_ORG); // Y2S1
         modelManager.addModule(SWE); // Y2S2
-        SemesterManager.getInstance().setCurrentSemester(Semester.Y1S1);
+        SemesterManager.getInstance().setReadOnlySem(Semester.Y1S1);
         FilteredList<Module> y1s1Modules = modelManager.filterModuleListByReadOnlySem();
         assertTrue(y1s1Modules.isEmpty());
     }
