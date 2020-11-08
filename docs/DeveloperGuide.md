@@ -309,8 +309,7 @@ CAP calculation. The calculation process is done as shown below:
 
 The following activity diagram shows what happens when a user calls the `progress` command:
 
-<img src="images/ProgressActivityDiagram.png" />
-
+![Activity diagram for progress command](images/ProgressActivityDiagram.png)
 
 #### Design Considerations
 
