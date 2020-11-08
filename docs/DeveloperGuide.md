@@ -77,15 +77,15 @@ interface and exposes its functionality using the `LogicManager.java` class whic
 **How the architecture components interact with each other**
 
 The *Sequence Diagram* below shows how the components interact with each other for the scenario where the
-user issues the command `delete 1`.
+user issues the command `delete CS1101S`.
 
-<img src="" width="574" />
+<img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
 The sections below give more details of each component.
 
 ### UI component <a name="UI_component"></a>
 
-![Structure of the UI Component]()
+![Structure of the UI Component](images/UiClassDiagram.png)
 
 **API** :
 [`Ui.java`](https://github.com/AY2021S1-CS2103T-T17-1/tp/blob/master/src/main/java/seedu/address/ui/Ui.java)
@@ -116,46 +116,40 @@ The `UI` component,
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete CS2103T")` API call.
 
-![Interactions Inside the Logic Component for the `delete 1` Command]()
+![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 ### Model component <a name="Model_component"></a>
 
-![Structure of the Model Component]()
+![Structure of the Model Component](images/ModelClassDiagram.png)
 
 **API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-T17-1/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
 The `Model`,
 
 * stores a `UserPref` object that represents the user’s preferences.
-* stores the address book data.
-* exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores the grade book data, semester data, and goal target data.
+* exposes an unmodifiable `ObservableList<Module>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
-
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
-![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
-
-</div>
 
 
 ### Storage component <a name="Storage_component"></a>
 
-![Structure of the Storage Component]()
+![Structure of the Storage Component](images/StorageClassDiagram.png)
 
 **API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-T17-1/tp/blob/master/src/main/java/seedu/address/storage/Storage.java)
 
 The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
-* can save the address book data in json format and read it back.
+* can save the grade book data in json format and read it back.
 
 ### Common classes <a name="Common_classes"></a>
 
-Classes used by multiple components are in the `seedu.addressbook.commons` package.
+Classes used by multiple components are in the `seedu.address.commons` package.
 
 <br>
 
@@ -168,6 +162,8 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 This section describes some noteworthy details on how certain features are implemented.
 
 ### Obtaining module information automatically: <a name="Obtaining_module_information_automatically"></a>
+![Structure of the Storage Component](images/ObtainModuleInformation.png)
+
 This feature is facilitated by ```ModuleInfoRetriever```, and is used to obtain the number of modular credits
 when you are adding a module, or the “su” status of the module when you are recommending S/U options.
 
@@ -177,8 +173,7 @@ It implements the following operation:
 Given below is an example usage scenario and how obtaining module information is used and integrated into
 the ```add``` command.
 
-Step 1: The users executes ```add --mod CS1101S --grade A+```, the add command executes
-```Logic#execute(“add --mod CS1101S --grade A+”)```
+Step 1: The users executes ```add --mod CS1101S --grade A+```.
 
 Step 2: Logic uses the ```AddCommandParser``` class to parse the command.
 ```AddCommandParser#parse(“add --mod CS1101S --grade A+”)``` is executed, which then executes
@@ -197,9 +192,27 @@ SU: True
 An exception is thrown if the module is not found.
 
 Step 4: The new module constructor is executed with the following arguments,
-```new Module(“CS1101S”, “A+”, Set<Tag>(), 4, Y2S1)```. An AddCommand object is then returned with the module,
+```new Module(“CS1101S”, “A+”, 4, "Y2S1")```. An AddCommand object is then returned with the module,
 and the new module with modular credit information is saved to storage.
 
+#### Design Considerations:
+Aspect: Whether to allow users to manually overwrite the number of modular credits attached to each module.
+* Alternative 1 (current choice): Allow users the choice to manually key in how many modular credits a module has.
+    * Pros:
+        1. Allows users more flexibility, and enables them to dictate how many modular credits each module has.
+        2. In the event that a module in our database is outdated, users are able to overwrite the outdated 
+        modular credits. 
+    * Cons:
+        1. Users may not be fully aware of module details, and may key in incorrect modular credits.
+* Alternative 2: Disallowing users to manually key in how many modular credits a module has.
+    * Pros:
+        1. Users will not be able to input wrong modular credits.
+        2. Modules will always have accurate modular credits, given that our database is accurate.
+    * Cons:
+        1. In the event that our database is outdated, users have no way of overwriting the modular credits.
+        This renders many functionalities of our application to be hindered, such as the calculation of CAP, 
+        which requires accurate modular credits.
+        
 ### Recommend S/U: <a name="Recommend_S/U"></a>
 #### Implementation
 The Recommend S/U feature works in conjunction with the goal-setting feature.
@@ -209,38 +222,41 @@ The implementation of goal-setting is first done by introducing a new model clas
 The ```GoalTarget``` class models the 6 different levels following the Honours Classification in NUS.
 For the user to set their goal, there is a ```SetCommand``` class under the logic commands.
 There will be two different variants of the goal command, there is a ```SetCommandParser``` class under parser to
-handle the different user’s input: ```goal --set``` and ```goal --list```.
+handle the different user’s input: ```goal set``` and ```goal list```.
 The goal of the user will update a field under ```ModelManager```. \
 \
-User’s goal will be written to and can be read from the ```addressbook.json``` file under the attribute
+User’s goal will be written to and can be read from the ```gradebook.json``` file under the attribute
 “```goalTarget```” which will store a default value of ```0```. \
 \
 To implement the command ```RecommendSU```, a class ```RecommendSuCommand``` is introduced in logic commands.
 To determine which module to recommend the user to S/U the method ```RecommendSuCommand#filterModule()``` will
-retrieve the user’s goal and modules and filter using the following three conditions:
-1. ```RecommendSuCommand#isModSuAble()``` -- Checks if module can be S/U by NUS based on data
-file ```moduleInfo.json```. \
-2. ```RecommendSuCommand#isGradeBelowGoal()``` -- Checks if the grade of the module is below the lower bound of the
-goal. \
-3. ```RecommendSuCommand#isGradeAboveC()``` -- Checks if the grade of the module is C and above. \
-\
+retrieve the user’s goal and modules and filter using the following conditions:
+1. ```RecommendSuCommand#isModSuAble(Module mod)``` -- Checks if module can be S/U by NUS based on data
+file ```moduleInfo.json```.
+2. ```RecommendSuCommand#isGradeBelowGoal(Module mod, GoalTarget goal)``` -- Checks if the grade of the module is
+below the lower bound of the goal.
+3. ```RecommendSuCommand#isGraded(Module mod)``` -- Checks if the grade of the module is valid.
+
+The following activity diagram summarizes what happens when a user executes a new command: \
+<img src="images/RecommendSuActivityDiagram.png" />
+
 #### Design Considerations:
-Aspect: How to represent the different levels of goals (Highest Distinction, Distinction, Merit, Honours, Pass, Fail) \
+Aspect: How to represent the different levels of goals (Highest Distinction, Distinction, Merit, Honours, Pass, Fail)
 * Alternative 1 (current choice): Labels each level with a number 1 to 6 and the user inputs the level number to
-set the goal. \
-    * Pros: \
+set the goal.
+    * Pros:
         1. Using number to label the goals is easier for the user to type
-        (eg: ```goal --set 2``` instead of ```goal --set distinction```) \
-        2. Using an integer value is more efficient for comparison as compared to a String. \
-    * Cons: \
-        1. Difficult for the user to know which level represents which goal. \
-* Alternative 2: User key in the full name of the goal level. \
-    * Pros: \
-        1. User knows what to key in without referring. \
-    * Cons: \
-        1. It is longer for the user to type. \
+        (eg: ```goal set 2``` instead of ```goal set distinction```)
+        2. Using an integer value is more efficient for comparison as compared to a String.
+    * Cons:
+        1. Difficult for the user to know which level represents which goal.
+* Alternative 2: User key in the full name of the goal level.
+    * Pros:
+        1. User knows what to key in without referring.
+    * Cons:
+        1. It is longer for the user to type.
 * Justification of choosing Alternative 1: Having a shorter command will be easier for the user.
-To solve the con of the user not sure on which level represents which goal, the command “```goal --list```” is
+To solve the con of the user not sure on which level represents which goal, the command “```goal list```” is
 provided.
 
 
@@ -299,8 +315,8 @@ The user will first need to indicate their desired CAP using the `goal` command.
 \
 Users can then use the command `progress` to calculate the required average CAP
 they have to obtain in their remaining modules in order to achieve their
-target CAP. The user can include the string `--ddp` to indicate if they are taking
-a double degree programme (e.g. `progress --ddp`).
+target CAP. The user can include the string `ddp` to indicate if they are taking
+a double degree programme (e.g. `progress ddp`).
 \
 \
 A `ProgressCommand class` is added to commands under logic to execute the required
@@ -309,9 +325,33 @@ CAP calculation. The calculation process is done as shown below:
  1. User enters their target CAP using `goal` command
  2. Info about current CAP and MCs taken are retrieved from the `ModelManager` class
  3. Total MCs required is determined by whether user is in double degree programme
- or not (e.g. user input is `progress --ddp` or `just progress`)
+ or not (e.g. user input is `progress ddp` or `just progress`)
  4. Target CAP is retrieved from the `ModelManager` class
  5. Required CAP from remaining modules is calculated.
+
+The following activity diagram shows what happens when a user calls the `progress` command:
+
+![Activity diagram for progress command](images/ProgressActivityDiagram.png)
+
+#### Design Considerations
+
+Aspect: how does the user input their desired CAP.
+
+* Alternative 1: using a prefix such as `c/` followed by their desired CAP (e.g. `progress c/ 4.32`).
+    * Pros:
+        1. Users can input the exact CAP number they want to achieve to get a more specific CAP requirement for their remaining modules.
+    * Cons:
+        1. Users have to input their desired CAP everytime they use the `progress` command.
+        2. User does repeated work, since they need to set their CAP target again to use other commands like `RecommendSU`.
+* Alternative 2 (current choice): using the `goal` command (e.g. `goal set 2`).
+    * Pros:
+        1. Length of progress command is reduced, users type lesser words.
+        2. Users only need to input their target CAP once, unless they want to change it.
+    * Cons:
+        1. CAP target is not as flexible as it is limited to the levels of goals (Highest Distinction, Distinction, Merit, Honours, Pass, Fail).
+* Justification for choosing alternative 2:
+    1. Firstly, a shorter command is more convenient for the user to quickly find out the required CAP for their remaining modules.
+    2. Secondly, most users do not have an extremely specific CAP target they want to achieve (e.g. 4.32) but rather one of the goal levels (e.g. Distinction), hence using the `goal` command to set their target CAP is sufficient.
 
 <br>
 
