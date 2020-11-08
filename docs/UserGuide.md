@@ -123,14 +123,38 @@ Below is information about the features and commands of **MyMods**:100:.
 <div markdown="block" class="alert alert-info">
 :warning: <strong>Important information about the command format:</strong><br><br>
 
-* Words in <strong>UPPER_CASE</strong> are the parameters to be supplied by the user. e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.<br><br>
+* Words in <strong>UPPER_CASE</strong> are the parameters to be supplied by the user.<br>
+    * e.g. in add `m/MODULE_CODE`, `MODULE_CODE` is a parameter which can be used as `add m/CS2100`.<br><br>
 
-* Items in <strong>SQUARE BRACKETS</strong> are optional input parameters. e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br><br>
+* Items in <strong>SQUARE BRACKETS</strong> are optional input parameters.<br>
+    * e.g `m/MODULE_CODE [g/GRADE]` can be used as `m/CS2100 g/A` or as `m/CS2100`.<br><br>
 
-* Parameters are <strong>NOT case-sensitive</strong>.<br>
+* Items in <strong>SQUARE BRACKETS</strong> with trailing ellipsis are optional input parameters (zero, one or multiple instances).<br>
+    * e.g in `find KEYWORD [KEYWORD]...`, multiple instances of the KEYWORD parameter are accepted.<br><br>
+
+* Words in <strong>lower_case</strong> are to be specified exactly.<br>
+    * In add command format: `add m/MODULE_CODE [g/GRADE] [mc/MODULAR_CREDIT]`, `add`, `m/`, `g/` and `mc/`
+    are to be specified exactly.<br><br>
+    
+* Multiple instances of the same prefix will not throw an error. However, the app will only read the last instance in the input.<br>
+    * e.g `add m/CS2100 m/CS2103` will add the module CS2103.<br><br>
+
+* Parameters can be in any order.<br>
+    * e.g `add m/CS2100 g/A` is the same as `add g/A m/CS2100`.<br><br>
+
+* Command words are <strong>case-sensitive</strong> and must be in <strong>lower_case</strong>.<br>
+    * `add` is not the same as `ADD`, `ADD` would not work as add command.<br><br>
+
+* Prefixes(ending with `/`) are <strong>case-insensitive</strong>.<br>
+    * `m/` is the same as `M/`.<br><br>
+
+* Parameters(words in UPPER_CASE) are <strong>case-insensitive</strong>.<br>
     * `add m/CS2100` is the same as `add m/cs2100`<br>
     * `start Y1S1` is the same as `start y1s1`.<br>
-    * `find cs` is the same as `find CS`
+    * `find cs` is the same as `find CS`<br><br>
+
+* Adding additional inputs (excluding whitespaces) after <strong>commands that do not require parameters</strong> will result in an invalid command.<br>
+    * `list 123` will result in an invalid command.
 </div>
 
 ### 2.1 Summary of Key Features <a name="Summary_of_Key_Features"></a>
@@ -164,6 +188,8 @@ Examples:
 * Important information will be shown in a box:
 <div markdown="span" class="alert alert-info">
 :warning: You can only add, edit or delete modules after starting a particular semester.
+Semesters available include: Y1S1, Y1S2, Y2S1, Y2S2, Y3S1, Y3S2, Y4S1, Y4S2, Y5S1, Y5S2.
+<strong>Special Terms are not yet supported.</strong>
 </div>
 <br>
 <div markdown="span" class="alert alert-primary">
@@ -194,16 +220,21 @@ Examples:
 *   `add m/CS1101S`
 *   `add m/CS1231 g/A`
 
+<div markdown="span" class="alert alert-info">
+:warning: Use of parameter `[mc/MODULAR_CREDIT]` to manually add modules that are not in our database is not recommended.
+ However, to add a module that is not recognised by <strong>MyMods</strong>:100:, refer to the warning after the example usage below.
+<br>
+</div>
 
 To add a module (e.g. add CS1101S):
 
-1. Type `add m/CS1101S g/A+` into the command box, and press Enter to execute it. \
+1. Type `add m/CS1101S g/A+` into the command box, and press Enter to execute it.<br>
 <img src="images/UG SS/2.3 Add Module 1.png">
 
-2. The result box will display the message: \
+2. The result box will display the message:<br>
 <img src="images/UG SS/2.3 Add Module 2.png">
 
-3. You can check that the module is added in the list below: \
+3. You can check that the module is added in the list below:<br>
 <img src="images/UG SS/2.3 Add Module 3.png">
 
 <div markdown="span" class="alert alert-info">
@@ -216,11 +247,11 @@ new in AY20/21 and beyond, the following message will be shown:<br>
 To add a module that is not in our database(e.g. CS0000):
 
 1. Type `add m/CS0000 mc/4` (with `mc/MODULAR_CREDITS`) into the command box, and press Enter to execute it.
-\
+<br>
 (note: `MODULAR_CREDITS` is the number of modular credits of the module) <br>
 <img src="images/UG SS/2.3 Add Module 5.png">
 2. The result box will display the message:
-\
+<br>
 <img src="images/UG SS/2.3 Add Module 6.png">
 
 
@@ -249,15 +280,15 @@ Examples:
 To update a module (e.g. CS2030):
 
 1. Type `update m/CS2030 g/A s/Y1S2` into the command box, and press Enter to execute it.
-\
+<br>
 <img src="images/UG SS/2.4 Update Module 1.png">
 
 2. The result box will display the message:
-\
+<br>
 <img src="images/UG SS/2.4 Update Module 2.png">
 
 3. Use the command `list` and you can check that the module's semester and grade are both updated from the list below:
-\
+<br>
 <img src="images/UG SS/2.4 Update Module 3.png">
 
 <br>
@@ -279,18 +310,22 @@ Examples:
 modules from other semestesr (e.g. Y4S1) will also be listed as the `list` command displays the modules in all semesters
 regardless of which semester you are currently editing.
 </div><br>
+
+<div markdown="span" class="alert alert-primary">
+:bulb: You can use this command after using `find` or `recommendSU` to list all the modules!
+</div>
 To view all the modules that you have taken:
 
 1. Type `list` into the command box, and press Enter to execute it.
-\
+<br>
 <img src="images/UG SS/2.5 List all Modules 1.png">
 
 2. The result box will display the message:
-\
+<br>
 <img src="images/UG SS/2.5 List all Modules 2.png">
 
 3. You can check that all the modules from all semesters are shown in the list below:
-\
+<br>
 <img src="images/UG SS/2.5 List all Modules 3.png">
 
 <br>
@@ -308,7 +343,8 @@ Examples:
 *   `goal list`
 <br><br>
 <div markdown="span" class="alert alert-info">
-:warning: `LEVEL` has to be an integer between 1-6.
+:warning: `LEVEL` has to be an integer between 1-6. 
+The command `list` will be ignored if `set LEVEL` is present.
 </div><br>
 <div markdown="span" class="alert alert-primary">
 :bulb: Below is the NUS Honours Classification System with respect to the `LEVEL` available:
@@ -329,10 +365,10 @@ Examples:
 
 To set your goal to 2 (CAP4.00 ~ 4.49):
 
-1. Type `goal set 2` into the command box,  and press Enter to execute it. \
+1. Type `goal set 2` into the command box,  and press Enter to execute it.<br>
 <img src="images/UG SS/2.6 Set Goals 2.png">
 
-2. The result box will display the message: \
+2. The result box will display the message:<br>
 <img src="images/UG SS/2.6 Set Goals 3.png"> 
 <br><br>
 
@@ -356,13 +392,13 @@ Example:
 *   `recommendSU`
 
 To get recommendations on which modules to S/U:
-1. Type `recommendSU` into the command box, and press Enter to execute it. \
+1. Type `recommendSU` into the command box, and press Enter to execute it.<br>
 <img src="images/UG SS/2.7 Recommend SU 1.png">
 
-2. The result box will display the message (if there are suitable modules to recommend): \
+2. The result box will display the message (if there are suitable modules to recommend):<br>
 <img src="images/UG SS/2.7 Recommend SU 2.png">
 
-3. Check the module(s) that are recommended to S/U in the list below: \
+3. Check the module(s) that are recommended to S/U in the list below:<br>
 <img src="images/UG SS/2.7 Recommend SU 3.png">
 
 <div markdown="span" class="alert alert-info">
@@ -381,7 +417,7 @@ using the command `su`.
 [Back to top](#Product_Overview)
 
 ### 2.8 S/U module: `su` <a name="S/U_Module"></a>
-Didn’t so very well for a module? S/U the module in your list using this feature! \
+Didn’t do very well for a module? S/U the module in your list using this feature! \
  \
 Format: `su MODULE_CODE` \
  \
@@ -390,13 +426,13 @@ Examples:
 *   `su CS1231S`
 
 To S/U a module (e.g. CS1231):
-1. Type `su CS1231` into the command box, and press Enter to execute it. \
+1. Type `su CS1231` into the command box, and press Enter to execute it.<br>
 <img src="images/UG SS/2.8 SU Module 1.png">
 
-2. The result box will display the message (if the module can be S/U-ed): \
+2. The result box will display the message (if the module can be S/U-ed):<br>
 <img src="images/UG SS/2.8 SU Module 2.png">
 
-3. The module’s grade has been changed to “SU” as shown in the list below: \
+3. The module’s grade has been changed to “SU” as shown in the list below:<br>
 <img src="images/UG SS/2.8 SU Module 3.png">
 
 <div markdown="span" class="alert alert-info">
@@ -418,16 +454,16 @@ Format: `delete MODULE_CODE` \
 Examples:
 *   `delete CS1101S`
 
-To delete a module (e.g. CS1231) from the list: \
+To delete a module (e.g. CS1231) from the list:<br>
 <img src="images/UG SS/2.9 Delete Module 1.png">
 
-1. Type `delete CS1231` into the command box, and press Enter to execute it. \
+1. Type `delete CS1231` into the command box, and press Enter to execute it.<br>
 <img src="images/UG SS/2.9 Delete Module 2.png">
 
-2. The result box will display the message: \
+2. The result box will display the message:<br>
 <img src="images/UG SS/2.9 Delete Module 3.png">
 
-3. The module CS1231 will be deleted from the list as shown below: \
+3. The module CS1231 will be deleted from the list as shown below:<br>
 <img src="images/UG SS/2.9 Delete Module 4.png">
 
 <br>
@@ -447,10 +483,10 @@ Example:
 
 To stop editing a semester (e.g. Y1S1):
 
-1. Type `done` into the command box, and press Enter to execute it. \
+1. Type `done` into the command box, and press Enter to execute it.<br>
 <img src="images/UG SS/2.10 Exit Semester 1.png">
 
-2. The result box will display the message: \
+2. The result box will display the message:<br>
 <img src="images/UG SS/2.10 Exit Semester 2.png">
 
 <br>
@@ -463,11 +499,17 @@ Too many modules in the list? Unable to find a module that you took?
 Fret not! Locate it immediately using the find command.
 \
 \
-Format: find KEYWORD \
+Format: `find KEYWORD [KEYWORD]...`\
 \
 Examples:
 * `find CS1101S`
-*  `find MA`
+* `find MA`
+* `find cs ma`
+
+<div markdown="span" class="alert alert-info">
+:warning: Note that `find` only applies to module codes and nothing else! Only the modules which have module
+ codes containing any of the keywords will be returned. The keywords are <strong>case-insensitive</strong>.
+</div><br>
 
 <div markdown="span" class="alert alert-primary">
 :bulb: Searching for part of the module code will work too. For example, you can `find CS1231` to find the
@@ -477,11 +519,11 @@ module CS1231S or `find CS` to find all modules that contain the word ‘CS’.
 To search for a module (e.g. CS):
 
 1. Type `find CS` into the command box, and press Enter to execute it.
-\
+<br>
 <img src="images/UG SS/2.11 Find Module 1.png">
 
 2. The modules that contain the keyword ‘CS’ will be listed below:
-\
+<br>
 <img src="images/UG SS/2.11 Find Module 2.png">
 
 <div markdown="span" class="alert alert-primary">
@@ -512,10 +554,10 @@ Examples:
 <br>
 To calculate the CAP required to achieve your goal:
 
-1. Type `progress` into the command box, and press Enter to execute it. \
+1. Type `progress` into the command box, and press Enter to execute it.<br>
 <img src="images/UG SS/2.12 Progress Report 1.png">
 
-2. The result box will display the message: \
+2. The result box will display the message:<br>
 <img src="images/UG SS/2.12 Progress Report 2.png">
 
 <br>
@@ -537,11 +579,11 @@ Example:
 <br>
 To clear everything:
 
-1. Type clear into the command box and press Enter to execute it. \
+1. Type clear into the command box and press Enter to execute it.<br>
 <img src="images/UG SS/2.13 Clear All 1.png">
-2. A confirmation window will pop up as shown: \
+2. A confirmation window will pop up as shown:<br>
 <img src="images/UG SS/2.13 Clear All 2.png">
-3. After clicking ‘Yes’, the command result will show: \
+3. After clicking ‘Yes’, the command result will show:<br>
 <img src="images/UG SS/2.13 Clear All 3.png">
 
 
@@ -559,10 +601,10 @@ Example:
 
 To seek help:
 
-1. Type `help` in the command box, and press Enter to execute it. \
+1. Type `help` in the command box, and press Enter to execute it.<br>
 <img src="images/UG SS/2.14 Get Help 1.png">
 
-2. The result box will display the message with an additional pop-up window: \
+2. The result box will display the message with an additional pop-up window:<br>
 <img src="images/UG SS/2.14 Get Help 2.png">
 
 <br>
@@ -578,7 +620,7 @@ Example:
 *   `exit`
 
 To exit the application:
-1. Type `exit` into the command box, and press Enter to execute it. \
+1. Type `exit` into the command box, and press Enter to execute it.<br>
 <img src="images/UG SS/2.15 Exit Application 1.png">
 
 2. **MyMods**:100: will close and exit.
