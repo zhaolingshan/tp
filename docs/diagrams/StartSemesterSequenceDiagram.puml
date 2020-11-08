@@ -67,4 +67,3 @@ deactivate StartCommand
 [<--LogicManager
 deactivate LogicManager
 @enduml
-

@@ -211,7 +211,7 @@ Aspect: Whether to allow users to manually overwrite the number of modular credi
     * Pros:
         1. Allows users more flexibility, and enables them to dictate how many modular credits each module has.
         2. In the event that a module in our database is outdated, users are able to overwrite the outdated
-        modular credits. 
+        modular credits.
     * Cons:
         1. Users may not be fully aware of module details, and may key in incorrect modular credits.
 * Alternative 2: Disallowing users to manually key in how many modular credits a module has.

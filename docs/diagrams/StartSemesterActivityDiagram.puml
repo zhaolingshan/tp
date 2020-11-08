@@ -4,14 +4,14 @@ start
 
 'Since the beta syntax does not support placing the condition outside the
 'diamond we place it as the true branch instead.
-    
-    :Get instance of 
+
+    :Get instance of
     SemesterManager;
     :Set current semester
-        to the semester 
+        to the semester
      specified by the user;
     :Display success message
-    stating the semester the 
+    stating the semester the
      user is currently editing;
 
 stop
