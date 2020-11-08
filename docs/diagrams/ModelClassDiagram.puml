@@ -21,6 +21,7 @@ Package Module {
     Class ModularCredit
     Class Grade
     Class UniqueModuleList
+    Enum Cap <<Enumeration>>
 }
 
 Package Semester {
@@ -32,9 +33,7 @@ SemesterManager --> Semester
 
 Package GoalTarget {
     Class GoalTarget
-    Enum Cap <<Enumeration>>
 }
-GoalTarget --> Cap
 
 Class HiddenOutside #FFFFFF
 HiddenOutside ..> Model
@@ -53,7 +52,8 @@ UniqueModuleList o--> "*" Module
 Module *--> ModuleName
 Module *--> ModularCredit
 Module *--> Grade
+Grade --> Cap
 
-ModelManager ----->"1" Module : filtered list
-ModelManager --->"1" SemesterManager
+ModelManager ---> "1" Module : filtered list
+ModelManager ---> "1    " SemesterManager
 @enduml
