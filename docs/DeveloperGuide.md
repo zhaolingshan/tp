@@ -255,7 +255,7 @@ set the goal.
         1. User knows what to key in without referring.
     * Cons:
         1. It is longer for the user to type.
-* Justification of choosing Alternative 1: Having a shorter command will be easier for the user.
+* Justification for choosing Alternative 1: Having a shorter command will be easier for the user.
 To solve the con of the user not sure on which level represents which goal, the command “```goal list```” is
 provided.
 
@@ -296,14 +296,58 @@ The following activity diagram summarises what happens when a user chooses "Ligh
 * 7pm - 7am: Dark Mode
 
 ### Start Semester: <a name="Start_Semester"></a>
-Implementation
 
-Start is a command which allows the user to start modifying the list of modules in the semester which the user
-specifies by adding, editing or deleting the modules in the specified semester. The user is unable to modify the list
-of modules before typing in start followed by the semester which the user wishes to edit the module list of.
-A class StartCommand is added in the commands folder under logic to execute the command start.
-A class SemesterManager is added in the semester folder under model to retrieve the current semester the user is in
-and set the current semester to a specified semester.
+#### Implementation
+
+`start` is a command which allows the user to start modifying the list of modules in the semester which the user specifies
+by adding, updating, deleting or S/U-ing the modules in the specified semester. 
+Modifying the list of modules is only allowed after the user types in `start` 
+followed by the semester which the user wishes to edit the module list of.
+
+A class `StartCommand` is added in the commands folder under logic to execute the command `start`. 
+A singleton class `SemesterManager` to control the semester is added in the semester folder under model
+to retrieve the current semester the user is in and set the current semester to a specified semester. 
+The `SemesterManager` class is created as a singleton class as there should only be one instance of a controller class.
+
+`StartCommand#execute()` gets an instance of the `SemesterManager` class via the static `SemesterManager#getInstance()` method
+to set the current semester to the semester input by the user via `SemesterManager#setCurrentSemester()`. 
+`SemesterManager#isValidSemester()` ensures that the user keys in a valid semester from Y1S1 to Y5S2 
+(Y5S1 and Y5S2 in the case of ddp students) and prevents starting an invalid semester.
+
+The following sequence diagram shows how the `start` command works:
+
+![Sequence diagram for start command](images/StartSemesterSequenceDiagram.png)
+
+The following activity diagram summaries what happens when a user executes the `start` command:
+
+![Activity diagram for start command](images/StartSemesterActivityDiagram.png)
+
+
+#### Design Considerations
+
+Aspect: How does the user edit the list of modules in a specified semester
+
+* Alternative 1 (current choice): the user can input the `start` keyword followed by the specific semester 
+which the user wishes to add, update, delete or S/U modules in (eg. `start Y1S1`).
+    * Pros:
+        1. Users can key in fewer words which is more convenient, fuss-free and time-efficient and prioritises fast-typists.
+        2. It is a more intuitive approach.
+    * Cons:
+        1. The format is different from the other commands (eg. `add`, `update`)
+        and thus the user has to familiarise himself or herself with a more foreign command.
+* Alternative 2: the user can add, update, delete or S/U modules in a specific semester 
+by stating the following input (eg. `add m/CS1101S g/A s/Y1S1`).    
+    * Pros:
+        1. The format is more similar to the other commands and thus the user will be more familiar with it.
+    * Cons:
+        1. The user has to type in a much longer command which can be quite a hassle and inconvenient, 
+        and it takes up more time which does not prioritise fast-typists.
+* Justification for choosing alternative 1:
+    1. It is more convenient, fuss-free and time-efficient for the user to key in a much shorter command and hence prioritises fast-typists.
+    It enables users to switch from one semester to another semester very quickly to edit the list of modules in 
+    different semesters, as compared to having to key in a long command just to modify one module in a semester.
+    2. Since the command is pretty intuitive, the fact that the format of the command is rather different from 
+    the other commands is not a major problem and users will be able to pick it up quickly.
 
 ### Show progress towards target CAP: <a name="Show_progress_towards_target_CAP"></a>
 
