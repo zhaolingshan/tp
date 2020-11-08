@@ -1,8 +1,11 @@
 package seedu.address.ui;
 
+import java.awt.event.KeyEvent;
 import java.util.Arrays;
+import java.util.EventListener;
 
 import javafx.collections.ObservableList;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -62,6 +65,7 @@ public class CommandBox extends UiPart<Region> {
     private void handleCommandEntered() {
         String userInput = commandTextField.getText();
         String trimmedUserInput = userInput.trim();
+
         try {
             if (trimmedUserInput.equals(ClearCommand.COMMAND_WORD)) {
                 handleClearCommand();
