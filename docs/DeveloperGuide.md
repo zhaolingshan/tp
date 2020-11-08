@@ -131,16 +131,9 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 The `Model`,
 
 * stores a `UserPref` object that represents the user’s preferences.
-* stores the address book data.
-* exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores the grade book data, semester data, and goal target data.
+* exposes an unmodifiable `ObservableList<Module>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
-
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
-
-![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
-
-</div>
 
 
 ### Storage component <a name="Storage_component"></a>
@@ -168,6 +161,8 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 This section describes some noteworthy details on how certain features are implemented.
 
 ### Obtaining module information automatically: <a name="Obtaining_module_information_automatically"></a>
+![Structure of the Storage Component](images/ObtainModuleInformation.png)
+
 This feature is facilitated by ```ModuleInfoRetriever```, and is used to obtain the number of modular credits
 when you are adding a module, or the “su” status of the module when you are recommending S/U options.
 
@@ -177,8 +172,7 @@ It implements the following operation:
 Given below is an example usage scenario and how obtaining module information is used and integrated into
 the ```add``` command.
 
-Step 1: The users executes ```add --mod CS1101S --grade A+```, the add command executes
-```Logic#execute(“add --mod CS1101S --grade A+”)```
+Step 1: The users executes ```add --mod CS1101S --grade A+```.
 
 Step 2: Logic uses the ```AddCommandParser``` class to parse the command.
 ```AddCommandParser#parse(“add --mod CS1101S --grade A+”)``` is executed, which then executes
@@ -197,9 +191,27 @@ SU: True
 An exception is thrown if the module is not found.
 
 Step 4: The new module constructor is executed with the following arguments,
-```new Module(“CS1101S”, “A+”, Set<Tag>(), 4, Y2S1)```. An AddCommand object is then returned with the module,
+```new Module(“CS1101S”, “A+”, 4, "Y2S1")```. An AddCommand object is then returned with the module,
 and the new module with modular credit information is saved to storage.
 
+#### Design Considerations:
+Aspect: Whether to allow users to manually overwrite the number of modular credits attached to each module.
+* Alternative 1 (current choice): Allow users the choice to manually key in how many modular credits a module has.
+    * Pros:
+        1. Allows users more flexibility, and enables them to dictate how many modular credits each module has.
+        2. In the event that a module in our database is outdated, users are able to overwrite the outdated 
+        modular credits. 
+    * Cons:
+        1. Users may not be fully aware of module details, and may key in incorrect modular credits.
+* Alternative 2: Disallowing users to manually key in how many modular credits a module has.
+    * Pros:
+        1. Users will not be able to input wrong modular credits.
+        2. Modules will always have accurate modular credits, given that our database is accurate.
+    * Cons:
+        1. In the event that our database is outdated, users have no way of overwriting the modular credits.
+        This renders many functionalities of our application to be hindered, such as the calculation of CAP, 
+        which requires accurate modular credits.
+        
 ### Recommend S/U: <a name="Recommend_S/U"></a>
 #### Implementation
 The Recommend S/U feature works in conjunction with the goal-setting feature.
