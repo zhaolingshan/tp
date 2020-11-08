@@ -222,7 +222,9 @@ Aspect: Whether to allow users to manually overwrite the number of modular credi
         1. In the event that our database is outdated, users have no way of overwriting the modular credits.
         This renders many functionalities of our application to be hindered, such as the calculation of CAP, 
         which requires accurate modular credits.
-        
+
+[Back to top](#top)
+      
 ### Recommend S/U: <a name="Recommend_S/U"></a>
 #### Implementation
 The Recommend S/U feature works in conjunction with the goal-setting feature.
@@ -250,6 +252,8 @@ below the lower bound of the goal.
 The following activity diagram summarizes what happens when a user executes a new command: \
 <img src="images/RecommendSuActivityDiagram.png" />
 
+[Back to top](#top)
+
 #### Design Considerations:
 Aspect: How to represent the different levels of goals (Highest Distinction, Distinction, Merit, Honours, Pass, Fail)
 * Alternative 1 (current choice): Labels each level with a number 1 to 6 and the user inputs the level number to
@@ -269,6 +273,7 @@ set the goal.
 To solve the con of the user not sure on which level represents which goal, the command “```goal list```” is
 provided.
 
+[Back to top](#top)
 
 ### Dark/Light Mode: <a name="Dark/Light_Mode"></a>
 
@@ -305,6 +310,8 @@ The following activity diagram summarises what happens when a user chooses "Ligh
 * 7am - 7pm: Light Mode
 * 7pm - 7am: Dark Mode
 
+[Back to top](#top)
+
 ### Start Semester: <a name="Start_Semester"></a>
 Implementation
 
@@ -314,6 +321,8 @@ of modules before typing in start followed by the semester which the user wishes
 A class StartCommand is added in the commands folder under logic to execute the command start.
 A class SemesterManager is added in the semester folder under model to retrieve the current semester the user is in
 and set the current semester to a specified semester.
+
+[Back to top](#top)
 
 ### Show progress towards target CAP: <a name="Show_progress_towards_target_CAP"></a>
 
@@ -381,6 +390,8 @@ Aspect: how does the user input their desired CAP.
     2. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.<br><br>
 
+[Back to top](#top)
+
 ### Adding a module <a name="Adding_a_module"></a>
 
 1. Adding a module while editing a semester
@@ -403,6 +414,8 @@ Aspect: how does the user input their desired CAP.
     2. Test case: `add m/GEQ1000`<br>
        Expected: Unable to add module as no semester is being edited,
         command result prompts to start a semester before modifying the module list.<br><br>
+
+[Back to top](#top)
 
 ### Updating/SU-ing a module <a name="Updating/SU-ing_a_module"></a>
 
@@ -430,6 +443,8 @@ Aspect: how does the user input their desired CAP.
     3. Test case: `su CS1101S`<br>
        Expected: Similar to above.<br><br>
 
+[Back to top](#top)
+
 ### Recommending modules to SU <a name="Recommending_modules_to_SU"></a>
 
 1. Recommending modules to SU with valid modules to SU.
@@ -448,6 +463,8 @@ Aspect: how does the user input their desired CAP.
     2. Test case: `recommendSU`<br>
        Expected: No modules would be recommended to S/U based on your goal.<br><br>
 
+[Back to top](#top)
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Effort <a name="Effort"></a>
@@ -462,27 +479,21 @@ The overall difficulty level of our project is high as we were met with numerous
 
 ### Achievements of the project <a name="Achievements_of_the_project"></a>
 
-Our project is an innovative solution to the problem which many NUS students face: spending large pockets of time at
- the start of every semester to do module planning and goal setting, and at the end of every semester to calculate
-  their CAP and decide on which modules to S/U so as to achieve their goal and track their progress towards it.
-   With MyMods, NUS students will spend significantly less time on such manual, mundane and repetitive tasks
-    and can channel their precious time and energy on more important tasks. Together with the aesthetically-pleasing
-     and intuitive user interface of MyMods ensures a fuss-free, seamless and enjoyable user experience.
+Our project is an innovative solution to the problem which many NUS students face: spending large pockets of time at the start of every semester to do module planning and goal setting, and at the end of every semester to calculate their CAP and decide on which modules to S/U so as to achieve their goal and track their progress towards it. With MyMods, NUS students will spend significantly less time on such manual, mundane and repetitive tasks and can channel their precious time and energy on more important tasks. Together with the aesthetically-pleasing and intuitive user interface of MyMods ensures a fuss-free, seamless and enjoyable user experience.
      
 * Our application is capable of the following features:
-    1. Start a specific semester to modify the list of modules in that particular semester by adding, deleting or updating module(s).
-    2. Add module(s) which exist in our database with a specified grade. A ‘NA’ grade will be automatically assigned
-     to a new module added in the event the grade parameter is empty.
-    3. Add module(s) which are yet to be recorded in our database (our database is only valid up to AY19/20)
-     and specify the number of modular credits (MCs).
-    4. Update the grade and semester of module(s). In the event the user wishes to remove the grade assigned to a module,
-     updating the module without a grade parameter will remove the grade and assign the module with a ‘NA’ grade.
-    5. Set a goal out of the 6 different goals MyMods offer with each covering a specific cap range.
-    6. Allows users to track their progress towards their goal as they will be informed with the average CAP
-     needed for their remaining modules to achieve the goal they have set.
-    7. Provides recommendations on which modules to S/U based on the individual’s specific goal, current grades and CAP.
-    8. Automatically and instantly calculates and updates the CAP after every modification the user makes - including adding, deleting, updating, and S/U-ing modules.
-    9.
+    1. Allows users to set a goal out of the 6 different goals MyMods offer with each covering a specific cap range.
+    2. Allows users to track their progress towards their goal as they will be informed with the average CAP needed for their remaining modules to achieve the goal they have set.
+    3. Provides users with personalised and accurate recommendations on which modules to S/U based on the individual’s specific goal, current grades and CAP.
+    4. Automatically and instantly calculates and updates the CAP after every modification the user makes - including adding, deleting, updating, and S/U-ing modules.
+    5. Allows users to start modifying the list of modules in a specific semester by adding, deleting, updating or S/U-ing module(s) and also stop making modifications.
+    6. Provides users with two different themes - light and dark mode which will be set automatically according to the time of the day. Light mode will be automatically set as default from 7am to 7pm, and it will be switched to dark mode automatically from 7pm to 7am. Users can manually select either light or dark mode at any particular time.
+    7. Allows users to find specific modules by their module codes.
+    8. Allows users to view the entire list of modules in all semesters at any point in time.
+    9. Allows users to navigate into a specific semester and view the list of modules in that particular semester.
+    10. Provide assistance to users who are lost amidst navigating MyMods with a summary of the commands available.
+
+[Back to top](#top)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -493,6 +504,8 @@ Our project is an innovative solution to the problem which many NUS students fac
 * [Testing guide](Testing.md)
 * [Configuration guide](Configuration.md)
 * [DevOps guide](DevOps.md)
+
+[Back to top](#top)
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Product scope** <a name="Product_scope"></a>
