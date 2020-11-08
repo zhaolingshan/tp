@@ -21,11 +21,11 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a module to your module list.\n"
             + "Parameters: "
-            + PREFIX_MOD_NAME + "NAME "
+            + PREFIX_MOD_NAME + "MODULE_CODE "
             + "[" + PREFIX_GRADE + "GRADE] [ "
-            + PREFIX_MODULAR_CREDIT + "MC] \n"
+            + PREFIX_MODULAR_CREDIT + "MODULAR_CREDIT] \n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_MOD_NAME + "CS2103T"
+            + PREFIX_MOD_NAME + "CS2103T" + " "
             + PREFIX_GRADE + "A+ ";
 
     public static final String MESSAGE_SUCCESS = "New module added: %1$s";
