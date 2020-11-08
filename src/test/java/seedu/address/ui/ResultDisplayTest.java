@@ -3,7 +3,8 @@ package seedu.address.ui;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import javafx.scene.layout.AnchorPane;
+import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
@@ -11,15 +12,14 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 import javafx.scene.Scene;
-import javafx.stage.Stage;
-import java.io.IOException;
-
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 @ExtendWith(ApplicationExtension.class)
-class ResultDisplayTest_JUnit5Hamcrest {
+class ResultDisplayTest {
 
-    ResultDisplay resultDisplay;
+    private ResultDisplay resultDisplay;
     /**
      * Will be called with {@code @Before} semantics, i. e. before each test method.
      *

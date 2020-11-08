@@ -1,10 +1,11 @@
 package seedu.address.ui;
+
+import static java.util.Objects.requireNonNull;
+
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
-
-import static java.util.Objects.requireNonNull;
 
 /**
  * {@link DragResizer} can be used to add mouse listeners to a {@link Region}
