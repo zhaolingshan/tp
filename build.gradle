@@ -4,6 +4,12 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '4.0.4'
     id 'application'
     id 'jacoco'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+javafx {
+    version = '12'
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 mainClassName = 'seedu.address.Main'

@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.IOException;
 
+import javafx.application.Application;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
@@ -17,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 @ExtendWith(ApplicationExtension.class)
-class ResultDisplayTest {
+class ResultDisplayTest extends Application {
 
     private ResultDisplay resultDisplay;
     /**
@@ -26,7 +27,7 @@ class ResultDisplayTest {
      * @param stage - Will be injected by the test runner.
      */
     @Start
-    private void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException {
         resultDisplay = new ResultDisplay();
         stage.setScene(new Scene(new AnchorPane(resultDisplay.getRoot()), 100, 100));
         stage.show();
