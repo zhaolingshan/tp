@@ -1,5 +1,20 @@
 package seedu.address.model;
 
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import org.junit.jupiter.api.Test;
+import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.module.GoalTarget;
+import seedu.address.model.module.Module;
+import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
+import seedu.address.model.semester.Semester;
+import seedu.address.model.semester.SemesterManager;
+import seedu.address.testutil.GradeBookBuilder;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -9,22 +24,6 @@ import static seedu.address.testutil.TypicalModules.COM_INFO;
 import static seedu.address.testutil.TypicalModules.COM_ORG;
 import static seedu.address.testutil.TypicalModules.EFF_COM;
 import static seedu.address.testutil.TypicalModules.SWE;
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Arrays;
-
-import org.junit.jupiter.api.Test;
-
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.module.GoalTarget;
-import seedu.address.model.module.Module;
-import seedu.address.model.module.ModuleNameContainsKeywordsPredicate;
-import seedu.address.model.semester.Semester;
-import seedu.address.model.semester.SemesterManager;
-import seedu.address.testutil.GradeBookBuilder;
 
 public class ModelManagerTest {
 
@@ -109,15 +108,6 @@ public class ModelManagerTest {
         FilteredList<Module> y2s1Modules = modelManager.filterModuleListBySem();
         assertEquals(y2s1Modules.size(), 1);
         assertEquals(y2s1Modules.get(0), COM_ORG);
-    }
-
-    @Test
-    public void filterModuleListByReadOnlySem_success() {
-        modelManager.addModule(COM_ORG); // Y2S1
-        modelManager.addModule(SWE); // Y2S2
-        SemesterManager.getInstance().setReadOnlySem(Semester.Y1S1);
-        FilteredList<Module> y1s1Modules = modelManager.filterModuleListByReadOnlySem();
-        assertTrue(y1s1Modules.isEmpty());
     }
 
     @Test
