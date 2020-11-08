@@ -100,12 +100,6 @@ public interface Model {
      */
     ObservableList<Module> filterModuleListBySem();
 
-    /**
-     * Filters the module list by read only semester.
-     *
-     * @return the filtered list of modules by read only semester.
-     */
-    ObservableList<Module> filterModuleListByReadOnlySem();
     ObservableList<Module> sortModuleListBySem();
 
     /**

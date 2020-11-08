@@ -29,21 +29,4 @@ public class ModuleListFilter {
         }
         return new FilteredList<>(moduleList, predicate);
     }
-
-    /**
-     * Filters the module list according to read only semester.
-     * @param moduleList the list of modules to be filtered.
-     * @return the filtered list of modules by semester.
-     */
-    public static FilteredList<Module> filterModulesByReadOnlySemester(FilteredList<Module> moduleList) {
-        SemesterManager semesterManager = SemesterManager.getInstance();
-        Semester currentSemester = semesterManager.getReadOnlySem();
-        Predicate<Module> predicate;
-        if (currentSemester.equals(Semester.NA)) {
-            predicate = unused -> true;
-        } else {
-            predicate = module -> module.getSemester().equals(currentSemester);
-        }
-        return new FilteredList<>(moduleList, predicate);
-    }
 }

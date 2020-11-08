@@ -34,6 +34,7 @@ public class CommandTestUtil {
     public static final String VALID_GRADE_A = "A";
     public static final String VALID_GRADE_B = "B-";
     public static final String VALID_GRADE_C = "F";
+    public static final String VALID_GRADE_SU = "SU";
     public static final int VALID_MODULAR_CREDIT = 4;
     public static final int VALID_GOAL_TARGET_A = 4;
     public static final int VALID_GOAL_TARGET_B = 3;
@@ -70,6 +71,7 @@ public class CommandTestUtil {
 
     public static final UpdateCommand.UpdateModNameDescriptor DESC_A;
     public static final UpdateCommand.UpdateModNameDescriptor DESC_B;
+    public static final UpdateCommand.UpdateModNameDescriptor DESC_SU;
 
     static {
         DESC_A = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_A)
@@ -77,6 +79,8 @@ public class CommandTestUtil {
                 .build();
         DESC_B = new UpdateModNameDescriptorBuilder().withName(VALID_MOD_NAME_B)
                 .withGrade(VALID_GRADE_B)
+                .build();
+        DESC_SU = new UpdateModNameDescriptorBuilder().withGrade(VALID_GRADE_SU)
                 .build();
     }
 
