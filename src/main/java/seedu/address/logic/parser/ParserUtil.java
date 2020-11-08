@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -107,10 +108,16 @@ public class ParserUtil {
     public static GoalTarget parseGoal(String goal) throws ParseException {
         requireNonNull(goal);
         String trimmedGoal = goal.trim();
-        int intGoal = Integer.parseInt(trimmedGoal);
-        if (!GoalTarget.isValidGoal(intGoal)) {
-            throw new ParseException(GoalTarget.MESSAGE_CONSTRAINTS);
+
+        try {
+            int intGoal = Integer.parseInt(trimmedGoal);
+            if (!GoalTarget.isValidGoal(intGoal)) {
+                throw new ParseException(GoalTarget.MESSAGE_CONSTRAINTS);
+            }
+            return new GoalTarget(intGoal);
+        } catch (final NumberFormatException e) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, GoalTarget.MESSAGE_CONSTRAINTS));
         }
-        return new GoalTarget(intGoal);
     }
 }
