@@ -59,6 +59,13 @@ public class HelpWindow extends UiPart<Stage> {
 
     /**
      * Creates a new HelpWindow.
+     */
+    public HelpWindow() {
+        this(new Stage());
+    }
+
+    /**
+     * Creates a new HelpWindow.
      *
      * @param root Stage to use as the root of the HelpWindow.
      */
@@ -87,13 +94,6 @@ public class HelpWindow extends UiPart<Stage> {
                 e.printStackTrace();
             }
         });
-    }
-
-    /**
-     * Creates a new HelpWindow.
-     */
-    public HelpWindow() {
-        this(new Stage());
     }
 
     private void setHelpCommands() {
