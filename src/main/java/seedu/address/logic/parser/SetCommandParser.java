@@ -25,6 +25,11 @@ public class SetCommandParser implements Parser<SetCommand> {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(userInput, PREFIX_SET_GOAL, PREFIX_LIST_GOAL);
 
+        if (!argMultimap.getPreamble().isEmpty() || argMultimap.argsContainWrongPrefix()) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, SetCommand.MESSAGE_USAGE));
+        }
+
         if (arePrefixesPresent(argMultimap, PREFIX_SET_GOAL)) {
             // set is inputted; any list will be ignored
             GoalTarget goalTarget = ParserUtil.parseGoal(argMultimap.getValue(PREFIX_SET_GOAL).get());

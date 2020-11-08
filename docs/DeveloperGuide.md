@@ -22,6 +22,16 @@ Contribute to this [project](https://github.com/AY2021S1-CS2103T-T17-1/tp)
     * [Dark/Light Mode](#Dark/Light_Mode)
     * [Start Semester](#Start_Semester)
     * [Show progress towards target CAP](#Show_progress_towards_target_CAP)
+* **[Instructions for Manual Testing](#Instructions_for_Manual_Testing)**
+    * [Launch and shutdown](#Launch_and_shutdown)
+    * [Adding a module](#Adding_a_module)
+    * [Updating/SU-ing a module](#Updating/SU-ing_a_module)
+    * [Recommending modules to SU](#Recommending_modules_to_SU)
+* **[Effort](#Effort)**
+    * [Difficulty level](#Difficulty_level)
+    * [Challenges faced](#Challenges_faced)
+    * [Effort required](#Effort_required)
+    * [Achievements of this projects](#Achievements_of_this_projects)
 * **[Documentation, logging, testing, configuration, dev-ops](#Documentation,_logging,_testing,_configuration,_dev-ops)**
 * **[Product scope](#Product_scope)**
     * [Target user profile](#Target_user_profile)
@@ -212,7 +222,9 @@ Aspect: Whether to allow users to manually overwrite the number of modular credi
         1. In the event that our database is outdated, users have no way of overwriting the modular credits.
         This renders many functionalities of our application to be hindered, such as the calculation of CAP, 
         which requires accurate modular credits.
-        
+
+[Back to top](#top)
+      
 ### Recommend S/U: <a name="Recommend_S/U"></a>
 #### Implementation
 The Recommend S/U feature works in conjunction with the goal-setting feature.
@@ -240,6 +252,8 @@ below the lower bound of the goal.
 The following activity diagram summarizes what happens when a user executes a new command: \
 <img src="images/RecommendSuActivityDiagram.png" />
 
+[Back to top](#top)
+
 #### Design Considerations:
 Aspect: How to represent the different levels of goals (Highest Distinction, Distinction, Merit, Honours, Pass, Fail)
 * Alternative 1 (current choice): Labels each level with a number 1 to 6 and the user inputs the level number to
@@ -259,6 +273,7 @@ set the goal.
 To solve the con of the user not sure on which level represents which goal, the command “```goal list```” is
 provided.
 
+[Back to top](#top)
 
 ### Dark/Light Mode: <a name="Dark/Light_Mode"></a>
 
@@ -294,6 +309,8 @@ The following activity diagram summarises what happens when a user chooses "Ligh
 
 * 7am - 7pm: Light Mode
 * 7pm - 7am: Dark Mode
+
+[Back to top](#top)
 
 ### Start Semester: <a name="Start_Semester"></a>
 
@@ -349,6 +366,8 @@ by stating the following input (eg. `add m/CS1101S g/A s/Y1S1`).
     2. Since the command is pretty intuitive, the fact that the format of the command is rather different from 
     the other commands is not a major problem and users will be able to pick it up quickly.
 
+[Back to top](#top)
+
 ### Show progress towards target CAP: <a name="Show_progress_towards_target_CAP"></a>
 
 #### Implementation
@@ -403,13 +422,161 @@ Aspect: how does the user input their desired CAP.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Documentation, logging, testing, configuration, dev-ops** ) <a name="Documentation,_logging,_testing,_configuration,_dev-ops"></a>
+## Instructions for Manual Testing <a name="Instructions_for_Manual_Testing"></a>
+
+### Launch and shutdown <a name="Launch_and_shutdown"></a>
+
+1. Initial launch
+    a. Download the jar file and copy into an empty folder.<br><br>
+    b. Double-click the jar file Expected: Shows the GUI. The window size may not be optimum.<br><br>
+2. Saving window preferences
+    a. Resize the window to an optimum size. Move the window to a different location. Close the window.<br><br>
+    b. Re-launch the app by double-clicking the jar file.<br>
+       Expected: The most recent window size and location is retained.<br><br>
+
+[Back to top](#top)
+
+### Adding a module <a name="Adding_a_module"></a>
+
+1. Adding a module while editing a semester
+    a. Prerequisites: Start editing a semester using the `start` command.<br>
+     Currently editing a valid semester with no modules in the entire app added yet.<br><br>
+    b. Test case: `add m/CS1231S g/A`<br>
+       Expected: Module “CS1231S (4MCs)” is added to the current semester, with “Grade: A”. CAP in the status bar is updated.<br><br>
+    c. Test case: `add m/CS1101S`<br>
+      Expected: Module “CS1101S (4MCs)” is added to the current semester, with “Grade: NA”. CAP in the status bar is not updated.<br><br>
+    d. Test case: `add m/GER1000 mc/8`<br>
+      Expected : Module “GER1000 (8MCs)” is added to the current semester, with “Grade: NA”. CAP in the status bar is not updated.<br><br>
+    e. Test case: `add m/GER1000 g/A`<br>
+      Expected: Unable to add the module as it already exists in your module list.<br><br>
+    f. Test case: `add GEQ1000 A+`<br>
+      Expected: Invalid command format.<br><br>
+    g. Other incorrect add commands to try: `add`, `add mod/GEQ1000`, `…`<br>
+      Expected: Similar to previous.<br><br>
+2. Adding a module while not editing any semesters
+    a. Prerequisites: Not editing any semesters. (The status bar shows “Currently editing: NA”)<br><br>
+    b. Test case: `add m/GEQ1000`<br>
+       Expected: Unable to add module as no semester is being edited,
+        command result prompts to start a semester before modifying the module list.<br><br>
+
+[Back to top](#top)
+
+### Updating/SU-ing a module <a name="Updating/SU-ing_a_module"></a>
+
+1. Updating a module while editing a semester
+    a. Prerequisites: Start editing a semester using the `start` command, and add the module “CS1101S”, with Grade “A”.
+     Currently editing a valid semester with the module “CS1101S (4MCs) Grade: A” added inside.<br><br>
+    2. Test case: `update m/CS1101S g/B+`<br>
+       Expected: Updates the module “CS1101S”, replacing the grade from “A” to “B+”.<br><br>
+    3. Test case: `su CS1101S`<br>
+      Expected: Successfully updates the grade of “CS1101S” to “SU”.<br><br>
+    4. Test case: `update m/ST2334 g/B+`<br>
+       Expected: Unable to update any module as the module name provided is invalid.<br><br>
+    5. Other incorrect update commands to try: `update`, `update ST2334`, `...`
+       Expected: Invalid command format.<br><br>
+2. Updating a module from another semester
+    1. Prerequisites: Currently editing the semester “Y2S1”. A module was previously added in another semester.
+     e.g. the module “CS1101S” was previously added in semester “Y1S1”.<br><br>
+    2. Test case: `update m/CS1101S g/B+`<br>
+       Expected: Unable to update module as the module you are trying to update is in another semester.<br><br>
+3. Updating a module while not editing any semesters
+    1. Prerequisites: Not editing any semesters. (The status bar shows “Currently editing: NA”)<br><br>
+    2. Test case: `update m/CS1101S g/B+`<br>
+       Expected: Unable to update any module as no semester is being edited,
+        command result prompts to start a semester before modifying the module list.<br><br>
+    3. Test case: `su CS1101S`<br>
+       Expected: Similar to above.<br><br>
+
+[Back to top](#top)
+
+### Recommending modules to SU <a name="Recommending_modules_to_SU"></a>
+
+1. Recommending modules to SU with valid modules to SU.
+    1. Prerequisites: A goal has been previously set using `goal set`. For the purpose of the test cases below,
+     we would be assuming the current goal set is 1. (i.e. the command `goal set 1` was entered).
+      There are currently 2 modules added and listed, “CS1101S (4MCs), Grade: C+”, and “CS1231S (4MCs), Grade: A”.<br><br>
+    2. Test case: `recommendSU`<br>
+       Expected: The module CS1231S is recommended.<br><br>
+    3. Test case: `recommendSU y2s1`<br>
+       Expected: Invalid command format, as there should be no input after recommendSU.<br><br>
+    4. Other incorrect recommendSU commands to try: `recommendSU all`, `recommendSU CAP5`, `…`<br>
+       Expected: Similar to previous.<br><br>
+2. Recommending modules to SU with no valid modules to SU
+    1. Prerequisites: A goal has been previously set using `goal set`. For the purpose of the test cases below, we would
+     be assuming the current goal set is 1. (i.e. the command `goal set 1` was entered). There are currently no modules added.<br><br>
+    2. Test case: `recommendSU`<br>
+       Expected: No modules would be recommended to S/U based on your goal.<br><br>
+
+[Back to top](#top)
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Effort <a name="Effort"></a>
+
+### Difficulty level <a name="Difficulty_level"></a>
+
+The overall difficulty level of our project is high as we were met with numerous challenges which required substantial effort to overcome.
+Even though the features to be implemented are divided among our team, the features are often intertwined with each other
+and we have to work closely with one another and make edits after implementing and testing. We have to continuously
+update and improve on the features we have implemented even after we have successfully implemented the entire feature
+and integrated it into the rest of the code base. Debugging is another area which introduced significantly challenging
+obstacles - both locating bugs and solving them completely. 
+
+### Challenges faced <a name="Challenges_faced"></a>
+As our project has a specific target audience, i.e. NUS students, we have to consider specific scenarios that will cater
+to the various types of students and modules. For example, special terms semesters, double degree programme students,
+modules that do not exist in our database are considerations that we will have to factor in despite the majority of NUS
+students not needing to use it. There is a lot of research to be conducted to ensure that our project is up to date and
+accurate. This includes calculation of CAP, rules and criteria that NUS allows a module to be S/U, maximum and minimum
+modular credits (MCs) of a module in NUS.
+<br>
+<br>
+Technical challenges aside, another challenge that we faced is inability to meet up physically due to the COVID-19 pandemic.
+The process of all of our project development is discussed and implemented online. To overcome this challenge, our team
+sets up weekly online meetings and we ensure that the tasks allocated to each individual are distributed evenly and are
+done before the appointed deadline. Communications are made clear and transparent to avoid miscommunication.
+
+### Effort required <a name="Effort_required"></a>
+From conceptualizing our project to implementing and testing our product,  there are a lot of considerations and work to
+be done by each member of our team. We set our weekly online meeting every Sunday to discuss what needs to be done by
+the end of the week and also on issues to set the direction of our project. Work is then divided into equal proportions
+and allocated randomly. We then spend the next few days to complete our tasks and we will meet again before the deadline
+for that week to consolidate everything.
+
+### Achievements of the project <a name="Achievements_of_the_project"></a>
+
+Our project is an innovative solution to the problem which many NUS students face: spending large pockets of time at the
+start of every semester to do module planning and goal setting, and at the end of every semester to calculate their CAP
+and decide on which modules to S/U so as to achieve their goal and track their progress towards it. With MyMods, NUS
+students will spend significantly less time on such manual, mundane and repetitive tasks and can channel their precious
+time and energy on more important tasks. Together with the aesthetically-pleasing and intuitive user interface of MyMods
+ensures a fuss-free, seamless and enjoyable user experience.
+<br>     
+Our application is capable of the following features:
+1. Allows users to set a goal out of the 6 different goals MyMods offer with each covering a specific cap range.
+2. Allows users to track their progress towards their goal as they will be informed with the average CAP needed for their remaining modules to achieve the goal they have set.
+3. Provides users with personalised and accurate recommendations on which modules to S/U based on the individual’s specific goal, current grades and CAP.
+4. Automatically and instantly calculates and updates the CAP after every modification the user makes - including adding, deleting, updating, and S/U-ing modules.
+5. Allows users to start modifying the list of modules in a specific semester by adding, deleting, updating or S/U-ing module(s) and also stop making modifications.
+6. Provides users with two different themes - light and dark mode which will be set automatically according to the time of the day. Light mode will be automatically set as default from 7am to 7pm, and it will be switched to dark mode automatically from 7pm to 7am. Users can manually select either light or dark mode at any particular time.
+7. Allows users to find specific modules by their module codes.
+8. Allows users to view the entire list of modules in all semesters at any point in time.
+9. Allows users to navigate into a specific semester and view the list of modules in that particular semester.
+10. Provide assistance to users who are lost amidst navigating MyMods with a summary of the commands available.
+
+[Back to top](#top)
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Documentation, logging, testing, configuration, dev-ops** <a name="Documentation,_logging,_testing,_configuration,_dev-ops"></a>
 
 * [Documentation guide](Documentation.md)
 * [Logging guide](Logging.md)
 * [Testing guide](Testing.md)
 * [Configuration guide](Configuration.md)
 * [DevOps guide](DevOps.md)
+
+[Back to top](#top)
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Product scope** <a name="Product_scope"></a>
@@ -565,7 +732,7 @@ Use case ends.
 
 
 
-1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
+1. Should work on any _mainstream OS_ as long as it has Java `11` installed.
 2. Should be able to hold up to 1000 modules without a noticeable sluggishness in performance for typical usage.
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
