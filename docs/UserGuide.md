@@ -381,7 +381,7 @@ using the command `su`.
 [Back to top](#Product_Overview)
 
 ### 2.8 S/U module: `su` <a name="S/U_Module"></a>
-Didn’t so very well for a module? S/U the module in your list using this feature! \
+Didn’t do so very well for a module? S/U the module using this feature! \
  \
 Format: `su MODULE_CODE` \
  \
