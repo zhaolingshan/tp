@@ -66,9 +66,22 @@ public class SuCommandTest {
         ModuleName invalidModuleName = new ModuleName("No such module");
         UpdateModNameDescriptor descriptor =
                 new UpdateModNameDescriptorBuilder().withGrade(VALID_GRADE_SU).build();
-        UpdateCommand updateCommand = new UpdateCommand(invalidModuleName, descriptor);
+        SuCommand updateCommand = new SuCommand(invalidModuleName, descriptor);
 
         assertCommandFailure(updateCommand, model, Messages.MESSAGE_INVALID_MODULE_DISPLAYED_NAME);
+    }
+
+    @Test
+    public void execute_nonSuModule_failure() {
+        setValidCorrectSemester();
+        ModuleName nameFirstModule = COM_ORG.getModuleName();
+        UpdateModNameDescriptor descriptor =
+                new UpdateModNameDescriptorBuilder().withGrade((VALID_GRADE_SU)).build();
+        SuCommand suCommand = new SuCommand(nameFirstModule, descriptor);
+
+        assertCommandFailure(suCommand, model, String.format(Messages.MESSAGE_MODULE_CANNOT_BE_SU,
+                nameFirstModule.fullModName));
+
     }
 
 
