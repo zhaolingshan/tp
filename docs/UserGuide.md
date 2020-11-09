@@ -219,7 +219,7 @@ To edit a Semester (e.g. Y2S1):
 [Back to top](#Product_Overview)
 <div style="page-break-after: always;"></div>
 
-### 2.3 Add module: `add` <a name="Add_Module"></a>
+### 2.3 Add Module: `add` <a name="Add_Module"></a>
 Yes! After starting a semester, we can now add a module to your list. \
 \
 Format: `add m/MODULE_CODE [g/GRADE] [mc/MODULAR_CREDITS]`\
@@ -229,7 +229,7 @@ Examples:
 *   `add m/CS1231 g/A`
 
 <div markdown="span" class="alert alert-info">
-:warning: Use of parameter `[mc/MODULAR_CREDIT]` is to manually add modules that are not in our database.
+:warning: Use of parameter `[mc/MODULAR_CREDITS]` is to manually add modules that are not in our database.
  <strong>This is not recommended</strong>. However, to add a module that is not recognised by
   <strong>MyMods</strong>:100:, refer to the warning after the example usage below.
 <br>
@@ -434,7 +434,7 @@ using the command `su`.
 [Back to top](#Product_Overview)
 <div style="page-break-after: always;"></div>
 
-### 2.8 S/U module: `su` <a name="S/U_Module"></a>
+### 2.8 S/U Module: `su` <a name="S/U_Module"></a>
 Didn’t do very well for a module? S/U the module in your list using this feature! \
  \
 Format: `su MODULE_CODE` \
