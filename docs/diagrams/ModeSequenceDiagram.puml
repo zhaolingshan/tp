@@ -3,7 +3,7 @@
 
 box UI UI_COLOR_T1
 participant ":MainWindow" as MainWindow UI_COLOR_T4
-participant ":Scene" as Scene UI_COLOR_T4
+participant "scene:Scene" as Scene UI_COLOR_T4
 participant "listOfStylesheet:ObservableList<String>" as list UI_COLOR_T4
 end box
 

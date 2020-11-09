@@ -316,7 +316,7 @@ The following sequence diagram illustrates how the program changes the theme of 
 ![Sequence of Dark/Light Mode Switch](images/ModeSequenceDiagram.png)
 
 <div markdown="span" class="alert alert-info">
-:information_source: **Note:** The lifeline for `Scene` and `listOfStylesheet` should end at the destroy marker (X)
+:information_source: **Note:** The lifeline for `scene` and `listOfStylesheet` should end at the destroy marker (X)
 but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
