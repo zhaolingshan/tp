@@ -26,10 +26,10 @@ Given below are my contributions to the project.
   
 * **Documentation**:
   * User Guide:
-    * Added documentation for the features `list` and `add`.
+    * Added documentation for the features `list` and `add`. (No PR by me as we typed collectively in Google Docs and pushed by one person)
   * Developer Guide:
-    * Added implementation feature of obtaining module information automatically.
-    * Generated skeleton of developer guide for team members to use.
+    * Added implementation feature of obtaining module information automatically. (No PR by me as we typed collectively in Google Docs and pushed by one person)
+    * Generated the skeleton of developer guide for team members to use. (No PR by me as we typed collectively in Google Docs and pushed by one person)
 
 * **Tools**:
   * Integrated data from a third-party API NUSMods into our app ([\#182](https://github.com/AY2021S1-CS2103T-T17-1/tp/pull/182))
