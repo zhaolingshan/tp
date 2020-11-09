@@ -63,7 +63,6 @@ public class UpdateCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-
         requireNonNull(model);
         List<Module> lastShownList = model.getFilteredModuleList();
         SemesterManager semesterManager = SemesterManager.getInstance();

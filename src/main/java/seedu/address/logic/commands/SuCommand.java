@@ -2,7 +2,6 @@ package seedu.address.logic.commands;
 
 import seedu.address.model.module.ModuleName;
 
-
 /**
  * SUs the module indicated
  */
