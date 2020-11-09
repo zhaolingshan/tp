@@ -134,7 +134,7 @@ public class UpdateCommandTest {
     @Test
     public void execute_moduleCodeNotInListUnfilteredList_failure() {
         setValidCorrectSemester();
-        
+
         String moduleNotInList = GER.getModuleName().fullModName;
         ModuleName invalidModuleName = new ModuleName(moduleNotInList);
         UpdateCommand.UpdateModNameDescriptor descriptor =
