@@ -85,6 +85,22 @@ public class HelpWindow extends UiPart<Stage> {
         handleLinkClicked();
     }
 
+    public static String getHelpMessage() {
+        return HELP_MESSAGE;
+    }
+
+    public Hyperlink getHyperLink() {
+        return hyperLink;
+    }
+
+    public String getHelpCommands() {
+        return helpCommands.getText();
+    }
+
+    public Button getCopyButton() {
+        return copyButton;
+    }
+
     /**
      * Handle the event that the hyperlink to the User Guide is clicked.
      *
