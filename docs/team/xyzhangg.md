@@ -30,10 +30,11 @@ Given below are my contributions to the project.
 
 * **Documentation**:
   * User Guide:
-    * Added documentation for the features `progress`, `help` and `exit`.
+    * Added documentation for the features `progress`, `help` and `exit`(No PR by me as we typed collectively in Google Docs and pushed by one person)
   * Developer Guide:
-    * Added implementation details of the `progress` feature. (Pull requests [\#93](https://github.com/AY2021S1-CS2103T-T17-1/tp/pull/93))
+    * Added implementation details of the `progress` feature. (Pull requests [\#93](https://github.com/AY2021S1-CS2103T-T17-1/tp/pull/93), [\#257](https://github.com/AY2021S1-CS2103T-T17-1/tp/pull/257))
+    * Added sequence diagram for Logic component (Pull requests [\#257](https://github.com/AY2021S1-CS2103T-T17-1/tp/pull/257))
 
 * **Community**:
-  * PRs reviewed: 22
+  * PRs reviewed: 29
   * Reported bugs and suggestions for other teams during PE-D: 7 issues
