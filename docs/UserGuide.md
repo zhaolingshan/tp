@@ -138,7 +138,7 @@ Below is information about the features and commands of **MyMods**:100:.
     * e.g in `find KEYWORD [KEYWORD]...`, multiple instances of the KEYWORD parameter are accepted.<br><br>
 
 * Words in <strong>lower_case</strong> are to be specified exactly.<br>
-    * In add command format: `add m/MODULE_CODE [g/GRADE] [mc/MODULAR_CREDIT]`, `add`, `m/`, `g/` and `mc/`
+    * In add command format: `add m/MODULE_CODE [g/GRADE] [mc/MODULAR_CREDITS]`, `add`, `m/`, `g/` and `mc/`
     are to be specified exactly.<br><br>
 
 * Multiple instances of the same prefix/input field will not throw an error. However,
@@ -169,7 +169,7 @@ Below is information about the features and commands of **MyMods**:100:.
 Command | Format
 --------|-------
 `start` | `start SEMESTER`
-`add` | `add m/MODULE_CODE [g/GRADE] [mc/MODULAR_CREDIT]`
+`add` | `add m/MODULE_CODE [g/GRADE] [mc/MODULAR_CREDITS]`
 `update` | `update m/MODULE_CODE [g/GRADE] [s/SEMESTER]`
 `list` | `list`
 `goal` | `goal set LEVEL` or `goal list`
@@ -202,7 +202,7 @@ Semesters available include: Y1S1, Y1S2, Y2S1, Y2S2, Y3S1, Y3S2, Y4S1, Y4S2, Y5S
 </div>
 <br>
 <div markdown="span" class="alert alert-primary">
-:bulb: You can check the current semester that you are editing at the bottom left corner of the interface:
+:bulb:  You can check the current semester that you are editing beside the area displaying your CAP on the interface:
 <br>
 <img src="images/UG SS/2.2 Edit Semester 1.png">
 </div>
@@ -222,7 +222,7 @@ To edit a Semester (e.g. Y2S1):
 ### 2.3 Add module: `add` <a name="Add_Module"></a>
 Yes! After starting a semester, we can now add a module to your list. \
 \
-Format: `add m/MODULE_CODE [g/GRADE]`\
+Format: `add m/MODULE_CODE [g/GRADE] [mc/MODULAR_CREDITS]`\
 \
 Examples:
 *   `add m/CS1101S`
@@ -265,7 +265,8 @@ To add a module that is not in our database(e.g. CS0000):
 
 
 <div markdown="span" class="alert alert-info">
-:warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed using the command `su`.
+:warning: Manually added modules will not be recommended to S/U for the command `recommendSU` and cannot be S/U-ed using
+the command `su`. The number of MODULAR_CREDITS cannot be updated using the command `update` too.
 
 </div>
 
@@ -276,7 +277,7 @@ To add a module that is not in our database(e.g. CS0000):
 
 ### 2.4 Update Module: `update` <a name="Update_Module"></a>
 Oops, typed something wrong or want to change something?
-Use this update feature to change the module’s grade and semester.
+Use this update feature to change the module’s grade or semester.
 \
 Format: `update m/MODULE_CODE [g/GRADE] [s/SEMESTER]` \
 \
@@ -378,7 +379,7 @@ The command `list` will be ignored if `set LEVEL` is present.
 <img src="images/UG SS/2.6 Set Goals 1.png">
 </div>
 
-To set your goal to 2 (CAP4.00 ~ 4.49):
+To set your goal to 2 (CAP 4.00 ~ 4.49):
 
 1. Type `goal set 2` into the command box,  and press Enter to execute it.<br>
 <img src="images/UG SS/2.6 Set Goals 2.png">
@@ -508,6 +509,11 @@ To stop editing a semester (e.g. Y1S1):
 2. The result box will display the message:<br>
 <img src="images/UG SS/2.10 Exit Semester 2.png">
 
+<div markdown="span" class="alert alert-primary">
+:bulb:  You can check the current semester that you are editing beside the area displaying your CAP on the interface:
+<br>
+<img src="images/UG SS/2.2 Edit Semester 1.png">
+</div>
 <br>
 
 [Back to top](#Product_Overview)
