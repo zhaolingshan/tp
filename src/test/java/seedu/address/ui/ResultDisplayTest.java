@@ -1,46 +1,55 @@
 //package seedu.address.ui;
 //
+//import org.junit.jupiter.api.Test;
+//
+//import javafx.application.Application;
+//import javafx.application.Platform;
+//import javafx.scene.Scene;
+//import javafx.stage.Stage;
+//
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 //import static org.junit.jupiter.api.Assertions.assertNotNull;
 //
-//import java.io.IOException;
-//
-//import org.junit.jupiter.api.Test;
-//import org.junit.jupiter.api.extension.ExtendWith;
-//import org.testfx.api.FxRobot;
-//import org.testfx.framework.junit5.ApplicationExtension;
-//import org.testfx.framework.junit5.Start;
-//
-//import javafx.scene.Scene;
-//import javafx.scene.control.TextArea;
-//import javafx.scene.layout.AnchorPane;
-//import javafx.stage.Stage;
-//
-//@ExtendWith(ApplicationExtension.class)
-//class ResultDisplayTest {
+//class ResultDisplayTest extends Application {
 //
 //    private ResultDisplay resultDisplay;
-//    /**
-//     * Will be called with {@code @Before} semantics, i. e. before each test method.
-//     *
-//     * @param stage - Will be injected by the test runner.
-//     */
-//    @Start
-//    public void start(Stage stage) throws IOException {
-//        resultDisplay = new ResultDisplay();
-//        stage.setScene(new Scene(new AnchorPane(resultDisplay.getRoot()), 100, 100));
-//        stage.show();
+//
+//    @Test
+//    public void testA() throws InterruptedException {
+//
+//        Thread thread = new Thread(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                //new JFXPanel(); // Initializes the JavaFx Platform
+//                Platform.runLater(new Runnable() {
+//
+//                    @Override
+//                    public void run() {
+//                        try {
+//                            new ResultDisplayTest().start(new Stage());
+//                            assertNotNull(resultDisplay);
+//
+//                            assertEquals("", resultDisplay.getResultDisplayTextAreaText());
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+//                        // initialize
+//                        // your app.
+//
+//                    }
+//                });
+//            }
+//        });
+//        thread.start(); // Initialize the thread
+//        Thread.sleep(1000); // Time to use the app, with out this, the thread
+//        // will be killed before you can tell.
 //    }
 //
-//    /**
-//     * @param robot - Will be injected by the test runner.
-//     */
-//    @Test
-//    void result_display_test(FxRobot robot) {
-//        TextArea textArea = robot.lookup("#resultDisplay").queryAs(TextArea.class);
-//        assertNotNull(textArea);
-//
-//        resultDisplay.setFeedbackToUser("TEST");
-//        assertEquals("TEST", textArea.getText());
+//    @Override
+//    public void start(Stage primaryStage) throws Exception {
+//        resultDisplay = new ResultDisplay();
+//        primaryStage.setScene(new Scene(resultDisplay.getRoot(), 100, 100));
+//        primaryStage.show();
 //    }
 //}
