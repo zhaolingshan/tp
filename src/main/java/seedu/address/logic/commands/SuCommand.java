@@ -10,7 +10,7 @@ public class SuCommand extends UpdateCommand {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": SUs the module identified "
             + "by the module name displayed in the module list.\n"
             + "Parameters: "
-            + "MODULE_NAME \n"
+            + "MODULE_CODE \n"
             + "Example: " + COMMAND_WORD
             + " CS2103T";
 

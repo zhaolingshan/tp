@@ -23,6 +23,8 @@ public class ProgressCommand extends Command {
             + "to meet your target is: %.2f";
     public static final String MESSAGE_TARGET_CAP = "Your target CAP is: %.2f\n";
     public static final String MESSAGE_UNACHIEVABLE_CAP = "Sorry! Your target CAP cannot be achieved :(";
+    public static final String MESSAGE_ACHIEVABLE_CAP = "Good job! You can achieve your target CAP no matter "
+            + "what grades you get for your remaining modules";
 
     private static final int TOTAL_MODULAR_CREDIT = 160;
     private static final int TOTAL_MODULAR_CREDIT_DDP = 200;
@@ -51,9 +53,12 @@ public class ProgressCommand extends Command {
 
         double requiredCap = (totalWeightedCap - currentWeightedCap) / remainingMc;
 
-        if (requiredCap > MAX_CAP || requiredCap < MIN_CAP) {
+        if (requiredCap > MAX_CAP) {
             return new CommandResult(String.format(MESSAGE_TARGET_CAP, targetCap)
                     + MESSAGE_UNACHIEVABLE_CAP);
+        } else if (requiredCap < MIN_CAP) {
+            return new CommandResult(String.format(MESSAGE_TARGET_CAP, targetCap)
+                    + MESSAGE_ACHIEVABLE_CAP);
         } else {
             return new CommandResult(String.format(MESSAGE_TARGET_CAP, targetCap)
                     + String.format(MESSAGE_REQUIRED_CAP, requiredCap));

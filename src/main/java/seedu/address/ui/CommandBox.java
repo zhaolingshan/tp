@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Region;
+import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -60,8 +61,10 @@ public class CommandBox extends UiPart<Region> {
     @FXML
     private void handleCommandEntered() {
         String userInput = commandTextField.getText();
+        String trimmedUserInput = userInput.trim();
+
         try {
-            if (userInput.equals("clear") || userInput.equals("clear ")) {
+            if (trimmedUserInput.equals(ClearCommand.COMMAND_WORD)) {
                 handleClearCommand();
             } else {
                 commandExecutor.execute(commandTextField.getText());
@@ -80,8 +83,8 @@ public class CommandBox extends UiPart<Region> {
         try {
             if (alert.getResult() == ButtonType.YES) {
                 commandExecutor.execute(commandTextField.getText());
-                commandTextField.setText("");
             }
+            commandTextField.setText("");
         } catch (CommandException | ParseException e) {
             setStyleToIndicateCommandFailure();
         }

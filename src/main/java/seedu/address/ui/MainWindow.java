@@ -3,6 +3,7 @@ package seedu.address.ui;
 import java.time.LocalTime;
 import java.util.logging.Logger;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -108,8 +109,10 @@ public class MainWindow extends UiPart<Stage> {
         Scene scene = primaryStage.getScene();
 
         String cssFile = MainWindow.class.getResource("/view/" + cssFileName + ".css").toExternalForm();
-        scene.getStylesheets().clear();
-        scene.getStylesheets().add(cssFile);
+
+        ObservableList<String> listOfStylesheet = scene.getStylesheets();
+        listOfStylesheet.clear();
+        listOfStylesheet.add(cssFile);
     }
 
     public Stage getPrimaryStage() {
@@ -258,9 +261,7 @@ public class MainWindow extends UiPart<Stage> {
             if (!commandResult.isRecommendSu() && !commandResult.isFind()) {
                 capBox.setCapDisplay(logic.generateCap());
             }
-            if (commandResult.isList()) {
-                moduleListPanel = new ModuleListPanel(logic.filterModuleListByReadOnlySem());
-            } else if (commandResult.isRecommendSu()) {
+            if (commandResult.isList() || commandResult.isRecommendSu() || commandResult.isFind()) {
                 moduleListPanel = new ModuleListPanel(logic.getFilteredModuleList());
             } else {
                 moduleListPanel = new ModuleListPanel(logic.filterModuleListBySem());

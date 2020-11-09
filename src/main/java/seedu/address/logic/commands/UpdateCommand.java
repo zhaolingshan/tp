@@ -34,13 +34,14 @@ public class UpdateCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Updates the details of the module identified "
             + "by the module name displayed in the module list. "
             + "Existing values will be overwritten by the input values.\n"
-            + "Parameters:"
-            + PREFIX_MOD_NAME + "MODULE_NAME "
+            + "Parameters: "
+            + PREFIX_MOD_NAME + "MODULE_CODE "
             + "[" + PREFIX_GRADE + "GRADE] "
-            + "[" + PREFIX_SEMESTER + "SEM] "
-            + "Example: " + COMMAND_WORD
-            + PREFIX_MOD_NAME + "CS2103T"
-            + PREFIX_GRADE + "A";
+            + "[" + PREFIX_SEMESTER + "SEMESTER] \n"
+            + "Example: " + COMMAND_WORD + " "
+            + PREFIX_MOD_NAME + "CS2103T" + " "
+            + PREFIX_GRADE + "A" + " "
+            + PREFIX_SEMESTER + "Y2S1";
 
     public static final String MESSAGE_UPDATE_MODULE_SUCCESS = "Updated Module: %1$s";
     public static final String MESSAGE_NOT_UPDATED = "At least one field to update must be provided.";

@@ -25,9 +25,11 @@ public class TypicalModules {
             .withGrade("B-")
             .withSemester(Semester.Y2S1.toString()).build();
     public static final Module SWE = new ModuleBuilder().withName("CS2103T")
-            .withGrade("A+").build();
+            .withGrade("A+")
+            .withSemester(Semester.Y2S2.toString()).build();
     public static final Module COM_INFO = new ModuleBuilder().withName("ES2660")
-            .withGrade("C").build();
+            .withGrade("C")
+            .withSemester(Semester.Y3S1.toString()).build();
     public static final Module ASK_QN = new ModuleBuilder().withName("GEQ1000")
             .withGrade("C+").build();
     public static final Module STATS = new ModuleBuilder().withName("ST2334")

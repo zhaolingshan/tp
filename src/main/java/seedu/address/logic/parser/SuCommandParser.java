@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.logic.commands.SuCommand;
 import seedu.address.logic.commands.UpdateCommand;
@@ -23,7 +24,7 @@ public class SuCommandParser implements Parser<SuCommand> {
         ModuleName moduleName;
         moduleName = ParserUtil.parseName(userInput);
         String suGrade = "SU";
-
+        
         UpdateCommand.UpdateModNameDescriptor updateModNameDescriptor = new UpdateCommand.UpdateModNameDescriptor();
         updateModNameDescriptor.setName(moduleName);
         updateModNameDescriptor.setGrade(new Grade(suGrade));

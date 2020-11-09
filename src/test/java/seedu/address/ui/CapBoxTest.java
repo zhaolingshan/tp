@@ -1,7 +1,7 @@
 package seedu.address.ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -27,6 +27,6 @@ public class CapBoxTest {
         capBox.setCapDisplay("5");
         String testDisplay = capBox.getCurrentCapDisplay().getText();
 
-        assertFalse(testDisplay.equals(expectedDisplayFail));
+        assertNotEquals(expectedDisplayFail, testDisplay);
     }
 }
