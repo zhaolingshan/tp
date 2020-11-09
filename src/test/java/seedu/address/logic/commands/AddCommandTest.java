@@ -175,6 +175,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public int getMcFromSu() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void setGoalTarget(GoalTarget goalTarget) {
             throw new AssertionError("This method should not be called.");
         }
